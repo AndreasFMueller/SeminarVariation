@@ -232,56 +232,55 @@
 \contentsline {chapter}{\numberline {19}Elektrische Schaltungen{chapter:circuit}}{197}{chapter.19}%
 \contentsline {section}{\numberline {19.1}Einleitung}{197}{section.19.1}%
 \contentsline {section}{\numberline {19.2}Kirchhoff's Gesetz }{197}{section.19.2}%
-\contentsline {subsection}{\numberline {19.2.1}De finibus bonorum et malorum }{199}{subsection.19.2.1}%
-\contentsline {section}{\numberline {19.3}Teil 2 }{199}{section.19.3}%
-\contentsline {subsection}{\numberline {19.3.1}De finibus bonorum et malorum }{199}{subsection.19.3.1}%
-\contentsline {section}{\numberline {19.4}Teil 3 }{199}{section.19.4}%
-\contentsline {subsection}{\numberline {19.4.1}De finibus bonorum et malorum }{200}{subsection.19.4.1}%
-\contentsline {chapter}{\numberline {20}Thema}{201}{chapter.20}%
-\contentsline {section}{\numberline {20.1}Teil 0}{201}{section.20.1}%
-\contentsline {section}{\numberline {20.2}Teil 1 }{202}{section.20.2}%
-\contentsline {subsection}{\numberline {20.2.1}De finibus bonorum et malorum }{202}{subsection.20.2.1}%
-\contentsline {section}{\numberline {20.3}Teil 2 }{202}{section.20.3}%
-\contentsline {subsection}{\numberline {20.3.1}De finibus bonorum et malorum }{203}{subsection.20.3.1}%
-\contentsline {section}{\numberline {20.4}Teil 3 }{203}{section.20.4}%
-\contentsline {subsection}{\numberline {20.4.1}De finibus bonorum et malorum }{203}{subsection.20.4.1}%
-\contentsline {chapter}{\numberline {21}Thema}{205}{chapter.21}%
-\contentsline {section}{\numberline {21.1}Teil 0}{205}{section.21.1}%
-\contentsline {section}{\numberline {21.2}Teil 1 }{206}{section.21.2}%
-\contentsline {subsection}{\numberline {21.2.1}De finibus bonorum et malorum }{206}{subsection.21.2.1}%
-\contentsline {section}{\numberline {21.3}Teil 2 }{206}{section.21.3}%
-\contentsline {subsection}{\numberline {21.3.1}De finibus bonorum et malorum }{207}{subsection.21.3.1}%
-\contentsline {section}{\numberline {21.4}Teil 3 }{207}{section.21.4}%
-\contentsline {subsection}{\numberline {21.4.1}De finibus bonorum et malorum }{207}{subsection.21.4.1}%
-\contentsline {chapter}{\numberline {22}Thema}{209}{chapter.22}%
-\contentsline {section}{\numberline {22.1}Teil 0}{209}{section.22.1}%
-\contentsline {section}{\numberline {22.2}Teil 1 }{210}{section.22.2}%
-\contentsline {subsection}{\numberline {22.2.1}De finibus bonorum et malorum }{210}{subsection.22.2.1}%
-\contentsline {section}{\numberline {22.3}Teil 2 }{210}{section.22.3}%
-\contentsline {subsection}{\numberline {22.3.1}De finibus bonorum et malorum }{211}{subsection.22.3.1}%
-\contentsline {section}{\numberline {22.4}Teil 3 }{211}{section.22.4}%
-\contentsline {subsection}{\numberline {22.4.1}De finibus bonorum et malorum }{211}{subsection.22.4.1}%
-\contentsline {chapter}{\numberline {23}Thema}{213}{chapter.23}%
-\contentsline {section}{\numberline {23.1}Teil 0}{213}{section.23.1}%
-\contentsline {section}{\numberline {23.2}Teil 1 }{214}{section.23.2}%
-\contentsline {subsection}{\numberline {23.2.1}De finibus bonorum et malorum }{214}{subsection.23.2.1}%
-\contentsline {section}{\numberline {23.3}Teil 2 }{214}{section.23.3}%
-\contentsline {subsection}{\numberline {23.3.1}De finibus bonorum et malorum }{215}{subsection.23.3.1}%
-\contentsline {section}{\numberline {23.4}Teil 3 }{215}{section.23.4}%
-\contentsline {subsection}{\numberline {23.4.1}De finibus bonorum et malorum }{215}{subsection.23.4.1}%
-\contentsline {chapter}{\numberline {24}Thema}{217}{chapter.24}%
-\contentsline {section}{\numberline {24.1}Teil 0}{217}{section.24.1}%
-\contentsline {section}{\numberline {24.2}Teil 1 }{218}{section.24.2}%
-\contentsline {subsection}{\numberline {24.2.1}De finibus bonorum et malorum }{218}{subsection.24.2.1}%
-\contentsline {section}{\numberline {24.3}Teil 2 }{218}{section.24.3}%
-\contentsline {subsection}{\numberline {24.3.1}De finibus bonorum et malorum }{219}{subsection.24.3.1}%
-\contentsline {section}{\numberline {24.4}Teil 3 }{219}{section.24.4}%
-\contentsline {subsection}{\numberline {24.4.1}De finibus bonorum et malorum }{219}{subsection.24.4.1}%
-\contentsline {chapter}{\numberline {25}Thema}{221}{chapter.25}%
-\contentsline {section}{\numberline {25.1}Teil 0}{221}{section.25.1}%
-\contentsline {section}{\numberline {25.2}Teil 1 }{222}{section.25.2}%
-\contentsline {subsection}{\numberline {25.2.1}De finibus bonorum et malorum }{222}{subsection.25.2.1}%
-\contentsline {section}{\numberline {25.3}Teil 2 }{222}{section.25.3}%
-\contentsline {subsection}{\numberline {25.3.1}De finibus bonorum et malorum }{223}{subsection.25.3.1}%
-\contentsline {section}{\numberline {25.4}Teil 3 }{223}{section.25.4}%
-\contentsline {subsection}{\numberline {25.4.1}De finibus bonorum et malorum }{223}{subsection.25.4.1}%
+\contentsline {section}{\numberline {19.3}Variationsprinizip}{198}{section.19.3}%
+\contentsline {section}{\numberline {19.4}Lösen der Lagrange Funktion}{198}{section.19.4}%
+\contentsline {section}{\numberline {19.5}Praktische Anwendungen}{199}{section.19.5}%
+\contentsline {subsubsection}{Python Beispiel}{200}{section*.116}%
+\contentsline {chapter}{\numberline {20}Thema}{203}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Teil 0}{203}{section.20.1}%
+\contentsline {section}{\numberline {20.2}Teil 1 }{204}{section.20.2}%
+\contentsline {subsection}{\numberline {20.2.1}De finibus bonorum et malorum }{204}{subsection.20.2.1}%
+\contentsline {section}{\numberline {20.3}Teil 2 }{204}{section.20.3}%
+\contentsline {subsection}{\numberline {20.3.1}De finibus bonorum et malorum }{205}{subsection.20.3.1}%
+\contentsline {section}{\numberline {20.4}Teil 3 }{205}{section.20.4}%
+\contentsline {subsection}{\numberline {20.4.1}De finibus bonorum et malorum }{205}{subsection.20.4.1}%
+\contentsline {chapter}{\numberline {21}Thema}{207}{chapter.21}%
+\contentsline {section}{\numberline {21.1}Teil 0}{207}{section.21.1}%
+\contentsline {section}{\numberline {21.2}Teil 1 }{208}{section.21.2}%
+\contentsline {subsection}{\numberline {21.2.1}De finibus bonorum et malorum }{208}{subsection.21.2.1}%
+\contentsline {section}{\numberline {21.3}Teil 2 }{208}{section.21.3}%
+\contentsline {subsection}{\numberline {21.3.1}De finibus bonorum et malorum }{209}{subsection.21.3.1}%
+\contentsline {section}{\numberline {21.4}Teil 3 }{209}{section.21.4}%
+\contentsline {subsection}{\numberline {21.4.1}De finibus bonorum et malorum }{209}{subsection.21.4.1}%
+\contentsline {chapter}{\numberline {22}Thema}{211}{chapter.22}%
+\contentsline {section}{\numberline {22.1}Teil 0}{211}{section.22.1}%
+\contentsline {section}{\numberline {22.2}Teil 1 }{212}{section.22.2}%
+\contentsline {subsection}{\numberline {22.2.1}De finibus bonorum et malorum }{212}{subsection.22.2.1}%
+\contentsline {section}{\numberline {22.3}Teil 2 }{212}{section.22.3}%
+\contentsline {subsection}{\numberline {22.3.1}De finibus bonorum et malorum }{213}{subsection.22.3.1}%
+\contentsline {section}{\numberline {22.4}Teil 3 }{213}{section.22.4}%
+\contentsline {subsection}{\numberline {22.4.1}De finibus bonorum et malorum }{213}{subsection.22.4.1}%
+\contentsline {chapter}{\numberline {23}Thema}{215}{chapter.23}%
+\contentsline {section}{\numberline {23.1}Teil 0}{215}{section.23.1}%
+\contentsline {section}{\numberline {23.2}Teil 1 }{216}{section.23.2}%
+\contentsline {subsection}{\numberline {23.2.1}De finibus bonorum et malorum }{216}{subsection.23.2.1}%
+\contentsline {section}{\numberline {23.3}Teil 2 }{216}{section.23.3}%
+\contentsline {subsection}{\numberline {23.3.1}De finibus bonorum et malorum }{217}{subsection.23.3.1}%
+\contentsline {section}{\numberline {23.4}Teil 3 }{217}{section.23.4}%
+\contentsline {subsection}{\numberline {23.4.1}De finibus bonorum et malorum }{217}{subsection.23.4.1}%
+\contentsline {chapter}{\numberline {24}Thema}{219}{chapter.24}%
+\contentsline {section}{\numberline {24.1}Teil 0}{219}{section.24.1}%
+\contentsline {section}{\numberline {24.2}Teil 1 }{220}{section.24.2}%
+\contentsline {subsection}{\numberline {24.2.1}De finibus bonorum et malorum }{220}{subsection.24.2.1}%
+\contentsline {section}{\numberline {24.3}Teil 2 }{220}{section.24.3}%
+\contentsline {subsection}{\numberline {24.3.1}De finibus bonorum et malorum }{221}{subsection.24.3.1}%
+\contentsline {section}{\numberline {24.4}Teil 3 }{221}{section.24.4}%
+\contentsline {subsection}{\numberline {24.4.1}De finibus bonorum et malorum }{221}{subsection.24.4.1}%
+\contentsline {chapter}{\numberline {25}Thema}{223}{chapter.25}%
+\contentsline {section}{\numberline {25.1}Teil 0}{223}{section.25.1}%
+\contentsline {section}{\numberline {25.2}Teil 1 }{224}{section.25.2}%
+\contentsline {subsection}{\numberline {25.2.1}De finibus bonorum et malorum }{224}{subsection.25.2.1}%
+\contentsline {section}{\numberline {25.3}Teil 2 }{224}{section.25.3}%
+\contentsline {subsection}{\numberline {25.3.1}De finibus bonorum et malorum }{225}{subsection.25.3.1}%
+\contentsline {section}{\numberline {25.4}Teil 3 }{225}{section.25.4}%
+\contentsline {subsection}{\numberline {25.4.1}De finibus bonorum et malorum }{225}{subsection.25.4.1}%
