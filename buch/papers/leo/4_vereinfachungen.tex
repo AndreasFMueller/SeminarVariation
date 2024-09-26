@@ -11,12 +11,12 @@
 	\label{leo:section:vereinfachungen}}
 \rhead{Vereinfachungen und ihre Folgen}
 
-Bei der Betrachtung der Bewegungsgleichungen der Rakete werden oft Vereinfachungen vorgenommen, um die Lösung zu erleichtern. 
+Bei der Betrachtung der Bewegungsgleichungen der Rakete werden oft Vereinfachungen vorgenommen um die Lösung zu erleichtern. 
 Diese Vereinfachungen haben jedoch direkte Konsequenzen auf die berechnete Flugbahn und die erzielbare Endgeschwindigkeit. 
 Im Folgenden werden drei Arten von Verlusten besprochen, die bei einer Vereinfachung vernachlässigt oder isoliert betrachtet werden können: Steuerverluste, Strömungsverluste und Schwerkraftverluste.
 
 
-\paragraph{Steuerverluste} Werden nur die Steuerverluste in für 
+\paragraph{Steuerverluste} Werden nur die Steuerverluste in der Endgeschwindigkeit
 \begin{equation*}
 	v_f = \underbrace{v_* \ln \left(\frac{m_0}{m_f}\right)}_{\text{Raketengleichung}} 
 	- \underbrace{2F_* \int_0^{t_f} \frac{\sin^2\left(\frac{\alpha}{2}\right)}{m} \, dt }_{\text{Steuerverluste}}
@@ -27,21 +27,19 @@ berücksichtigt, würde die Rakete dazu tendieren, möglichst geradeaus zu flieg
 Dies ergibt sich aus dem Term $\sin^2\left( \frac{\alpha}{2}\right)$, der null wird, wenn der Steuerungswinkel $\alpha$ null ist. 
 Das bedeutet, dass keine Kurskorrekturen durchgeführt würden, um eine Umlaufbahn zu erreichen, da jede Steuerung zusätzlichen Energieaufwand bedeutet. 
 Die Rakete würde also niemals in eine Orbitbahn einlenken.
-Das Fehlen von Steuerung hätte zur Folge, dass die Rakete ihre Flugbahn nicht anpassen würde und eine Umlaufbahn unmöglich wäre. 
 Steuerverluste stellen also einen Kompromiss zwischen Kurskorrekturen und Effizienz dar.
 
-\paragraph{Strömungsverluste} Vernachlässigt man die Steuer und Schwerkraft Verluste in  
+\paragraph{Strömungsverluste} Vernachlässigt man die Steuer- und Schwerkraftverluste in  
 \begin{equation*}
 	v_f = \underbrace{v_* \ln \left(\frac{m_0}{m_f}\right)}_{\text{Raketengleichung}} 
 	- \underbrace{\Cancel[red]{2F_* \int_0^{t_f} \frac{\sin^2\left(\frac{\alpha}{2}\right)}{m} \, dt }}_{\text{Steuerverluste}}
 	- \underbrace{\frac{1}{H} \int_0^{t_f} k_Dv^2 e^{-\frac{h}{H}} \, dt }_{\text{Strömungsverluste}}
-	- \underbrace{\Cancel[red]{\int_0^{t_f} g \sin \left(\gamma\right) \, dt}}_{\text{Schwerkraftverluste}}
+	- \underbrace{\Cancel[red]{\int_0^{t_f} g \sin \left(\gamma\right) \, dt}}_{\text{Schwerkraftverluste}},
 \end{equation*}
-bleiben nur die Strömungsverluste, dadurch würde die Rakete so schnell wie möglich aus der dichten Atmosphäre aufsteigen, um den Luftwiderstand zu minimieren. 
+bleiben nur die Strömungsverluste, dadurch würde die Rakete so schnell wie möglich aus der dichten Atmosphäre aufsteigen um den Luftwiderstand zu minimieren. 
 Der Term $e^{-\frac{h}{H}}$ beschreibt, dass die Luftdichte mit zunehmender Höhe exponentiell abnimmt. 
 Die Rakete würde jedoch keinen Anreiz haben, in eine horizontale Umlaufbahn einzulenken, da der Fokus allein auf der Minimierung des Luftwiderstands liegt.
-Dieser Fall tritt zum Beispiel ein beim Wiederaufstieg vom Mond.
-Diese Vereinfachung führt dazu, dass der Aufstieg so schnell wie möglich erfolgt, um den Strömungsverlust zu minimieren, ohne jedoch den Orbit zu erreichen.
+Diese Vereinfachung führt dazu, dass der Aufstieg so schnell wie möglich erfolgt um die Strömungsverluste zu minimieren ohne jedoch den Orbit zu erreichen.
 
 \paragraph{Schwerkraftverluste} Wenn nur die Schwerkraftverluste berücksichtigt werden, müsste die Rakete den Flugwinkel \(\gamma\) in
 \begin{equation*}
@@ -52,8 +50,7 @@ Diese Vereinfachung führt dazu, dass der Aufstieg so schnell wie möglich erfol
 \end{equation*}
 minimieren, indem sie sofort bei Start einen Horizontalflug beginnt. 
 Dies würde jedoch eine sofortige Kursänderung um 90° bedeuten, was strukturell und aerodynamisch nicht möglich ist. 
-Schwerkraftverluste sind der Hauptanreiz, dass die Rakete nach dem Start allmählich in eine horizontale Flugbahn einlenkt, um die Schwerkraft so effizient wie möglich zu überwinden.
-
+Schwerkraftverluste sind der Hauptanreiz, dass die Rakete nach dem Start allmählich in eine horizontale Flugbahn einlenkt um die Schwerkraft so effizient wie möglich zu überwinden.
 Ohne eine Berücksichtigung der anderen Verluste wäre ein sofortiger Horizontalflug ebenfalls nicht praktikabel.
 
 

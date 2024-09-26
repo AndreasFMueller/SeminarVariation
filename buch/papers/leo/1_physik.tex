@@ -15,7 +15,7 @@ Sie beschreiben den aktuellen Zustand der Rakete und die Steuerungseingaben, die
 
 Das Ziel ist es, zu jedem Zeitpunkt während des Aufstiegs die Position, Geschwindigkeit und Flugrichtung der Rakete zu kennen und kontrollieren zu können. 
 
-Die Rakete startet senkrecht vom Boden (Meereshöhe) aus dem Stillstand und muss schließlich eine horizontale Flugrichtung sowie eine ausreichende Geschwindigkeit erreichen, um im Orbit zu bleiben. 
+Die Rakete startet senkrecht vom Boden (Meereshöhe) aus dem Stillstand und muss schliesslich eine horizontale Flugrichtung sowie eine ausreichende Geschwindigkeit erreichen, um im Orbit zu bleiben. 
 Die wichtigsten Zustands- und Steuervariablen sind:
 \begin{itemize}
 	\item \(\alpha\): Steuerungswinkel relativ zur momentanen Raketenrichtung (Pitch),
@@ -26,15 +26,15 @@ Die wichtigsten Zustands- und Steuervariablen sind:
 	\item \(h\): Momentane Höhe der Rakete relativ zum Startpunkt,
 	\item \(m_0\): Anfangsmasse der Rakete inklusive Treibstoff,
 	\item \(m_f\): Masse der Rakete ohne Treibstoff (Leermasse),
-	\item \(t_f\): Zeit, bis die Rakete den Orbit erreicht,
-	\item \(m\): Momentane Gesamtmasse der Rakete (ändert sich durch Treibstoffverbrauch).
+	\item \(m\): Momentane Gesamtmasse der Rakete (ändert sich durch Treibstoffverbrauch),
+	\item \(t_f\): Zeit, bis die Rakete den Orbit erreicht.
 \end{itemize}
-\noindent In Abbildung\,\ref{fig:leo:forces} sind diese Zustands- und Steuervariablen anschaulich dargestellt, wie sie während des Aufstiegs wirken.
+\noindent In Abbildung\,\ref{fig:leo:forces} sind diese Zustands- und Steuervariablen anschaulich dargestellt, wie sie während des Aufstieges wirken.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.65\linewidth]{papers/leo/Grafiken/forces.png}
-	\caption{Zustands- und Steuervariablen veranschaulicht entnommen von \cite{leo:astronautics}.}
+	\caption{Zustands- und Steuervariablen veranschaulicht, entnommen von \cite{leo:astronautics}.}
 	\label{fig:leo:forces}
 \end{figure}
 
@@ -61,7 +61,7 @@ gegeben, wobei:
 	\item \(\alpha\) der Steuerungswinkel ist, der beschreibt, wie viel der Schubkraft tatsächlich für die Beschleunigung in Flugrichtung genutzt wird,
 	\item \(D\) der Luftwiderstand ist, der der Vorwärtsbewegung entgegenwirkt,
 	\item \(g \sin \gamma\) die Gravitationskraft ist, die der Rakete entgegenwirkt, abhängig vom Winkel \(\gamma\) zum Horizont.
-    \item \(r\) und \(R_{\oplus}\) sind die Distanz vom Planetenzentrum zur Rakete und zur Planetenoberfläche.
+    \item \(r\) und \(R_{\text{Erde}}\) sind die Distanz vom Planetenzentrum zur Rakete und zur Planetenoberfläche.
 \end{itemize}
 Diese Gleichung beschreibt die Netto-Beschleunigung der Rakete. Der Steuerungswinkel \(\alpha\) beeinflusst, wie effektiv der Schub in Vorwärtsbewegung umgewandelt wird. Dieser Schub wirkt entgegen dem Luftwiderstand und der Schwerkraft. 
 
@@ -75,19 +75,19 @@ gegeben, wobei:
 \begin{itemize}
 	\item \(\dot{\gamma}\) die Änderungsrate des Flugwinkels ist,
 	\item \(L\) der Auftrieb ist, der durch aerodynamische Kräfte auf die Rakete wirkt,
-	\item Der Term \(\left(g - \frac{v^2}{r}\right) \cos \gamma\) beschreibt die Kombination von Gravitationskräften und Zentripetalkraft, die durch die Bewegung der Rakete erzeugt wird.
+	\item \(\left(g - \frac{v^2}{r}\right) \cos \gamma\) beschreibt die Kombination von Gravitationskräften und Zentripetalkraft, die durch die Bewegung der Rakete erzeugt wird.
 \end{itemize}
 
 Diese Gleichung beschreibt das sogenannte Pitchover-Manöver, bei dem die Rakete durch Schubvektorkontrolle und aerodynamische Kräfte ihre Ausrichtung relativ zum Horizont ändert. 
 Das Manöver beginnt nach der Startphase, sobald die Rakete eine ausreichende Höhe erreicht hat, um die atmosphärischen Einflüsse zu reduzieren.
 
-Es ist wichtig zu betonen, dass dieses Manöver automatisch abläuft, sobald \(\cos \gamma \neq 0\) ist, d.h., wenn die Rakete nicht mehr exakt im Vertikalflug (\(\gamma = 90^\circ\)) fliegt. 
+Es ist wichtig zu betonen, dass dieses Manöver automatisch abläuft, sobald \(\cos \gamma \neq 0\) ist, d.h. wenn die Rakete nicht mehr exakt im Vertikalflug (\(\gamma = 90^\circ\)) fliegt. 
 Sobald die Rakete aus dieser Position kippt, wird der Flugwinkel \(\gamma\) durch die Gravitations- und Zentripetalkräfte weiter in Richtung Horizont bewegt, auch wenn \(L = 0\) und \( \alpha = 0\) sind. 
 Das bedeutet, dass nur zu Beginn des Manövers Energie aufgewendet werden muss, um die Rakete aus dem reinen Vertikalflug zu kippen. 
 Danach neigt sich die Rakete automatisch weiter in Richtung horizontaler Flugbahn, ohne dass weitere Steuerenergie erforderlich ist.
 
 
-\subsubsection{Vertikale Position \(\dot{h}\)}
+\subsubsection{Vertikale Geschwindigkeit \(\dot{h}\)}
 Die Änderungsrate der Höhe der Rakete ist durch die Gleichung
 \[
 \dot{h} = v \sin \gamma
@@ -96,10 +96,10 @@ gegeben.
 Diese beschreibt, wie schnell die Rakete an Höhe gewinnt, basierend auf ihrer momentanen Geschwindigkeit \(v\) und ihrem Flugwinkel \(\gamma\). 
 Je näher \(\gamma\) an 90° liegt, desto steiler ist der Flug und desto schneller steigt die Rakete vertikal auf.
 
-\subsubsection{Horizontale Position \(\dot{x}\)}
+\subsubsection{Horizontale Geschwindigkeit \(\dot{s}\)}
 Die horizontale Bewegung der Rakete wird durch die Gleichung
 \[
-\dot{x} = v \cos \gamma
+\dot{s} = v \cos \gamma
 \]
 beschrieben, wobei \(v \cos \gamma\) die horizontale Komponente der Geschwindigkeit ist. 
 Diese Gleichung stellt sicher, dass die Rakete nicht nur in der Höhe, sondern auch horizontal vorwärts bewegt wird, was entscheidend für das Erreichen der Umlaufgeschwindigkeit ist.
