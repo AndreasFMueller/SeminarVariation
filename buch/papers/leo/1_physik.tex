@@ -1,5 +1,5 @@
 %
-% teil1.tex -- Beispiel-File für das Paper
+% 1_physik.tex -- Beispiel-File für das Paper
 %
 % (c) 2020 Prof Dr Andreas Müller, Hochschule Rapperswil
 %
@@ -10,8 +10,11 @@
 \section{Zustands- und Steuervariablen \label{leo:section:variabeln}}
 \kopfrechts{Zustands- und Steuervariablen}
 
-Die Zustands- und Steuervariablen sind entscheidend für die Berechnung einer möglichst effizienten Flugbahn von der Erde in den Orbit. 
-Sie beschreiben den aktuellen Zustand der Rakete und die Steuerungseingaben, die verwendet werden, um die gewünschte Flugbahn zu erreichen. 
+Die Zustands- und Steuervariablen sind entscheidend für die Berechnung
+einer möglichst effizienten Flugbahn von der Erde in den Orbit.
+Sie beschreiben den aktuellen Zustand der Rakete und die
+Steuerungseingaben, die verwendet werden, um die gewünschte Flugbahn
+zu erreichen.
 
 Das Ziel ist es, zu jedem Zeitpunkt während des Aufstiegs die Position, Geschwindigkeit und Flugrichtung der Rakete zu kennen und kontrollieren zu können. 
 
@@ -19,6 +22,7 @@ Die Rakete startet senkrecht vom Boden (Meereshöhe) aus dem Stillstand und muss
 Die wichtigsten Zustands- und Steuervariablen sind:
 \begin{itemize}
 	\item \(\alpha\): Steuerungswinkel relativ zur momentanen Raketenrichtung (Pitch),
+\index{Steuerungswinkel}%
 	\item \(\gamma\): Winkel der Flugrichtung relativ zum lokalen Horizont,
 	\item \(v\): Maximal erreichbare Geschwindigkeit der Rakete,
 	\item \(v_f\): Momentane Geschwindigkeit der Rakete,
@@ -26,10 +30,13 @@ Die wichtigsten Zustands- und Steuervariablen sind:
 	\item \(h\): Momentane Höhe der Rakete relativ zum Startpunkt,
 	\item \(m_0\): Anfangsmasse der Rakete inklusive Treibstoff,
 	\item \(m_f\): Masse der Rakete ohne Treibstoff (Leermasse),
+\index{Leermasse}%
 	\item \(m\): Momentane Gesamtmasse der Rakete (ändert sich durch Treibstoffverbrauch),
 	\item \(t_f\): Zeit, bis die Rakete den Orbit erreicht.
 \end{itemize}
-\noindent In Abbildung\,\ref{fig:leo:forces} sind diese Zustands- und Steuervariablen anschaulich dargestellt, wie sie während des Aufstieges wirken.
+\noindent In Abbildung\,\ref{fig:leo:forces} sind diese Zustands-
+und Steuervariablen anschaulich dargestellt, wie sie während des
+Aufstieges wirken.
 
 \begin{figure}
 	\centering
@@ -43,13 +50,21 @@ Die wichtigsten Zustands- und Steuervariablen sind:
 \section{Bewegungsgleichungen und Raketenphysik \label{leo:section:beweungsgleichungen}}
 \kopfrechts{Bewegungsgleichungen und Raketenphysik}
 
-Die Dynamik einer Rakete im Aufstieg zum Orbit wird durch eine Reihe von Differentialgleichungen beschrieben, die auf den grundlegenden physikalischen Gesetzen der Mechanik beruhen. 
-Diese Gleichungen stellen das Kräftegleichgewicht dar, dem die Rakete unterliegt, und hängen von den Zustands- und Steuervariablen ab, die in Abschnitt \ref{leo:section:variabeln} eingeführt wurden. 
-Die Bewegungsgleichungen, die in dieser Arbeit verwendet werden, basieren auf den ausführlichen Herleitungen aus \cite{leo:astronautics}, insbesondere aus dem Kapitel ``Equations of Motion''. 
-Im Folgenden werden diese Gleichungen vereinfacht dargestellt, um ein grundlegendes Verständnis zu vermitteln.
+Die Dynamik einer Rakete im Aufstieg zum Orbit wird durch eine Reihe
+von Differentialgleichungen beschrieben, die auf den grundlegenden
+physikalischen Gesetzen der Mechanik beruhen.
+Diese Gleichungen stellen das Kräftegleichgewicht dar, dem die
+Rakete unterliegt, und hängen von den Zustands- und Steuervariablen
+ab, die in Abschnitt \ref{leo:section:variabeln} eingeführt wurden.
+Die Bewegungsgleichungen, die in dieser Arbeit verwendet werden,
+basieren auf den ausführlichen Herleitungen aus \cite{leo:astronautics},
+insbesondere aus dem Kapitel ``Equations of Motion''.
+Im Folgenden werden diese Gleichungen vereinfacht dargestellt, um
+ein grundlegendes Verständnis zu vermitteln.
 
 \subsubsection{Geschwindigkeitsänderung \(\dot{v}\)}
-Die Änderungsrate der Raketen-Geschwindigkeit während des Aufstiegs ist durch die Gleichung
+Die Änderungsrate der Raketen-Geschwindigkeit während des Aufstiegs
+ist durch die Gleichung
 \[
 \dot{v} = \frac{F_*}{m} \cos \alpha - \frac{D}{m} - g \sin \gamma
 \]
@@ -57,9 +72,11 @@ gegeben, wobei:
 \begin{itemize}
 	\item \(\dot{v}\) die Beschleunigung der Rakete in Flugrichtung ist,
 	\item \(F_*\) der Schub ist, den die Rakete durch ihre Triebwerke erzeugt,
+\index{Schub}%
 	\item \(m\) die aktuelle Masse der Rakete ist, die durch den Treibstoffverbrauch ständig abnimmt,
 	\item \(\alpha\) der Steuerungswinkel ist, der beschreibt, wie viel der Schubkraft tatsächlich für die Beschleunigung in Flugrichtung genutzt wird,
 	\item \(D\) der Luftwiderstand ist, der der Vorwärtsbewegung entgegenwirkt,
+\index{Luftwiderstand}%
 	\item \(g \sin \gamma\) die Gravitationskraft ist, die der Rakete entgegenwirkt, abhängig vom Winkel \(\gamma\) zum Horizont.
     \item \(r\) und \(R_{\text{Erde}}\) sind die Distanz vom Planetenzentrum zur Rakete und zur Planetenoberfläche.
 \end{itemize}
@@ -79,6 +96,8 @@ gegeben, wobei:
 \end{itemize}
 
 Diese Gleichung beschreibt das sogenannte Pitchover-Manöver, bei dem die Rakete durch Schubvektorkontrolle und aerodynamische Kräfte ihre Ausrichtung relativ zum Horizont ändert. 
+\index{Schubvektorkontrolle}%
+\index{Pitchover}%
 Das Manöver beginnt nach der Startphase, sobald die Rakete eine ausreichende Höhe erreicht hat, um die atmosphärischen Einflüsse zu reduzieren.
 
 Es ist wichtig zu betonen, dass dieses Manöver automatisch abläuft, sobald \(\cos \gamma \neq 0\) ist, d.h. wenn die Rakete nicht mehr exakt im Vertikalflug (\(\gamma = 90^\circ\)) fliegt. 
@@ -105,7 +124,10 @@ beschrieben, wobei \(v \cos \gamma\) die horizontale Komponente der Geschwindigk
 Diese Gleichung stellt sicher, dass die Rakete nicht nur in der Höhe, sondern auch horizontal vorwärts bewegt wird, was entscheidend für das Erreichen der Umlaufgeschwindigkeit ist.
 
 \subsection{Vereinfachte Herleitung der Bewegungsgleichungen}
-Die Herleitung dieser Gleichungen basiert auf den grundlegenden Prinzipien der Newton'schen Mechanik. Für eine Rakete, die in die Atmosphäre startet und sich in den Weltraum bewegt, gelten folgende Überlegungen:
+Die Herleitung dieser Gleichungen basiert auf den grundlegenden
+Prinzipien der newtonschen Mechanik.
+Für eine Rakete, die in die Atmosphäre startet und sich in den
+Weltraum bewegt, gelten folgende Überlegungen:
 
 \begin{enumerate}
 	\item \textbf{Kräftegleichgewicht}: Die resultierende Kraft, die auf die Rakete wirkt, ist die Summe der Schubkraft \(F_*\), der Luftwiderstandskraft \(D\) und der Schwerkraft \(g\). 
