@@ -1,5 +1,4 @@
-%
-% 3-felder.te
+% % 3-felder.te
 %
 % (c) 2024 Prof Dr Andreas Müller
 %
@@ -8,7 +7,10 @@
 \kopfrechts{Erhaltungssätze für Felder}
 Für Felder im Gegensatz zu Funktionen einer Variablen muss der
 Begriff einer Symmetrie neu formuliert werden und auch der Begriff
-eines Erhaltungssatzes
+eines Erhaltungssatzes muss angepasst werden.
+Das Konzept der Divergenz eines Vektorfeldes
+und die Kontinuitätsgleichung sind der Ausgangspunkt.
+Dieser Abschnitt folgt der Darstellung in \cite[section 8.6]{buch:pde}.
 
 %
 % Divergenzform
@@ -154,6 +156,17 @@ dass es ein Vektorfeld gibt, dessen Divergenz verschwindet.
 % Gebietsvariation und Multiplikator
 %
 \subsection{Gebietsvariation und Multiplikator}
+Bei der Variation einer Funktion der Variablen $t$ kann sich das
+Definitionsgebiet nur dadurch ändern, dass die Endpunkte des
+Definitionsintervalls verschoben werden.
+Dies kann durch zwei Funktionen $t_0(s)$ und $t_1(s)$ beschrieben werden.
+Für eine Funktion von mehreren Variablen wird das Problem komplizierter,
+da das Definitionsgebiet eine beliebige offene Teilmenge von $\mathbb{R}^n$
+sein kann.
+Allerdings soll sich auch der Zusammenhang des Gebietes nicht ändern,
+es sollen also bei der Deformation keine neuen Randstücke oder ``Löcher''
+entstehen.
+Wir definieren daher eine Gebietsvariation wie folgt.
 
 \begin{definition}
 Eine differenzierbare Abbildung
