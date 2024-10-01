@@ -333,7 +333,7 @@ $\mathbf{L}$ wird aufgrund des schmalen Trägers der Funktionen $a_n(x)$ (sowie 
 Null sein werden.
 Von Null verschieden sind nur die Einträge, deren zugehörige Datenpunkte nebeneinander liegen.
 Die Matrix ist also symmetrisch, da es keine Rolle spielt in welcher Reihenfolge man die Testfunktionen multipliziert.
-Da $\mathbf{L}$ die Gram-Matrix\footnote{TODO: cite correctly} des Skalarprodukts darstellt und das Skalarprodukt positiv definit ist, ist auch $\mathbf{L}$ positiv definit.
+Da $\mathbf{L}$ die Gram-Matrix\footnote{Mehr über die Gram-Matrix im Buch Lineare Algebra: Eine anwendungsorientierte Einführung\cite{buch:linalg}.} des Skalarprodukts darstellt und das Skalarprodukt positiv definit ist, ist auch $\mathbf{L}$ positiv definit.
 
 \subsubsection{Kubischer Ansatz}
 Auch hier verlangt der kubische Ansatz mit seinen zwei Funktionen pro Datenpunkt eine leichte Anpassung: 
@@ -383,6 +383,7 @@ Ist beispielsweise $n = 2$ gewählt, so resultiert
         \hline
     \end{array}.
 \end{equation}
+TODO: Rot-Blau nach Gauss.
 Die dabei ersetzte Gleichung sagt, wie jede Zeile der Matrix, etwas über den Bezug von den verschiedenen Knotenvariablen zueinander aus.
 Diese wird durch die Anfangsbedingung, die etwas über eine einzelne Variable aussagt, ersetzt.
 Es kann grundsätzlich irgendeine Zeile des Gleichungssystems durch die Anfangsbedingung ersetzt werden, denn da für die $N$ unbekannten nach wie vor $N$ Gleichungen bestehen, kann das Gleichungssystem nach wie vor gelöst werden.
@@ -403,7 +404,7 @@ Es resultiert
             \hline
         \end{array}.
 \end{equation}
-TODO: Rot-Blau nach Gauss
+TODO: Rot-Blau nach Gauss.
 Dabei ist leicht zu erkennen, dass homogene Anfangsbedingungen, also $c=0$, besonders einfach zu codieren sind, da der von $-\vec{b}$ subtrahierte Term Null sein wird.
 
 \subsubsection{Codieren von gegebenen Ableitungen}
