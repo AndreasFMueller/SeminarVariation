@@ -362,27 +362,142 @@ differenzierbar ist.
 
 Aus der Euler-Lagrange-Differentialgleichung folgt noch nicht, dass
 die zweite Ableitung $y''(x)$ der Lösung stetig ist.
-David Hilbert hat aber gezeigt.
+David Hilbert hat aber den folgenden Satz gezeigt.
 
 \begin{satz}
 Ist $\frac{\partial F}{\partial y'}$ differenzierbar und ist $y(x)$ eine
 Lösung des Variationsproblems~\eqref{buch:nichtdiff:duboisreymond:eqn:problem},
 dann ist $y''(x)$ überall dort definiert, wo
-\[
+\begin{equation}
 \frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x)) \ne 0
-\]
+\label{buch:nichtdiff:duboysreymond:eqn:positiv}
+\end{equation}
 gilt.
 \end{satz}
 
-% XXX TODO Beweis des Satzes (Funk, p. 204)
+\begin{proof}
+Nach Voraussetzung ist die Ableitung von $F$ nach $y'$ differenzierbar.
+Setzt man die Funktion $y(x)$ ein, ist nach 
+\eqref{buch:nichtdiff:duboisreymond:gleichung}
+die Funktion
+\begin{equation}
+x\mapsto
+\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\label{buch:nichtdiff:eqn:hilbertf}
+\end{equation}
+stetig differenzierbar.
+Zur Berechnung der Ableitung von \eqref{buch:nichtdiff:eqn:hilbertf}
+betrachten wir die Differenz
+\begin{align*}
+\Delta F
+&=
+\frac{\partial F}{\partial y'}(x+h,y(x+h),y'(x+h))
+-
+\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\end{align*}
+untersucht.
+Die Ableitung von \eqref{buch:nichtdiff:eqn:hilbertf} ist
+nach \eqref{buch:nichtdiff:duboisreymond:gleichung}
+\begin{align*}
+\frac{d}{dx}
+\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+&=
+\lim_{h\to 0}
+\frac{\Delta F}{h}
+=
+\frac{\partial F}{\partial y}(x,y(x),y'(x)).
+\end{align*}
+Wir berechnen den Grenzwert auf eine andere Art.
+Da $\partial F/\partial y'$ differenzierbar ist, kann man die Differenz
+$\Delta F$ als
+\begin{align*}
+\Delta F
+=
+\frac{\partial^2 F}{\partial y'\partial x}(x,y(x),y'(x)) h
+&+
+\frac{\partial^2 F}{\partial y'\partial y}(x,y(x),y'(x)) \cdot (y(x+h)-y(x))
+\\
+&+
+\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x)) \cdot (y'(x+h)+y'(x))
++
+o(h)
+\end{align*}
+schreiben.
+Teilen duch $h$ ergibt
+\begin{align}
+\frac{\Delta F}{h}
+=
+\frac{\partial^2 F}{\partial y'\partial x}(x,y(x),y'(x))
+&+
+\frac{\partial^2 F}{\partial y'\partial y}(x,y(x),y'(x))
+\cdot
+\frac{y(x+h)-y(x)}{h}
+\label{buch:nichtdiff:eqn:hilbertlim1}
+\\
+&+
+\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x))
+\cdot
+\frac{y'(x+h)-y'(x)}{h}
++
+\frac{o(h)}{h}.
+\label{buch:nichtdiff:eqn:hilbertlim2}
+\end{align}
+Die linke Seite konvergiert gegen die Ableitung von
+\eqref{buch:nichtdiff:eqn:hilbertf}, somit muss auch die rechte Seite
+konvergieren.
+
+Die Voraussetzung \eqref{buch:nichtdiff:duboysreymond:eqn:positiv}
+garantiert, dass nach dem Differenzenquoteienten
+in \eqref{buch:nichtdiff:eqn:hilbertlim2} aufgelöst werden kann.
+\begin{align*}
+\frac{y'(x+h)-y'(x)}{h}
+&=
+\frac{1}{\displaystyle
+\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x))
+}
+\biggl(
+\frac{\partial F}{\partial y}(x,y(x),y'(x))
+-
+\frac{\partial^2 F}{\partial y'\partial x}(x,y(x),y'(x))
+\\
+&\qquad\qquad
+-
+\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\cdot
+\frac{y(x+h)-y(x)}{h}
+-
+\frac{o(h)}{h}
+\biggr).
+\intertext{Der Differenzenquotient für $y(x)$ konvergiert gegen
+$y'(x)$ und $o(h)/h$ konvergiert gegen $0$.
+Somit konvergiert auch die linke Seite, sie ist die zweite Ableitung
+}
+y''(x)
+&=
+\frac{1}{\displaystyle
+\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x))
+}
+\biggl(
+\frac{\partial F}{\partial y}(x,y(x),y'(x))
+-
+\frac{\partial^2 F}{\partial y'\partial x}(x,y(x),y'(x))
+\\
+&\qquad\qquad
+-
+\frac{\partial F}{\partial y'}(x,y(x),y'(x))\cdot y'(x)
+\biggr)
+\end{align*}
+von $y(x)$.
+Damit ist der Satz bewiesen.
+\end{proof}
 
 In der Theorie der zweiten Variation von Kapitel~\ref{buch:chapter:variation2}
-wird die notwendige Bedingung
+wird die nach Legendre notwendige Bedingung
 \[
 \frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x)) \ne 0
 \ge 0
 \]
-für ein Maximum hergeleitet.
+für ein Extremum hergeleitet.
 Falls in dieser Bedingung sogar das strikte Zeichen gilt, kann man
 somit folgern, dass das Maximum sogar eine zweimal stetig differenzierbare
 Funktion ist.
