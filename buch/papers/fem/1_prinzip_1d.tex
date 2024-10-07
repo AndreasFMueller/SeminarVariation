@@ -150,7 +150,7 @@ hergeleitet werden.
 Für das Interpolieren mit dem quadratischen Ansatz muss das Vorgehen leicht angepasst werden, da sonst die Bedingung \ref{fem:1d:bedindung_formfkt} nicht erfüllt wird. 
 Wie beim eindimensionalen Fall werden im Definitionsbereich Knotenpunkte definiert und diese mit Elementen verbunden.
 Pro Element wird nun ein weiterer Knoten definiert. 
-Dieser wird meistens in der Mitte des Elements gewählt.
+Dieser wird meistens in der Mitte des Elements gewählt und erhält seine eigene Formfunktion.
 
 Die in Abb. \ref{fem:1d:abb:quadratisch} gezeigten Formfunktionen lauten
 \begin{equation}
@@ -165,7 +165,7 @@ Die in Abb. \ref{fem:1d:abb:quadratisch} gezeigten Formfunktionen lauten
 \end{equation}
 für die Knoten an den Enden der Elemente und
 \begin{equation}
-    a_n(x) = \left\{ \begin{array}{ll}
+    b_n(x) = \left\{ \begin{array}{ll}
         -\frac{1}{(x_n - x_{n-1})^2} x^2 + 1 
             & \text{für} \quad x_{n-1} < x < x_n \\
         -\frac{1}{(x_{n+1} - x_n)^2} x^2 + 1 
@@ -174,25 +174,27 @@ für die Knoten an den Enden der Elemente und
             & \text{sonst}
     \end{array} \right.
 \end{equation}
-für die Knoten in der Mitte der Elemente hergeleitet werden.
+für die Knoten in der Mitte der Elemente.
 
 Diese Formfunktionen können mit den Ansätzen 
 \begin{equation}
     a_n(x) = c_2x^2 + c_1x + c_0
+    \quad \text{bzw.} \quad
+    b_n(x) = d_2x^2 + d_1x + d_0
 \end{equation}
 und den Bedingungen 
 \begin{equation}
-        a_n(x_n) = 1 
-        \quad \text{und} \quad 
-        a_n(x_{n-2}) = a_n(x_{n-1}) = a_n(x_{n+1}) = a_n(x_{n+2}) = 0
+    a_n(x_n) = 1 
+    \quad \text{und} \quad 
+    a_n(x_{n-2}) = a_n(x_{n-1}) = a_n(x_{n+1}) = a_n(x_{n+2}) = 0
 \end{equation}
 für Knotenpunkte am Ende der Elemente bzw.
 \begin{equation}
-    a_n(x_n) = 1, a_n'(x_n) = 0
+    b_n(x_n) = 1, b_n'(x_n) = 0
     \quad \text{und} \quad 
-    a_n(x_{n-1}) = a_n(x_{n+1}) = 0
+    b_n(x_{n-1}) = b_n(x_{n+1}) = 0
 \end{equation}
-für Knotenpunkte in der Mitte der Elemente.
+für Knotenpunkte in der Mitte der Elemente hergeleitet werden.
 
 \subsubsection{Kubischer Ansatz}
 \input{papers/fem/fig/kubischer_ansatz.tex} % TODO: Widerholende Formfunktionen und Summe deren als Graphen zeigen
