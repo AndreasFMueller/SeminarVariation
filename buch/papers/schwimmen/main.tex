@@ -7,38 +7,38 @@
 % !TEX encoding = UTF-8
 %
 
-\documentclass{book} % You can adjust this to your specific document class
+% \documentclass{book} % You can adjust this to your specific document class
 
 % Include necessary packages
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{biblatex} % or whatever package you are using for bibliography
-\addbibresource{references.bib} % Assuming you have a .bib file for references
-\usepackage{hyperref}
-\usepackage{verbatim} % For \verb command
-\usepackage{graphicx} % For images (if any)
-\usepackage{amsmath} % For better math support (if needed)
-\usepackage{amsfonts}
-\usepackage{amssymb}
-\usepackage{subcaption}
+% \usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc}
+% \usepackage{biblatex} % or whatever package you are using for bibliography
+% \addbibresource{references.bib} % Assuming you have a .bib file for references
+% \usepackage{hyperref}
+% \usepackage{verbatim} % For \verb command
+% \usepackage{graphicx} % For images (if any)
+% \usepackage{amsmath} % For better math support (if needed)
+% \usepackage{amsfonts}
+% \usepackage{amssymb}
+% \usepackage{subcaption}
 
 
 
-\usepackage{tikz}
+% \usepackage{tikz}
 
-% Tables
-\usepackage{multirow}
-\usepackage{tabularx}
-\usepackage{booktabs}
+% % Tables
+% \usepackage{multirow}
+% \usepackage{tabularx}
+% \usepackage{booktabs}
 
-% Set headers
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhead{}
-\fancyhead[L]{\leftmark} % Set chapter title in the header on the left
-\fancyhead[R]{\rightmark} % Section title on the right
+% % Set headers
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \fancyhead{}
+% \fancyhead[L]{\leftmark} % Set chapter title in the header on the left
+% \fancyhead[R]{\rightmark} % Section title on the right
 
-\begin{document}
+% \begin{document}
 
 \chapter{Die Optimale Flussüberquerung\label{chapter:schwimmen}}
 % \kopflinks{Thema}
@@ -46,7 +46,7 @@
 % \chapterauthor{Hans Muster}
 
 
-Das Überqueren eines Flusses ist seit jeher eine Herausforderung, die die Menschheit beschäftigt. Oft auch im Zusammenhang mit der Frage, wie man am besten mit einem Boot einen Fluss überquert, sind vielfältige Überlegungen angestellt worden. So hat sich auch Euler in seinem Werk \textit{De motu cymbarum remis propulsarum in fluviis} \cite{schwimmen:Euler_works} diese Frage gestellt. Einige einfache Ansätze könnten darin bestehen, den Fluss an einer flachen Stelle zu überqueren, wo man zu Fuss hindurch waten kann, oder ihn einfach gemütlich schwimmend zu durchqueren und einfach in kauf nehmen das die Strömung einen mitreisst.
+Das Überqueren eines Flusses ist seit jeher eine Herausforderung, die die Menschheit beschäftigt. Oft auch im Zusammenhang mit der Frage, wie man am besten mit einem Boot einen Fluss überquert, sind vielfältige Überlegungen angestellt worden. So hat sich auch Euler in seinem Werk \textit{De motu cymbarum remis propulsarum in fluviis} \cite{schwimmen:Euler_works} diese Frage gestellt. Einige einfache Ansätze könnten darin bestehen, den Fluss an einer flachen Stelle zu überqueren, wo man zu Fuss hindurch waten kann, oder ihn einfach gemütlich schwimmend zu durchqueren und einfach in kauf nehmen, dass die Strömung einen mitreisst.
 	
 	
 Die zentrale Frage, die sich hier stellt, ist jedoch: Wie überquere ich einen Fluss am energieeffizientesten? In Abbildung \ref{fig:river_original} ist ein solcher Fluss dargestellt, der überquert werden soll.
@@ -151,7 +151,7 @@ Für die Frage \textit{Wie schwimmt man am besten durch den Fluss?} wird zudem v
     \label{fig:river_points}
 \end{figure}
 
-In diesem Kapitel wird erläutert, wie man mittels des Variationsprinzips die optimale Schwimmroute über den Fluss findet so das man den geringsten Energieaufwand hat.
+In diesem Kapitel wird erläutert, wie man mittels des Variationsprinzips die optimale Schwimmroute über den Fluss findet, sodass man den geringsten Energieaufwand hat.
 
 
 
@@ -180,14 +180,15 @@ In diesem Kapitel wird erläutert, wie man mittels des Variationsprinzips die op
 \input{01_herangehensweise}
 \input{02_Naiver_weg}
 \input{03_auswertung}
+% \input{papers/schwimmen/01_herangehensweise}
+% \input{papers/schwimmen/02_Naiver_weg}
+% \input{papers/schwimmen/03_auswertung}
 % \input{teil3.tex}
 
-%\printbibliography[heading=subbibliography]
-\end{refsection}
+% \printbibliography[heading=subbibliography]
+% \end{refsection}
 
-\end{document}
-
-
+% \end{document}
 
 
 
@@ -204,35 +205,37 @@ In diesem Kapitel wird erläutert, wie man mittels des Variationsprinzips die op
 
 
 
-\chapter{Wie Schwimmt man am Besten durch den Fluss?\label{chapter:schwimmen}}
-\kopflinks{Thema}
-\begin{refsection}
-\chapterauthor{Anna Pietak}
 
-Ein paar Hinweise für die korrekte Formatierung des Textes
-\begin{itemize}
-\item
-Absätze werden gebildet, indem man eine Leerzeile einfügt.
-Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
-\item
-Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
-Optionen werden gelöscht. 
-Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
-\item
-Beginnen Sie jeden Satz auf einer neuen Zeile. 
-Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
-in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
-anzuwenden.
-\item 
-Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
-Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
-\end{itemize}
 
-\input{papers/schwimmen/teil0.tex}
-\input{papers/schwimmen/teil1.tex}
-\input{papers/schwimmen/teil2.tex}
-\input{papers/schwimmen/teil3.tex}
-
+%\chapter{Wie Schwimmt man am Besten durch den Fluss?\label{chapter:schwimmen}}
+%\kopflinks{Thema}
+%\begin{refsection}
+%\chapterauthor{Anna Pietak}
+%
+%Ein paar Hinweise für die korrekte Formatierung des Textes
+%\begin{itemize}
+%\item
+%Absätze werden gebildet, indem man eine Leerzeile einfügt.
+%Die Verwendung von \verb+\\+ ist nur in Tabellen und Arrays gestattet.
+%\item
+%Die explizite Platzierung von Bildern ist nicht erlaubt, entsprechende
+%Optionen werden gelöscht. 
+%Verwenden Sie Labels und Verweise, um auf Bilder hinzuweisen.
+%\item
+%Beginnen Sie jeden Satz auf einer neuen Zeile. 
+%Damit ermöglichen Sie dem Versionsverwaltungssysteme, Änderungen
+%in verschiedenen Sätzen von verschiedenen Autoren ohne Konflikt 
+%anzuwenden.
+%\item 
+%Bilden Sie auch für Formeln kurze Zeilen, einerseits der besseren
+%Übersicht wegen, aber auch um GIT die Arbeit zu erleichtern.
+%\end{itemize}
+%
+%\input{papers/schwimmen/teil0.tex}
+%\input{papers/schwimmen/teil1.tex}
+%\input{papers/schwimmen/teil2.tex}
+%\input{papers/schwimmen/teil3.tex}
+%
 \printbibliography[heading=subbibliography]
 \end{refsection}
 

@@ -135,17 +135,18 @@
 
 
 
-Hier ist eine Schritt für Schritt Darstellung der Herleitung zur optimalen Flussüberquerung dargestellt. 
+Hier ist eine Schritt für Schritt Darstellung der Herleitung zur optimalen Flussüberquerung dargestellt. Als inspiration der Bilder und der Herangehensweise wurde an die Forumsfrage in \cite{schwimmen:mathForum} angelehnt. 
 
+% papers/schwimmen/
 \begin{figure}
     \centering
         \centering
         \includegraphics[width=0.6\textwidth]{papers/schwimmen/Grafiken/Figure_1.png}	
-        \caption{Stillstehender Fluss}
+        \caption{Fluss mit quadratischer Strömung. Ziel ist es von Punkt \((0,0)\) zum Punkt \((a,A)\) zu kommen, der auf der anderen Uferseite, auf gleicher Höhe, liegt.}
         \label{fig:river_template}
 \end{figure}
 
-Ziel ist es die schnellste Rute über den Fluss zu finden. In Abbildung \ref{fig:river_template} ist dies abgebildet, wobei \(a\) die Flussbreite ist und \(A\) die Distanz dem Fluss entlang. In diesem Fall ist \(A=0\) da man am andern Ufer auf gleicher Höhe ankommt.
+Ziel ist es die schnellste Rute über den Fluss zu finden. In Abbildung \ref{fig:river_template} ist dies abgebildet, wobei \(a\) die Flussbreite ist und \(A\) die Distanz entlang des Flusses. Im Falle unserer Aufgabenstellung ist \(A=0\) da man am andern Ufer auf gleicher Höhe ankommt.
 
 \subsubsection{Wichtige Kenngrössen}
 Ein paar wichtige Kenngrössen für die Herleitung sind in Tabelle \ref{table:Wichtige_Kenngroessen} zufinden.
@@ -172,10 +173,10 @@ Ein paar wichtige Kenngrössen für die Herleitung sind in Tabelle \ref{table:Wi
 
 \subsubsection{Schwimmgeschwindigkeiten}
 
-Als erstes werden die Geschwindigkeiten der Schwimmenden Person definiert. Mittels den Schwimmrichtungsvektoren und dem Flussvektor, können folgende Geschwindigkeiten für die in \(x\)- und \(y\)-Richtungen geschwommenen Geschwindigkeiten relativ zum Ufer genommen werden:
+Als erstes werden die Geschwindigkeiten der schwimmenden Person definiert. Mittels den Schwimmrichtungsvektoren und dem Flussvektor können folgende Geschwindigkeiten für die in \(x\)- und \(y\)-Richtungen geschwommenen Geschwindigkeiten relativ zum Ufer genommen werden:
 \begin{align}
-    c_x &= c\cdot cos(\theta) \label{eq:c_x_equation}\\
-    c_y &= u(x) + c \cdot sin(\theta) \label{eq:c_y_equation}
+    c_x &= c\cdot \cos(\theta) \label{eq:c_x_equation}\\
+    c_y &= u(x) + c \cdot \sin(\theta) \label{eq:c_y_equation}
 \end{align}
 
 \(c_x\) ist die Geschwindigkeit in \(x\)-Richtung der schwimmenden Person, \(c_y\) ist die Geschwindigkeit in \(y\)-Richtung wie auch die Flussgeschwindigkeit. Dabei ist der Winkel \(\theta\) der Schwimmwinkel in Bezug auf die \(x\)-Richtung.
@@ -187,18 +188,17 @@ Da für den geringsten Energiekonsum die Zeit optimiert wird, hier das Integral 
 \begin{equation}
     T = \int_0^adt \label{eq:Time_river_1}
 \end{equation}
-Da \(dt = \frac{dx}{c_x}\), die Zeit die es benötigt um sich ein kleines Stück in \(x\)-Richtung zu bewegen, von der Geschwindigkeit in \(x\)-Richtung abhängt, kann man \ref{eq:Time_river_1} erweitern zu
+Da \(dt = \frac{dx}{c_x}\), die Zeit die es benötigt um sich ein kleines Stück in \(x\)-Richtung zu bewegen, von der Geschwindigkeit in \(x\)-Richtung abhängt, kann man \eqref{eq:Time_river_1} erweitern zu
 
 \begin{equation}
-    T = \int_0^adt = \int_0^a\frac{dx}{||c_x||} = \int_0^a\frac{dx}{c\cdot cos(\theta)} \label{eq:Time_river_2}.
+    T = \int_0^adt = \int_0^a\frac{dx}{||c_x||} = \int_0^a\frac{dx}{c\cdot \cos(\theta)} \label{eq:Time_river_2},
 \end{equation}
-
-Wobei \(||c_x||\) den Vektor \(c_x\) definiert. 
+wobei \(||c_x||\) den Vektor \(c_x\) definiert. 
 
 
 \subsubsection{Beziehung der \(x\)- und \(y\)-Geschwindigkeiten}
 
-Als nächstes die Beziehung der \(x\)- und \(y\)-Geschwindigkeiten im System. Dies ist auch am Schluss wichtig um den genauen Schwimmverlauf der schwimmenden Person observieren zu können.
+Als nächstes die Beziehung der \(x\)- und \(y\)-Geschwindigkeiten im System behandelt. Dies ist auch am Schluss wichtig um den genauen Schwimmverlauf der schwimmenden Person beobachten zu können.
 
 Die \(y\)-Geschwindigkeit soll im Bezug zur \(x\)-Richtung gegeben werden. Die Schwimmgeschwindigkeit in \(y\)-Richtung is gegeben durch
 \begin{equation}
@@ -206,11 +206,11 @@ Die \(y\)-Geschwindigkeit soll im Bezug zur \(x\)-Richtung gegeben werden. Die S
 \end{equation}
 worauf die Kettenregel angewendet werden kann um
 \begin{equation}
-    \frac{dy}{dt} = \frac{dy}{dx} = \frac{dx}{dt} = \frac{dy}{dx}\cdot c_x = \frac{dy}{dx}\cdot c\cdot cos(\theta)
+    \frac{dy}{dt} = \frac{dy}{dx} \cdot \frac{dx}{dt} = \frac{dy}{dx}\cdot c_x = \frac{dy}{dx}\cdot c\cdot \cos(\theta)
 \end{equation}
-zubekommen. Mittels \(c_y = u(x) + c\cdot sin(\theta)\) bekommt man die Beziehung der \(x\)- und \(y\)-Geschwindigkeiten:
+zubekommen. Mittels \(c_y = u(x) + c\cdot \sin(\theta)\) bekommt man die Beziehung der \(x\)- und \(y\)-Geschwindigkeiten:
 \begin{equation}
-    \frac{dy}{dx} = \frac{u(x) + c \cdot sin(\theta)}{c \cdot sin(\theta)} \label{eq:dy_dx}
+    \frac{dy}{dx} = \frac{u(x) + c \cdot \sin(\theta)}{c \cdot \sin(\theta)} \label{eq:dy_dx}
 \end{equation}
 
 
@@ -218,43 +218,42 @@ zubekommen. Mittels \(c_y = u(x) + c\cdot sin(\theta)\) bekommt man die Beziehun
 \subsubsection{Auflösen nach \(\theta\)}
 
 Der letzte Schritt für das aufstellen des Integrals ist es eine Formel für den Winkel \(\theta\) zu haben.
-Ausgehend von \ref{eq:dy_dx} können Umformungen gemacht werden
+Ausgehend von \eqref{eq:dy_dx} können Umformungen gemacht werden
 \begin{align}
-    \frac{dy}{dx} &= \frac{\dot{y}}{\dot{x}} = \frac{c_y}{c_x} = \frac{u(x) + c \cdot sin(\theta)}{c \cdot sin(\theta)} \\
-    \frac{dy}{dx} &= \frac{u}{c}\cdot sec(\theta) + tan(\theta) \\
-    \frac{dy}{dx} &= \frac{u}{c}\cdot sec(\theta) + \sqrt{sec^2(\theta)-1} \\
+    \frac{dy}{dx} &= \frac{\dot{y}}{\dot{x}} = \frac{c_y}{c_x} = \frac{u(x) + c \cdot \sin(\theta)}{c \cdot \sin(\theta)} \\
+    \frac{dy}{dx} &= \frac{u}{c}\cdot \sec(\theta) + \tan(\theta) \\
+    \frac{dy}{dx} &= \frac{u}{c}\cdot \sec(\theta) + \sqrt{\sec^2(\theta)-1}. \\
 \end{align}
 
-es sein folgende Formeln für die Umformungen zu beachten: \(\frac{1}{cos(\theta)} = sec(\theta)\) und \(sec^2(\theta)-tan^2(\theta) = 1\). Durch Quartieren und \(\frac{dy}{dx} = y'\) folgt 
+Es sind folgende Formeln für die Umformungen zu beachten: \[\frac{1}{\cos(\theta)} = \sec(\theta)\] und \[\sec^2(\theta)-\tan^2(\theta) = 1.\] Durch Quardrieren und \[\frac{dy}{dx} = y'\] folgt 
 \begin{equation}
-    (\frac{u^2}{c^2}-1)\cdot sec^2(\theta) - \frac{2uy'}{c}\cdot sec(\theta) + y'^2 +1 = 0
+    \biggl(\frac{u^2}{c^2}-1 \biggr) \cdot \sec^2(\theta) - \frac{2uy'}{c}\cdot \sec(\theta) + y'^2 +1 = 0
 \end{equation}
 als Gleichung. Durch die Mitternachtsformel bekommt man 
 \begin{equation}
-    sec(\theta) = \frac{\frac{2uy'}{c} \pm \sqrt{4(y'^2-\frac{u^2}{c^2} + 1)}}{2(\frac{u^2}{c^2}-1)}
+    \sec(\theta) = \frac{\frac{2uy'}{c} \pm \sqrt{4(y'^2-\frac{u^2}{c^2} + 1)}}{2(\frac{u^2}{c^2}-1)}
 \end{equation}
 für den Winkel \(\theta\). Durch weiteres Umformen bekommt man:
 \begin{equation}
-    \frac{1}{c}\cdot sec(\theta) = \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2} \label{eq:theta_1}
+    \frac{1}{c}\cdot \sec(\theta) = \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2} .\label{eq:theta_1}
 \end{equation}
 
 
 \subsubsection{Zeit Integral}
 
-Nun kann man die Formel \ref{eq:theta_1} für den Winkel, in das Zeit-Integral einfügen:
+Nun kann man die Formel \eqref{eq:theta_1} für den Winkel, in das Zeit-Integral einfügen:
 
 \begin{equation}
-    T = \int_0^adt = \int_0^a\frac{dx}{c\cdot cos(\theta)} = \int_0^a \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2} dx
+    T = \int_0^adt = \int_0^a\frac{dx}{c\cdot \cos(\theta)} = \int_0^a \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2} dx
     \label{eq:Time_river_2} 
 \end{equation}
-
 Dieses Integral  beschreibt die Zeit die für die Flussüberquerung benötigt wird. 
 
 
 
 \subsubsection{Lagrange-Funktion} 
-Um die Rute zu finden die die kürzeste Zeit für die Flussüberquerung benötigt wendet man das Variationsprinzip. Für das braucht man das sogenannte Lagrange-Integral welches minimiert werden soll in diesem Fall \ref{eq:Time_river_2}. 
-Aus dem Lagrange-Integral \ref{eq:Time_river_2} kann die Lagrange-Funktion
+Um die Rute zu finden, die die kürzeste Zeit für die Flussüberquerung benötigt wendet man das Variationsprinzip. Für das braucht man das sogenannte Lagrange-Integral welches minimiert werden soll in diesem Fall \eqref{eq:Time_river_2}. 
+Aus dem Lagrange-Integral \eqref{eq:Time_river_2} kann die Lagrange-Funktion
 \begin{equation}\label{eq:lagrange_integral}
     L(x, y, y') = \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2}
 \end{equation}
@@ -266,7 +265,6 @@ herausgelesen werden.
     \frac{\partial L}{\partial y} - \frac{d}{dx}\frac{\partial L}{\partial y'} = 0 - \frac{d}{dx}\frac{\partial L}{\partial y'} &= 0 \\
     \frac{d}{dx}\frac{\partial L}{\partial y'} &= 0.
 \end{align}
-
 Daraus folgt die Ableitung der Lagrange-Funktion:
 \begin{align}
     \frac{\partial L}{\partial y'} &= \text{constant} \label{eq:Lagrange_derivites_1}\\
@@ -275,12 +273,11 @@ Daraus folgt die Ableitung der Lagrange-Funktion:
     &=  \frac{1}{c^2-u^2} \biggl( \frac{c^2\cdot y'}{\sqrt{c^2(y'^2-u^2)}} - u \biggr ) \\
     &= \text{constant} = \frac{1}{g}.\label{eq:Lagrange_derivites_2}
 \end{align}
-Auflösung nach \(y'\):
+Auflösung nach \(y'\) ergiebt
    
 \begin{equation}
-    y' = \frac{c^2 + g\cdot u - u^2}{c \cdot \sqrt{u^2-2\cdot g\cdot u - c^2 + g^2}} \label{eq:angle} \\
+    y' = \frac{c^2 + g\cdot u - u^2}{c \cdot \sqrt{u^2-2\cdot g\cdot u - c^2 + g^2}} .\label{eq:angle} \\
 \end{equation}
-
 \(y'\) gibt an mit welchem Verhältnis von \(y\) zu \(x\) sich die Schwimmende Person im Wasser bewegt.
 
 
