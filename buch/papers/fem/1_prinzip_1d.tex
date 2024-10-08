@@ -74,7 +74,7 @@ Die resultierenden Knotenvariablen
     \quad \text{und} \quad
     v_n = v(x_n)
 \end{equation}
-können dann mit einer Interpolationsfunktion mit schmalem Träger
+können dann mit einer stetigen Interpolationsfunktion mit schmalem Träger
 \begin{equation}
     a_n(x) = \left\{ \begin{array}{ll}
         1
@@ -97,6 +97,12 @@ Dies funktioniert, da die Formfunktionen so gewählt wurden, dass an den Stützs
 Dabei hat die Formfunktion an ebendieser Stützstelle den Wert Eins.
 Das führt dazu, dass die interpolierte Funktion, die aus der Summe der einzelnen skalierten Formfunktionen entsteht, in den Stützstellen die gleichen Werte aufweist wie die ursprüngliche Funktion.
 
+Die Formfunktionen sollten zudem eine Zerlegung von Eins bilden
+\begin{equation}
+    \sum_{n} a_n(x) = 1, \label{fem:1d:zerlegung_v_eins}
+\end{equation}
+sodass konstante Triviallösungen exakt repräsentiert werden können.
+
 Für die Interpolationsfunktion $a(x)$ können verschiedene Ansätze gewählt werden:
 \begin{itemize}
     \item[\textbf{linear:}] 
@@ -114,8 +120,8 @@ Für die Interpolationsfunktion $a(x)$ können verschiedene Ansätze gewählt we
 \end{itemize}
 
 \subsubsection{Linearer Ansatz}
-\input{papers/fem/fig/linearer_ansatz_entwurf.tex} % TODO: Widerholende Formfunktionen und Summe deren als Graphen zeigen
-Der lineare Ansatz verwendet die in Abb. \ref{fem:1d:abb:linear} gezeigten linearen Funktionen
+\input{papers/fem/fig/linearer_ansatz.tex}
+Der lineare Ansatz verwendet die in Abb. \ref{fem:1d:abb:linear:formfkt} gezeigten linearen Funktionen
 \begin{equation}
     a_n(x) = \left\{ \begin{array}{ll}
         1+\frac{x-x_n}{x_n - x_{n-1}} 
@@ -127,37 +133,39 @@ Der lineare Ansatz verwendet die in Abb. \ref{fem:1d:abb:linear} gezeigten linea
     \end{array} \right..
 \end{equation}
 
-Die Formfunktionen des Linearen Ansatzes können mit dem Ansatz 
+Diese Formfunktionen können mit dem Ansatz 
 \begin{equation}
-    a(x) = c_1x + c_0
+    a_n(x) = c_1x + c_0
 \end{equation}
 und den zu erfüllenden Bedingungen
 \begin{equation}
-        a(x_n) = 1 
+        a_n(x_n) = 1 
         \quad \text{und} \quad
-        a(x_{n-1}) = a(x_{n+1}) = 0
+        a_n(x_{n-1}) = a(x_{n+1}) = 0
 \end{equation}
 hergeleitet werden.
 
 \subsubsection{Quadratischer Ansatz}
-\input{papers/fem/fig/quadratischer_ansatz.tex} % TODO: Widerholende Formfunktionen und Summe deren als Graphen zeigen
-Für das Interpolieren mit dem quadratischen Ansatz muss das Vorgehen leicht angepasst werden. 
-Während beim linearen Ansatz für jeden Knoten dieselbe Formfunktion verwendet wurde, wird beim quadratischen Ansatz zwischen zwei Funktionen abgewechselt.
+\input{papers/fem/fig/quadratischer_ansatz.tex} % TODO: Widerholende Formfunktionen und Summe deren als Graphen zeigen -> Element kennzeichnen
+Für das Interpolieren mit dem quadratischen Ansatz muss das Vorgehen leicht angepasst werden, da sonst die Bedingung \ref{fem:1d:bedindung_formfkt} nicht erfüllt wird. 
+Wie beim eindimensionalen Fall werden im Definitionsbereich Knotenpunkte definiert und diese mit Elementen verbunden.
+Pro Element wird nun ein weiterer Knoten definiert. 
+Dieser wird meistens in der Mitte des Elements gewählt und erhält seine eigene Formfunktion.
 
 Die in Abb. \ref{fem:1d:abb:quadratisch} gezeigten Formfunktionen lauten
 \begin{equation}
     a_n(x) = \left\{ \begin{array}{ll}
         \frac{1}{2(x_{n} - x_{n-1})^2} \cdot x^2 + \frac{3}{2 (x_{n} - x_{n-1})} \cdot x + 1  
-            & \text{für} \quad x_{n-1} \leq x < x_n \\
+            & \text{für} \quad x_{n-2} \leq x < x_n \\
         \frac{1}{2(x_{n+1} - x_{n})^2} \cdot x^2 - \frac{3}{2 (x_{n+1} - x_{n})} \cdot x + 1
-            & \text{für} \quad x_n < x \leq x_{n+1} \\
+            & \text{für} \quad x_n < x \leq x_{n+2} \\
         0
             & \text{sonst}
     \end{array} \right.
 \end{equation}
-für gerade $n$ und
+für die Knoten an den Enden der Elemente und
 \begin{equation}
-    a_n(x) = \left\{ \begin{array}{ll}
+    b_n(x) = \left\{ \begin{array}{ll}
         -\frac{1}{(x_n - x_{n-1})^2} x^2 + 1 
             & \text{für} \quad x_{n-1} < x < x_n \\
         -\frac{1}{(x_{n+1} - x_n)^2} x^2 + 1 
@@ -166,25 +174,27 @@ für gerade $n$ und
             & \text{sonst}
     \end{array} \right.
 \end{equation}
-für ungerade $n$.
+für die Knoten in der Mitte der Elemente.
 
-Diese Formfunktionen können mit dem Ansatz 
+Diese Formfunktionen können mit den Ansätzen 
 \begin{equation}
     a_n(x) = c_2x^2 + c_1x + c_0
+    \quad \text{bzw.} \quad
+    b_n(x) = d_2x^2 + d_1x + d_0
 \end{equation}
 und den Bedingungen 
 \begin{equation}
-        a_n(x_n) = 1 
-        \quad \text{und} \quad 
-        a(x_{n-1}) = a(x_{n+1}) = 0
+    a_n(x_n) = 1 
+    \quad \text{und} \quad 
+    a_n(x_{n-2}) = a_n(x_{n-1}) = a_n(x_{n+1}) = a_n(x_{n+2}) = 0
 \end{equation}
-für gerade $n$ bzw.
+für Knotenpunkte am Ende der Elemente bzw.
 \begin{equation}
-        a_n(x_n) = 1 
-        \quad \text{und} \quad
-        a(x_{n-1}) = a(x_{n+1}) = 0
+    b_n(x_n) = 1, b_n'(x_n) = 0
+    \quad \text{und} \quad 
+    b_n(x_{n-1}) = b_n(x_{n+1}) = 0
 \end{equation}
-für ungerade $n$ hergeleitet werden.
+für Knotenpunkte in der Mitte der Elemente hergeleitet werden.
 
 \subsubsection{Kubischer Ansatz}
 \input{papers/fem/fig/kubischer_ansatz.tex} % TODO: Widerholende Formfunktionen und Summe deren als Graphen zeigen
@@ -247,7 +257,7 @@ Mit den Approximationen
 \begin{align}
     u(x) &\approx \sum_i u_i \cdot a_i(x) \\
     f(x) &\approx \sum_i f_i \cdot a_i(x) \\
-    v(x) &\approx \sum_i v_i \cdot a_i(x)
+    v(x) &\approx \sum_j v_j \cdot a_j(x)
 \end{align}
 aus der Diskretisierung kann die schwache Form der Differenzialgleichung 
 \begin{equation}
@@ -255,14 +265,14 @@ aus der Diskretisierung kann die schwache Form der Differenzialgleichung
 \end{equation}
 als
 \begin{equation}
-    - \int \biggl(\sum_i u_j \cdot a'_j(x)\biggr) \biggl(\sum_j v_i \cdot a'_i(x)\biggr) \diff x 
-    = \int \biggl(\sum_i f_j \cdot a_j(x) \biggr) \biggl(\sum_j v_i \cdot a_i(x) \biggr) \diff x 
+    - \int \biggl(\sum_i u_i \cdot a'_i(x)\biggr) \biggl(\sum_j v_j \cdot a'_j(x)\biggr) \diff x 
+    = \int \biggl(\sum_i f_i \cdot a_i(x) \biggr) \biggl(\sum_j v_j \cdot a_j(x) \biggr) \diff x 
     \myforall v_i
 \end{equation}
 geschrieben werden.
 Die vorherige Gleichung kann zu
 \begin{equation}
-    - \int \sum_j u_j \cdot a'_j \cdot a'_i(x) \diff x = \int \sum_j f_j \cdot a_j(x) \cdot a_i(x) \diff x \myforall i
+    - \int \sum_i u_i \cdot a'_i(x) \cdot a'_j(x) \diff x = \int \sum_i f_i \cdot a_i(x) \cdot a_j(x) \diff x \myforall j
 \end{equation}
 vereinfacht werden.
 Dabei wird die Menge der Testfunktionen reduziert.
@@ -270,18 +280,18 @@ Um nicht alle Testfunktionen mit beliebig breitem Träger berücksichtigen zu m�
 Da alle anderen Testfunktionen aus diesen ``zusammengebaut'' werden können, ist die Gleichung auch für diese erfüllt.
 Diese Vereinfachung ermöglicht es, die Summen aus den Integralen zu bringen und die Gleichung als
 \begin{equation}
-    - \sum_j u_j \int a'_j \cdot a'_i(x) \diff x = \sum_j f_j \int a_j(x) \cdot a_i(x) \diff x \myforall i \label{papers:fem:prinzip1d:finale_gleichung}
+    - \sum_i u_i \underbrace{\int a'_i(x) \cdot a'_j(x) \diff x}_{l_{ij}} = \sum_i f_i \underbrace{\int a_i(x) \cdot a_j(x) \diff x}_{l_{ij}} \myforall j \label{papers:fem:prinzip1d:finale_gleichung}
 \end{equation}
 zu schreiben.
-Übrig bleibt also, da die Integrale ausgewertet werden können, ein lineares Gleichungssystem mit $N$ Unbekannten $u_j$ und $N$ Gleichungen (eine pro $i$). 
+Übrig bleibt also, da die Integrale ausgewertet werden können, ein lineares Gleichungssystem mit $N$ Unbekannten $u_i$ und $N$ Gleichungen (eine pro $j$). 
 
 Das erhaltene Gleichungssystem lässt sich nun sehr gut als Matrizen, bei denen die Zeilen über $i$ und die Spalten über $j$ iterieren, darstellen:
 \begin{multline}
-    \left(
+    -\left(
         \begin{matrix}
-            \int a'_1(x) \cdot a'_1 \diff x & \hdots & a'_N(x) \cdot a'_1(x) \diff x \\
-            \vdots                          & \ddots & \vdots                        \\
-            \int a'_1(x) \cdot a'_N \diff x & \hdots & a'_N(x) \cdot a'_N(x) \diff x \\
+            \int a'_1(x) \cdot a'_1(x) \diff x & \hdots & \int a'_N(x) \cdot a'_1(x) \diff x \\
+            \vdots                          & \ddots & \vdots                           \\
+            \int a'_1(x) \cdot a'_N(x) \diff x & \hdots & \int a'_N(x) \cdot a'_N(x) \diff x \\
         \end{matrix}
     \right)
     \left(
@@ -294,9 +304,9 @@ Das erhaltene Gleichungssystem lässt sich nun sehr gut als Matrizen, bei denen 
     = \\
     \left(
         \begin{matrix}
-            \int a_1(x) \cdot a_1 \diff x & \hdots & a_N(x) \cdot a_1(x) \diff x \\
-            \vdots                        & \ddots & \vdots                      \\
-            \int a_1(x) \cdot a_N \diff x & \hdots & a_N(x) \cdot a_N(x) \diff x \\
+            \int a_1(x) \cdot a_1(x) \diff x & \hdots & \int a_N(x) \cdot a_1(x) \diff x \\
+            \vdots                        & \ddots & \vdots                         \\
+            \int a_1(x) \cdot a_N(x) \diff x & \hdots & \int a_N(x) \cdot a_N(x) \diff x \\
         \end{matrix}
     \right)
     \left(
@@ -309,7 +319,7 @@ Das erhaltene Gleichungssystem lässt sich nun sehr gut als Matrizen, bei denen 
 \end{multline}
 was kompakt als
 \begin{equation}
-    \mathbf{M}\vec{f} = -\mathbf{L}\vec{u}
+    -\mathbf{L}\vec{u} = \mathbf{M}\vec{f}
 \end{equation}
 geschrieben wird.
 Auch gängig ist das Zusammenfassen von $\mathbf{M}\vec{f}$ zu $\vec{b}$, was zur Gleichung
@@ -318,15 +328,14 @@ Auch gängig ist das Zusammenfassen von $\mathbf{M}\vec{f}$ zu $\vec{b}$, was zu
 \end{equation}
 führt.
 
-Diese Matrizen werden aufgrund des schmalen Trägers der Funktionen $a_n(x)$ (sowie $b_n(x)$ beim kubischen Ansatz) sehr schwach besetzt sein, da viele der Integrale
+$\mathbf{L}$ wird aufgrund des schmalen Trägers der Funktionen $a_n(x)$ (sowie $b_n(x)$ beim kubischen Ansatz) sehr schwach besetzt sein, da viele der Integrale
 \begin{equation}
-    \int a_i(x) \cdot a_j \diff x \quad 
-    \text{ bzw. } 
-    \quad \int a'_i(x) \cdot a'_j \diff x 
+    \quad \int a'_i(x) \cdot a'_j(x) \diff x 
 \end{equation}
 Null sein werden.
 Von Null verschieden sind nur die Einträge, deren zugehörige Datenpunkte nebeneinander liegen.
-Zudem sind sie symmetrisch und positiv definit, da es keine Rolle spielt in welcher Reihenfolge man die Testfunktionen multipliziert.
+Die Matrix ist also symmetrisch, da es keine Rolle spielt in welcher Reihenfolge man die Testfunktionen multipliziert.
+Da $\mathbf{L}$ die Gram-Matrix\footnote{Mehr über die Gram-Matrix im Buch Lineare Algebra: Eine anwendungsorientierte Einführung\cite{buch:linalg}.} des Skalarprodukts darstellt und das Skalarprodukt positiv definit ist, ist auch $\mathbf{L}$ positiv definit.
 
 \subsubsection{Kubischer Ansatz}
 Auch hier verlangt der kubische Ansatz mit seinen zwei Funktionen pro Datenpunkt eine leichte Anpassung: 
@@ -345,37 +354,38 @@ Wir betrachten das Gleichungssystem in der Form
 \end{equation}
 Dieses kann, um die kommenden Schritte besser verständlich zu machen, in einem Gauss-Tableau als
 \begin{equation}
-    \boxed{
-        \begin{matrix}
-            l_{11} & l_{12} & l_{13} & \cdots & l_{1N} & -b_1   \\
-            l_{21} & l_{22} & l_{23} & \cdots & l_{2N} & -b_2   \\
-            l_{31} & l_{32} & l_{33} & \cdots & l_{3N} & -b_3   \\
-            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-            l_{N1} & l_{N2} & l_{N3} & \cdots & l_{NN} & -b_N   \\
-        \end{matrix}
-    }
+    \begin{array}{|ccccc|c|}
+        \hline
+        l_{11} & l_{12} & l_{13} & \cdots & l_{1N} & -b_1   \\
+        l_{21} & l_{22} & l_{23} & \cdots & l_{2N} & -b_2   \\
+        l_{31} & l_{32} & l_{33} & \cdots & l_{3N} & -b_3   \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        l_{N1} & l_{N2} & l_{N3} & \cdots & l_{NN} & -b_N   \\
+        \hline
+    \end{array}
 \end{equation}
 repräsentiert werden.
 
 Das Ziel ist es nun also, die Anfangsbedingung
 \begin{equation}
-    u_n = x \in \mathbb{R} 
+    u_n = c \in \mathbb{R} 
     \label{fem:1d:anfangsbedingung}
 \end{equation}
 in das Gleichungssystem einzufügen.
 Am einfachsten gelingt dies, indem man die $n$-te Zeile so umformt, dass sie die Gleichung \ref{fem:1d:anfangsbedingung} widerspiegelt.
 Ist beispielsweise $n = 2$ gewählt, so resultiert
 \begin{equation}
-    \boxed{
-        \begin{matrix}
-            l_{11} & l_{12} & l_{13} & \cdots & l_{1N} & -b_1   \\
-            0      & 1      & 0      & \cdots & 0      & x      \\
-            l_{31} & l_{32} & l_{33} & \cdots & l_{3N} & -b_3   \\
-            \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-            l_{N1} & l_{N2} & l_{N3} & \cdots & l_{NN} & -b_N   \\
-        \end{matrix}
-    }.
+    \begin{array}{|ccccc|c|}
+        \hline
+        l_{11} & l_{12} & l_{13} & \cdots & l_{1N} & -b_1   \\
+        0      & 1      & 0      & \cdots & 0      & c      \\
+        l_{31} & l_{32} & l_{33} & \cdots & l_{3N} & -b_3   \\
+        \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+        l_{N1} & l_{N2} & l_{N3} & \cdots & l_{NN} & -b_N   \\
+        \hline
+    \end{array}.
 \end{equation}
+TODO: Rot-Blau nach Gauss.
 Die dabei ersetzte Gleichung sagt, wie jede Zeile der Matrix, etwas über den Bezug von den verschiedenen Knotenvariablen zueinander aus.
 Diese wird durch die Anfangsbedingung, die etwas über eine einzelne Variable aussagt, ersetzt.
 Es kann grundsätzlich irgendeine Zeile des Gleichungssystems durch die Anfangsbedingung ersetzt werden, denn da für die $N$ unbekannten nach wie vor $N$ Gleichungen bestehen, kann das Gleichungssystem nach wie vor gelöst werden.
@@ -386,17 +396,18 @@ Es sollte nun also die Symmetrie wieder hergestellt werden.
 Dazu bedienen wir uns dem im Gauss-Algorithmus angewandten Vorgehen zum Nullsetzen einer Spalte: Von jeder Zeile (ausser der $n$-ten bzw. hier der $2$.) wird ein Vielfaches der $n$-ten Zeile abgezogen.
 Es resultiert
 \begin{equation}
-    \boxed{
-        \begin{matrix}
-            l_{11} & 0      & l_{13} & \cdots & l_{1N} & -b_1 - l_{12} \cdot x \\
-            0      & 1      & 0      & \cdots & 0      & x                     \\
-            l_{31} & 0      & l_{33} & \cdots & l_{3N} & -b_3 - l_{32} \cdot x \\
+        \begin{array}{|ccccc|c|}
+            \hline
+            l_{11} & 0      & l_{13} & \cdots & l_{1N} & -b_1 - l_{12} \cdot c \\
+            0      & 1      & 0      & \cdots & 0      & c                     \\
+            l_{31} & 0      & l_{33} & \cdots & l_{3N} & -b_3 - l_{32} \cdot c \\
             \vdots & \vdots & \vdots & \ddots & \vdots & \vdots                \\
-            l_{N1} & 0      & l_{N3} & \cdots & l_{NN} & -b_N - l_{N2} \cdot x \\
-        \end{matrix}
-    }.
+            l_{N1} & 0      & l_{N3} & \cdots & l_{NN} & -b_N - l_{N2} \cdot c \\
+            \hline
+        \end{array}.
 \end{equation}
-Dabei ist leicht zu erkennen, dass homogene Anfangsbedingungen, also $x=0$, besonders einfach zu codieren sind, da der von $-\vec{b}$ subtrahierte Term Null sein wird.
+TODO: Rot-Blau nach Gauss.
+Dabei ist leicht zu erkennen, dass homogene Anfangsbedingungen, also $c=0$, besonders einfach zu codieren sind, da der von $-\vec{b}$ subtrahierte Term Null sein wird.
 
 \subsubsection{Codieren von gegebenen Ableitungen}
 Da der lineare wie auch der quadratische Ansatz keinen direkten Weg bietet, die Ableitungen der Funktion $u(x)$ zu bestimmen, muss mit einem Trick Abhilfe geschafft werden: 
@@ -427,6 +438,7 @@ Das Resultat in Form des Spaltenvektors $\vec{u}$, der die Stützstellen der Lö
 berechnen.
 
 Zum Invertieren der Matrix gibt es optimierte Zerlegungsalgorithmen wie SuperLU, Choldmod oder Mumps, die die schwache Besetzung der Matrizen ausnützen, um diese effizient zu zerlegen.
+Was das Zerlegen noch effizienter macht, ist die Symmetrie der Systemmatrix.
 Nach dem Zerlegen ist das Invertieren stark vereinfacht.
 Weiter bieten sich iterative Vorgehen wie die Methode des konjugierten Gradienten oder GMRES an.
 Auch diese können aus der schwachen Besetzung der Matrix Nutzen ziehen.

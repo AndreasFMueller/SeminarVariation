@@ -194,14 +194,16 @@ Die Anfangsbedingungen
 werden wie in Kapitel \ref{fem:1d:anfangsbedingungen} beschrieben in die Matrix eingebracht.
 Dazu wird das Gleichungssystem \ref{fem:rechenbsp:gleichungssystem} zunächst als Gauss-Tableau geschrieben:
 \begin{equation}
-    \boxed{\begin{matrix}
-        -9.69  & 10.17  &        &        &        &        & 0 \\
-        10.17  &-19.33  & 10.17  &        &        &        & 0 \\
-               & 10.17  &-19.33  & \ddots &        &        & 0 \\
+    \begin{array}{|cccccc|c|}
+        \hline
+        -9.69  & 10.17  &        &        &        &        & 0      \\
+        10.17  &-19.33  & 10.17  &        &        &        & 0      \\
+               & 10.17  &-19.33  & \ddots &        &        & 0      \\
                &        & \ddots & \ddots & 10.17  &        & \vdots \\
-               &        &        & 10.17  &-19.33  & 10.17  & 0 \\
-               &        &        &        & 10.17  & -9.67  & 0 
-    \end{matrix}}.
+               &        &        & 10.17  &-19.33  & 10.17  & 0      \\
+               &        &        &        & 10.17  & -9.67  & 0      \\
+        \hline
+    \end{array}.
 \end{equation}
 
 \subsubsection{$\mathbf{u(0) = 0.175 \radian}$:}
@@ -211,27 +213,32 @@ Die einzufügende Gleichung
 \end{equation}
 ersetzt also die Zeile $0$:
 \begin{equation}
-    \boxed{\begin{matrix}
-         1.00  &        &        &        &        &        & 0.175 \\
-        10.17  &-19.33  & 10.17  &        &        &        & 0 \\
-               & 10.17  &-19.33  & \ddots &        &        & 0 \\
+    \begin{array}{|cccccc|c|}
+        \hline
+         1.00  &        &        &        &        &        & 0.175  \\
+        10.17  &-19.33  & 10.17  &        &        &        & 0      \\
+               & 10.17  &-19.33  & \ddots &        &        & 0      \\
                &        & \ddots & \ddots & 10.17  &        & \vdots \\
-               &        &        & 10.17  &-19.33  & 10.17  & 0 \\
-               &        &        &        & 10.17  & -9.67  & 0 
-    \end{matrix}}.
+               &        &        & 10.17  &-19.33  & 10.17  & 0      \\
+               &        &        &        & 10.17  & -9.67  & 0      \\
+        \hline
+    \end{array}.
 \end{equation}
+TODO: Rot-Blau nach Gauss
 
 Anschliessend wird noch die Spalte Null gesetzt, indem das $ 10.17 $-fache der $1$. Zeile von der $2$. abgezogen wird.
 Es resultiert
 \begin{equation}
-    \boxed{\begin{matrix}
-         1.00  &        &        &        &        &        & 0.175 \\
-               &-19.33  & 10.17  &        &        &        & -1.78 \\
-               & 10.17  &-19.33  & \ddots &        &        & 0 \\
+    \begin{array}{|cccccc|c|}
+        \hline
+         1.00  &        &        &        &        &        & 0.175  \\
+               &-19.33  & 10.17  &        &        &        & -1.78  \\
+               & 10.17  &-19.33  & \ddots &        &        & 0      \\
                &        & \ddots & \ddots & 10.17  &        & \vdots \\
-               &        &        & 10.17  &-19.33  & 10.17  & 0 \\
-               &        &        &        & 10.17  & -9.67  & 0 
-    \end{matrix}}.
+               &        &        & 10.17  &-19.33  & 10.17  & 0      \\
+               &        &        &        & 10.17  & -9.67  & 0      \\
+        \hline
+    \end{array}.
 \end{equation}
 
 \subsubsection{$\mathbf{u'(0) = 0 }$:}
@@ -244,15 +251,17 @@ Es gilt also, zusätzlich die Gleichung
 in das Tableau einzufügen.
 Nach gleichem Vorgehen wie bei der vorherigen Randbedingung resultiert
 \begin{equation}
-    \boxed{\begin{matrix}
-         1.00  &        &        &        &        &        & 0.175 \\
-               &  1.00  &        &        &        &        & 0.175 \\
-               &        &-19.33  & 10.17  &        &        & -1.78 \\
-               &        & 10.17  &-19.33  & \ddots &        & 0 \\
-               &        & \ddots & \ddots & 10.17  &        & \vdots \\
-               &        &        & 10.17  &-19.33  & 10.17  & 0 \\
-               &        &        &        & 10.17  & -9.67  & 0 
-    \end{matrix}},
+    \begin{array}{|ccccccc|c|}
+        \hline
+         1.00  &        &        &        &        &        &        & 0.175  \\
+               &  1.00  &        &        &        &        &        & 0.175  \\
+               &        &-19.33  & 10.17  &        &        &        & -1.78  \\
+               &        & 10.17  &-19.33  & \ddots &        &        & 0      \\
+               &        &        & \ddots & \ddots & 10.17  &        & \vdots \\
+               &        &        &        & 10.17  &-19.33  & 10.17  & 0      \\
+               &        &        &        &        & 10.17  & -9.67  & 0      \\
+        \hline
+    \end{array},
 \end{equation}
 was wieder in Vektorschreibweise dargestellt
 \begin{equation}
