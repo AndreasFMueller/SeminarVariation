@@ -5,8 +5,12 @@
 %
 \begin{figure}
     \centering
-    \includegraphics{papers/fem/images/kubischer_ansatz.pdf}
-    \caption{Formfunktionen des kubischen Ansatzes}
+    \subfloat[Formfunktionen des kubischen Ansatzes]{\includegraphics{papers/fem/images/kubisch_formfkt.pdf}\label{fem:1d:abb:kubisch:formfkt}}
+    \hfill
+    \subfloat[Skalierte Formfunktionen mit der zu interpolierenden Funktion $f(x)$]{\includegraphics{papers/fem/images/kubisch_formfkt_skaliert.pdf}\includegraphics{papers/fem/images/kubisch_formfkt_skaliert_diff}\label{fem:1d:abb:kubisch:skaliert}}
+
+    \subfloat[Gegenüberstellung der interpolierten und der uhrsprünglichen Funktion.]{\includegraphics{papers/fem/images/kubisch_interpoliert.pdf}\label{fem:1d:abb:kubisch:vergleich}}
+    \caption{Kubische Interpolation des Signals $f(x)$.}
     \label{fem:1d:abb:kubisch}
-    \end{figure}
+\end{figure}
     
