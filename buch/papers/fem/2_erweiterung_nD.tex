@@ -62,9 +62,13 @@ Es werden auch hier nur die Einträge ungleich null sein, deren Elemente sich be
 Der Eintrag in der Zeile $a$ und Spalte $b$ ist also nur dann ungleich Null, wenn Element $a$ und Element $b$ im Graphen \ref{fem:nd:2d_mesh_und_basisfkt} verbunden sind.
 
 \subsection{Codieren der Anfangsbedingungen}
-Das Vorgehen zum Codieren der Anfangsbedingungen unterscheidet sich nicht von dem des eindimensionalen Falls. 
-Dieses wurde in Kapitel \ref{fem:1d:anfangsbedingungen} behandelt.
-TODO: Problem der Normal-Ableitung (-> PDE-Vorlesung).
+Beim Codieren von Dirichlet-Randbedingung 
+\footnote{Randbedingungen, bei denen Werte am Rand des Definitionsbereichs vorgegeben sind}
+unterscheidet sich das Vorgehen nicht von dem des im Kapitel \ref{fem:1d:anfangsbedingung} beschriebenen, eindimensionalen Fall. 
+
+Beim Codieren von Neumann-Randbedingungen 
+\footnote{Randbedingungen, die Ableitungswerte am Rand des Definitionsbereichs festlegen}
+ist zu beachten, dass die Normalenableitung bezüglich der äusseren Normalen des Rands $\partial \Omega$ codiert wird.
 
 \subsection{Invertieren der Matrix}
 Auch hier unterscheidet sich das Vorgehen nicht vom im Kapitel \ref{fem:1d:matrix_invertieren} behandelten eindimensionalen Fall.
