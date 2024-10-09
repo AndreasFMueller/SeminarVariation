@@ -27,6 +27,22 @@
     \def\bspFkt(#1){
         (sin(deg(1.4*(#1))) + (#1)/3 + 1/3)
     }
+    \def\interpFkt(#1){
+        % b_1
+        and(#1 >= 1-1, #1 < 1+1) * (-\bspFkt(1)/2*(#1-1+1)*(#1-1-1)) +
+        % b_2
+        and(#1 >= 3-1, #1 < 3+1) * (-\bspFkt(3)/2*(#1-3+1)*(#1-3-1)) +
+        % a_0
+        and(#1 >= 0-2, #1 < 0) * (\bspFkt(0)/4*(#1-(0-2))*(#1-(0-1))) +
+        and(#1 >= 0, #1 < 0+2) * (\bspFkt(0)/4*(#1-(0+2))*(#1-(0+1))) +
+        % a_2
+        and(#1 >= 2-2, #1 < 2) * (\bspFkt(2)/4*(#1-(2-2))*(#1-(2-1))) +
+        and(#1 >= 2, #1 < 2+2) * (\bspFkt(2)/4*(#1-(2+2))*(#1-(2+1))) +
+        % a_4
+        and(#1 >= 4-2, #1 < 4) * (\bspFkt(4)/4*(#1-(4-2))*(#1-(4-1))) +
+        and(#1 >= 4, #1 < 4+2) * (\bspFkt(4)/4*(#1-(4+2))*(#1-(4+1))) +
+        0
+    }
 
     % Plots
         % Beispielfunktion
@@ -35,10 +51,10 @@
     \node at (2cm, 3cm) [color=darkgrey] {$f(x)$};
     
         % Interpolierte Funktion
-    \foreach \x in {1, 2, 3, 4}{
-        \draw[color=darkred,line width=1.4pt] (\x*4-4, {2*\bspFkt(\x-1)}) -- (\x*4, {2*\bspFkt(\x)});
-    }
-    \node at (5cm,2cm) [color=darkred] {$f_{\text{linear}}(x) = \sum_{n=0}^{4}a_n(x)$};
+    \draw[color=darkred,line width=1.4pt] 
+        plot[domain=0:4, scale=4, samples=500]({\x}, {\interpFkt(\x)/2});
+    \node at (5cm,2cm) [color=darkred] {$f_{\text{quadratisch}}(x) = \sum_{n=0}^{2}a_{2n}(x)$};
+    \node at (5cm,1.2cm) [color=darkred] {$+ \sum_{n=0}^{1}b_{2n+1}(x)$};
 
     % x-Achse
     \draw[->] (-0.1,0) -- (16.4,0) coordinate[label={$x$}];
