@@ -124,11 +124,13 @@ Für die Interpolationsfunktion $a(x)$ können verschiedene Ansätze gewählt we
 Der lineare Ansatz verwendet die in Abb. \ref{fem:1d:abb:linear:formfkt} gezeigten linearen Funktionen
 \begin{equation}
     \def\arraystretch{\formfktStretch}
-    a_n(x) = \left\{ \begin{array}{ll}
+    a_n(x) = \left\{ \begin{array}{ccc}
         1+\frac{x-x_n}{x_n - x_{n-1}} 
-            & \text{für} \quad x_{n-1} < x < x_n \\
+            & \text{für} & x_{n-1} < x < x_n \\
+
         1-\frac{x-x_n}{x_{n+1} - x_n} 
-            & \text{für} \quad x_n \leq x < x_{n+1} \\
+            & \text{für} & x_n \leq x < x_{n+1} \\
+
         0
             & \text{sonst}
     \end{array} \right..
@@ -160,11 +162,25 @@ Die Elemente werden anschliessend wieder durchnummeriert.
 Die in Abb. \ref{fem:1d:abb:quadratisch:formfkt} gezeigten Formfunktionen lauten
 \begin{equation}
     \def\arraystretch{\formfktStretch}
-    a_n(x) = \left\{ \begin{array}{ll}
-        \frac{1}{2(x_{n} - x_{n-1})^2} \cdot x^2 + \frac{3}{2 (x_{n} - x_{n-1})} \cdot x + 1  
-            & \text{für} \quad x_{n-2} \leq x < x_n \\
-        \frac{1}{2(x_{n+1} - x_{n})^2} \cdot x^2 - \frac{3}{2 (x_{n+1} - x_{n})} \cdot x + 1
-            & \text{für} \quad x_n < x \leq x_{n+2} \\
+    a_n(x) = \left\{ \begin{array}{ccc}
+         \frac{1}{2} \left(\frac{x-x_{n-1}}{x_{n-2}-x_{n-1}}\right)^2 
+        -\frac{1}{2}       \frac{x-x_{n-1}}{x_{n-2}-x_{n-1}}
+            & \text{für} & x_{n-2} \leq x < x_{n-1} \\
+        
+         \frac{1}{2} \left(\frac{x-x_{n  }}{x_{n-1}-x_{n  }}\right)^2 
+        -\frac{3}{2}       \frac{x-x_{n  }}{x_{n-1}-x_{n  }} 
+        +1  
+            & \text{für} & x_{n-1} \leq x < x_n \\
+        
+         \frac{1}{2} \left(\frac{x-x_{n  }}{x_{n+1}-x_{n  }}\right)^2 
+        -\frac{3}{2}       \frac{x-x_{n  }}{x_{n+1}-x_{n  }} 
+        +1  
+            & \text{für} & x_{n-1} \leq x < x_n \\
+        
+         \frac{1}{2} \left(\frac{x-x_{n+1}}{x_{n+2}-x_{n+1}}\right)^2 
+        -\frac{1}{2}       \frac{x-x_{n+1}}{x_{n+2}-x_{n+1}}
+            & \text{für} & x_{n-1} \leq x < x_n \\
+        
         0
             & \text{sonst}
     \end{array} \right.
@@ -172,11 +188,13 @@ Die in Abb. \ref{fem:1d:abb:quadratisch:formfkt} gezeigten Formfunktionen lauten
 für die Knoten an den Enden der Elemente und
 \begin{equation}
     \def\arraystretch{\formfktStretch}
-    b_n(x) = \left\{ \begin{array}{ll}
-        -\frac{1}{(x_n - x_{n-1})^2} x^2 + 1 
-            & \text{für} \quad x_{n-1} < x < x_n \\
-        -\frac{1}{(x_{n+1} - x_n)^2} x^2 + 1 
-            & \text{für} \quad x_n \leq x < x_{n+1} \\
+    b_n(x) = \left\{ \begin{array}{ccc}
+        -\left(\frac{x-x_{n}}{x_{n}-x_{n-1}}\right)^2+1
+            & \text{für} & x_{n-1} < x < x_n \\
+
+        -\left(\frac{x-x_{n}}{x_{n}-x_{n+1}}\right)^2+1
+            & \text{für} & x_n \leq x < x_{n+1} \\
+
         0 
             & \text{sonst}
     \end{array} \right.
@@ -222,22 +240,30 @@ Dafür muss der Ansatz etwas erweitert werden:
 Die Formfunktionen 
 \begin{equation}
     \def\arraystretch{\formfktStretch}
-    a(x) = \left\{ \begin{array}{ll}
-        - \frac{2}{(x_n - x_{n-1})^3} \cdot x^3 + \frac{3}{(x_n - x_{n-1})^2} \cdot x^2 + 1 
-            & \text{für} \quad x_{n-1} < x < x_n \\
-        \frac{2}{(x_{n+1} - x_n)^3} \cdot x^3 + \frac{3}{(x_{n+1} - x_n)^2} \cdot x^2 + 1 
-            & \text{für} \quad x_n \leq x < x_{n+1} \\
+    a(x) = \left\{ \begin{array}{ccc}
+        - 2 \cdot \left(\frac{x-x_{n-1}}{x_n-x_{n-1}}\right)^3 
+        + 3 \cdot \left(\frac{x-x_{n-1}}{x_n-x_{n-1}}\right)^2 
+            & \text{für} & x_{n-1} < x < x_n \\
+
+        - 2 \cdot \left(\frac{x-x_{n+1}}{x_n-x_{n+1}}\right)^3 
+        + 3 \cdot \left(\frac{x-x_{n+1}}{x_n-x_{n+1}}\right)^2 
+            & \text{für} & x_n \leq x < x_{n+1} \\
+
         0
             & \text{sonst}
     \end{array} \right.
 \end{equation}
 und
 \begin{equation}
-    b(x) = \left\{ \begin{array}{ll}
-        \frac{1}{(x_n - x_{n-1})^2} \cdot x^3 + \frac{2}{x_n - x_{n-1}} \cdot x^2 + x 
+    b(x) = \left\{ \begin{array}{ccc}
+          \left(\frac{(x-x_{n-1})^3}{(x_n-x_{n-1})^2}\right)
+        - \left(\frac{(x-x_{n-1})^2}{x_n-x_{n-1}}\right)
             & \text{für} \quad x_{n-1} < x < x_n \\
-        \frac{1}{(x_{n+1} - x_n)^2} \cdot x^3 - \frac{2}{x_{n+1} - x_n} \cdot x^2 + x 
+
+          \left(\frac{(x-x_{n+1})^3}{(x_n-x_{n+1})^2}\right)
+        - \left(\frac{(x-x_{n+1})^2}{x_n-x_{n+1}}\right)
             & \text{für} \quad x_n \leq x < x_{n+1} \\
+
         0
             & \text{sonst}
     \end{array} \right.
