@@ -192,22 +192,127 @@ Die Ableitung
 nach $s$ an der Stelle $s=0$ ist ein $n$-dimensionales Vektorfeld.
 \end{definition}
 
+\input{chapters/100-symmetrien/fig/fig-rand.tex}%
+
 \begin{satz}
 \label{buch:symmetrien:felder:satz:gebietsintegral}
 Für eine $f\colon \mathbb{R}^n\to\mathbb{R}$ differenzierbare Funktion
 gilt
-\[
+\begin{equation}
 \frac{d}{ds}
 \int_{\varphi^s(U)}
 f(x)\,dx
 \bigg|_{s=0}
 =
 \int_{\partial U} f(x)\vec{v}(x)\cdot d\vec{o}.
-\]
+\label{buch:symmetrien:felder:eqn:gebietsintegral}
+\end{equation}
 \end{satz}
 
-\begin{proof}
-TODO
+\begin{proof}[Beweisskizze]
+Wir beschränken uns auf eine Skizze für den Fall $n=2$, sie lässt
+sich leicht zu einem vollen Beweis für beliebiges $n$ ausbauen.
+
+Die Veränderung des Gebiets entsteht durch Verschiebung des Randes,
+den wir als Kurve $\gamma^s(t)$ parametrisieren 
+Abbildung~\ref{buch:symmetrien:felder:fig:rand}).
+Wir nehmen der Einfachheit halber dass sich die Verschiebung des
+Randes auf das Intervall $[a,b]$ beschränkt, dass also
+$\gamma^s(a)=\operatorname{const}$
+und
+$\gamma^s(b)=\operatorname{const}$
+ist.
+Da es in \eqref{buch:symmetrien:felder:eqn:gebietsintegral}
+nur um die Ableitung geht, ist nur die Verschiebung des Randes 
+in erster Ordnung wichtig.
+Wir können daher die Verschiebung durch
+\[
+\gamma^s(t) 
+=
+\gamma^0(t)
++
+s \frac{\partial \gamma^s}{\partial s}(t) \bigg|_{s=0}
++ o(s)
+=
+\gamma^0(t)
++
+s\vec{v}(\gamma^0(t))
++
+o(s)
+\]
+beschreiben.
+Die Variablen $s$ und $t$ beschreiben ein Koordinatensystem in der
+Nähe des Randes, mit dem das Integral in der Nähe es Randes ausgewertet
+werden kann.
+
+In jedem Punkt $\gamma^0(t)$ des Randes sei $\vec{n}(t)$ die nach
+aussen zeigende Normale.
+Wenn der Rand um $s\vec{v}(\gamma^0(t))$ verschoben wird,
+ändert sich sein Abstand vom Rand um 
+$s\vec{v}(\gamma^0(t))\cdot \vec{n}(t)$.
+Der Rand für Parameterwerte zwischen $t$ und $t+dt$ überstreicht
+daher in Parallelogramm mit Flächeninhalt
+\[
+dF
+=
+s\vec{v}(\gamma^0(t))\cdot \vec{n}(t)
+\,
+|\dot{\gamma(t)}|
+\,dt.
+\]
+
+Das Veränderung des Gebietsintegrals durch die Verschiebung des
+Randes kann daher in erster Ordnung durch
+\begin{align*}
+\int_{\varphi^s(U)} f(x)\,dx
+&=
+\int_{\varphi^0(U)} f(x)\,dx
++
+\int_a^b
+f(\gamma(t))
+\,dF
+\\
+&=
+\int_{\varphi^0(U)} f(x)\,dx
++
+s
+\int_a^b
+f(\gamma(t))
+\,
+\vec{v}(\gamma^0(t))
+\cdot \vec{n}(t)
+\,
+|\dot{\gamma}^0(t)|
+\,dt
++
+o(s)
+\end{align*}
+gegeben.
+Für die Ableitung folgt daher das Integral
+\begin{align*}
+\frac{d}{ds}
+\int_{\varphi^s(U)} f(x)\,dx\,\bigg|_{s=0}
+&=
+\int_a^b
+f(\gamma^0(t))
+\,
+\vec{v}(\gamma^0(t)) \cdot \vec{n}(t)
+\,
+|\dot{\gamma}^0(t)|\,dt
+\\
+&=
+\int_{\partial U}
+f(x)
+\,
+\vec{v}(x) \cdot
+d\vec{n}.
+\end{align*}
+Dies ist das Integral des Flusses des Vektorfeldes 
+\[
+f(x)  \vec{v}(x),\qquad x\in\partial U,
+\]
+durch den Rand des Gebietes.
+Damit ist der Satz in diesem Spezialfall bewiesen.
 \end{proof}
 
 \begin{definition}

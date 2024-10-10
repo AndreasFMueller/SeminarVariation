@@ -1,0 +1,123 @@
+%
+% rand.tex -- Verschiebung des Randes
+%
+% (c) 2021 Prof Dr Andreas Müller, OST Ostschweizer Fachhochschule
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+\usetikzlibrary{arrows,intersections,math}
+\begin{document}
+\def\skala{1}
+\def\a{60}
+\def\b{140}
+\def\T{103}
+\def\TT{120}
+\def\dt{-5}
+\pgfmathparse{(\b-\a)*(\b-\a)/4}
+\xdef\m{\pgfmathresult}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\begin{tikzpicture}[>=latex,thick,scale=\skala,
+declare function = {
+	sqr(\t) = \t * \t;
+	X(\t) = 8*cos(\t-40)+2.0;
+	Y(\t) = 4*sin(\t-40)-1;
+	dotX(\t) = -8*sin(\t-40);
+	dotY(\t) = 4*cos(\t-40);
+	l(\t) = sqrt(sqr(dotX(\t))+sqr(dotY(\t)));
+	tx(\t) = dotX(\t) / l(\t);
+	ty(\t) = dotY(\t) / l(\t);
+	nx(\t) = ty(\t);
+	ny(\t) = -tx(\t);
+	S(\t) = sqr((\t-\a)*(\t-\b)/\m);
+	Vx(\t) = 3;
+	Vy(\t) = 2;
+	v(\t) = sqrt(sqr(Vx(\t))+sqr(Vy(\t)));
+	gammax(\t,\s) = X(\t) + \s*Vx(\t);
+	gammay(\t,\s) = Y(\t) + \s*Vy(\t);
+}]
+
+\begin{scope}
+	\clip (-0.1,-0.1) rectangle (10.3,6.3);
+	\fill[color=blue!10]
+		plot[domain={\a}:{\b},smooth]
+			({X(\x)+S(\x)*Vx(\x)},{Y(\x)+S(\x)*Vy(\x)})
+		--
+		plot[domain={\a}:{\b},smooth]
+			({X(\x-\b+\a)},{Y(\x-\b+\a)})
+		-- cycle;
+	\fill[color=blue!20] (-1,-1)
+		-- 
+		plot[domain=0:160,smooth] ({X(\x)},{Y(\x)})
+		-- cycle;
+	\draw plot[domain=0:160,samples=100] ({X(\x)},{Y(\x)});
+
+
+	\fill[color=blue] ({X(\a)},{Y(\a)}) circle[radius=0.08];
+	\fill[color=blue] ({X(\b)},{Y(\b)}) circle[radius=0.08];
+	\fill[color=darkred!20]
+		plot[domain={\T+\dt}:{\T},smooth] ({X(\x)},{Y(\x)})
+		--
+		({gammax(\T,S(\T))},{gammay(\T,S(\T))})
+		--
+		({X(\T+\dt)+S(\T)*Vx(\T)},{Y(\T+\dt)+S(\T)*Vy(\T)})
+		--
+		cycle;
+	\draw[color=blue,line width=1.2pt]
+		plot[domain=\a:\b,samples=100]
+		({X(\x)+S(\x)*Vx(\x)},{Y(\x)+S(\x)*Vy(\x)});
+	\node[color=darkred]
+		at ({X(\T+0.5*(\dt))+0.5*S(\T)*Vx(\T)},{Y(\T+0.5*(\dt))+0.5*S(\T)*Vy(\T)})
+		{$dF$};
+	\draw[->,color=darkred,line width=1.4pt]
+		({X(\T)},{Y(\T)})
+		-- 
+		({X(\T)+S(\T)*Vx(\T)},{Y(\T)+S(\T)*Vy(\T)});
+	\draw[color=darkred,line width=1.2pt,<-]
+		plot[domain={\T+\dt}:{\T},samples=3] ({X(\x)},{Y(\x)});
+	\node[color=darkred] at ({X(\T+0.5*(\dt))},{Y(\T+0.5*(\dt))})
+		[below left] {$|\dot{\gamma}^0(t)|\,dt$};
+
+	\pgfmathparse{nx(\T)*Vx(\T)+ny(\T)*Vy(\T)}
+	\xdef\noffset{\pgfmathresult}
+	\draw[color=darkgreen,line width=0.5pt] 
+		({X(\T)+\noffset*nx(\T)},{Y(\T)+\noffset*ny(\T)})
+		--
+		++({tx(\T)},{ty(\T)});
+	\draw[color=darkgreen,line width=0.5pt] 
+		({X(\T)+\noffset*nx(\T)},{Y(\T)+\noffset*ny(\T)})
+		--
+		++({-4*tx(\T)},{-4*ty(\T)});
+
+	\draw[line width=0.5pt,color=darkgreen]
+		({X(\T)},{Y(\T)}) -- ++({\noffset*nx(\T)},{\noffset*ny(\T)});
+	\draw[->,line width=1.4pt,color=darkgreen]
+		({X(\T)},{Y(\T)}) -- ++({nx(\T)},{ny(\T)});
+	\node[color=darkgreen] at ({X(\T)+nx(\T)},{Y(\T)+ny(\T)})
+		[left] {$\vec{n}$};
+
+	\node[color=darkgreen] at
+		({X(\T)+\noffset*nx(\T)},{Y(\T)+\noffset*ny(\T)})
+		[above left,rotate={atan(ny(\T)/nx(\T))}]
+		{$\vec{v}\cdot \vec{n}$};
+
+	\node[color=darkred] at
+		({X(\T)+0.5*S(\T)*Vx(\T)},{Y(\T)+0.5*S(\T)*Vy(\T)})
+		[above,rotate=40] {$\vec{v}$};
+
+	\fill[color=darkred] ({X(\T)},{Y(\T)}) circle[radius=0.08];
+
+	\node[color=blue] at ({X(\TT)+S(\TT)*Vx(\TT)},{Y(\TT)+S(\TT)*Vy(\TT)})
+		[above] {$\gamma^s(t)$};
+\end{scope}
+
+\draw[->] (-0.1,0) -- (10.3,0) coordinate[label={$x_1$}];
+\draw[->] (0,-0.1) -- (0,6.3) coordinate[label={right:$x_2$}];
+
+\end{tikzpicture}
+\end{document}
+
