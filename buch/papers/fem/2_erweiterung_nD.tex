@@ -34,7 +34,7 @@ wird zu
 
 \subsection{Diskretisieren}
 Meist wird das zu evaluierende Gebiet in Dreiecke, Tetraeder oder höherdimensionale euklidische Simplexe unterteilt. 
-Entlang den Dreieckskanten werden dieselben Formfunktionen, die im Kapitel \ref{fem:1d:diskretisieren} beschrieben wurden, verwendet.
+Entlang den Dreieckskanten werden dieselben Formfunktionen, die im Abschnitt \ref{fem:1d:diskretisieren} beschrieben wurden, verwendet.
 Das Gebiet zwischen zwei Elementverbindungen wird wie in der Abbildung \ref{fem:nd:basisfkt} ``ausgefüllt''.
 \input{papers/fem/fig/2d_mesh_und_basisfkt.tex}
 
@@ -48,27 +48,27 @@ Es sollte ein Bild ähnlich des zweidimensionalen Beispiels in Abbildung \ref{fe
 resultieren.
 
 Zum Befüllen der Matrizen wird analog zum eindimensionalen Fall jeder Eintrag mit der zugehörigen Formel ausgewertet.
-Für $\mathbf{L}$ gilt
+Für $\mathbf{L}$ sind die Matrixelemente
 \begin{equation}
     l_{ij} = \int_{\Omega} \nabla a_i(\vec{x}) \cdot \nabla a_j(\vec{x}) \diff \vec{x},
 \end{equation}
-während für $\mathbf{M}$ 
+während für jene von $\mathbf{M}$ 
 \begin{equation}
     m_{ij} = \int_{\Omega} a_i(\vec{x}) \cdot a_j(\vec{x}) \diff \vec{x}
 \end{equation}
 eingesetzt werden muss.
 
-Es werden auch hier nur die Einträge ungleich null sein, deren Elemente sich wie in Abbildung \ref{fem:nd:formfkt} gezeigt berühren.
-Der Eintrag in der Zeile $a$ und Spalte $b$ ist also nur dann ungleich Null, wenn Element $a$ und Element $b$ im Graphen \ref{fem:nd:2d_mesh} verbunden sind.
+Es werden auch hier nur die Einträge ungleich null sein, deren Elemente sich wie in Abbildung \ref{fem:nd:basisfkt} gezeigt berühren.
+Der Eintrag in der Zeile $a$ und Spalte $b$ ist also nur dann ungleich Null, wenn Element $a$ und Element $b$ im Graphen, welcher in Abbildung \ref{fem:nd:2d_mesh} gezeigt ist, verbunden sind.
 
 \subsection{Codieren der Anfangsbedingungen}
-Beim Codieren von Dirichlet-Randbedingung 
+Beim Codieren von Dirichlet-Randbedingungen
 \footnote{Randbedingungen, bei denen Werte am Rand des Definitionsbereichs vorgegeben sind}
-unterscheidet sich das Vorgehen nicht von dem des im Kapitel \ref{fem:1d:anfangsbedingung} beschriebenen eindimensionalen Fall. 
+unterscheidet sich das Vorgehen nicht von dem des im Abschnitt \ref{fem:1d:anfangsbedingungen} beschriebenen eindimensionalen Fall. 
 
 Beim Codieren von Neumann-Randbedingungen 
 \footnote{Randbedingungen, die Ableitungswerte am Rand des Definitionsbereichs festlegen}
 ist zu beachten, dass die Normalenableitung bezüglich der äusseren Normalen des Rands $\partial \Omega$ codiert wird.
 
 \subsection{Invertieren der Matrix}
-Hier unterscheidet sich das Vorgehen nicht vom im Kapitel \ref{fem:1d:matrix_invertieren} behandelten eindimensionalen Fall.
+Hier unterscheidet sich das Vorgehen nicht vom im Abschnitt \ref{fem:1d:matrix_invertieren} behandelten eindimensionalen Fall.
