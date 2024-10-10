@@ -25,6 +25,11 @@ Um die einzelnen Schritte darzustellen, betrachten wir das Problem
 \end{equation}
 was der Poisson-Gleichung entspricht. 
 Diese findet in vielen Teilen der Physik Anwendung und ist gleichzeitig ein gutes, einfaches Beispiel einer mit der FEM lösbaren Differenzialgleichung.
+Si soll im ganzen Definitionsbereich
+\begin{equation}
+    l = [a,b]
+\end{equation}
+gelten.
 
 
 \subsection{Bilden der schwachen Form}
@@ -33,7 +38,7 @@ Zuvor werden jedoch beide Seiten mit der Testfunktion $ v(x) $ multipliziert.
 Diese wird definiert als eine beliebige Funktion $ v \colon \mathbb{R} \rightarrow \mathbb{R} $.
 Die resultierende Gleichung
 \begin{equation}
-    \int(u''(x) \cdot v(x)) \diff x = \int(f(x) \cdot v(x)) \diff x \myforall v(x)
+    \int_l(u''(x) \cdot v(x)) \diff x = \int_l(f(x) \cdot v(x)) \diff x \myforall v(x)
     \label{fem:1d:schwache_form}
 \end{equation}
 sollte einem bekannt vorkommen, denn sie entsteht auch beim Herleiten der ersten Variation.
@@ -41,18 +46,18 @@ Im Kapitel \ref{buch:variation:section:fundamentallemma} zum Fundamentallemma wi
 
 Durch partielles Integrieren der linken Seite kann die Ordnung der Differenzialgleichung um eins verringert werden:
 \begin{align}
-    \int f(x) \cdot v(x) \diff x &= \int u''(x) \cdot v(x) \diff x \\
-                                 &= \left[ u'(x) \cdot v(x) \right]_{x_1}^{x_2} - \int u'(x) \cdot v'(x) \diff x \\
-                                 &= - \int u'(x) \cdot v'(x) \diff x \\
+    \int_l f(x) \cdot v(x) \diff x &= \int_l u''(x) \cdot v(x) \diff x \\
+                                 &= \left[ u'(x) \cdot v(x) \right]_{a}^{b} - \int_l u'(x) \cdot v'(x) \diff x \\
+                                 &= - \int_l u'(x) \cdot v'(x) \diff x \\
                                  &= - \Phi(u, v)
 \end{align}
 wobei der Term
 \begin{equation}
-    \left[ u'(x) \cdot v(x) \right]_{x_1}^{x_2}
+    \left[ u'(x) \cdot v(x) \right]_{a}^{b}
 \end{equation}
 Null ist, wenn die Funktion $u'(x)$ die Randbedingung
 \begin{equation}
-    u'(x_1) = u'(x_2) = 0
+    u'(a) = u'(b) = 0
 \end{equation}
 erfüllt. 
 
@@ -223,7 +228,7 @@ für Knotenpunkte in der Mitte der Elemente hergeleitet werden.
 Dabei ist zu beachten, dass die Formfunktionen $a_n(x)$ aus zwei quadratischen Funktionen zusammensetzen: 
 Eine für den Bereich $x_{n-2} \leq x \leq x_n$ und eine für den Bereich $x_n \leq x \leq x_{n+2}$.
 
-Die resultierende interpolierte Funktion $f_\text{quadratisch} (x)$, gezeigt in Abb. \ref{em:1d:abb:quadratisch:vergleich}, folgt der vorgegebenen Funktion $f(x)$ schon viel besser als im linearen Fall.
+Die resultierende interpolierte Funktion $f_\text{quadratisch} (x)$, gezeigt in Abbildung \ref{fem:1d:abb:quadratisch:vergleich}, folgt der vorgegebenen Funktion $f(x)$ schon viel besser als im linearen Fall.
 Es äussert sich jedoch auch eine Schwäche des quadratischen Ansatzes: 
 An der Stützstelle $x_2$ ist aufgrund der unstetigen Ableitung von $f_\text{quadratisch}$ ein leichter Knick zu erkennen.
 Dies ist nicht besonders schön.
@@ -306,18 +311,18 @@ Mit den Approximationen
 \end{align}
 aus der Diskretisierung kann die schwache Form der Differenzialgleichung 
 \begin{equation}
-    - \int u'(x) \cdot v'(x) \diff x = \int f(x) \cdot v(x) \diff x
+    - \int_l u'(x) \cdot v'(x) \diff x = \int_l f(x) \cdot v(x) \diff x
 \end{equation}
 als
 \begin{equation}
-    - \int \biggl(\sum_i u_i \cdot a'_i(x)\biggr) \biggl(\sum_j v_j \cdot a'_j(x)\biggr) \diff x 
-    = \int \biggl(\sum_i f_i \cdot a_i(x) \biggr) \biggl(\sum_j v_j \cdot a_j(x) \biggr) \diff x 
+    - \int_l \biggl(\sum_i u_i \cdot a'_i(x)\biggr) \biggl(\sum_j v_j \cdot a'_j(x)\biggr) \diff x 
+    = \int_l \biggl(\sum_i f_i \cdot a_i(x) \biggr) \biggl(\sum_j v_j \cdot a_j(x) \biggr) \diff x 
     \myforall v_i
 \end{equation}
 geschrieben werden.
 Die vorherige Gleichung kann zu
 \begin{equation}
-    - \int \sum_i u_i \cdot a'_i(x) \cdot a'_j(x) \diff x = \int \sum_i f_i \cdot a_i(x) \cdot a_j(x) \diff x \myforall j
+    - \int_l \sum_i u_i \cdot a'_i(x) \cdot a'_j(x) \diff x = \int_l \sum_i f_i \cdot a_i(x) \cdot a_j(x) \diff x \myforall j
 \end{equation}
 vereinfacht werden.
 Dabei wird die Menge der Testfunktionen reduziert.
@@ -325,7 +330,7 @@ Um nicht alle Testfunktionen mit beliebig breitem Träger berücksichtigen zu m�
 Da alle anderen Testfunktionen aus diesen ``zusammengebaut'' werden können, ist die Gleichung auch für diese erfüllt.
 Diese Vereinfachung ermöglicht es, die Summen aus den Integralen zu bringen und die Gleichung als
 \begin{equation}
-    - \sum_i u_i \underbrace{\int a'_i(x) \cdot a'_j(x) \diff x}_{l_{ij}} = \sum_i f_i \underbrace{\int a_i(x) \cdot a_j(x) \diff x}_{l_{ij}} \myforall j \label{papers:fem:prinzip1d:finale_gleichung}
+    - \sum_i u_i \underbrace{\int_l a'_i(x) \cdot a'_j(x) \diff x}_{l_{ij}} = \sum_i f_i \underbrace{\int_l a_i(x) \cdot a_j(x) \diff x}_{l_{ij}} \myforall j \label{papers:fem:prinzip1d:finale_gleichung}
 \end{equation}
 zu schreiben.
 Übrig bleibt also, da die Integrale ausgewertet werden können, ein lineares Gleichungssystem mit $N$ Unbekannten $u_i$ und $N$ Gleichungen (eine pro $j$). 
@@ -334,9 +339,9 @@ Das erhaltene Gleichungssystem lässt sich nun sehr gut als Matrizen, bei denen 
 \begin{multline}
     -\left(
         \begin{matrix}
-            \int a'_1(x) \cdot a'_1(x) \diff x & \hdots & \int a'_N(x) \cdot a'_1(x) \diff x \\
-            \vdots                          & \ddots & \vdots                           \\
-            \int a'_1(x) \cdot a'_N(x) \diff x & \hdots & \int a'_N(x) \cdot a'_N(x) \diff x \\
+            \int_l a'_1(x) \cdot a'_1(x) \diff x & \hdots & \int_l a'_N(x) \cdot a'_1(x) \diff x \\
+            \vdots                               & \ddots & \vdots                               \\
+            \int_l a'_1(x) \cdot a'_N(x) \diff x & \hdots & \int_l a'_N(x) \cdot a'_N(x) \diff x \\
         \end{matrix}
     \right)
     \left(
@@ -349,9 +354,9 @@ Das erhaltene Gleichungssystem lässt sich nun sehr gut als Matrizen, bei denen 
     = \\
     \left(
         \begin{matrix}
-            \int a_1(x) \cdot a_1(x) \diff x & \hdots & \int a_N(x) \cdot a_1(x) \diff x \\
-            \vdots                        & \ddots & \vdots                         \\
-            \int a_1(x) \cdot a_N(x) \diff x & \hdots & \int a_N(x) \cdot a_N(x) \diff x \\
+            \int_l a_1(x) \cdot a_1(x) \diff x & \hdots & \int_l a_N(x) \cdot a_1(x) \diff x \\
+            \vdots                             & \ddots & \vdots                             \\
+            \int_l a_1(x) \cdot a_N(x) \diff x & \hdots & \int_l a_N(x) \cdot a_N(x) \diff x \\
         \end{matrix}
     \right)
     \left(
@@ -375,7 +380,7 @@ führt.
 
 $\mathbf{L}$ wird aufgrund des schmalen Trägers der Funktionen $a_n(x)$ (sowie $b_n(x)$ beim kubischen Ansatz) sehr schwach besetzt sein, da viele der Integrale
 \begin{equation}
-    \quad \int a'_i(x) \cdot a'_j(x) \diff x 
+    \quad \int_l a'_i(x) \cdot a'_j(x) \diff x 
 \end{equation}
 Null sein werden.
 Von Null verschieden sind nur die Einträge, deren zugehörige Datenpunkte nebeneinander liegen.
