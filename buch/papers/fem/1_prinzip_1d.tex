@@ -42,14 +42,14 @@ Die resultierende Gleichung
     \label{fem:1d:schwache_form}
 \end{equation}
 sollte einem bekannt vorkommen, denn sie entsteht auch beim Herleiten der ersten Variation.
-Im Kapitel \ref{buch:variation:section:fundamentallemma} zum Fundamentallemma wird bewiesen, dass die beiden Ausdrücke \ref{fem:1d:poisson_gleichung} und \ref{fem:1d:schwache_form} gleichwertig sind.
+Im Kapitel \ref{buch:variation:section:fundamentallemma} zum Fundamentallemma wird bewiesen, dass die beiden Ausdrücke \eqref{fem:1d:poisson_gleichung} und \eqref{fem:1d:schwache_form} gleichwertig sind.
 
 Durch partielles Integrieren der linken Seite kann die Ordnung der Differenzialgleichung um eins verringert werden:
 \begin{align}
     \int_l f(x) \cdot v(x) \diff x &= \int_l u''(x) \cdot v(x) \diff x \\
                                  &= \left[ u'(x) \cdot v(x) \right]_{a}^{b} - \int_l u'(x) \cdot v'(x) \diff x \\
                                  &= - \int_l u'(x) \cdot v'(x) \diff x \\
-                                 &= - \Phi(u, v)
+                                 &= - \Phi(u, v),
 \end{align}
 wobei der Term
 \begin{equation}
@@ -126,7 +126,7 @@ Für die Interpolationsfunktion $a(x)$ können verschiedene Ansätze gewählt we
 
 \subsubsection{Linearer Ansatz}
 \input{papers/fem/fig/linearer_ansatz.tex}
-Der lineare Ansatz verwendet die in Abb. \ref{fem:1d:abb:linear:formfkt} gezeigten linearen Funktionen
+Der lineare Ansatz verwendet die in Abbildung \ref{fem:1d:abb:linear:formfkt} gezeigten linearen Funktionen
 \begin{equation}
     \def\arraystretch{\formfktStretch}
     a_n(x) = \left\{ \begin{array}{ccc}
@@ -140,7 +140,6 @@ Der lineare Ansatz verwendet die in Abb. \ref{fem:1d:abb:linear:formfkt} gezeigt
             & \text{sonst}
     \end{array} \right..
 \end{equation}
-
 Diese Formfunktionen können mit dem Ansatz 
 \begin{equation}
     a_n(x) = c_1x + c_0
@@ -164,7 +163,7 @@ Pro Element wird nun ein weiterer Knoten definiert.
 Dieser wird oft in der Mitte des Elements gewählt und erhält seine eigene Formfunktion.
 Die Elemente werden anschliessend wieder durchnummeriert.
 
-Die in Abb. \ref{fem:1d:abb:quadratisch:formfkt} gezeigten Formfunktionen lauten
+Die in Abbildung \ref{fem:1d:abb:quadratisch:formfkt} gezeigten Formfunktionen lauten
 \begin{equation}
     \def\arraystretch{\formfktStretch}
     a_n(x) = \left\{ \begin{array}{ccc}
@@ -236,7 +235,7 @@ Abhilfe schafft der kubische Ansatz.
 
 \subsubsection{Kubischer Ansatz}
 \input{papers/fem/fig/kubischer_ansatz.tex}
-Der kubische Ansatz erbringt die Möglichkeit, den Wert der Funktion wie auch den Wert der Ableitung an den Stützstellen frei zu wählen.
+Der kubische Ansatz bringt die Möglichkeit, den Wert der Funktion wie auch den Wert der Ableitung an den Stützstellen frei zu wählen.
 Dafür muss der Ansatz etwas erweitert werden:
 \begin{equation}
     u(x) \approx \sum_{n}{u_n \cdot a_n(x)} \rightarrow u(x) \approx \sum_{n}{u_n \cdot a_n(x) + u'_n \cdot b_n(x)}.
@@ -273,7 +272,7 @@ und
             & \text{sonst}
     \end{array} \right.
 \end{equation}
-dargestellt in Abb. \ref{fem:1d:abb:kubisch:formfkt}, können mit dem Ansatz
+dargestellt in Abbildung \ref{fem:1d:abb:kubisch:formfkt}, können mit dem Ansatz
 \begin{equation}
     a(x) = c_3x^3 + c_2x^2 + c_1x + c_0 
     \quad \text{bzw.} \quad
@@ -385,7 +384,7 @@ $\mathbf{L}$ wird aufgrund des schmalen Trägers der Funktionen $a_n(x)$ (sowie 
 Null sein werden.
 Von Null verschieden sind nur die Einträge, deren zugehörige Datenpunkte nebeneinander liegen.
 Die Matrix ist also symmetrisch, da es keine Rolle spielt in welcher Reihenfolge man die Testfunktionen multipliziert.
-Da $\mathbf{L}$ die Gram-Matrix\footnote{Mehr über die Gram-Matrix im Buch Lineare Algebra: Eine anwendungsorientierte Einführung\cite{buch:linalg}.} des Skalarprodukts darstellt und das Skalarprodukt positiv definit ist, ist auch $\mathbf{L}$ positiv definit.
+Da $\mathbf{L}$ die Gram-Matrix\footnote{Mehr über die Gram-Matrix im Buch Lineare Algebra: Eine anwendungsorientierte Einführung \cite{buch:linalg}.} des Skalarprodukts darstellt und das Skalarprodukt positiv definit ist, ist auch $\mathbf{L}$ positiv definit.
 
 \subsubsection{Kubischer Ansatz}
 Auch hier verlangt der kubische Ansatz mit seinen zwei Funktionen pro Datenpunkt eine leichte Anpassung: 
@@ -419,10 +418,10 @@ repräsentiert werden.
 Das Ziel ist es nun also, die Anfangsbedingung
 \begin{equation}
     u_n = c \in \mathbb{R} 
-    \label{fem:1d:anfangsbedingung}
+    \label{fem:1d:eq:anfangsbedingung}
 \end{equation}
 in das Gleichungssystem einzufügen.
-Am einfachsten gelingt dies, indem man die $n$-te Zeile so umformt, dass sie die Gleichung \ref{fem:1d:anfangsbedingung} widerspiegelt.
+Am einfachsten gelingt dies, indem man die $n$-te Zeile so umformt, dass sie die Gleichung \ref{fem:1d:eq:anfangsbedingung} widerspiegelt.
 Ist beispielsweise $n = 2$ gegeben, so resultiert
 \begin{equation}
     \begin{array}{|ccccc|c|}
@@ -444,7 +443,7 @@ Ist beispielsweise $n = 2$ gegeben, so resultiert
 Die dabei ersetzte Gleichung sagt, wie jede Zeile der Matrix, etwas über den Bezug von den verschiedenen Knotenvariablen zueinander aus.
 Diese wird durch die Anfangsbedingung, die etwas über eine einzelne Variable aussagt, ersetzt.
 Es kann grundsätzlich irgendeine Zeile des Gleichungssystems durch die Anfangsbedingung ersetzt werden, denn da für die $N$ unbekannten nach wie vor $N$ Gleichungen bestehen, kann das Gleichungssystem immernoch gelöst werden.
-Es macht jedoch aus Hinsicht der Effizienz Sinn, diese Zeile zu wählen, die nach dem Einfügen der Randbedingung eine Symmetrische Matrix zur Folge hat.
+Es macht jedoch im Hinblick auf Effizienz Sinn, diese Zeile zu wählen, die nach dem Einfügen der Randbedingung eine symmetrische Matrix zur Folge hat.
 
 Durch die vorherige Operation wurde die Matrix asymmetrisch. 
 Es sollte nun also die Symmetrie wieder hergestellt werden.
