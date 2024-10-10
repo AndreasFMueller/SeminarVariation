@@ -212,7 +212,7 @@ Dies ist nicht besonders schön.
 Abhilfe schafft der kubische Ansatz.
 
 \subsubsection{Kubischer Ansatz}
-\input{papers/fem/fig/kubischer_ansatz.tex} % TODO: Widerholende Formfunktionen und Summe deren als Graphen zeigen
+\input{papers/fem/fig/kubischer_ansatz.tex}
 Der kubische Ansatz erbringt die Möglichkeit, den Wert der Funktion wie auch den Wert der Ableitung an den Stützstellen frei zu wählen.
 Dafür muss der Ansatz etwas erweitert werden:
 \begin{equation}
@@ -242,7 +242,7 @@ und
             & \text{sonst}
     \end{array} \right.
 \end{equation}
-dargestellt in Abb. \ref{fem:1d:abb:kubisch}, können mit dem Ansatz
+dargestellt in Abb. \ref{fem:1d:abb:kubisch:formfkt}, können mit dem Ansatz
 \begin{equation}
     a(x) = c_3x^3 + c_2x^2 + c_1x + c_0 
     \quad \text{bzw.} \quad
@@ -392,22 +392,27 @@ Das Ziel ist es nun also, die Anfangsbedingung
 \end{equation}
 in das Gleichungssystem einzufügen.
 Am einfachsten gelingt dies, indem man die $n$-te Zeile so umformt, dass sie die Gleichung \ref{fem:1d:anfangsbedingung} widerspiegelt.
-Ist beispielsweise $n = 2$ gewählt, so resultiert
+Ist beispielsweise $n = 2$ gegeben, so resultiert
 \begin{equation}
     \begin{array}{|ccccc|c|}
         \hline
-        l_{11} & l_{12} & l_{13} & \cdots & l_{1N} & -b_1   \\
-        0      & 1      & 0      & \cdots & 0      & c      \\
-        l_{31} & l_{32} & l_{33} & \cdots & l_{3N} & -b_3   \\
+        l_{11} & 
+        \backwardsubstitution{0.1cm}{0.175cm}{-0.075cm}{-0.11cm}
+                 l_{12} & l_{13} & \cdots & l_{1N} & -b_1   \\
+        0      & 
+        \pivotoperation{0.1cm}{0cm}{-0.175cm}{-0.1cm}
+                 1      & 0      & \cdots & 0      & c      \\
+        l_{31} & 
+        \forwardreduction{0.1cm}{1.3cm}{-0.075cm}{-1.2cm}
+                 l_{32} & l_{33} & \cdots & l_{3N} & -b_3   \\
         \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
         l_{N1} & l_{N2} & l_{N3} & \cdots & l_{NN} & -b_N   \\
         \hline
     \end{array}.
 \end{equation}
-TODO: Rot-Blau nach Gauss.
 Die dabei ersetzte Gleichung sagt, wie jede Zeile der Matrix, etwas über den Bezug von den verschiedenen Knotenvariablen zueinander aus.
 Diese wird durch die Anfangsbedingung, die etwas über eine einzelne Variable aussagt, ersetzt.
-Es kann grundsätzlich irgendeine Zeile des Gleichungssystems durch die Anfangsbedingung ersetzt werden, denn da für die $N$ unbekannten nach wie vor $N$ Gleichungen bestehen, kann das Gleichungssystem nach wie vor gelöst werden.
+Es kann grundsätzlich irgendeine Zeile des Gleichungssystems durch die Anfangsbedingung ersetzt werden, denn da für die $N$ unbekannten nach wie vor $N$ Gleichungen bestehen, kann das Gleichungssystem immernoch gelöst werden.
 Es macht jedoch aus Hinsicht der Effizienz Sinn, diese Zeile zu wählen, die nach dem Einfügen der Randbedingung eine Symmetrische Matrix zur Folge hat.
 
 Durch die vorherige Operation wurde die Matrix asymmetrisch. 
@@ -425,7 +430,6 @@ Es resultiert
             \hline
         \end{array}.
 \end{equation}
-TODO: Rot-Blau nach Gauss.
 Dabei ist leicht zu erkennen, dass homogene Anfangsbedingungen, also $c=0$, besonders einfach zu codieren sind, da der von $-\vec{b}$ subtrahierte Term Null sein wird.
 
 \subsubsection{Codieren von gegebenen Ableitungen}

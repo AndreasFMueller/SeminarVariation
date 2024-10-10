@@ -55,13 +55,13 @@ gegeben.
 \subsection{Bilden der schwachen Form}
 Die schwache Form des Problems lautet
 \begin{equation}
-    \int\limits_\Omega \left( \theta'' + \frac{g}{l} \theta \right) \cdot v \diff t 
-    = \int\limits_\Omega \theta'' \cdot v \diff t + \int\limits_\Omega \frac{g}{l} \theta \cdot v \diff t
+    \int_\Omega \left( \theta'' + \frac{g}{l} \theta \right) \cdot v \diff t 
+    = \int_\Omega \theta'' \cdot v \diff t + \int_\Omega \frac{g}{l} \theta \cdot v \diff t
     = 0
 \end{equation}
-und kann durch partielles Integrieren des Terms $\int\limits_\Omega \theta'' \cdot v \diff t$ zu einer Differenzialgleichung erster Ordnung gemacht werden:
+und kann durch partielles Integrieren des Terms $\int_\Omega \theta'' \cdot v \diff t$ zu einer Differenzialgleichung erster Ordnung gemacht werden:
 \begin{equation}
-    - \int\limits_\Omega \theta' \cdot v' \diff t + \int\limits_\Omega \frac{g}{l} \theta \cdot v \diff t = -\Phi(\theta, v) = 0
+    - \int_\Omega \theta' \cdot v' \diff t + \int_\Omega \frac{g}{l} \theta \cdot v \diff t = -\Phi(\theta, v) = 0
     \label{fem:rechenbsp:schwache_form}
 \end{equation}
 
@@ -99,7 +99,7 @@ Der Vektor $\vec{b}$ ist in diesem Fall besonders einfach zu bestimmen: Da die r
 \end{equation}
 Um die Elemente der Matrix $\mathbf{L}$ zu ermitteln, werden die Integrale aus Gleichung \ref{fem:rechenbsp:schwache_form} verwendet:
 \begin{equation}
-    l_{ij} = - \int\limits_\Omega a_i'(t) \cdot a_j'(t) \diff t + \int\limits_\Omega \frac{g}{l} a_i(t) \cdot a_j(t) \diff t.
+    l_{ij} = - \int_\Omega a_i'(t) \cdot a_j'(t) \diff t + \int_\Omega \frac{g}{l} a_i(t) \cdot a_j(t) \diff t.
 \end{equation}
 Im eindimensionalen Fall kann mittels einfacher Bedingungen zwischen den drei Fällen unterschieden werden:
 \begin{itemize}
@@ -117,17 +117,17 @@ Da die Integrale aller Elemente gleich und die Formfunktionen symmetrisch sind, 
 der Formfunktion $ a_1(t) = \frac{t}{\Delta t} $ zu lösen.
 Es resultiert
 \begin{equation}
-    \int\limits_\Omega a_k(t) \cdot a_k(t) \diff t = 2 \cdot \int_{0}^{\Delta t} \frac{t^2}{(\Delta t)^2} \diff t = \frac{2}{3} \Delta t \quad \text{für} \quad 0 < k < N.
+    \int_\Omega a_k(t) \cdot a_k(t) \diff t = 2 \cdot \int_{0}^{\Delta t} \frac{t^2}{(\Delta t)^2} \diff t = \frac{2}{3} \Delta t \quad \text{für} \quad 0 < k < N.
 \end{equation}
 Dabei werden die Indizes $1$ und $N$ ausgeklammert, da die linke Hälfte der Formfunktion $a_0(t)$ sowie die rechte Hälfte der Formfunktion $a_N$ ausserhalb des Definitionsbereichs liegen und für diese Knotenvariablen folglich
 \begin{equation}
-    \int\limits_\Omega a_k(t) \cdot a_k(t) \diff t = \int_{0}^{\Delta t} \frac{t^2}{(\Delta t)^2} \diff t = \frac{1}{3} \Delta t \quad \text{für} \quad k = 1 \quad \text{oder} \quad k = N
+    \int_\Omega a_k(t) \cdot a_k(t) \diff t = \int_{0}^{\Delta t} \frac{t^2}{(\Delta t)^2} \diff t = \frac{1}{3} \Delta t \quad \text{für} \quad k = 1 \quad \text{oder} \quad k = N
 \end{equation}
 gilt.
 
 Für das Integral über die Ableitungen der Formfunktionen resultiert
 \begin{equation}
-    \int\limits_\Omega a_k'(t) \cdot a_k'(t) \diff t = 2 \cdot \int_{0}^{\Delta t} \frac{1}{\Delta t} \cdot \frac{1}{\Delta t} \diff t = \frac{2}{\Delta t},
+    \int_\Omega a_k'(t) \cdot a_k'(t) \diff t = 2 \cdot \int_{0}^{\Delta t} \frac{1}{\Delta t} \cdot \frac{1}{\Delta t} \diff t = \frac{2}{\Delta t},
 \end{equation}
 da $a_1'(t)= \frac{1}{\Delta t} \ \text{wenn} \ 0 \leq t < \Delta t$.
 
@@ -136,11 +136,11 @@ Auch hier reicht es aus, eines der Integrale zu berechnen.
 Gewählt wurden ebenfalls aufgrund der einfachen Formfunktionen die Funktionen $a_0(t) = 1 - \frac{t}{\Delta t}$ und $a_1(t) = \frac{t}{\Delta t}$.
 Es resultiert
 \begin{equation}
-    \int\limits_\Omega a_k(t) \cdot a_{k+1}(t) \diff t = \int_{0}^{\Delta t} \left(1 - \frac{t}{\Delta t}\right) \cdot \frac{t}{\Delta t} \diff t = \frac{1}{6} \Delta t.
+    \int_\Omega a_k(t) \cdot a_{k+1}(t) \diff t = \int_{0}^{\Delta t} \left(1 - \frac{t}{\Delta t}\right) \cdot \frac{t}{\Delta t} \diff t = \frac{1}{6} \Delta t.
 \end{equation}
 Auch hier wird noch das Integral über die Ableitungen 
 \begin{equation}
-    \int\limits_\Omega a_k'(t) \cdot a_{k+1}'(t) \diff t = \int_{0}^{\Delta t} -\frac{1}{\Delta t} \cdot \frac{1}{\Delta t} \diff t = -\frac{1}{\Delta t},
+    \int_\Omega a_k'(t) \cdot a_{k+1}'(t) \diff t = \int_{0}^{\Delta t} -\frac{1}{\Delta t} \cdot \frac{1}{\Delta t} \diff t = -\frac{1}{\Delta t},
 \end{equation}
 benötigt.
 Hierbei gilt $a_0'(t)= -\frac{1}{\Delta t} \ \text{und} \ a_1'(t)= \frac{1}{\Delta t} \ \text{wenn} \ 0 \leq t < \Delta t$
@@ -150,7 +150,7 @@ Für die Elemente $l_{ij}$ der Array $\mathbf{L}$ gilt also
 \begin{equation}
     \begin{aligned}
         l_{ij} 
-        &= - \int\limits_\Omega a_i'(t) \cdot a_j'(t) \diff t + \frac{g}{l} \int\limits_\Omega a_i(t) \cdot a_j(t) \diff t \\
+        &= - \int_\Omega a_i'(t) \cdot a_j'(t) \diff t + \frac{g}{l} \int_\Omega a_i(t) \cdot a_j(t) \diff t \\
         &=  \left\{ 
                 \begin{array}{ll}
                     - \frac{1}{\Delta t} + \frac{g}{3l} \Delta t & \text{für} \quad i = j = 0 \\
@@ -163,21 +163,22 @@ Für die Elemente $l_{ij}$ der Array $\mathbf{L}$ gilt also
 \end{equation}
 Für einen willkürlich gewählten Zeitschritt von $\Delta t = 0.1$ und den in der Aufgabenstellung festgelegten Parametern $g = 10$ und $l = 1$ resultiert das Gleichungssystem
 \begin{equation}
+    \def\arraystretch{1.5}
     \mathbf{L}\vec{u} + \vec{b} 
     = \begin{pmatrix}
-         -9.67  & 10.17  &        &        &        &        \\
-         10.17  &-19.33  & 10.17  &        &        &        \\
-                & 10.17  &-19.33  & \ddots &        &        \\
-                &        & \ddots & \ddots & 10.17  &        \\
-                &        &        & 10.17  &-19.33  & 10.17  \\
-                &        &        &        & 10.17  & -9.67
+         -9.67  & 10.17  &                &                &        &        \\
+         10.17  &-19.33  & 10.17          &                &        &        \\
+                & 10.17  &-19.33          & \smash{\ddots} &        &        \\
+                &        & \smash{\ddots} & \smash{\ddots} & 10.17  &        \\
+                &        &                & 10.17          &-19.33  & 10.17  \\
+                &        &                &                & 10.17  & -9.67
     \end{pmatrix}
     \begin{pmatrix}
-        u_0 \\ u_1 \\ u_2 \\ \vdots \\ u_N
+        u_0 \\ u_1 \\ u_2 \\ u_3 \\ \vdots \\ u_N
     \end{pmatrix}
     +
     \begin{pmatrix}
-        0 \\ 0 \\ 0 \\ \vdots \\ 0
+        0 \\ 0 \\ 0 \\ 0 \\ \vdots \\ 0
     \end{pmatrix}
     = 0
     \label{fem:rechenbsp:gleichungssystem}
@@ -194,14 +195,15 @@ Die Anfangsbedingungen
 werden wie in Kapitel \ref{fem:1d:anfangsbedingungen} beschrieben in die Matrix eingebracht.
 Dazu wird das Gleichungssystem \ref{fem:rechenbsp:gleichungssystem} zunächst als Gauss-Tableau geschrieben:
 \begin{equation}
+    \def\arraystretch{1.5}
     \begin{array}{|cccccc|c|}
         \hline
-        -9.69  & 10.17  &        &        &        &        & 0      \\
-        10.17  &-19.33  & 10.17  &        &        &        & 0      \\
-               & 10.17  &-19.33  & \ddots &        &        & 0      \\
-               &        & \ddots & \ddots & 10.17  &        & \vdots \\
-               &        &        & 10.17  &-19.33  & 10.17  & 0      \\
-               &        &        &        & 10.17  & -9.67  & 0      \\
+        -9.69  & 10.17  &                &                &        &        & 0              \\
+        10.17  &-19.33  & 10.17          &                &        &        & 0              \\
+               & 10.17  &-19.33          & \smash{\ddots} &        &        & 0              \\
+               &        & \smash{\ddots} & \smash{\ddots} & 10.17  &        & \smash{\ddots} \\
+               &        &                & 10.17          &-19.33  & 10.17  & 0              \\
+               &        &                &                & 10.17  & -9.67  & 0              \\
         \hline
     \end{array}.
 \end{equation}
@@ -213,30 +215,32 @@ Die einzufügende Gleichung
 \end{equation}
 ersetzt also die Zeile $0$:
 \begin{equation}
+    \def\arraystretch{1.5}
     \begin{array}{|cccccc|c|}
         \hline
-         1.00  &        &        &        &        &        & 0.175  \\
-        10.17  &-19.33  & 10.17  &        &        &        & 0      \\
-               & 10.17  &-19.33  & \ddots &        &        & 0      \\
-               &        & \ddots & \ddots & 10.17  &        & \vdots \\
-               &        &        & 10.17  &-19.33  & 10.17  & 0      \\
-               &        &        &        & 10.17  & -9.67  & 0      \\
+        \pivotoperation{0.6cm}{0.2cm}{-0.2cm}{-0.2cm}
+         1.00  &        &                &                &        &        & 0.175          \\
+        \forwardreduction{0.6cm}{2.9cm}{-0.1cm}{-2.7cm}
+        10.17  &-19.33  & 10.17          &                &        &        & 0              \\
+               & 10.17  &-19.33          & \smash{\ddots} &        &        & 0              \\
+               &        & \smash{\ddots} & \smash{\ddots} & 10.17  &        & \smash{\vdots} \\
+               &        &                & 10.17          &-19.33  & 10.17  & 0              \\
+               &        &                &                & 10.17  & -9.67  & 0              \\
         \hline
     \end{array}.
 \end{equation}
-TODO: Rot-Blau nach Gauss
-
 Anschliessend wird noch die Spalte Null gesetzt, indem das $ 10.17 $-fache der $1$. Zeile von der $2$. abgezogen wird.
 Es resultiert
 \begin{equation}
+    \def\arraystretch{1.5}
     \begin{array}{|cccccc|c|}
         \hline
-         1.00  &        &        &        &        &        & 0.175  \\
-               &-19.33  & 10.17  &        &        &        & -1.78  \\
-               & 10.17  &-19.33  & \ddots &        &        & 0      \\
-               &        & \ddots & \ddots & 10.17  &        & \vdots \\
-               &        &        & 10.17  &-19.33  & 10.17  & 0      \\
-               &        &        &        & 10.17  & -9.67  & 0      \\
+         1.00  &        &                &                &        &        & 0.175          \\ 
+               &-19.33  & 10.17          &                &        &        & -1.78          \\
+               & 10.17  &-19.33          & \smash{\ddots} &        &        & 0              \\
+               &        & \smash{\ddots} & \smash{\ddots} & 10.17  &        & \smash{\vdots} \\
+               &        &                & 10.17          &-19.33  & 10.17  & 0              \\
+               &        &                &                & 10.17  & -9.67  & 0              \\
         \hline
     \end{array}.
 \end{equation}
@@ -251,30 +255,32 @@ Es gilt also, zusätzlich die Gleichung
 in das Tableau einzufügen.
 Nach gleichem Vorgehen wie bei der vorherigen Randbedingung resultiert
 \begin{equation}
+    \def\arraystretch{1.5}
     \begin{array}{|ccccccc|c|}
         \hline
-         1.00  &        &        &        &        &        &        & 0.175  \\
-               &  1.00  &        &        &        &        &        & 0.175  \\
-               &        &-19.33  & 10.17  &        &        &        & -1.78  \\
-               &        & 10.17  &-19.33  & \ddots &        &        & 0      \\
-               &        &        & \ddots & \ddots & 10.17  &        & \vdots \\
-               &        &        &        & 10.17  &-19.33  & 10.17  & 0      \\
-               &        &        &        &        & 10.17  & -9.67  & 0      \\
+         1.00  &        &        &                &                &        &        & 0.175          \\
+               &  1.00  &        &                &                &        &        & 0.175          \\
+               &        &-19.33  & 10.17          &                &        &        & -1.78          \\
+               &        & 10.17  &-19.33          & \smash{\ddots} &        &        & 0              \\
+               &        &        & \smash{\ddots} & \smash{\ddots} & 10.17  &        & \smash{\vdots} \\
+               &        &        &                & 10.17          &-19.33  & 10.17  & 0              \\
+               &        &        &                &                & 10.17  & -9.67  & 0              \\
         \hline
     \end{array},
 \end{equation}
 was wieder in Vektorschreibweise dargestellt
 \begin{equation}
+    \def\arraystretch{1.5}
     \mathbf{L}\vec{u} 
     = -\vec{b} 
     = \begin{pmatrix}
-         1.00  &        &        &        &        &        &        \\
-               &  1.00  &        &        &        &        &        \\
-               &        &-19.33  & 10.17  &        &        &        \\
-               &        & 10.17  &-19.33  & \ddots &        &        \\
-               &        &        & \ddots & \ddots & 10.17  &        \\
-               &        &        &        & 10.17  &-19.33  & 10.17  \\
-               &        &        &        &        & 10.17  & -9.67  
+         1.00  &        &        &                &                &        &        \\
+               &  1.00  &        &                &                &        &        \\
+               &        &-19.33  & 10.17          &                &        &        \\
+               &        & 10.17  &-19.33          & \smash{\ddots} &        &        \\
+               &        &        & \smash{\ddots} & \smash{\ddots} & 10.17  &        \\
+               &        &        &                & 10.17          &-19.33  & 10.17  \\
+               &        &        &                &                & 10.17  & -9.67  
     \end{pmatrix}
     \begin{pmatrix}
         u_0 \\ u_1 \\ u_2 \\ u_3 \\ u_4 \\ \vdots \\ u_N
