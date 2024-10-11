@@ -23,9 +23,9 @@ Funktionen mehrere Variablen verallemeinert werden kann.
 %
 \subsection{Die zweite Ableitung}
 In diesem Abschnitt ist $f\colon\mathbb{R}^n\to\mathbb{R}$
-eine zweimal stetig differenzierbare Funktionen, derer Gradient
+eine zweimal stetig differenzierbare Funktionen, deren Gradient
 an der Stelle $x_0$ verschwindet.
-Durch eine Translationb $x\mapsto x-x_0$ kann man immer erreichen,
+Durch eine Translation $x\mapsto x-x_0$ kann man immer erreichen,
 dass $x_0=0$ der Nullpunkt des Koordinatensystems ist.
 In der folgenden Diskussion wird diese Konvention wo zweckmässig
 stillschweigend verwendet.
@@ -123,8 +123,8 @@ Dies führt auf die folgende Definition.
 Eine symmetrische Matrix $A$ heisst {\em positiv definit}, wenn 
 \index{positiv definit}%
 \index{definit, positiv}%
-$v^tH(x_0)v>0$ für alle Vektoren $v\in\mathbb{R}^n\setminus\{0\}$ ist.
-Sie heisst {\em positiv semidefinit}, wenn $v^tH(x_0)v\ge 0$ für alle
+$v^tAv>0$ für alle Vektoren $v\in\mathbb{R}^n\setminus\{0\}$ ist.
+Sie heisst {\em positiv semidefinit}, wenn $v^tAv\ge 0$ für alle
 Vektoren
 \index{positiv semidefinit}%
 \index{semidefinit, positiv}%
@@ -141,7 +141,7 @@ Wenn die hessesche Matrix negativ definit ist, dann liegt ein Maximum
 vor.
 \end{satz}
 
-Im Falle einer Funktion einer Variablen lässt sich im Fall $f'(x_0)=0$
+Im Falle einer Funktion einer Variablen lässt sich für $f'(x_0)=0$
 und $f''(x_0)=0$ keine Aussage darüber machen lässt, ob ein Maximum 
 oder Minimum vorliegt.
 Bei einer Funktion mehrerer Variablen verunmöglicht bereits Semidefinitheit
@@ -167,7 +167,7 @@ Matrix im Nullpunkt, es liegt dort aber ein Minimum vor.
 %
 \subsubsection{Extremalkriterien}
 Das definierende Kriterium der positiven Definitheit, dass $v^tH(x_0)v>0$
-sein muss für alle Vektoren $v\in\mathbb{R}^n\setminus\{0\}$, ist
+für alle Vektoren $v\in\mathbb{R}^n\setminus\{0\}$ sein muss, ist
 relativ schwer nachzuprüfen.
 Daher sind alternative Kriterien wünschenswert, die leichter zu überprüfen
 sind.
@@ -235,7 +235,7 @@ Damit folgt, dass die hessesche Matrix positiv definit ist und dass
 ein Minimum vorliegt.
 \end{proof}
 
-Die Zerlegung $H=LL^t$ heisst auch die Cholesky-Zerlegung, für die
+Die Zerlegung $H=LL^t$ heisst auch die {\em Cholesky-Zerlegung}, für die
 \label{Cholesky-Zerlegung}%
 es einen numerischen Algorithmus gibt, der sehr viel effizienter
 durchzuführen ist als die Bestimmung der Eigenwerte
@@ -247,7 +247,7 @@ durchzuführen ist als die Bestimmung der Eigenwerte
 %
 \subsection{Extrema und höhere Ableitungen
 \label{buch:fuvar:hessesche:subsection:extrema}}
-Verschwinden für eine Funktion einer Variablen auch höher als die erste
+Verschwinden für eine Funktion einer Variablen auch höhere als die erste
 Ableitung, zieht man gemeinhin die Taylor-Reihe
 \begin{align*}
 \mathscr{T_{x_0}}f(x)
@@ -375,7 +375,7 @@ Die gleiche Konstruktion ist auch ausgehend von der zweiten Entwicklung
 \eqref{buch:fuvar:hessesche:taylor:Tfy} möglich und ergibt eine
 analoge Summe mit vertauschter Ableitungsreihenfolge.
 Für eine beliebig oft stetig differenzierbare Funktion sind die
-Ableitunten nach dem Satz von Schwarz nicht abhängig von der Reihenfolge,
+Ableitungen nach dem Satz von Schwarz nicht abhängig von der Reihenfolge,
 es entsteht also die gleiche Reihenentwicklung.
 
 Die Reihenentwicklung \eqref{buch:fuvar:hessesche:taylor:2d} kann auch
@@ -460,7 +460,7 @@ partiellen Ableitungen
 \end{definition}
 Die Multindex-Notation ist konsistent mit üblichen algebraischen
 Rechenregeln, zum Beispiel gilt
-$x^{\mathbf{l}}x^{\mathbb{m}}=x^{\mathbf{l}+\mathbf{m}}$
+$x^{\mathbf{l}}x^{\mathbf{m}}=x^{\mathbf{l}+\mathbf{m}}$
 oder 
 \[
 \frac{\partial^{\mathbf{l}}}{\partial x^{\mathbf{l}}}
@@ -536,10 +536,10 @@ Die {\em Taylor-Reihe} von $f$ im Punkt $x_*$ ist die Reihe
 \]
 \end{definition}
 
-Für viele praktisch wichtige Funktione ist die Taylor-Reihe konvergent
+Für viele praktisch wichtige Funktionen ist die Taylor-Reihe konvergent
 und kann damit zur Beurteilung verwendet werden, ob ein kritischer Punkt
 $x_*\in\mathbb{R}^n$ ein Extremum ist.
-Wie im Fall einer Variablen ist ein kritischer Punkt $x_*$ kein Extremum
+Wie im Fall einer Variablen ist ein kritischer Punkt $x_*$ kein Extremum,
 wenn die niedrigste Ordnung der in $x_*$ nicht verschwindenden partiellen
 Ableitungen ungerade ist.
 Für gerade Ableitungen ist es deutlich schwieriger, notwendige Kriterien
