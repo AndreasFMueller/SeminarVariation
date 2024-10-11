@@ -17,7 +17,8 @@ Variablen übertragen werden.
 %
 % Das Verschwinden der ersten Ableitungen
 %
-\subsection{Notwendige Bedingung für Extrema}
+\subsection{Notwendige Bedingung für Extrema
+\label{buch:fuvar:subsection:kritisch}}
 Wir betrachten eine stetig differenzierbare Funktion 
 \[
 f
@@ -69,6 +70,62 @@ jedoch deutlich komplizierter.
 Die Matrix der zweiten Ableitungen wird im
 Abschnitt~\ref{buch:fuvar:section:hessesche} genauer untersucht 
 und ein hinreichendes Kriterium für Extrema hergeleitet.
+
+%
+% Das Fundamentallemma
+%
+\subsection{Das Fundamentallemma
+\label{buch:fuvar:subsection:fundamentallemma}}
+Extrema einer Funktion $f(x)$ werden bei kritischen Punkten $x_*$
+gefunden, die Nullstellen der Richtungsableitungen
+\[
+D_vf(x_*)
+=
+\frac{d}{d\varepsilon}
+f(x_*+\varepsilon v)
+\bigg|_{\varepsilon =0}
+\]
+sind.
+Da die Richtungsableitung auch als Skalarprodukt
+\[
+D_vf(x_*)
+=
+v
+\cdot 
+\operatorname{grad}f(x_*)
+\]
+mit dem Gradienten geschrieben werden kann, ist ein kritischer
+Punkt auch dadurch charakterisiert, dass
+\[
+v\cdot \operatorname{grad}f(x_*)
+=
+0
+\]
+für alle $v$ ist.
+In endlichdimensionalen Vektorräumen impliziert dies sofort,
+dass alle Komponenten
+\[
+0
+=
+e_i\cdot \operatorname{grad}
+=
+(\operatorname{grad}f(x_*))_i
+=
+\frac{\partial f}{\partial x_i}(x_*)
+\]
+verschwinden müssen.
+Wir halten diese Eigenschaft als Vorbereitung für die Entwicklungen
+von Abschnitt~\ref{buch:variation:section:fundamentallemma}
+als das Fundamentallemma für endlichdimensionale Vektorräume
+fest.
+
+\begin{satz}[Fundamentallemma für endlichdimensionale Vektorräume]
+Wenn ein Vektor $u\in \mathbb{R}^n$ die Bedingung
+\[
+v \cdot u=0
+\]
+für alle Vektor $v\in\mathbb{R}^n$ ist, dann ist $u=0$.
+\end{satz}
 
 %
 % Rand
