@@ -26,8 +26,9 @@ f(x_i) = g(x_i)
 \forall i=0,\dots,n.
 \]
 Ausserdem soll der Funktionsgraph von $g(x)$ möglichst wenig Krümmung haben.
-Da die Krümmung eines Graphen ist im Wesentlichen abhängig von der zweiten
-Ableitung, wir verlangen daher, dass das Integral
+Die Krümmung eines Graphen ist im Wesentlichen abhängig von der zweiten
+Ableitung.
+Wir verlangen daher, dass das Integral
 \begin{equation}
 I(g)
 =
@@ -52,7 +53,7 @@ L(x,y,y',y'') = y^{\prime\prime 2}.
 Ausserdem müssen die Nebenbedingungen $y(x_i)=y_i$ für $i=0,\dots,n$
 erfüllt sein.
 Zwischen den Stützstellen erfüllt die Funktion $y(x)$ die zugehörige
-Euler-Lagrange-Differentialgleichung, die aus der früher entwickelten
+Euler-Lagrange-Differential\-glei\-chung, die aus der früher entwickelten
 Theorie abgeleitet werden kann.
 
 An den Stützstellen müssen die weierstrass-erdmannschen-Eckenbedingungen
@@ -179,7 +180,7 @@ Funktion $y(x)$ ableiten.
 %
 \subsubsection{Gleichungen zwischen den Stützstellen}
 Aus dem Fundamentallemma angewandt auf das Intervall $[x_i,x_{i+1}]$
-zeigt, dass dort $y''''(x)=0$ ist.
+folgt, dass dort $y''''(x)=0$ ist.
 Die Funktion $y(x)$ ist daher auf jedem solchen Teilintervall ein
 kubisches Polynom.
 Insbesondere ist die Funktion $y(x)$ zwischen den Stützstellen 
@@ -193,8 +194,8 @@ Der erste Teil der Variation
 \eqref{buch:nichtdiff:splines:eqn:variation}
 ist eine Linearkombination der von zweiten Ableitungen $y''(x)$ an
 den Stützstellen, mit $\eta'(x_i)$ als Koeffizienten.
-Wählen wir $\eta$ so, dass nicht nur $\eta(x_i)=0$ für alle $i$,
-sondern auch $\eta'(x_i)$ für alle $i$ ausser $i=k$, dann können
+Wählen wir $\eta$ so, dass nicht nur $\eta(x_i)=0$ für alle $i$ ist,
+sondern auch $\eta'(x_i)=0$ für alle $i$ ausser $i=k$, dann können
 wir immer noch nicht schliessen, dass der zugehörige Ausdruck für
 die zweiten Ableitungen verschwindet, da immer noch der Integralterm
 störend daneben steht.
@@ -240,7 +241,7 @@ g_{x_k-\varepsilon,x_k+\varepsilon}(x_k)
 1.
 \end{align*}
 Aus der Tatsache, dass die Funktion $g_{a,b}(x)$ ihr Maximum in der
-Mitte des Intervalls $[a,b]$ hat kann man ausserdem folgern, dass 
+Mitte des Intervalls $[a,b]$ hat, kann man ausserdem folgern, dass 
 \[
 0
 \le
@@ -318,7 +319,8 @@ y''(x_k-) = y''(x_{k+1}+).
 \item
 Die zweiten Ableitungen verschwinden an den Intervallenden: $y''(a)=y''(b)=0$.
 \end{enumerate}
-Die Lösungsfunktion kann daher aus kubischen Polynome zusammengesetzt werden.
+Die Lösungsfunktion kann daher aus kubischen Polynomen auf den
+Intervallen $[x_{k\mathstrut},x_{k+1\mathstrut}]$ zusammengesetzt werden.
 Ein solches ist durch die Werte der Funktion und der ersten Ableitungen
 gegeben.
 Die Funktionswerte sind die vorgegebenen Werte $y_k=y(x_k)$ an den
@@ -334,9 +336,10 @@ aus der zweiten und dritten Bedingung gewonnen werden.
 Es müssen kubische Polynome auf dem Intervall $[x_k,x_{k+1}]$ konstruiert
 werden, die vorgegebene Werte und Ableitungen in den Intervallenden haben.
 Diese Aufgabe kann auf dem Intervall $[0,1]$ sofort gelöst werden,
-wenn kubische Polynome auf dem bekannt sind, deren Werte der Funktion
-und ersten Ableitungen an den Endpunkten $0$ sind mit Ausnahme jeweils eines,
-der $1$ ist (Abbildung~\ref{buch:nichtdiff:splines:fig:hermitepolynome}).
+wenn kubische Polynome auf dem Einheitsintervall bekannt sind, deren
+Werte der Funktion und ersten Ableitungen an den Endpunkten $0$ sind
+mit Ausnahme jeweils eines, der $1$ ist
+(Abbildung~\ref{buch:nichtdiff:splines:fig:hermitepolynome}).
 
 \begin{satz}
 \label{buch:nichtdiff:splines:satz:hermitebasis}
@@ -657,8 +660,9 @@ berechnet werden.
 % Äquidistante Stützstellen
 %
 \subsubsection{Äquidistante Stützstellen}
-Haben die Stützstellen gleichen Haben die Stützstellen Abstand, man
-spricht von äquidistanten Stützstellen, dann sind alle $m_k$ gleich.
+Haben die Stützstellen gleichen Abstand, man
+spricht von {\em äquidistanten} Stützstellen, dann sind alle $m_k$ gleich.
+\index{aquidistant@äquidistant}%
 Wir schreiben $m=m_k$ für alle $k=0,\dots,n-1$.
 In diesem Fall vereinfachen sich die Gleichungen beträchtlich, da
 alle Nenner gleich sind.
@@ -667,12 +671,12 @@ Die Koeffizientenmatrix des Gleichungssystems ist
 A
 =
 \begin{pmatrix}
-2 &1 &  &       &       &  \\
-1 &4 &1 &       &       &  \\
-  &1 &4 &1      &       &  \\[-3pt]
-  &  &1 &\ddots &\ddots &  \\[-3pt]
-  &  &  &\ddots &\ddots &1 \\
-  &  &  &       &1      &2
+2 &1 &  &              &              &  \\
+1 &4 &1 &              &              &  \\
+  &1 &4 &1             &              &  \\[-3pt]
+  &  &1 &\smash{\ddots}&\smash{\ddots}&  \\[-3pt]
+  &  &  &\smash{\ddots}&\smash{\ddots}&1 \\
+  &  &  &              &1             &2
 \end{pmatrix}
 \]
 und die rechte Seite wird
@@ -694,7 +698,8 @@ y_n-y_{n-1}
 \label{buch:nichtdiff:splines:bsp:sinspline}
 \input{chapters/030-nichtdiff/table/sinspline.tex}
 \input{chapters/030-nichtdiff/fig/sinspline.tex}
-Wir approximieren die Sinusfunktion $f(x)=\sin x$ mit Hilfe eines Splines
+Wir approximieren die Sinusfunktion $f(x)=\sin x$
+auf dem Intervall $[0,\frac{\pi}2]$ mit Hilfe eines Splines
 mit elf äquidistanten Stützstellen.
 Die Stützstellen und Funktionswerte sind
 \[
@@ -721,7 +726,7 @@ berechneten Steigungen $s_k$ ab.
 Da diese im vorliegenden Fall exakt als $f'(x_k) = \cos x_k$ berechnet
 werden können, kann man die Spline-Interpolationsfunktion mit der sogenannten
 Hermite-Interpolationsfunktion vergleichen, die die wahren Steigungen
-verwendet.
+$f'(x_k)$ der zu interpolierenden Funktion $f(x)$ verwendet.
 Die Abweichung zwischen der Sinus-Funktion und der
 Hermite-Interpolationsfunktion ist 100000-fach überhöht orange dargestellt.
 Bekannte Steigungen ermöglichen also eine viel höhere Genauigkeit, als dies
@@ -874,7 +879,7 @@ Damit ist gezeigt, dass die Linearkombination $l(x)$ die
 Spline-Interpolationsfunktion $y(x)$ ist, $y(x)=l(x)$.
 
 Als Polynome sind die Funktionen $f_k(x)$ und $g_k(x)$ im Inneren der
-aller Intervalle $[x_{i\mathstrut},x_{i+1\mathstrut}]$ stetig
+Intervalle $[x_{i\mathstrut},x_{i+1\mathstrut}]$ stetig
 differenzierbar, es ist also nur noch zu prüfen, ob die Ableitungen
 der Teilfunktionen in den Stützstellen $x_{k-1\mathstrut}$, $x_{k\mathstrut}$
 und $x_{k+1\mathstrut}$ übereinstimmen.

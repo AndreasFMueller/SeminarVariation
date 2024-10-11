@@ -13,7 +13,7 @@ Nicht allzu pathologische Variationsprobleme werden aber mindestens
 stückweise differenzierbare Lösungen haben.
 Zwischen endlichen vielen Punkten, wo die Ableitung der Lösungsfunktion
 Sprungstellen haben kann, erfüllt die Lösung die
-Euler-Lagrange-Differentialgleichung.
+Euler-Lagrange-Differential\-glei\-chung.
 Die Punkte, in denen die Lösungskurve ``geknickt'' ist oder ``Ecken''
 hat, sind aber nicht beliebig.
 Die in Abschnitt~\ref{buch:nichtdiff:eckenbedingung:subsection:eckenbedingung}
@@ -111,17 +111,18 @@ x&\qquad \text{für $x\ge 0$}
 \]
 (Abbildung~\ref{buch:nichtdiff:fig:nichtdiff}).
 Für diese Funktion erreicht das Funktional $I(y)$ den kleinstmöglichen
-Wert.
+Wert $I(y)=0$.
 
 Jede stetige Variation $\eta(x)$ mit $\eta(-1)=\eta(1)=0$ gibt als Wert
 für das Funktional
 \[
 I(y+\eta)
 =
-\int_{-1}^1 \eta(x)^2 \eta'(x)^2 \,dx.
+\int_{-1}^1 \eta(x)^2 \eta'(x)^2 \,dx
+>0.
 \]
-Dies ist immer positiv, es gibt also keine differenzierbare Lösung
-des Variationsproblems.
+Dies ist immer positiv, es gibt also keine differenzierbare
+Funktion $y_*(x)$, für die $I(y_*)=0$ ist.
 
 %
 % Lösung in geschlossener Form
@@ -215,7 +216,8 @@ F(x,y(x),y'(x))
 auf dem Intervall $[x_0,x_1]$ mit vorgegebenen Randwerten 
 $y(x_0)=y_0$ und $y(x_1)=y_1$.
 Wir verlangen nicht, dass die Funktion $y(x)$ überall differenzierbar
-ist, der Einfachheit halber nehmen wir aber an, dass es nur eine
+ist.
+Der Einfachheit halber nehmen wir aber an, dass es nur eine
 Stelle $x_*$ gibt, an der die Funktion $y(x)$ nicht differenzierbar ist.
 Auf den Teilintervallen $[x_0,x_*]$ und $[x_*,x_1]$ ist $y(x)$ eine
 Lösung der Euler-Lagrange-Differentialgleichung.
@@ -261,7 +263,7 @@ einer Variation der Funktion $y(x)$.
 Da der Punkt den beiden Teilen gemeinsam ist, muss $\vec{r}$
 mit dem Richtungsvektor $\vec{r}_1(0)$ der zugehörigen Variation
 der Lösung auf dem linken Teil des Intervalls und dem
-Richtungsvektor $\vec{r}_0(0)$ der Variation der Lösung dem rechtn Teil
+Richtungsvektor $\vec{r}_0(0)$ der Variation der Lösung dem rechten Teil
 des Intervalls übereinstimmen.
 
 Nach Satz~\ref{buch:variation:allgemein:satz:allgemeinvariation1} 
@@ -279,7 +281,6 @@ lässt sich die Variation der beiden Teile durch
 \frac{\partial F}{\partial y'}(x,y(x),y'(x))
 \biggr)
 \frac{\partial y}{\partial\varepsilon}(x,0)\,dx
-\,dx
 \\
 &\qquad
 -
@@ -293,7 +294,6 @@ lässt sich die Variation der beiden Teile durch
 \frac{\partial F}{\partial y'}(x,y(x),y'(x))
 \biggr)
 \frac{\partial y}{\partial\varepsilon}(x,0)\,dx
-\,dx
 \end{align*}
 ausdrücken.
 Da in den Teilintervallen die Lösung die Euler-Lagrange-Differentialgleichung
@@ -314,7 +314,8 @@ folgt
 \vec{f}_1=\vec{f}_2.
 \label{buch:nichtdiff:eckenbedingung:eqn:e2}
 \end{equation}
-Darin gehört der $\vec{f}_1$ zur Lösung auf dem Teilintervall $[x_0,x_*]$,
+Darin gehört der Vektor $\vec{f}_1$ zur Lösung auf dem Teilintervall
+$[x_0,x_*]$,
 wird also mit dem Funktionswert $y(x_*)=y(x_*-)$ und dem linksseitigen Grenzwert
 $y'(x_*-)$ der Ableitung berechnet, während $\vec{f}_0$ zum Teilintervall
 $[x_*,x_1]$ gehört und mit $y(x_*)=y(x_*+)$ und dem rechtsseitigen
@@ -346,7 +347,9 @@ y'(x_*+)
 &=
 \frac{\partial F}{\partial y'}\bigl(x_*,y(x_*+), y'(x_*+)\bigr)
 \end{align*}
-Diese Bedingung heisst auch die weierstrass-erdmansche Eckenbedingung.
+Diese Bedingung heisst auch die {\em weierstrass-erdmansche} Eckenbedingung.
+\index{weierstrass-erdmannsche Eckenbedingung}%
+\index{Eckenbedingung}%
 
 \begin{satz}[Weierstrass-Erdmann]
 \label{buch:nichtdiff:splines:satz:weierstrass-erdmann}
@@ -413,24 +416,6 @@ F(x,y(x),y'(x))-y'(x)\frac{\partial F}{\partial y'}(x,y(x),y'(x))
 stetig sind.
 \end{satz}
 
-Ein interessanter Spezialfall ist, wenn der Sprung der Steigung
-an der Stelle $x_*$ durch eine Unstetigkeit der Funktion $f(x,y,y')$
-an dieser Stelle verursacht wird.
-In diesem Fall ist klar, dass die Ecke $(x_*,y_*)$ gar nicht in
-$x$-Richtung bewegt werden kann, der Richtungsvektor $\vec{r}$ ist
-vertikal.
-Damit folgt aus $(\vec{f}_1-\vec{f}_0)\cdot\vec{r}$ nicht mehr,
-dass die beiden Vektoren gleich sein müssen.
-Es folgt nur noch, dass sie die gleich $y$-Komponenten haben,
-dass also
-\begin{equation}
-\frac{\partial F}{\partial y'}\bigl(x_*-,y(x_*),y'(x_*-)\bigr)
-=
-\frac{\partial F}{\partial y'}\bigl(x_*+,y(x_*),y'(x_*+)\bigr).
-\label{buch:nichtdiff:eckenbedingung:eqn:we0}
-\end{equation}
-Das folgende Beispiel illustriert diesen Spezialfall anhand des
-Brechungsgesetztes.
 
 \begin{beispiel}
 In Abschnitt~\ref{buch:nichtdiff:eckenbedingung:subsection:problem}
@@ -476,6 +461,25 @@ Für die zweite Bedingung berechnen wir die Ableitungen
 damit ist auch die zweite Bedingung erfüllt.
 \end{beispiel}
 
+Ein interessanter Spezialfall ist, wenn der Sprung der Steigung
+an der Stelle $x_*$ durch eine Unstetigkeit der Lagrange-Funktion
+$F(x,y,y')$ an dieser Stelle verursacht wird.
+In diesem Fall ist klar, dass die Ecke $(x_*,y_*)$ gar nicht in
+$x$-Richtung bewegt werden kann, der Richtungsvektor $\vec{r}$ ist
+vertikal.
+Damit folgt aus $(\vec{f}_1-\vec{f}_0)\cdot\vec{r}$ nicht mehr,
+dass die beiden Vektoren gleich sein müssen.
+Es folgt nur noch, dass sie die gleich $y$-Komponenten haben,
+dass also
+\begin{equation}
+\frac{\partial F}{\partial y'}\bigl(x_*-,y(x_*),y'(x_*-)\bigr)
+=
+\frac{\partial F}{\partial y'}\bigl(x_*+,y(x_*),y'(x_*+)\bigr).
+\label{buch:nichtdiff:eckenbedingung:eqn:we0}
+\end{equation}
+Das folgende Beispiel illustriert diesen Spezialfall anhand des
+Brechungsgesetztes.
+
 \begin{beispiel}
 \input{chapters/030-nichtdiff/fig/brechung.tex}
 Das Brechungsgesetz beschreibt die Ausbreitung eines Lichtstrahls
@@ -505,6 +509,7 @@ Es folgt, dass die Lösung im vorliegenden Problem sich aus
 Geraden zusammensetzen muss, nur bei $x=0$ könnte ein Stelle
 vorliegen, wo die Funktion $y(x)$ nicht differenzierbar ist.
 Dort muss daher die weierstrass-erdmannsche Eckenbedingung
+in der Form
 \eqref{buch:nichtdiff:eckenbedingung:eqn:we0}
 gelten.
 

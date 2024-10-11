@@ -171,8 +171,8 @@ Dann ist die Funktion $f(x)$ konstant.
 
 \begin{proof}
 Wir müssen zeigen, dass die Funktionswerte von $f$ in den Punkten $a$ und $b$
-im inneren des Intervalls $[x_0,x_1]$ gleich gross sind.
-Sei $\varepsilon>0$ so klein, dass die die Intervalle
+im Inneren des Intervalls $[x_0,x_1]$ gleich gross sind.
+Sei $\varepsilon>0$ so klein, dass die Intervalle
 $(a-\varepsilon,a+\varepsilon)$ und $(b-\varepsilon,b+\varepsilon)$ ebenfalls
 vollständig in $[a,b]$ enthalten sind.
 Nach Satz~\ref{buch:variation:satz:gabeins} gibt es zwei nichtnegative
@@ -225,7 +225,7 @@ Wir approximieren die $f$ durch die Funktion
 \begin{cases}
 f(a)&\qquad x\in[a-\varepsilon,a+\varepsilon]\\
 f(b)&\qquad x\in[b-\varepsilon,b+\varepsilon]\\
-0&\qquad\text{sonst}.
+f(x)&\qquad\text{sonst}.
 \end{cases}
 \]
 Die Funktion $\tilde{f}$ ist immer noch integrierbar und es gilt
@@ -362,7 +362,7 @@ differenzierbar ist.
 
 Aus der Euler-Lagrange-Differentialgleichung folgt noch nicht, dass
 die zweite Ableitung $y''(x)$ der Lösung stetig ist.
-David Hilbert hat aber den folgenden Satz gezeigt.
+David Hilbert hat aber den folgenden Satz bewiesen.
 
 \begin{satz}
 Ist $\frac{\partial F}{\partial y'}$ differenzierbar und ist $y(x)$ eine
@@ -393,9 +393,8 @@ betrachten wir die Differenz
 &=
 \frac{\partial F}{\partial y'}(x+h,y(x+h),y'(x+h))
 -
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}(x,y(x),y'(x)).
 \end{align*}
-untersucht.
 Die Ableitung von \eqref{buch:nichtdiff:eqn:hilbertf} ist
 nach \eqref{buch:nichtdiff:duboisreymond:gleichung}
 \begin{align*}
@@ -447,7 +446,7 @@ Die linke Seite konvergiert gegen die Ableitung von
 konvergieren.
 
 Die Voraussetzung \eqref{buch:nichtdiff:duboysreymond:eqn:positiv}
-garantiert, dass nach dem Differenzenquoteienten
+garantiert, dass nach dem Differenzenquotienten
 in \eqref{buch:nichtdiff:eqn:hilbertlim2} aufgelöst werden kann.
 \begin{align*}
 \frac{y'(x+h)-y'(x)}{h}
