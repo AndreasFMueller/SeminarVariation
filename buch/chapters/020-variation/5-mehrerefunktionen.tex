@@ -60,14 +60,14 @@ F
 :
 (x,y_1,\dots,y_n,y'_1,\dots,y'_n)\mapsto F(x,y_1,\dots,y_n,y'_1,\dots,y'_n)
 \end{equation*}
-Mit dieser Schreibweise wird das Funktional, das extremal gemacht 
-werden soll.
+Mit dieser Schreibweise wird das
 \[
 I(y)
 =
 \int_{x_0}^{x_1}
-F(x,y_1(x),\dots,y_n(x),y'_1(x),\dots,y'_n(x))\,dx.
+F(x,y_1(x),\dots,y_n(x),y'_1(x),\dots,y'_n(x))\,dx
 \]
+Funktional, das extremal gemacht werden soll.
 Der Fall $n=1$ ist der bereits früher behandelte.
 
 Besonders elegant lässt sich die Theorie formulieren, wenn wir
@@ -140,10 +140,9 @@ F(x,y,y')
 \end{equation}
 schreiben wollen.
 Ist $\eta(x)$ eine vektorwertige Funktion mit Komponenten
-$\eta_k(x)$, dann kann man jetzt 
-die in der Variation von
+$\eta_k(x)$, dann kann man die in der Variation von
 $f(\varepsilon) = F(x,y(x)+\varepsilon\eta(x),y(x)+\varepsilon\eta(x))$
-benötigte Ableitung nach $\varepsilon$ schreiben:
+benötigte Ableitung nach $\varepsilon$ als
 \begin{align*}
 \frac{d}{d\varepsilon}f(\varepsilon)
 &=
@@ -165,6 +164,7 @@ F(x,y(x),y'(x))\cdot \eta(x)
 \frac{\partial}{\partial y'}
 F(x,y(x),y'(x))\cdot \eta'(x)
 \end{align*}
+schreiben.
 Der einzige Unterschied in der Notation gegenüber dem skalaren Fall
 ist, dass jeweils das Skalarprodukt zur Multiplikation mit $\eta(x)$
 bzw.~$\eta'(x)$ verwendet werden muss.
@@ -206,7 +206,7 @@ y_r(x)+t\eta_r(x),y_r'(x)+t\eta_r'(x))
 \frac{\partial L}{\partial y_r}\eta_r(x)
 +
 \frac{\partial L}{\partial y'_r}\eta'_r(x)
-\,dx
+\,dx.
 \notag
 \intertext{Die Terme mit Ableitungen von $\eta'_i(x)$ können durch partielle
 Integration umgeformt werden:}
@@ -268,7 +268,7 @@ Das Integral
 \int_a^b L(x,y_1(x),y_1'(x),\dots,y_r(x),y'_r(x))\,dx
 \]
 mit einer Lagrange-Funktion für $r$ Funktionen $y_1(x),\dots,y_r(x)$
-nimmt einen stationären Wert an für Funktionen %$y_1(x),\dots,y_r(x)$,
+nimmt einen stationären Wert an für Funktionen,
 welche das Differentialgiechungssystem
 \begin{equation}
 \frac{\partial L}{\partial y_k}(x,y_1(x),y'_1(x),\dots,y_r(x),y'_r(x))
@@ -310,7 +310,7 @@ I
 \]
 wobei $y\colon[a,b]\to\mathbb{R}^r$ eine vektorwertige Funktion ist.
 Um die Variation zu bilden, brauchen wir eine vektorwertige Funktion
-$\eta\colon[a,b]\to\mathbb{R}$, deren Komponenten in den Endpunkten
+$\eta\colon[a,b]\to\mathbb{R}^r$, deren Komponenten in den Endpunkten
 des Intervalls verschwinden.
 Die Variation ist dann
 \begin{align*}
@@ -332,7 +332,7 @@ Für den Term mit $\eta'(x)$ verwenden wir wieder partielle Integration}
 &=
 \int_a^b D_2L(x,y(x),y'(x))\eta(x)\,dx
 +
-\biggl[L(x,y(x),y'(x))\biggr]_a^b
+\biggl[L(x,y(x),y'(x))\,\eta(x)\biggr]_a^b
 \\
 &\qquad
 -
@@ -344,7 +344,7 @@ verschwinden, fällt der mittlere Term weg und es bleibt}
 \eta(x)\,dx.
 \end{align*}
 Nach dem Fundamentallemma folgt die $r$-dimensionale
-Vektor-Differentialgleichung
+Vektordifferentialgleichung
 \[
 D_2L(x,y(x),y'(x)) - \frac{d}{dx}D_3L(x,y(x),y'(x)) = 0.
 \]
@@ -399,7 +399,7 @@ des Vektors $\gamma(t)$.
 
 Die Euler-Lagrange-Differentialgleichung für das Funktional
 \eqref{buch:variation:mehrerefunktionen:eqn:funktionalkurve}
-ist die $r$-dimensionale Vektordifferentialgleichung
+ist die $r$-di\-men\-sio\-na\-le Vektordifferentialgleichung
 \begin{equation}
 \frac{\partial L}{\partial x}(t,\gamma(t), \dot{\gamma}(t))
 -
@@ -419,8 +419,8 @@ sind stationäre Punkte des Funktionals
 %
 % Das homogene Problem
 %
-\subsection{Das homogene Variationsproblem
-\label{buch:variation:mehrerefunktionen:subsection:homogen}}
+%\subsection{Das homogene Variationsproblem
+%\label{buch:variation:mehrerefunktionen:subsection:homogen}}
 
 
 

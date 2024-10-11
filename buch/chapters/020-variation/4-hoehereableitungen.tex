@@ -6,17 +6,21 @@
 \section{Höhere Ableitungen
 \label{buch:variation:section:hoehereableitungen}}
 \kopfrechts{Höhere Ableitungen}
-Das Beispiel der Spline-Interpolation hat gezeigt, dass es manchmal
+Das Beispiel der Spline-Interpolation in
+Abschnitt~\ref{buch:nichtdiff:section:splines}
+zeigt, dass es manchmal
 nötig ist, höhere Ableitungen als die erste in einem Funktional
 zu berücksichtigen.
-In diesem Abschnitt werden weitere Beispiele dazu vorgestellt.
+In diesem Abschnitt wird die Theorie der ersten Variation auf
+Funktionale erweitert, die von beliebigen Ableitungen der Funktion $y(x)$
+abhängen.
 
 %
 % Lagrange-Funktion mit höheren Ableitungen
 %
 \subsection{Lagrange-Funktion mit höheren Ableitungen}
 Die Euler-Lagrange-Differentialgleichung wurde bisher für Funktionale
-hergeletet, deren Lagrange-Funktion von $x$, der Funktion $y(x)$ und
+hergeleitet, deren Lagrange-Funktion von $x$, der Funktion $y(x)$ und
 der ersten Ableitung $y'(x)$ abhängen.
 
 \begin{definition}
@@ -38,13 +42,14 @@ Ein elastischer Stab speichert bei Verbiegung Energie, deren Dichte
 entlang des Stabes proportional zur Krümmung ist.
 Ist $s\mapsto \gamma(s)\in\mathbb{R}^2$ eine differenzierbare
 Parametrisierung einer ebenen Kurve, die die Form eines dünnen elastischen
-Stabes beschreibt, dann ist die Gesamtenergie des Stabes gegeben durch
-das Integral
+Stabes beschreibt, dann ist die Gesamtenergie des Stabes bis auf
+eine Konstante durch das Integral
 \[
 E
 =
-\int_a^b \kappa(s)^2 \,ds.
+\int_a^b \kappa(s)^2 \,ds
 \]
+gegeben
 Ist $s$ ein Bogenlängenparameter, also $|\dot{\gamma}(s)|=1$, dann ist
 die Krümmung die zweite Ableitung, also
 \[
@@ -83,13 +88,14 @@ Auch für ein Variationsproblem mit einer Lagrange-Funktion, die höhere
 Ableitungen enthält, lässt sich mit der mehr oder weniger gleichen
 Vorgehensweise eine Differentialgleichung für die gesuchte Funktion
 $y(x)$ herleiten.
-Wie schon im Beispiel zur Spline-Interpolation angedeutet, wird es
+Wie auch im Beispiel zur Spline-Interpolation in
+Abschnitt~\ref{buch:nichtdiff:section:splines} angedeutet, wird es
 notwendig sein, mehrmals partiell zu integrieren.
 
 Sei also $L(x,y,y',\dots,y^{(n)})$ eine Lagrange-Funktion $n$-ter Ordnung
-und sei eine Funktion $y(x)$ gesucht, die ein kritischer Punkt des Integrals
+und sei eine Funktion $y(x)$ gesucht, die ein kritischer Punkt des Funktionals
 \[
-I
+I(y)
 =
 \int_a^b L(x,y(x),y'(x),\dots,y^{(n)}(x))\,dx
 \]
@@ -150,7 +156,7 @@ $\eta(x)$ enthalten:
 (x,y(x),y'(x),\dots,y^{(n)}(x))
 \eta^{(k-1)}(x)
 \,dx.
-\intertext{Da die Ableitungen von $\eta(x)$ in den Intevallenden
+\intertext{Da die Ableitungen von $\eta(x)$ in den Intervallenden
 verschwinden, ist dies gleichbedeutend mit}
 &=
 -\int_a^b \frac{d}{dx} \frac{\partial L}{\partial y^{(k)}}
