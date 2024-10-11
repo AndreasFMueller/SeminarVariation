@@ -25,6 +25,11 @@ Um die einzelnen Schritte darzustellen, betrachten wir das Problem
 \end{equation}
 was der Poisson-Gleichung entspricht. 
 Diese findet in vielen Teilen der Physik Anwendung und ist gleichzeitig ein gutes, einfaches Beispiel einer mit der FEM lösbaren Differenzialgleichung.
+Si soll im ganzen Definitionsbereich
+\begin{equation}
+    l = [a,b]
+\end{equation}
+gelten.
 
 
 \subsection{Bilden der schwachen Form}
@@ -33,26 +38,26 @@ Zuvor werden jedoch beide Seiten mit der Testfunktion $ v(x) $ multipliziert.
 Diese wird definiert als eine beliebige Funktion $ v \colon \mathbb{R} \rightarrow \mathbb{R} $.
 Die resultierende Gleichung
 \begin{equation}
-    \int(u''(x) \cdot v(x)) \diff x = \int(f(x) \cdot v(x)) \diff x \myforall v(x)
+    \int_l(u''(x) \cdot v(x)) \diff x = \int_l(f(x) \cdot v(x)) \diff x \myforall v(x)
     \label{fem:1d:schwache_form}
 \end{equation}
 sollte einem bekannt vorkommen, denn sie entsteht auch beim Herleiten der ersten Variation.
-Im Kapitel \ref{buch:variation:section:fundamentallemma} zum Fundamentallemma wird bewiesen, dass die beiden Ausdrücke \ref{fem:1d:poisson_gleichung} und \ref{fem:1d:schwache_form} gleichwertig sind.
+Im Kapitel \ref{buch:variation:section:fundamentallemma} zum Fundamentallemma wird bewiesen, dass die beiden Ausdrücke \eqref{fem:1d:poisson_gleichung} und \eqref{fem:1d:schwache_form} gleichwertig sind.
 
 Durch partielles Integrieren der linken Seite kann die Ordnung der Differenzialgleichung um eins verringert werden:
 \begin{align}
-    \int f(x) \cdot v(x) \diff x &= \int u''(x) \cdot v(x) \diff x \\
-                                 &= \left[ u'(x) \cdot v(x) \right]_{x_1}^{x_2} - \int u'(x) \cdot v'(x) \diff x \\
-                                 &= - \int u'(x) \cdot v'(x) \diff x \\
-                                 &= - \Phi(u, v)
+    \int_l f(x) \cdot v(x) \diff x &= \int_l u''(x) \cdot v(x) \diff x \\
+                                 &= \left[ u'(x) \cdot v(x) \right]_{a}^{b} - \int_l u'(x) \cdot v'(x) \diff x \\
+                                 &= - \int_l u'(x) \cdot v'(x) \diff x \\
+                                 &= - \Phi(u, v),
 \end{align}
 wobei der Term
 \begin{equation}
-    \left[ u'(x) \cdot v(x) \right]_{x_1}^{x_2}
+    \left[ u'(x) \cdot v(x) \right]_{a}^{b}
 \end{equation}
 Null ist, wenn die Funktion $u'(x)$ die Randbedingung
 \begin{equation}
-    u'(x_1) = u'(x_2) = 0
+    u'(a) = u'(b) = 0
 \end{equation}
 erfüllt. 
 
@@ -121,19 +126,20 @@ Für die Interpolationsfunktion $a(x)$ können verschiedene Ansätze gewählt we
 
 \subsubsection{Linearer Ansatz}
 \input{papers/fem/fig/linearer_ansatz.tex}
-Der lineare Ansatz verwendet die in Abb. \ref{fem:1d:abb:linear:formfkt} gezeigten linearen Funktionen
+Der lineare Ansatz verwendet die in Abbildung \ref{fem:1d:abb:linear:formfkt} gezeigten linearen Funktionen
 \begin{equation}
     \def\arraystretch{\formfktStretch}
-    a_n(x) = \left\{ \begin{array}{ll}
+    a_n(x) = \left\{ \begin{array}{ccc}
         1+\frac{x-x_n}{x_n - x_{n-1}} 
-            & \text{für} \quad x_{n-1} < x < x_n \\
+            & \text{für} & x_{n-1} < x < x_n \\
+
         1-\frac{x-x_n}{x_{n+1} - x_n} 
-            & \text{für} \quad x_n \leq x < x_{n+1} \\
+            & \text{für} & x_n \leq x < x_{n+1} \\
+
         0
             & \text{sonst}
     \end{array} \right..
 \end{equation}
-
 Diese Formfunktionen können mit dem Ansatz 
 \begin{equation}
     a_n(x) = c_1x + c_0
@@ -157,14 +163,28 @@ Pro Element wird nun ein weiterer Knoten definiert.
 Dieser wird oft in der Mitte des Elements gewählt und erhält seine eigene Formfunktion.
 Die Elemente werden anschliessend wieder durchnummeriert.
 
-Die in Abb. \ref{fem:1d:abb:quadratisch:formfkt} gezeigten Formfunktionen lauten
+Die in Abbildung \ref{fem:1d:abb:quadratisch:formfkt} gezeigten Formfunktionen lauten
 \begin{equation}
     \def\arraystretch{\formfktStretch}
-    a_n(x) = \left\{ \begin{array}{ll}
-        \frac{1}{2(x_{n} - x_{n-1})^2} \cdot x^2 + \frac{3}{2 (x_{n} - x_{n-1})} \cdot x + 1  
-            & \text{für} \quad x_{n-2} \leq x < x_n \\
-        \frac{1}{2(x_{n+1} - x_{n})^2} \cdot x^2 - \frac{3}{2 (x_{n+1} - x_{n})} \cdot x + 1
-            & \text{für} \quad x_n < x \leq x_{n+2} \\
+    a_n(x) = \left\{ \begin{array}{ccc}
+         \frac{1}{2} \left(\frac{x-x_{n-1}}{x_{n-2}-x_{n-1}}\right)^2 
+        -\frac{1}{2}       \frac{x-x_{n-1}}{x_{n-2}-x_{n-1}}
+            & \text{für} & x_{n-2} \leq x < x_{n-1} \\
+        
+         \frac{1}{2} \left(\frac{x-x_{n  }}{x_{n-1}-x_{n  }}\right)^2 
+        -\frac{3}{2}       \frac{x-x_{n  }}{x_{n-1}-x_{n  }} 
+        +1  
+            & \text{für} & x_{n-1} \leq x < x_n \\
+        
+         \frac{1}{2} \left(\frac{x-x_{n  }}{x_{n+1}-x_{n  }}\right)^2 
+        -\frac{3}{2}       \frac{x-x_{n  }}{x_{n+1}-x_{n  }} 
+        +1  
+            & \text{für} & x_{n-1} \leq x < x_n \\
+        
+         \frac{1}{2} \left(\frac{x-x_{n+1}}{x_{n+2}-x_{n+1}}\right)^2 
+        -\frac{1}{2}       \frac{x-x_{n+1}}{x_{n+2}-x_{n+1}}
+            & \text{für} & x_{n-1} \leq x < x_n \\
+        
         0
             & \text{sonst}
     \end{array} \right.
@@ -172,11 +192,13 @@ Die in Abb. \ref{fem:1d:abb:quadratisch:formfkt} gezeigten Formfunktionen lauten
 für die Knoten an den Enden der Elemente und
 \begin{equation}
     \def\arraystretch{\formfktStretch}
-    b_n(x) = \left\{ \begin{array}{ll}
-        -\frac{1}{(x_n - x_{n-1})^2} x^2 + 1 
-            & \text{für} \quad x_{n-1} < x < x_n \\
-        -\frac{1}{(x_{n+1} - x_n)^2} x^2 + 1 
-            & \text{für} \quad x_n \leq x < x_{n+1} \\
+    b_n(x) = \left\{ \begin{array}{ccc}
+        -\left(\frac{x-x_{n}}{x_{n}-x_{n-1}}\right)^2+1
+            & \text{für} & x_{n-1} < x < x_n \\
+
+        -\left(\frac{x-x_{n}}{x_{n}-x_{n+1}}\right)^2+1
+            & \text{für} & x_n \leq x < x_{n+1} \\
+
         0 
             & \text{sonst}
     \end{array} \right.
@@ -205,7 +227,7 @@ für Knotenpunkte in der Mitte der Elemente hergeleitet werden.
 Dabei ist zu beachten, dass die Formfunktionen $a_n(x)$ aus zwei quadratischen Funktionen zusammensetzen: 
 Eine für den Bereich $x_{n-2} \leq x \leq x_n$ und eine für den Bereich $x_n \leq x \leq x_{n+2}$.
 
-Die resultierende interpolierte Funktion $f_\text{quadratisch} (x)$, gezeigt in Abb. \ref{em:1d:abb:quadratisch:vergleich}, folgt der vorgegebenen Funktion $f(x)$ schon viel besser als im linearen Fall.
+Die resultierende interpolierte Funktion $f_\text{quadratisch} (x)$, gezeigt in Abbildung \ref{fem:1d:abb:quadratisch:vergleich}, folgt der vorgegebenen Funktion $f(x)$ schon viel besser als im linearen Fall.
 Es äussert sich jedoch auch eine Schwäche des quadratischen Ansatzes: 
 An der Stützstelle $x_2$ ist aufgrund der unstetigen Ableitung von $f_\text{quadratisch}$ ein leichter Knick zu erkennen.
 Dies ist nicht besonders schön.
@@ -213,7 +235,7 @@ Abhilfe schafft der kubische Ansatz.
 
 \subsubsection{Kubischer Ansatz}
 \input{papers/fem/fig/kubischer_ansatz.tex}
-Der kubische Ansatz erbringt die Möglichkeit, den Wert der Funktion wie auch den Wert der Ableitung an den Stützstellen frei zu wählen.
+Der kubische Ansatz bringt die Möglichkeit, den Wert der Funktion wie auch den Wert der Ableitung an den Stützstellen frei zu wählen.
 Dafür muss der Ansatz etwas erweitert werden:
 \begin{equation}
     u(x) \approx \sum_{n}{u_n \cdot a_n(x)} \rightarrow u(x) \approx \sum_{n}{u_n \cdot a_n(x) + u'_n \cdot b_n(x)}.
@@ -222,27 +244,35 @@ Dafür muss der Ansatz etwas erweitert werden:
 Die Formfunktionen 
 \begin{equation}
     \def\arraystretch{\formfktStretch}
-    a(x) = \left\{ \begin{array}{ll}
-        - \frac{2}{(x_n - x_{n-1})^3} \cdot x^3 + \frac{3}{(x_n - x_{n-1})^2} \cdot x^2 + 1 
-            & \text{für} \quad x_{n-1} < x < x_n \\
-        \frac{2}{(x_{n+1} - x_n)^3} \cdot x^3 + \frac{3}{(x_{n+1} - x_n)^2} \cdot x^2 + 1 
-            & \text{für} \quad x_n \leq x < x_{n+1} \\
+    a(x) = \left\{ \begin{array}{ccc}
+        - 2 \cdot \left(\frac{x-x_{n-1}}{x_n-x_{n-1}}\right)^3 
+        + 3 \cdot \left(\frac{x-x_{n-1}}{x_n-x_{n-1}}\right)^2 
+            & \text{für} & x_{n-1} < x < x_n \\
+
+        - 2 \cdot \left(\frac{x-x_{n+1}}{x_n-x_{n+1}}\right)^3 
+        + 3 \cdot \left(\frac{x-x_{n+1}}{x_n-x_{n+1}}\right)^2 
+            & \text{für} & x_n \leq x < x_{n+1} \\
+
         0
             & \text{sonst}
     \end{array} \right.
 \end{equation}
 und
 \begin{equation}
-    b(x) = \left\{ \begin{array}{ll}
-        \frac{1}{(x_n - x_{n-1})^2} \cdot x^3 + \frac{2}{x_n - x_{n-1}} \cdot x^2 + x 
+    b(x) = \left\{ \begin{array}{ccc}
+          \left(\frac{(x-x_{n-1})^3}{(x_n-x_{n-1})^2}\right)
+        - \left(\frac{(x-x_{n-1})^2}{x_n-x_{n-1}}\right)
             & \text{für} \quad x_{n-1} < x < x_n \\
-        \frac{1}{(x_{n+1} - x_n)^2} \cdot x^3 - \frac{2}{x_{n+1} - x_n} \cdot x^2 + x 
+
+          \left(\frac{(x-x_{n+1})^3}{(x_n-x_{n+1})^2}\right)
+        - \left(\frac{(x-x_{n+1})^2}{x_n-x_{n+1}}\right)
             & \text{für} \quad x_n \leq x < x_{n+1} \\
+
         0
             & \text{sonst}
     \end{array} \right.
 \end{equation}
-dargestellt in Abb. \ref{fem:1d:abb:kubisch:formfkt}, können mit dem Ansatz
+dargestellt in Abbildung \ref{fem:1d:abb:kubisch:formfkt}, können mit dem Ansatz
 \begin{equation}
     a(x) = c_3x^3 + c_2x^2 + c_1x + c_0 
     \quad \text{bzw.} \quad
@@ -280,18 +310,18 @@ Mit den Approximationen
 \end{align}
 aus der Diskretisierung kann die schwache Form der Differenzialgleichung 
 \begin{equation}
-    - \int u'(x) \cdot v'(x) \diff x = \int f(x) \cdot v(x) \diff x
+    - \int_l u'(x) \cdot v'(x) \diff x = \int_l f(x) \cdot v(x) \diff x
 \end{equation}
 als
 \begin{equation}
-    - \int \biggl(\sum_i u_i \cdot a'_i(x)\biggr) \biggl(\sum_j v_j \cdot a'_j(x)\biggr) \diff x 
-    = \int \biggl(\sum_i f_i \cdot a_i(x) \biggr) \biggl(\sum_j v_j \cdot a_j(x) \biggr) \diff x 
+    - \int_l \biggl(\sum_i u_i \cdot a'_i(x)\biggr) \biggl(\sum_j v_j \cdot a'_j(x)\biggr) \diff x 
+    = \int_l \biggl(\sum_i f_i \cdot a_i(x) \biggr) \biggl(\sum_j v_j \cdot a_j(x) \biggr) \diff x 
     \myforall v_i
 \end{equation}
 geschrieben werden.
 Die vorherige Gleichung kann zu
 \begin{equation}
-    - \int \sum_i u_i \cdot a'_i(x) \cdot a'_j(x) \diff x = \int \sum_i f_i \cdot a_i(x) \cdot a_j(x) \diff x \myforall j
+    - \int_l \sum_i u_i \cdot a'_i(x) \cdot a'_j(x) \diff x = \int_l \sum_i f_i \cdot a_i(x) \cdot a_j(x) \diff x \myforall j
 \end{equation}
 vereinfacht werden.
 Dabei wird die Menge der Testfunktionen reduziert.
@@ -299,7 +329,7 @@ Um nicht alle Testfunktionen mit beliebig breitem Träger berücksichtigen zu m�
 Da alle anderen Testfunktionen aus diesen ``zusammengebaut'' werden können, ist die Gleichung auch für diese erfüllt.
 Diese Vereinfachung ermöglicht es, die Summen aus den Integralen zu bringen und die Gleichung als
 \begin{equation}
-    - \sum_i u_i \underbrace{\int a'_i(x) \cdot a'_j(x) \diff x}_{l_{ij}} = \sum_i f_i \underbrace{\int a_i(x) \cdot a_j(x) \diff x}_{l_{ij}} \myforall j \label{papers:fem:prinzip1d:finale_gleichung}
+    - \sum_i u_i \underbrace{\int_l a'_i(x) \cdot a'_j(x) \diff x}_{l_{ij}} = \sum_i f_i \underbrace{\int_l a_i(x) \cdot a_j(x) \diff x}_{l_{ij}} \myforall j \label{papers:fem:prinzip1d:finale_gleichung}
 \end{equation}
 zu schreiben.
 Übrig bleibt also, da die Integrale ausgewertet werden können, ein lineares Gleichungssystem mit $N$ Unbekannten $u_i$ und $N$ Gleichungen (eine pro $j$). 
@@ -308,9 +338,9 @@ Das erhaltene Gleichungssystem lässt sich nun sehr gut als Matrizen, bei denen 
 \begin{multline}
     -\left(
         \begin{matrix}
-            \int a'_1(x) \cdot a'_1(x) \diff x & \hdots & \int a'_N(x) \cdot a'_1(x) \diff x \\
-            \vdots                          & \ddots & \vdots                           \\
-            \int a'_1(x) \cdot a'_N(x) \diff x & \hdots & \int a'_N(x) \cdot a'_N(x) \diff x \\
+            \int_l a'_1(x) \cdot a'_1(x) \diff x & \hdots & \int_l a'_N(x) \cdot a'_1(x) \diff x \\
+            \vdots                               & \ddots & \vdots                               \\
+            \int_l a'_1(x) \cdot a'_N(x) \diff x & \hdots & \int_l a'_N(x) \cdot a'_N(x) \diff x \\
         \end{matrix}
     \right)
     \left(
@@ -323,9 +353,9 @@ Das erhaltene Gleichungssystem lässt sich nun sehr gut als Matrizen, bei denen 
     = \\
     \left(
         \begin{matrix}
-            \int a_1(x) \cdot a_1(x) \diff x & \hdots & \int a_N(x) \cdot a_1(x) \diff x \\
-            \vdots                        & \ddots & \vdots                         \\
-            \int a_1(x) \cdot a_N(x) \diff x & \hdots & \int a_N(x) \cdot a_N(x) \diff x \\
+            \int_l a_1(x) \cdot a_1(x) \diff x & \hdots & \int_l a_N(x) \cdot a_1(x) \diff x \\
+            \vdots                             & \ddots & \vdots                             \\
+            \int_l a_1(x) \cdot a_N(x) \diff x & \hdots & \int_l a_N(x) \cdot a_N(x) \diff x \\
         \end{matrix}
     \right)
     \left(
@@ -349,12 +379,12 @@ führt.
 
 $\mathbf{L}$ wird aufgrund des schmalen Trägers der Funktionen $a_n(x)$ (sowie $b_n(x)$ beim kubischen Ansatz) sehr schwach besetzt sein, da viele der Integrale
 \begin{equation}
-    \quad \int a'_i(x) \cdot a'_j(x) \diff x 
+    \quad \int_l a'_i(x) \cdot a'_j(x) \diff x 
 \end{equation}
 Null sein werden.
 Von Null verschieden sind nur die Einträge, deren zugehörige Datenpunkte nebeneinander liegen.
 Die Matrix ist also symmetrisch, da es keine Rolle spielt in welcher Reihenfolge man die Testfunktionen multipliziert.
-Da $\mathbf{L}$ die Gram-Matrix\footnote{Mehr über die Gram-Matrix im Buch Lineare Algebra: Eine anwendungsorientierte Einführung\cite{buch:linalg}.} des Skalarprodukts darstellt und das Skalarprodukt positiv definit ist, ist auch $\mathbf{L}$ positiv definit.
+Da $\mathbf{L}$ die Gram-Matrix\footnote{Mehr über die Gram-Matrix im Buch Lineare Algebra: Eine anwendungsorientierte Einführung \cite{buch:linalg}.} des Skalarprodukts darstellt und das Skalarprodukt positiv definit ist, ist auch $\mathbf{L}$ positiv definit.
 
 \subsubsection{Kubischer Ansatz}
 Auch hier verlangt der kubische Ansatz mit seinen zwei Funktionen pro Datenpunkt eine leichte Anpassung: 
@@ -388,10 +418,10 @@ repräsentiert werden.
 Das Ziel ist es nun also, die Anfangsbedingung
 \begin{equation}
     u_n = c \in \mathbb{R} 
-    \label{fem:1d:anfangsbedingung}
+    \label{fem:1d:eq:anfangsbedingung}
 \end{equation}
 in das Gleichungssystem einzufügen.
-Am einfachsten gelingt dies, indem man die $n$-te Zeile so umformt, dass sie die Gleichung \ref{fem:1d:anfangsbedingung} widerspiegelt.
+Am einfachsten gelingt dies, indem man die $n$-te Zeile so umformt, dass sie die Gleichung \ref{fem:1d:eq:anfangsbedingung} widerspiegelt.
 Ist beispielsweise $n = 2$ gegeben, so resultiert
 \begin{equation}
     \begin{array}{|ccccc|c|}
@@ -413,7 +443,7 @@ Ist beispielsweise $n = 2$ gegeben, so resultiert
 Die dabei ersetzte Gleichung sagt, wie jede Zeile der Matrix, etwas über den Bezug von den verschiedenen Knotenvariablen zueinander aus.
 Diese wird durch die Anfangsbedingung, die etwas über eine einzelne Variable aussagt, ersetzt.
 Es kann grundsätzlich irgendeine Zeile des Gleichungssystems durch die Anfangsbedingung ersetzt werden, denn da für die $N$ unbekannten nach wie vor $N$ Gleichungen bestehen, kann das Gleichungssystem immernoch gelöst werden.
-Es macht jedoch aus Hinsicht der Effizienz Sinn, diese Zeile zu wählen, die nach dem Einfügen der Randbedingung eine Symmetrische Matrix zur Folge hat.
+Es macht jedoch im Hinblick auf Effizienz Sinn, diese Zeile zu wählen, die nach dem Einfügen der Randbedingung eine symmetrische Matrix zur Folge hat.
 
 Durch die vorherige Operation wurde die Matrix asymmetrisch. 
 Es sollte nun also die Symmetrie wieder hergestellt werden.
