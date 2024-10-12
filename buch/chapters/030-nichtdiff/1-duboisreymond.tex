@@ -9,13 +9,13 @@
 Wir gehen wieder von einem Variationsproblem der Form
 \begin{equation}
 \delta
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 F(x,y(x),y'(x))\,dx
 =
 0
 \label{buch:nichtdiff:duboisreymond:eqn:problem}
 \end{equation}
-mit festen Randwerten $y(x_0)=y_0$ und $y(x_1)=y_1$ aus.
+mit festen Randwerten $y(x_1)=y_0$ und $y(x_2)=y_1$ aus.
 Die Herleitung der Euler-Lagrange-Differentialgleichung für dieses
 Problem hat angenommen, dass die Lösungsfunktion $y(x)$ zweimal
 stetig differenzierbar ist.
@@ -41,8 +41,8 @@ Die erste Variation ist die Ableitung
 \frac{d}I(y+\varepsilon\eta)\bigg|_{\varepsilon=0}
 =
 \frac{d}{d\varepsilon}
-\int_{x_0}^{x_1}
-F(x,y(x)+\varepsilon\eta(x), y'(x)+\varepsilon\eta'(x))\,dx
+\int_{x_1}^{x_2}
+F\bigl(x,y(x)+\varepsilon\eta(x), y'(x)+\varepsilon\eta'(x)\bigr)\,dx
 \bigg|_{\varepsilon}
 \]
 für beliebige Variationen $\eta(x)$ der Funktion $y(x)$.
@@ -51,10 +51,10 @@ ist, und verwenden dies, um die Ableitung zu berechnen:
 \begin{equation}
 \frac{d}{d\varepsilon}I(y+\varepsilon\eta)
 =
-\int_{x_0}^{x_1}
-\frac{\partial F}{\partial y}(x,y(x),y'(x))\cdot \eta(x)
+\int_{x_1}^{x_2}
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)\cdot \eta(x)
 +
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))\cdot \eta'(x)
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)\cdot \eta'(x)
 \,dx.
 \label{nichtdiff:duboisreymon:eqn:ableitung}
 \end{equation}
@@ -74,42 +74,43 @@ in~\eqref{nichtdiff:duboisreymon:eqn:ableitung}
 partiell zu integrieren.
 Die dazu benötigte Stammfunktion des ersten Terms schreiben wir
 \[
-\int_{x_0}^x \frac{\partial F}{\partial y}(\xi, y(\xi), y'(\xi))\,d\xi.
+\int_{x_1}^x
+\frac{\partial F}{\partial y}\bigl(\xi, y(\xi), y'(\xi)\bigr)\,d\xi.
 \]
 Das erste Integral in~\eqref{nichtdiff:duboisreymon:eqn:ableitung}
 wird damit zu
 \begin{align*}
-\int_{x_0}^{x_1}
-\frac{\partial F}{\partial y}(x,y(x),y'(x)\eta(x)\,dx
+\int_{x_1}^{x_2}
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)\,\eta(x)\,dx
 &=
 \biggl[
-\int_{x_0}^{x}
-\frac{\partial F}{\partial y}(\xi,y(\xi),y'(\xi))
+\int_{x_1}^{x}
+\frac{\partial F}{\partial y}\bigl(\xi,y(\xi),y'(\xi)\bigr)
 \,d\xi
 \cdot 
 \eta(x)
-\biggr]_{x_0}^{x_1}
+\biggr]_{x_1}^{x_2}
 \\
 &\qquad
 -
-\int_{x_0}^{x_1}
-\int_{x_0}^{x}
-\frac{\partial F}{\partial y}(\xi,y(\xi),y'(\xi))
+\int_{x_1}^{x_2}
+\int_{x_1}^{x}
+\frac{\partial F}{\partial y}\bigl(\xi,y(\xi),y'(\xi)\bigr)
 \,d\xi
 \cdot\eta'(x)
 \,dx.
 \end{align*}
-Da in den Randpunkten $\eta(x_0)=\eta(x_1)=0$ gilt, 
+Da in den Randpunkten $\eta(x_1)=\eta(x_2)=0$ gilt, 
 fällt der erste Term weg.
 Einsetzen in~\eqref{nichtdiff:duboisreymon:eqn:ableitung}
 liefert jetzt die Bedingung
 \begin{equation}
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
--\int_{x_0}^x\frac{\partial F}{\partial y}(\xi, y(\xi),y'(\xi))
+-\int_{x_1}^x\frac{\partial F}{\partial y}\bigl(\xi, y(\xi),y'(\xi)\bigr)
 \,d\xi
 +
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
 \cdot
 \eta'(x)\,dx
@@ -123,24 +124,24 @@ Daraus können wir aber nicht schliessen, dass die Klammer im
 Integral verschwindet, denn dies folgt nach dem Fundamentallemma
 nur, wenn man mit beliebige Funktionen $\eta(x)$ multipliziert.
 Die Funktionen $\eta'(x)$ haben die einschränkende Eigenschaft,
-dass ihr Integral zwischen $x_0$ und $x_1$
+dass ihr Integral zwischen $x_1$ und $x_2$
 \[
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \eta'(x)\,dx
 =
 \biggl[
 \eta(x)
-\biggr]_{x_0}^{x_1}
+\biggr]_{x_1}^{x_2}
 =
-\eta(x_1) - \eta(x_0)
+\eta(x_2) - \eta(x_1)
 =
 0-0
 =
 0
 \]
 ist.
-Für beliebige Funktionen $\eta(x)$ kann das Integral zwischen $x_0$
-und $x_1$ bliebige Werte annehmen, selbst wenn $\eta(x_0)=\eta(x_1)=0$
+Für beliebige Funktionen $\eta(x)$ kann das Integral zwischen $x_1$
+und $x_2$ bliebige Werte annehmen, selbst wenn $\eta(x_1)=\eta(x_2)=0$
 sind.
 Es gilt aber die folgende Verallgemeinerung des Fundamentallemmas.
 
@@ -155,14 +156,14 @@ Freiburg im  Breisgau berufen.
 Ab 1874 wirkte er in Tübingen und ab 1884 an der
 Technischen Hochschule Berlin.}]
 \label{buch:nichtdiff:duboisreymond:lemma:duboisreymond}
-Sei $f(x)$ eine stetige Funktion auf dem Intervall $[x_0,x_1]$, für die
+Sei $f(x)$ eine stetige Funktion auf dem Intervall $[x_1,x_2]$, für die
 \[
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 f(x)\,\eta'(x)\,dx
 =
 0
 \]
-gilt für alle einmal stetig differenzierbaren Funktionen auf $[x_0,x_1]$,
+gilt für alle einmal stetig differenzierbaren Funktionen auf $[x_1,x_2]$,
 die in den Intervallenden verschwinden.
 Dann ist die Funktion $f(x)$ konstant.
 \end{lemma}
@@ -171,7 +172,7 @@ Dann ist die Funktion $f(x)$ konstant.
 
 \begin{proof}
 Wir müssen zeigen, dass die Funktionswerte von $f$ in den Punkten $a$ und $b$
-im Inneren des Intervalls $[x_0,x_1]$ gleich gross sind.
+im Inneren des Intervalls $[x_1,x_2]$ gleich gross sind.
 Sei $\varepsilon>0$ so klein, dass die Intervalle
 $(a-\varepsilon,a+\varepsilon)$ und $(b-\varepsilon,b+\varepsilon)$ ebenfalls
 vollständig in $[a,b]$ enthalten sind.
@@ -187,22 +188,22 @@ Wir wählen für $\eta$ die Stammfunktion
 \[
 \eta(x)
 =
-\int_{x_0}^x g_a(\xi)-g_b(\xi)\,d\xi
+\int_{x_1}^x g_a(\xi)-g_b(\xi)\,d\xi
 \]
 von $x\mapsto g_a(x) -g_b(x)$.
-Am linken Rand $x_0$ verschwindet sie, am rechten Rand gilt
+Am linken Rand $x_1$ verschwindet sie, am rechten Rand gilt
 \[
-\eta(x_1)
+\eta(x_2)
 =
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 g_a(\xi)-g_b(\xi)
 \,d\xi
 =
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 g_a(\xi)
 \,d\xi
 -
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 g_b(\xi)
 \,d\xi
 =
@@ -237,13 +238,13 @@ Für das Integral $\langle f-\tilde{f}, \eta'\rangle$ folgt jetzt
 |\langle f-\tilde{f},\eta'\rangle|
 &=
 \biggl|
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 (f(x)-\tilde{f}(x))\eta'(x)
 \,dx
 \biggr|
 \\
 &\le
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 |f(x)-\tilde{f}(x)| \cdot |\eta'(x)|
 \,dx
 \\
@@ -251,9 +252,9 @@ Für das Integral $\langle f-\tilde{f}, \eta'\rangle$ folgt jetzt
 \delta
 \,
 \biggl(
-\int_{x_0}^{x_1} g_a(x)\,dx
+\int_{x_1}^{x_2} g_a(x)\,dx
 +
-\int_{x_0}^{x_1} g_b(x)\,dx
+\int_{x_1}^{x_2} g_b(x)\,dx
 \biggr)
 =
 2\delta.
@@ -326,10 +327,10 @@ von du~Bois-Reymond kann man jetzt schliessen, dass der Integrand in
 konstant sein muss.
 Es gilt also
 \begin{equation}
-\int_{x_0}^x\frac{\partial F}{\partial y}(\xi, y(\xi),y'(\xi))
+\int_{x_1}^x\frac{\partial F}{\partial y}\bigl(\xi, y(\xi),y'(\xi)\bigr)
 \,d\xi
 =
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 +
 C
 \label{buch:nichtdiff:duboisreymond:gleichung}
@@ -344,10 +345,10 @@ Daher muss auch die rechte Seite stetig differenzierbar sein,
 es ist also zulässig den Ableitungsoperator $d/dx$ darauf anzuwenden,
 was die Gleichung
 \begin{equation}
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 =
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \label{buch:nichtdiff:duboisreymond:eqn:eulerlagrange}
 \end{equation}
 ergibt.
@@ -369,7 +370,7 @@ Ist $\frac{\partial F}{\partial y'}$ differenzierbar und ist $y(x)$ eine
 Lösung des Variationsproblems~\eqref{buch:nichtdiff:duboisreymond:eqn:problem},
 dann ist $y''(x)$ überall dort definiert, wo
 \begin{equation}
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x)) \ne 0
+\frac{\partial^2 F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr) \ne 0
 \label{buch:nichtdiff:duboysreymond:eqn:positiv}
 \end{equation}
 gilt.
@@ -382,7 +383,7 @@ Setzt man die Funktion $y(x)$ ein, ist nach
 die Funktion
 \begin{equation}
 x\mapsto
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \label{buch:nichtdiff:eqn:hilbertf}
 \end{equation}
 stetig differenzierbar.
@@ -391,20 +392,20 @@ betrachten wir die Differenz
 \begin{align*}
 \Delta F
 &=
-\frac{\partial F}{\partial y'}(x+h,y(x+h),y'(x+h))
+\frac{\partial F}{\partial y'}\bigl(x+h,y(x+h),y'(x+h)\bigr)
 -
-\frac{\partial F}{\partial y'}(x,y(x),y'(x)).
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr).
 \end{align*}
 Die Ableitung von \eqref{buch:nichtdiff:eqn:hilbertf} ist
 nach \eqref{buch:nichtdiff:duboisreymond:gleichung}
 \begin{align*}
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 &=
 \lim_{h\to 0}
 \frac{\Delta F}{h}
 =
-\frac{\partial F}{\partial y}(x,y(x),y'(x)).
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr).
 \end{align*}
 Wir berechnen den Grenzwert auf eine andere Art.
 Da $\partial F/\partial y'$ differenzierbar ist, kann man die Differenz
@@ -412,12 +413,16 @@ $\Delta F$ als
 \begin{align*}
 \Delta F
 =
-\frac{\partial^2 F}{\partial y'\partial x}(x,y(x),y'(x)) h
+\frac{\partial^2 F}{\partial y'\partial x}\bigl(x,y(x),y'(x)\bigr) h
 &+
-\frac{\partial^2 F}{\partial y'\partial y}(x,y(x),y'(x)) \cdot (y(x+h)-y(x))
+\frac{\partial^2 F}{\partial y'\partial y}\bigl(x,y(x),y'(x)\bigr)
+\cdot
+(y(x+h)-y(x))
 \\
 &+
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x)) \cdot (y'(x+h)+y'(x))
+\frac{\partial^2 F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr)
+\cdot
+(y'(x+h)+y'(x))
 +
 o(h)
 \end{align*}
@@ -426,15 +431,15 @@ Teilen duch $h$ ergibt
 \begin{align}
 \frac{\Delta F}{h}
 =
-\frac{\partial^2 F}{\partial y'\partial x}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y'\partial x}\bigl(x,y(x),y'(x)\bigr)
 &+
-\frac{\partial^2 F}{\partial y'\partial y}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y'\partial y}\bigl(x,y(x),y'(x)\bigr)
 \cdot
 \frac{y(x+h)-y(x)}{h}
 \label{buch:nichtdiff:eqn:hilbertlim1}
 \\
 &+
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr)
 \cdot
 \frac{y'(x+h)-y'(x)}{h}
 +
@@ -452,16 +457,16 @@ in \eqref{buch:nichtdiff:eqn:hilbertlim2} aufgelöst werden kann.
 \frac{y'(x+h)-y'(x)}{h}
 &=
 \frac{1}{\displaystyle
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr)
 }
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
-\frac{\partial^2 F}{\partial y'\partial x}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y'\partial x}\bigl(x,y(x),y'(x)\bigr)
 \\
 &\qquad\qquad
 -
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \cdot
 \frac{y(x+h)-y(x)}{h}
 -
@@ -474,16 +479,16 @@ Somit konvergiert auch die linke Seite, sie ist die zweite Ableitung
 y''(x)
 &=
 \frac{1}{\displaystyle
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr)
 }
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
-\frac{\partial^2 F}{\partial y'\partial x}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y'\partial x}\bigl(x,y(x),y'(x)\bigr)
 \\
 &\qquad\qquad
 -
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))\cdot y'(x)
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)\cdot y'(x)
 \biggr)
 \end{align*}
 von $y(x)$.
@@ -493,7 +498,7 @@ Damit ist der Satz bewiesen.
 In der Theorie der zweiten Variation von Kapitel~\ref{buch:chapter:variation2}
 wird die nach Legendre notwendige Bedingung
 \[
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x)) \ne 0
+\frac{\partial^2 F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr) \ne 0
 \ge 0
 \]
 für ein Extremum hergeleitet.

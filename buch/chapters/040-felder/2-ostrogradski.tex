@@ -259,7 +259,7 @@ Das zugehörige Funktional ist
 I(\varphi)
 &=
 \int_{\Omega}
-L(x,\varphi,\grad\varphi(x))
+L\bigl(x,\varphi,\grad\varphi(x)\bigr)
 \,dx
 \\
 &=
@@ -356,18 +356,18 @@ ein Extremum erteilt, dann erfüllt $\varphi$ die Differentialgleichung
 \frac{\partial L}{\partial u} 
 -
 \frac{\partial}{\partial x_1}
-\frac{\partial L}{\partial u_{x_1}}(x,\varphi(x),\grad\varphi(x))
+\frac{\partial L}{\partial u_{x_1}}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 -
 \dots
 -
 \frac{\partial}{\partial x_n}
-\frac{\partial L}{\partial u_{x_n}}(x,\varphi(x),\grad\varphi(x)).
+\frac{\partial L}{\partial u_{x_n}}\bigl(x,\varphi(x),\grad\varphi(x)\bigr).
 \\
 &=
-\frac{\partial L}{\partial u}(x,\varphi(x),\grad\varphi(x))
+\frac{\partial L}{\partial u}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 -
 \operatorname{div}
-(\grad_{u_x} L)(x,\varphi(x),\grad\varphi(x))
+(\grad_{u_x} L)\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 \end{aligned}
 \label{buch:felder:ostrogradski:eqn:euler-ostrogradski}
 \end{equation}
@@ -397,22 +397,26 @@ L\bigl(x,\varphi(x)+\varepsilon\eta(x),
 Entwicklung der Funktion $L$ nach Potenzen von $\varepsilon$ ergbibt
 }
 &=
-\int_{\Omega} \frac{\partial L}{\partial u}(x,\varphi(x),\grad\varphi(x))\,dx
+\int_{\Omega}
+\frac{\partial L}{\partial u}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
+\,dx
 +
 \int_{\Omega}
 \sum_{k=1}^n
 \frac{\partial L}{\partial u_{x_k}}
-L\bigl(x,\varphi(x),\grad\varphi(x))
+L\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 \frac{\partial\eta}{\partial x_k}
 \,dx.
 \notag
 \intertext{Die Summe im zweiten Integral lässt sich etwas kompakter
 als ein Skalarprodukt von der Form}
 &=
-\int_{\Omega} \frac{\partial L}{\partial u}(x,\varphi(x),\grad\varphi(x))\,dx
+\int_{\Omega}
+\frac{\partial L}{\partial u}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
+\,dx
 +
 \int_{\Omega}
-(\grad_{u_x}L)(x,\varphi(x),\grad\varphi(x))
+(\grad_{u_x}L)\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 \cdot
 \grad\eta(x)
 \,dx.
@@ -439,11 +443,11 @@ Die zugehörige partielle Integrationsformel wendelt das zweite Integral
 in 
 \[
 \int_{\partial \Omega}
-v(x) \eta(x) \grad_{u_x}(L(x,\varphi(x),\grad\varphi(x)))
+v(x) \eta(x) \grad_{u_x}\bigl(L(x,\varphi(x),\grad\varphi(x))\bigr)
 \,d\vec{\omega}
 -
 \int_{\Omega}
-(\grad_{u_x} L)(x,\varphi(x),\grad \varphi(x))
+(\grad_{u_x} L)\bigl(x,\varphi(x),\grad \varphi(x)\bigr)
 \,dx
 \]
 um.
@@ -457,10 +461,10 @@ wird dann
 =
 \int_{\Omega}
 \biggl(
-\frac{\partial L}{\partial u}(x,\varphi(x),\grad\varphi(x))
+\frac{\partial L}{\partial u}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 -
 \operatorname{div}
-(\grad_{u_x}L)(x,\varphi(x),\grad\varphi(x))
+(\grad_{u_x}L)\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 \biggr)
 \eta(x)
 \,dx.
@@ -496,11 +500,11 @@ ableiten.
 Dazu muss die Ableitungen nach $u$ und $u_{x_k}$ ermittelt werden.
 Sie sind
 \begin{align*}
-\frac{\partial L}{\partial u}(x,\varphi(x),\grad\varphi(x))
+\frac{\partial L}{\partial u}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 &=
 -\varrho(x)
 \\
-\frac{\partial L}{\partial u_{x_k}}(x,\varphi(x),\grad \varphi(x))
+\frac{\partial L}{\partial u_{x_k}}\bigl(x,\varphi(x),\grad \varphi(x)\bigr)
 &=
 -\frac{1}{4\pi G}\frac{\partial \varphi}{\partial x_k}(x)
 &&\Rightarrow&

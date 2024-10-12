@@ -84,7 +84,7 @@ L\biggl(x_1,\dots,x_n,
 \frac{\partial\varphi_1}{\partial x_1}(x),
 \dots,
 \frac{\partial\varphi_1}{\partial x_k}(x),
-\dots
+\dots,
 \frac{\partial\varphi_m}{\partial x_n}(x)
 \biggr)
 \,dx
@@ -183,13 +183,17 @@ nämlich
 0
 =
 \int_{\Omega}
+\biggl(
 \frac{\partial L}{\partial u_i}
-(x,\varphi(x),\grad\varphi(x))
-+
+\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
+-
 \sum_{k=1}^n
 \frac{\partial}{\partial x_k}
 \frac{\partial L}{\partial u_{ik}}
-(x,\varphi(x),\grad\varphi(x))
+\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
+\biggr)
+\,
+\eta_i(x)
 \,dx
 \end{equation*}
 mit $i=1,\dots m$.
@@ -198,12 +202,12 @@ Nach dem Fundamentallemma
 folgt jetzt wieder, dass
 \begin{equation}
 \frac{\partial L}{\partial u_i}
-(x,\varphi(x),\grad\varphi(x))
-+
+\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
+-
 \sum_{k=1}^n
 \frac{\partial}{\partial x_k}
 \frac{\partial L}{\partial u_{ik}}
-(x,\varphi(x),\grad\varphi(x))
+\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 =
 0
 \label{buch:felder:vektorrelder:eqn:euler-ostrogradski}
@@ -216,7 +220,7 @@ wieder als die Ableitung der Funktion
 \[
 x_k
 \mapsto
-L(x,\varphi(x),\grad\varphi(x))
+L\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 \]
 nach $x_k$ zu interpretieren ist.
 Es werden also erst die Funktion $\varphi_i(x)$ und die Ableitungen
