@@ -1,0 +1,71 @@
+%
+% linear_fromfkt_skaliert.tex -- Lineare Formfunktionen skaliert
+%
+% (c) 2024 Flurin Brechbühler
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+
+\usetikzlibrary{arrows,intersections,math}
+\usetikzlibrary{shapes.misc, positioning}
+
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkpurple}{rgb}{0.6,0,0.6}
+\definecolor{darkblue}{rgb}{0,0,0.8}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{darkyellow}{rgb}{0.2,0.4,0}
+\definecolor{darkorange}{rgb}{0.9,0.4,0}
+\definecolor{darkgrey}{rgb}{0.3,0.3,0.3}
+
+\begin{document}
+\def\skala{0.65}
+
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+    % Beispielfunktion
+    \def\bspFkt(#1){
+        (sin(deg(1.4*(#1))) + (#1)/3 + 1/3)
+    }
+
+    % Plots
+        % Beispielfunktion
+    \draw[color=darkgrey,line width=1.4pt] 
+        plot[domain=0:4, scale=2, smooth]({\x}, {\bspFkt(\x)});
+    \draw[color=darkgrey]
+        (3,{2*\bspFkt(1.5)}) -- (4, 4)
+        node [above right, color=darkgrey] {$f(x)$};
+    
+        % Formfunktionen
+    \foreach \x/\col in {1/darkpurple, 2/darkblue, 3/darkgreen, 4/darkorange}{
+        \draw[color=\col,line width=1.4pt] (0, 0) -- (\x*2-2,0) -- (\x*2, {2*\bspFkt(\x)});
+    }
+    \foreach \x/\col in {0/darkred, 1/darkpurple, 2/darkblue, 3/darkgreen}{
+        \draw[color=\col,line width=1.4pt] (8, 0) -- (\x*2+2,0) -- (\x*2, {2*\bspFkt(\x)});
+    }
+    
+
+    % x-Achse
+    \draw[->] (-0.1,0) -- (8.4,0) coordinate[label={$x$}];
+    \foreach \x in {0,...,4}{
+        \draw (\x*2,-0.1) -- (\x*2,0.1);
+        \node at (\x*2,0) [below] {$x_\x$};
+    }
+
+    % y-Achse
+    \draw[->] (0,{-0.1}) -- (0,{4.5})
+    coordinate[label={right:$y$}];
+    \node at (0,0) [left] {$0$};
+    \draw (-0.1,4) -- (0.1,4);
+    \node at (0,4) [left] {$3$};
+
+
+    % Beschriftungen der Formfunktionen
+    \foreach \x/\col in {0/darkred, 1/darkpurple, 2/darkblue, 3/darkgreen, 4/darkorange}{
+        \node at (\x*2, {2*\bspFkt(\x)}) [yshift = 0.3cm, color=\col, inner sep=1pt, fill=white, draw, rounded rectangle, stroke=none] {${a_\x(x)}$};
+    }
+\end{tikzpicture}
+
+\end{document}

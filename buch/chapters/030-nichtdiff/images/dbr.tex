@@ -24,6 +24,10 @@ declare function={ f(\x) = 2*cos(10*\x-20)+0.5*sin(50*\x)+1; },
 \def\h{3}
 \def\d{0.45}
 
+\fill[color=gray!20] ({\a-\e},-3.2) rectangle ({\a+\e},4.3);
+\fill[color=gray!20] ({\b-\e},-3.2) rectangle ({\b+\e},4.3);
+
+
 \fill[color=orange!20] ({\a-\e},{f(\a)-\d}) rectangle ({\a+\e},{f(\a)+\d});
 \fill[color=orange!20] ({\b-\e},{f(\b)-\d}) rectangle ({\b+\e},{f(\b)+\d});
 \fill[color=blue!20]
@@ -34,9 +38,11 @@ declare function={ f(\x) = 2*cos(10*\x-20)+0.5*sin(50*\x)+1; },
 \draw[color=orange,line width=1.4pt] ({\a-\e},{f(\a)}) -- ({\a+\e},{f(\a)});
 \draw[color=orange,line width=1.4pt] ({\b-\e},{f(\b)}) -- ({\b+\e},{f(\b)});
 \draw[color=orange,line width=0.4pt]
-	({\a-\e},0) -- ({\a-\e},{f(\a)}) -- ({\a+\e},{f(\a)}) -- ({\a+\e},0);
+	({\a-\e},{f(\a-\e)}) -- ({\a-\e},{f(\a)}) -- ({\a+\e},{f(\a)})
+	-- ({\a+\e},{f(\a+\e)});
 \draw[color=orange,line width=0.4pt]
-	({\b-\e},0) -- ({\b-\e},{f(\b)}) -- ({\b+\e},{f(\b)}) -- ({\b+\e},0);
+	({\b-\e},{f(\b-\e)}) -- ({\b-\e},{f(\b)}) -- ({\b+\e},{f(\b)})
+	-- ({\b+\e},{f(\b+\e)});
 
 \draw[color=darkgreen,line width=1.4pt]
 	plot[domain=0:11,samples=100] ({\x},{f(\x)});

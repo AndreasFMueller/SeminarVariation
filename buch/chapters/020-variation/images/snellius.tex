@@ -19,9 +19,14 @@
 \def\x{1}
 \coordinate (B) at (\x,0);
 
+\draw[color=white] (-5.06,0) rectangle ++(0.01,0.1);
+
 % Medien
 \fill[color=blue!20] (-5,-3.5) rectangle (5,0);
 \fill[color=blue!10] (-5,0) rectangle (5,3.5);
+
+\fill[color=darkred!20,opacity=0.3] (A1) -- (-4,0) -- (B) -- cycle;
+\fill[color=darkred!20,opacity=0.3] (A2) -- (4,0) -- (B) -- cycle;
 
 % rechter Winkel
 \fill[color=gray,opacity=0.2]
@@ -63,6 +68,7 @@
 \node at (A2) [right] {$A_2\mathstrut$};
 \fill[color=darkred] (B) circle[radius=0.08];
 \node at (B) [above right] {$B=(x,0)\mathstrut$};
+
 
 \end{tikzpicture}
 \end{document}

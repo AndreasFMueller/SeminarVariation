@@ -10,7 +10,7 @@
 \subsection{Euler-Lagrange-Differentialgleichung
 \label{buch:variation:eulerlagrange:subsection:dgl}}
 \input{chapters/020-variation/fig/variation0.tex}
-Das Maximum oder Minimum einer Funktionen mehrere Variablen wurde
+Das Maximum oder Minimum einer Funktionen mehrerer Variablen wurde
 gefunden, indem die Richtungsableitung berechnet und $=0$ gesetzt
 wurde.
 Um die Funktion zu bestimmen, die ein Funktional $I(y)$ zu einem
@@ -41,6 +41,8 @@ $\varepsilon\mapsto I(y+\varepsilon\eta )$ an der Stelle $\varepsilon=0$.
 Da die Intervallgrenzen nicht von $\varepsilon$ abhängen, können wir
 die Ableitung unter das Integral nehmen:
 \begin{align*}
+\delta I
+=
 \frac{d}{d\varepsilon}
 I(y+\varepsilon\eta)
 &=
@@ -180,7 +182,7 @@ vieler Variablen garantiert das Verschwinden der Richtungsableitung
 nicht, dass auch tatsächlich ein Extremum vorliegt.
 Man sagt daher auch, dass eine Lösung $y(x)$ der
 Euler-Lagrange-Differentialgleichung das Funktional $I(y)$
-stationär macht.
+{\em stationär} macht.
 
 Eine weitere Einschränkung ist, dass die Herleitung der
 Euler-Lagrange-Differential\-gleichung vorausgesetzt hat,
@@ -191,8 +193,8 @@ nicht differenzierbar sind, dazu mehr im Kapitel~\ref{buch:chapter:nichtdiff}.
 
 \begin{beispiel}
 \label{buch:variation:eulerlagrange:beispiel:gerade}
-Wir lösen das Variationsproblem von Beispiel
-\ref{buch:variation:eulerlagrange:beispiel:gerade}
+Wir lösen das Variationsproblem der kürzesten Verbindung
+von Beispiel \ref{buch:variation:eulerlagrange:beispiel:gerade}
 mit der Lagrange-Funk\-tion
 \eqref{buch:variation:eulerlagrange:eqn:geradeL}.
 Da die Lagrange-Funktion nicht von $y$ abhängt, bleibt von der 
@@ -266,7 +268,7 @@ nützliche Form bringen.
 Ist $L(y,y')$ eine Lagrange-Funktion, die nicht von $x$ abhängt, und
 $y(x)$ eine Lösung der Euler-Lagrange-Differentialgleichung, dann ist
 \begin{equation}
-H(y(x),y'(x)
+H(y(x),y'(x))
 =
 L(y(x),y'(x))
 -
@@ -334,7 +336,7 @@ Somit ist $H(y(x),y'(x))$ konstant.
 \end{proof}
 
 Die Beltrami-Identität ist oft nützlich, weil Sie die
-Euler-Lagrange-Differentialgleichung als Differentialgleichung zweiter
+Euler-Lagrange-Differential\-glei\-chung als Differentialgleichung zweiter
 Ordnung auf eine Differentialgleichung erster Ordnung reduziert.
 Mit der Reduktion der Ordnung geht eine aus den Randbedingungen zu
 bestimmende Konstante einher.

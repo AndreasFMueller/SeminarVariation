@@ -1,0 +1,58 @@
+%
+% linear_interpoliert.tex -- Linear interpolierte Funktion
+%
+% (c) 2024 Flurin Brechbühler
+%
+\documentclass[tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{times}
+\usepackage{txfonts}
+\usepackage{pgfplots}
+\usepackage{csvsimple}
+
+\usetikzlibrary{arrows,intersections,math}
+\definecolor{darkred}{rgb}{0.8,0,0}
+\definecolor{darkpurple}{rgb}{0.6,0,0.6}
+\definecolor{darkblue}{rgb}{0,0,0.8}
+\definecolor{darkgreen}{rgb}{0,0.6,0}
+\definecolor{darkyellow}{rgb}{0.2,0.4,0}
+\definecolor{darkorange}{rgb}{0.9,0.4,0}
+\definecolor{darkgrey}{rgb}{0.3,0.3,0.3}
+
+\begin{document}
+\def\skala{0.65}
+
+\begin{tikzpicture}[>=latex,thick,scale=\skala]
+    % Beispielfunktion
+    \def\bspFkt(#1){
+        (sin(deg(1.4*(#1))) + (#1)/3 + 1/3)
+    }
+
+    % Plots
+        % Beispielfunktion
+    \draw[color=darkgrey,line width=1.4pt] 
+        plot[domain=0:4, scale=4, smooth]({\x}, {\bspFkt(\x)/2});
+    \node at (2cm, 3cm) [color=darkgrey] {$f(x)$};
+    
+        % Interpolierte Funktion
+    \foreach \x in {1, 2, 3, 4}{
+        \draw[color=darkred,line width=1.4pt] (\x*4-4, {2*\bspFkt(\x-1)}) -- (\x*4, {2*\bspFkt(\x)});
+    }
+    \node at (5cm,2cm) [color=darkred] {$f_{\text{linear}}(x) = \sum_{n=0}^{4}a_n(x)$};
+
+    % x-Achse
+    \draw[->] (-0.1,0) -- (16.4,0) coordinate[label={$x$}];
+    \foreach \x in {0,...,4}{
+        \draw (\x*4,-0.1) -- (\x*4,0.1);
+        \node at (\x*4,0) [below] {$x_\x$};
+    }
+
+    % y-Achse
+    \draw[->] (0,{-0.1}) -- (0,{4.3})
+    coordinate[label={right:$y$}];
+    \node at (0,0) [left] {$0$};
+    \draw (-0.1,4) -- (0.1,4);
+    \node at (0,4) [left] {$3$};
+\end{tikzpicture}
+
+\end{document}

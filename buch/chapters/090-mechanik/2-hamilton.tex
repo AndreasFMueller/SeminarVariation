@@ -4,7 +4,7 @@
 % (c) 2023 Prof Dr Andreas Müller
 %
 \section{Hamilton-Mechanik
-\label{buch:mechanik:section:legendre}}
+\label{buch:mechanik:section:hamilton}}
 \kopfrechts{Hamilton-Mechanik}
 In Abschnitt~\ref{buch:hamiltonjacobi:section:kanonisch} wurde gezeigt,
 wie sich für ein Variationsprinzip ein Differentialgleichungssystem
@@ -16,14 +16,211 @@ Bedeutung des Impulses und der $x$-$p$-Raum ist der Phasenraum.
 %  Kanonische Koordinaten
 %
 \subsection{Kanonische Koordinaten}
+Wir gehen von einem mechanischen System aus, welches durch das
+Variationsprinzip 
+\begin{equation}
+\delta
+\int
+L(t, q(t), \dot{q}(t))\,dt
+=
+0
+\label{buch:mechanik:hamilton:eqn:variation}
+\end{equation}
+mit der Lagrange-Funktion $L(t,q,\dot{q})$, von $n$ Variablen
+$q=(q_1,\dots,q_n)$ beschrieben wird.
+Im Beispiel des Kapitza-Pendels waren dies die Koordinaten $\varphi(t)$
+und $h(t)$.
+Nach dem Prinzip von Maupertuis ist $L$ die Differenz von kinetischer
+und potenzieller Energie.
+
+Die Verwendung der verallgemeinerten Koordinaten $q_i$ vereinfacht
+die Herleitung der Bewegungsgleichungen.
+Es ist oft einfach, die kartesischen Koordinaten, in denen wir Ausdrücke
+für die kinetische und die potenzielle Energie bereits kennen, durch
+die verallegemeinerte Koordinaten auszudrücken.
+Das Beispiel des Kapiza-Pendels von
+Abschnitt \ref{buch:mechanik:lagrange:subsection:kapiza}
+demonstriert dies ebenso wie das Kapitel~\ref{chapter:doppelpendel}
+über das Doppelpendel.
+
+Die Verwendung der Variablen $q_i$ haben jedoch zwei Nachteile.
+Zunächst ist die Euler-Lagrange-Differentialgleichung eine
+Differentialgleichung zweiter Ordnung für die $n$ Funktion 
+$q_i(t)$.
+Die Verwendung des Impulses ermöglicht, die Bewegungsgleichungen
+als Differentialgleichungen erster Ordnung zu schreiben.
+Die Idee des Phasenraumes mit den Orts- und Impulskoordinaten
+und der Dimension $2n$ ermöglicht eine geometrische und sehr erfolgreiche
+Beschreibung der Lösungen als Fluss.
+Es ist daher wünschbar, auch für ein allgemeines System mit Koordinaten
+$q_i$ Bewegungsgleichungen erster Ordnung zu finden.
+
+Aus rein mathematischer Sicht kann man jedes Differentialgleichungssystem
+\[
+y'' = f(x,y,y')
+\]
+durch die Substition $v=y'$ als Differentialgleichung
+\[
+\frac{d}{dx}
+\begin{pmatrix}
+y\\ v
+\end{pmatrix}
+=
+\begin{pmatrix}
+v\\
+f(x,y,y')
+\end{pmatrix}
+\]
+zweiter Ordnung schreiben.
+Bereits in der newtonschen Mechanik hat sich die rein kinematische
+Grösse $v=y'$ als nicht unbedingt zweckmässig erwiesen.
+
+Der Impuls der newtonschen Mechanik ermöglicht, Erhaltungssätze auf besonders
+gut nachvollziehbare Weise zu formulieren.
+Solche Erhaltungssätze können auch in komplizierteren Systemen
+vorhanden sein, die gewählten verallgemeinerten Koordinaten machen
+es jedoch schwierig, die Erhaltungsgrössen zu finden.
+Der Satz~\ref{buch:symmetrien:noether:satz:noether} von Emmy Noether
+konstruiert zwar solche Erhaltungsgrössen, sie sind aber bei weitem nicht
+so offensichtlich wie der Impuls in kartesischen Koordinaten.
+
+Die Euler-Lagrange-Differentialgleichungen für das Variationsproblem
+\eqref{buch:mechanik:hamilton:eqn:variation} haben die Form
+\[
+\frac{d}{dt}
+\frac{\partial L}{\partial \dot{q}_i}(t,q(t),\dot{q}(t))
+=
+\frac{\partial L}{\partial q_i}(t,q(t),\dot{q}(t)),\qquad
+\text{mit $i=1,\dots,n$}.
+\]
+Schreibt man
+\[
+p_i(t)
+= 
+\frac{\partial L}{\partial \dot{q}_i}(t,q_i(t),\dot{q}_i(t)),
+\]
+entsteht also automatisch die Differentialgleichung
+\[
+\frac{d}{dt} p_i(t)
+=
+\frac{\partial L}{\partial \dot{q}_i}(t,q(t),\dot{q}(t))
+\]
+erster
+Ordnung, allerdings in den $3n$ Variablen $q$, $\dot{q}$ und
+$\dot{p}$.
+Es müssen also aus $p$, $q$ und $\dot{q}$ die Variablen $\dot{q}$
+eliminiert werden.
+Dass die Koordinaten $\dot{q}$ die Ableitung von $q$ ist, ist eine
+der ursprünglichen Bewegungsgleichungen, diese müssen ebenfalls durch
+$p$ und $q$ ausgedrückt werden.
 
 %
 % Hamilton-Funktion
 %
 \subsection{Hamilton-Funktion}
+Wir betrachten den Ausdruck
+\[
+H
+=
+p\dot{q}
+-
+L(t,q,\dot{q}).
+\]
+Der letzte Term ist als Skalarprodukt der beiden Vektoren $p$ und $\dot{q}$
+zu lesen.
+Die Ableitung nach $q$ ist
+\[
+\frac{\partial H}{\partial \dot{q}_i}
+=
+p_i
+-
+\frac{\partial L}{\partial \dot{q}_i}(t,q,\dot{q}).
+\]
+Nach der Definition von $p_i$ ist der erste Term auf der rechten Seite
+ebenfalls $p_i$, es folgt also
+\[
+\frac{\partial H}{\partial \dot{q}_i} = 0.
+\]
+Als Funktion von $q$, $\dot{q}$ und $p$ hängt $H$ also nicht von $\dot{q}_i$
+ab, kann also als eine Funktion von $q$ und $p$ allein geschrieben werden.
+
+\begin{definition}[Hamilton-Funktion]
+Die {\em Hamilton-Funktion} zur Lagrange-Funktion $L(t,q,\dot{q})$ ist
+\[
+H(t,q,p)
+=
+p\dot{q}
+-
+L(t,q,\dot{q}).
+\]
+\end{definition}
+
+Für einen freien Massepunkt ist $p_i = m\dot{q}_i$ und damit damit
+\[
+H=
+m\dot{x}_i^2
+-
+L
+=
+2T
+-
+(V-T)
+=
+T+V,
+\]
+die Hamilton-Funktion ist also die Gesamtenergie des Systems.
 
 %
 % Bewegungsgleichungen
 %
 \subsection{Bewegungsgleichungen}
+Da im Produkt $p\dot{q}$ die Variable $q_i$ nicht vorkommt, ist
+Ableitung von $H$ nach $q_i$
+\[
+\frac{\partial H}{\partial q_i}
+=
+-
+\frac{\partial L}{\partial q_i}.
+\]
+Die Euler-Lagrange-Differentialgleichung ist
+\[
+\frac{\partial L}{\partial q_i}
+=
+\frac{d}{dt}\frac{\partial L}{\partial \dot{q}_i}
+=
+\frac{d}{dt} p_i.
+\]
+Damit kann di Bewegungsgleichung für den verallemeinerten Impuls $p_i$ auch als
+\[
+\frac{d}{dt}p_i
+=
+-
+\frac{\partial H}{\partial q_i}(t,q(t),p(t))
+\]
+geschrieben werden.
+
+Die Abhängigkeit der Hamilton-Funktion $H(t,q,p)$ äusert sich nur im Term
+$-p\dot{q}$, so dass die Ableitung von $H$ nach $p_i$ sofort als
+\[
+\frac{\partial H}{\partial p_i}
+=
+\dot{q}_i
+\]
+berechnen lässt.
+Damit sind jetzt die gesuchten Bewegungsgleichungen erster Ordnung gefunden.
+Ist $q(t)$ eine Lösung der Euler-Lagrange-Differentialgleichung, dann sind
+$q(t)$ und $p(t)$ eine Lösung der {\em Hamilton-Differentialgleichung}
+\begin{align*}
+\frac{d}{dt} q_i
+&=
+\phantom{-}\frac{\partial H}{\partial p_i}
+\\
+\frac{d}{dt} p_i
+&=
+-
+\frac{\partial H}{\partial q_i}.
+\end{align*}
+Damit ist die versprochene Umwandlung in ein Differentialgleichungssystem
+erster Ordnung vollzogen.
+
 

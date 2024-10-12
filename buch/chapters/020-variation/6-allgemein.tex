@@ -106,7 +106,7 @@ y_i'
 =
 y'(x_i(0),0)
 =
-\frac{\partial y'(x(\varepsilon),\varepsilon)}{\partial\varepsilon}
+\frac{\partial y}{\partial\varepsilon} (x(\varepsilon),\varepsilon)
 \bigg|_{\varepsilon=0}
 \end{align*}
 für $i=0,1$.
@@ -123,7 +123,7 @@ P_0(\varepsilon)
 &=
 (x_0(\varepsilon),y(x_0(\varepsilon),\varepsilon))
 &&\text{und}&
-P_1
+P_1(\varepsilon)
 &=
 (x_1(\varepsilon),y(x_1(\varepsilon),\varepsilon))
 \end{align*}
@@ -208,6 +208,8 @@ Sie ist
 F(x_1(\varepsilon),y(x_1(\varepsilon),\varepsilon),
 y'(x_1(\varepsilon),\varepsilon))
 \frac{dx_1(\varepsilon)}{d\varepsilon}
+\\
+&\qquad\qquad
 -
 F(x_0(\varepsilon),y(x_0(\varepsilon),\varepsilon),
 y'(x_0(\varepsilon),\varepsilon))
@@ -225,7 +227,7 @@ y'(x_0(\varepsilon),\varepsilon))
 \int_{x_0(\varepsilon)}^{x_1(\varepsilon)}
 \frac{\partial F}{\partial y'}(x, y(x,\varepsilon), y'(x,\varepsilon))
 \frac{\partial^2 y}{\partial x\,\partial\varepsilon}(x,\varepsilon)
-\,dx
+\,dx.
 \end{align*}
 An der Stelle $\varepsilon=0$ vereinfacht sich die Variation zu
 \begin{align}
@@ -327,7 +329,7 @@ Die ersten zwei Terme behandeln offensichtlich den Fall, dass die
 Intervalgrenzen verschoben werden.
 Der dritte Term behandelt die Änderung, die ausschliesslich von der
 Änderung des zweiten Parameters von $y(x,\varepsilon)$ ausgeht.
-Der $y$-Wert kann sich auch dadurch ändern, dass $x$ variert wird.
+Der $y$-Wert kann sich auch dadurch ändern, dass $x$ variert wird:
 \begin{align*}
 \frac{dy(x_i(\varepsilon),\varepsilon)}{d\varepsilon}
 &=
@@ -341,7 +343,7 @@ Der $y$-Wert kann sich auch dadurch ändern, dass $x$ variert wird.
 \frac{\partial y(x_i(0),0)}{\partial x}
 \frac{dx_i(0)}{d\varepsilon}
 +
-\frac{\partial y(x_i(0), 0)}{\partial \varepsilon}
+\frac{\partial y(x_i(0), 0)}{\partial \varepsilon}.
 \intertext{Aufgelöst nach dem letzten Term ist dies}
 \frac{\partial y(x_i(0), 0)}{\partial \varepsilon}
 &=
@@ -398,7 +400,7 @@ F(x_0,y(x_0),y'(x_0))
 \end{aligned}
 \label{buch:variation:allgemein:eqn:variation}
 \end{equation}
-Von den ersten vier Terme lassen sich jeweils zwei als ein Skalarprodukt
+Von den ersten vier Termen lassen sich jeweils zwei als ein Skalarprodukt
 des Vektors
 \[
 \vec{f}_i
@@ -497,7 +499,7 @@ Es sind daher nur Variationen zielführend, die tangential an eine
 Kurve in der $x$-$y$-Ebene sind.
 Die Skalarprodukte in 
 \eqref{buch:variation:allgemein:eqn:allgemeinvariation1}
-bedeuten liefern dann Randbedingungen für $y(x)$.
+liefern dann Randbedingungen für $y(x)$.
 
 %
 % Erste Variation für mehrere Funktionen 
@@ -505,15 +507,15 @@ bedeuten liefern dann Randbedingungen für $y(x)$.
 \subsection{Erste Variation mehrere Funktionen
 \label{buch:variation:allgemein:subsection:var1n}}
 Die Entwicklung des letzten Abschnitts lässt sich auch für mehrere
-Funktionen $y_1(x),\dots,y_n(x)$ durchführen.
+Funktionen $y_1(x),\dots,$ $y_n(x)$ durchführen.
 Seien also $y_k(x,\varepsilon)$ Variationen der Funktionen $y_k(x)$
 mit der Variation $x_0(\varepsilon)$ und $x_1(\varepsilon)$ der 
 Intervallenden.
 Die Endpunkte der Kurven
 \[
-x\mapsto
-=
-(x
+x
+\mapsto
+(x,
 y_1(x,\varepsilon),\dots
 y_n(x,\varepsilon))
 \in \mathbb{R}^{n+1}
@@ -543,7 +545,9 @@ y_n(x_i(\varepsilon),\varepsilon)
 \]
 für $i=0,1$.
 
-Dem Vektor $\vec{f}_i$ im Falle einer Funktion entspricht der Vektor
+Dem Vektor $\vec{f}_i$
+von Satz~\ref{buch:nichtdiff:section:splines}
+entspricht der Vektor
 \[
 \vec{f}_i
 =
@@ -666,7 +670,7 @@ Für die Variation finden wir dann
 \,dx
 \end{align*}
 Damit die Variation verschwindet, müssen also die
-Euler-Lagrange-Differentialgleichungen erfüllt sein.
+Euler-Lagrange-Differential\-glei\-chun\-gen erfüllt sein.
 Zusätzlich müssen aber die Skalarprodukte
 $\vec{f}_1\cdot \vec{r}_1(0)$
 und

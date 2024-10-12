@@ -19,7 +19,7 @@ Für Funktionen von zwei oder mehr Variablen ist bereits die
 Festlegung des Definitionsgebietes viel komplizierter.
 Sie muss so erfolgen, dass auch die partielle Integration eines
 Produktes darauf übertragbar ist.
-Diese wurde im eindimensionalen Fall dazu aus dem Integral
+Diese wurde im eindimensionalen Fall dazu verwendet, aus dem Integral
 über $F\cdot\eta'$ eine Integral über $dF/dx\cdot \eta$ zu
 machen, auf welches das Fundamentallemma anwendbar war.
 
@@ -81,12 +81,20 @@ die nicht zum Intervall gehören.
 Diese anschauliche Beschreibung appelliert aber an eine Vorstellung
 einer Richtung und ist daher nicht direkt übersetzbar.
 Sie lässt sich aber noch etwas vereinfachen: ein Endpunkt eines
-Intervalls hat beliebig nahe Werte die zum Intervall gehören, und
+Intervalls hat beliebig nahe Punkte, die zum Intervall gehören, und
 solche die nicht mehr dazu gehören.
 Dies suggeriert die folgende Definition für den Rand eines Gebietes.
 
 \begin{definition}[Rand]
 \label{buch:felder:fundamentallemma:def:rand}
+Ein offener {\em Ball} $B_r(x)$ vom Radius um den Punkt $x\in\mathbb{R}^n$
+\index{Ball}%
+ist die Menge
+\[
+B_r(x)
+=
+\{y\in\mathbb{R}^n \mid |x-y|<r\}.
+\]
 Ein Randpunkt eines Gebietes $\Omega\subset\mathbb{R}^n$ ist ein Punkt
 $x\in\mathbb{R}^n$ mit der Eigenschaft, dass in jeder noch so kleinen 
 Umgebung von $x$ Punkte von $\Omega$ und von $\mathbb{R}^n\setminus\Omega$
@@ -128,7 +136,7 @@ liegen ausserhalb der Menge.
 Der Rand ist berühmt dafür, dass man beliebig tief hineinzoomen
 und immer neue Strukturen entdecken kann.
 
-Im folgenden sollen daher nur solche Gebiete betrachtet werden,
+Im Folgenden sollen daher nur solche Gebiete betrachtet werden,
 deren Rand die zusätzliche Eigenschaft haben, dass er mit stetigen
 oder sogar differenzierbaren Funktionen beschrieben werden kann.
 Dies wird von der folgenden Definition erreicht.
@@ -162,7 +170,7 @@ endlich viele solche Abbildungen parametrisieren lässt.
 In zwei Dimensionen kann man den Rand eines Gebietes mit
 glattem Rand stückweise als Graphen von differenzierbaren Funktionen
 $y_k(x)$ beschreiben, wie dies in
-\input{chapters/040-felder/fig/2drand.tex}
+\input{chapters/040-felder/fig/2drand.tex}%
 Abbildung~\ref{buch:felder:fundamentallemma:fig:2drand}
 dargestellt ist.
 Mit dieser Definition lassen sich aber natürlich vorkommende Gebiete
@@ -279,7 +287,7 @@ auf zwei verschiedene Arten als das iterierte Integral
 \int_{x_{20}}^{x_{21}}
 \int_{x_{1,-}(x_2)}^{x_{1,+}(x_2)} f(x_1,x_2)\,dx_1\,dx_2
 \]
-geschrieben werden.
+schreiben.
 Änliche iterierte Integrale können verwenden werden, um Integrale
 über Gebiete zu berechnen, deren Dimension grösser als $2$ ist.
 
@@ -360,7 +368,7 @@ $\det Dx$ hinzuzufügen, zeigt, dass ein vom Koordinatensystem unabhängiges
 Integral einer Funktion über ein Gebiet $G$ erst durch eine zusätzliche
 Gewichtsfunktion $g(x)$ definiert ist, die sich beim Wechsel des
 Koordinatensystems mit der Determinanten der Ableitung $Dx$ multipliziert.
-Die Gewichtsfunktion ist im willkürlich.
+Die Gewichtsfunktion ist im Übrigen willkürlich.
 Sie wird erst eindeutig,
 wenn die Verbindung zwischen dem Volumeninhalt des Gebietes und 
 dem Integral dadurch hergestellt wird, dass das Integral der konstanten
@@ -372,7 +380,7 @@ Funktion $1$ das Volumen
 \]
 sein soll.
 
-Für kartesische Koordinaten ist die diese Gewichtsfunktion $g(x)=1$.
+Für kartesische Koordinaten ergibt dies die Gewichtsfunktion $g(x)=1$.
 Wählt man stattdessen Kugelkoordinaten $(r,\vartheta,\varphi)$, mit der
 Koordinatentransformation
 \begin{equation}
@@ -517,7 +525,7 @@ in $\gamma_2 = \gamma_1\circ u$ überführen.
 Dabei geht das Integral
 \eqref{buch:felder:gebiete:eqn:kurvenintegral}
 mit der Substitution $t=u(s)$
-über in das Integral
+in das Integral
 \[
 \int_{i_1}
 f(\gamma_1(t))
@@ -533,8 +541,9 @@ u'(s)
 f(\gamma_2(s))
 \,
 u'(s)
-\,ds.
+\,ds
 \]
+über.
 Der zusätzliche Faktor $u'(s)$ gibt wieder, wie die Umparametrisierung
 die Kurvenlänge verzerrt.
 
@@ -550,14 +559,15 @@ Das Integral
 \]
 ist daher eine Grösse, die von der Parametrisierung unabhängig ist.
 
-Ist $\vec{v}$ ein entlang der Kurve $C$, dann sind im Skalarprodukt
+Ist $\vec{v}$ ein Vektorfeld entlang der Kurve $C$, dann sind im Skalarprodukt
 \[
 \vec{v}(\gamma(t))\cdot \dot{\gamma}(t)
 =
 |\vec{v}(\gamma(t))| \, |\dot{\gamma}(t)|\, \cos \alpha,
 \]
 wobei $\alpha$ der Winkel zwischen der $\vec{v}$ und der Kurventangente
-im Punkt $\gamma(t)$ ist, der Betrag $|\vec{v}|$ und der Winkel $\alpha$
+im Punkt $\gamma(t)$ ist.
+Der Betrag $|\vec{v}|$ und der Winkel $\alpha$ sind
 nur von der Position entlang der Kurve abhängig.
 Der Faktor $|\dot{\gamma}(t)|$ ist das Längenelement, welches das Integral
 \[

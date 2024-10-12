@@ -10,7 +10,7 @@
 \subsection{Lösung des Brachistochronenproblems
 \label{buch:variation:eulerlagrange:subsection:brachistochrone}}
 Das Brachistochronenproblem kann jetzt mit Hilfe der
-Euler-Lagrange-Differentialgleichung gelöst werden.
+Euler-Lagrange-Differential\-glei\-chung gelöst werden.
 Dazu muss zunächst die Lagrange-Funktion ermittelt werden,
 mit der dann die Euler-Lagrange-Differentialgleichung aufgestellt
 werden kann.
@@ -106,7 +106,7 @@ y'(x)
 2y(x)y''(x) -y'(x)^2-y'(x)^4
 }{
 2\bigl(y(x)(1+y'(x)^2)\bigr)^{\frac32}
-}
+}.
 \intertext{Um den anderen Term der Euler-Lagrange-Differentialgleichung
 auf den gleichen Nenner zu bringen, muss mit $(1+y'(x)^2)^\frac32$
 erweitert werden:
@@ -165,6 +165,10 @@ y(x)
 }
 \end{align*}
 zusammenstellen.
+Der Faktor $1+y'(x)^2$ im Nenner verschwindet nicht und die
+Aufgabenstellung worde so parametrisiert, dass $y(x)>0$ ausser
+im Startpunkt.
+Die Gleichung ist daher nur erfüllt, wenn der Zähler
 \begin{equation}
 1+y'(x)^2+2y(x)y''(x)=0
 \qquad\Rightarrow\qquad
@@ -173,6 +177,7 @@ y''(x)
 -\frac{1+y'(x)^2}{2y(x)}
 \label{buch:variation:eulerlagrange:eqn:brachistochrone0}
 \end{equation}
+ist.
 Diese Differentialgleichung ist nicht ganz einfach zu lösen.
 
 %
@@ -248,7 +253,7 @@ Wir bezeichnen den Winkel mit $\vartheta$ und schreiben die Ableitung
 \qquad\Rightarrow\qquad
 \frac{y(\vartheta)}{C-y(\vartheta)}
 =
-\frac{\sin^2 \vartheta}{\cos^2 \vartheta}
+\frac{\sin^2 \vartheta}{\cos^2 \vartheta}.
 \]
 Ausmultiplizieren ergibt die Gleichung
 \[
@@ -288,7 +293,7 @@ x(\vartheta)
 C\vartheta - \frac{C}{2}\sin 2\vartheta
 + x_0
 =
-\frac{C}2(2\vartheta-\sin 2\vartheta)+x_0,
+\frac{C}2(2\vartheta-\sin 2\vartheta)+x_0
 \]
 mit der Integrationskonstanten $x_0$, die die Bedeutung der $x$-Koordinate
 für einen Punkt hat, in dem die Kurve vertikal ist.
@@ -404,7 +409,7 @@ Eingesetzt in die ursprüngliche Gleichung
 1.
 \]
 Dieser Widerspruch zeigt, dass die singulären Lösungen nicht
-Lösungen der Euler-Lagrange-Differentialgleichungen sind, sondern
+Lösungen der Euler-La\-gran\-ge-Differentialgleichungen sind, sondern
 durch die Multiplikation mit $y'$ in
 \eqref{buch:variation:eulerlagrange:eqn:multiplikation}
 entstanden sind.

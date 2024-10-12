@@ -17,7 +17,8 @@ Variablen übertragen werden.
 %
 % Das Verschwinden der ersten Ableitungen
 %
-\subsection{Notwendige Bedingung für Extrema}
+\subsection{Notwendige Bedingung für Extrema
+\label{buch:fuvar:subsection:kritisch}}
 Wir betrachten eine stetig differenzierbare Funktion 
 \[
 f
@@ -27,7 +28,7 @@ f
 (x_1,\dots,x_n) \mapsto f(x_1,\dots,x_n) = f(x)
 \]
 und fragen nach den Extrema.
-In einem Extremem $x^*\in\mathbb{R}^n$ wird auch jede der partiellen
+In einem Extremum $x^*\in\mathbb{R}^n$ wird auch jede der partiellen
 Funktionen
 \[
 x_k \mapsto f(x_1^*,\dots,x_k,\dots,x_n^*)
@@ -71,6 +72,62 @@ Abschnitt~\ref{buch:fuvar:section:hessesche} genauer untersucht
 und ein hinreichendes Kriterium für Extrema hergeleitet.
 
 %
+% Das Fundamentallemma
+%
+\subsection{Das Fundamentallemma
+\label{buch:fuvar:subsection:fundamentallemma}}
+Extrema einer Funktion $f(x)$ werden bei kritischen Punkten $x_*$
+gefunden, die Nullstellen der Richtungsableitungen
+\[
+D_vf(x_*)
+=
+\frac{d}{d\varepsilon}
+f(x_*+\varepsilon v)
+\bigg|_{\varepsilon =0}
+\]
+sind.
+Da die Richtungsableitung auch als Skalarprodukt
+\[
+D_vf(x_*)
+=
+v
+\cdot 
+\operatorname{grad}f(x_*)
+\]
+mit dem Gradienten geschrieben werden kann, ist ein kritischer
+Punkt auch dadurch charakterisiert, dass
+\[
+v\cdot \operatorname{grad}f(x_*)
+=
+0
+\]
+für alle $v$ ist.
+In endlichdimensionalen Vektorräumen impliziert dies sofort,
+dass alle Komponenten
+\[
+0
+=
+e_i\cdot \operatorname{grad}
+=
+(\operatorname{grad}f(x_*))_i
+=
+\frac{\partial f}{\partial x_i}(x_*)
+\]
+verschwinden müssen.
+Wir halten diese Eigenschaft als Vorbereitung für die Entwicklungen
+von Abschnitt~\ref{buch:variation:section:fundamentallemma}
+als das Fundamentallemma für endlichdimensionale Vektorräume
+fest.
+
+\begin{satz}[Fundamentallemma für endlichdimensionale Vektorräume]
+Wenn ein Vektor $u\in \mathbb{R}^n$ die Bedingung
+\[
+v \cdot u=0
+\]
+für alle Vektor $v\in\mathbb{R}^n$ ist, dann ist $u=0$.
+\end{satz}
+
+%
 % Rand
 %
 \subsection{Rand}
@@ -78,18 +135,18 @@ Bisher wurde angenommen, dass die Funktion auf ganz $\mathbb{R}^n$
 definiert ist.
 Auch für eine Funktion einer Variablen, die nur auf einem Intervall
 $[a,b]$ definiert ist, müssen die Randpunkte des Intervalls als
-zusätzliche Kandidation für Extrema in betracht gezogen werden.
+zusätzliche Kandidaten für Extrema in Betracht gezogen werden.
 Falls $f'(a)>0$ ist, liegt in $a$ ein lokales Minimum vor, für
 $f'(b)<0$ ein lokales Maximum in $b$.
 
 Die analoge Situation für eine Funktion von $n$ Variablen ist der
-Definitionsbereich $D=\{x\in \mathbb{R}\mid x_1\ge 0\}$.
-Zusätzlich zu den kritischen Punkten im Inneren von $D$ sind die
+Definitionsbereich $\Omega=\{x\in \mathbb{R}\mid x_1\ge 0\}$.
+Zusätzlich zu den kritischen Punkten im Inneren von $\Omega$ sind die
 Randpunkte $x_1=0$ gesondert zu untersuchen.
 Eine notwendige Bedingung für ein Maximum oder Minimum der Funktion
-$f\colon D\to\mathbb{R}$ auf dem Rand ist dann, dass die Einschränkung
+$f\colon \Omega\to\mathbb{R}$ auf dem Rand ist dann, dass die Einschränkung
 \[
-f_{\partial D}
+f_{|\partial \Omega}
 \colon
 \mathbb{R}^{n-1}\to \mathbb{R}
 :
@@ -105,7 +162,7 @@ Es müssen also alle partiellen Ableitungen
 nach den Variablen
 $x_2,\dots,x_n$ verschwinden.
 
-Sei jetzt $D$ ein Halbraum, der durch eine Hyperebene mit der Gleichung
+Sei jetzt $\Omega$ ein Halbraum, der durch eine Hyperebene mit der Gleichung
 \[
 \vec{n}\cdot (x-x_0) = 0
 \]
@@ -131,7 +188,7 @@ zur Normalen $\vec{n}$ ist.
 Dafür, dass eine stetig differenzierbare Funktion auf dem Halbraum
 $D=\{x\in\mathbb{R}^n\mid (x-x_0)\cdot\vec{n}\le 0\}$ ein lokales 
 Extremum im Punkt $x_0$ auf dem Rand von $D$ hat, ist notwendig,
-dass $\grad f(x_0)=0$ oder $\grad f(x_0)$ steht senkrecht der Randebene.
+dass $\grad f(x_0)=0$ ist oder dass $\grad f(x_0)$ senkrecht auf der Tangentialebene auf dem Rand ist.
 \end{satz}
 
 Dieser Satz ist nur ein Spezialfall der im nächsten
