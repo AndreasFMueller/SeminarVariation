@@ -18,7 +18,7 @@ f(\varepsilon)
 =
 I(y) + \varepsilon \delta I(y) + \frac{f''(0)}{2!}\varepsilon^2 + \dots
 \]
-entwickeln.
+in $\varepsilon$ entwickeln.
 Notwendig für ein Extremum ist das verschwinden der ersten Variation
 $\delta I(y)=0$, wie das in früheren Kapiteln ausführlich verwendet
 worden ist.
@@ -32,34 +32,9 @@ untersucht werden, also eine unendliche Menge von ``Richtungen''.
 Für Funktionen $\mathbb{R}^n\to\mathbb{R}: x\mapsto f(x)$ von
 $n$ Variablen sind Richtungsableitungen in alle Richtungen zu
 untersuchen.
-Die Taylor-Entwicklung an der Stelle $x=0$
-\[
-f(x)
-=
-f(0)
-+
-\operatorname{grad}f(0)\cdot x
-+
-\frac{1}{2!}\transpose{x} H x
-+
-\dots,
-\]
-wobei $H$ die Hessesche Matrix mit den Matrixelementen
-\[
-h_{ik}
-=
-\frac{\partial^2\! f(0)}{\partial x_i\,\partial x_k}
-\]
-ist.
-Für ein Minimum liegt vor, wenn $\operatorname{grad}f(0)=0$ und ausserdem
-$\transpose{x}Hx>0$ für alle Vektoren $x\in\mathbb{R}^n\setminus\{0\}$.
-Eine solche Matrix $H$ heisst positiv definit.
-Die Matrix $H$ ist symmetrisch und damit immer diagonalisierbar.
-Dass sie positiv definit ist, äussert sich darin, dass alle Eigenwerte
-positiv sind.
-Der kleinste Eigenwert beschreibt, wie schnell $f(x)$ mindestens
-anwächst, es gibt so etwas wie eine minimale Krümmung des Graphen
-in der Stelle $x=0$ Nullpunkt.
+Nach Abschnitt~\ref{buch:fuvar:section:hessesche} liegt ein
+ein Minimum vor, wenn $\operatorname{grad}f(x_*)=0$ und ausserdem
+die hessesche Matrix an der gleichen Stelle positiv definit ist.
 
 Es stellt sich aber heraus, dass es für Variationsprobleme viel
 schwieriger ist, hinreichende Bedingungen für ein Extremum zu finden.
@@ -75,7 +50,7 @@ hergeleitet.
 Nach einigen Vorbereitungen über die Eigenschaften von Nullstellen
 von Lösungen von linearen Differentialgleichungen zweiter Ordnung
 wird dann die Jacobi-Differentialgleichung und das daraus ableitbare
-Jacobi-Kriterium für ein Maximum oder Minumum vorgestellt.
+Jacobi-Kriterium für ein Maximum oder Minimum vorgestellt.
 
 \input{chapters/060-variation2/1-zweitevariation.tex}
 \input{chapters/060-variation2/2-legendre.tex}

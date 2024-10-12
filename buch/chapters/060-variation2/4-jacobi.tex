@@ -42,7 +42,7 @@ der Wert des Integrals
 \begin{equation}
 \delta^2 I(y)
 =
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 S(x)\eta(x)^2 + R(x)\eta'(x)^2
 \,dx
 \label{buch:variation2:zweitevariation:eqn:SRintegral2}
@@ -60,16 +60,16 @@ Variationsfunktion $\eta(x)$ und betrachten das Funktional
 \begin{equation}
 K(u)
 =
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 S(x) u(x)^2 + R(x) u'(x)^2
 \,dx
 \label{buch:variation2:jacobi:eqn:K}
 \end{equation}
-mit Randbedingungen $u(x_0)=u(x_1)=0$ und versuchen das Minimum
+mit Randbedingungen $u(x_1)=u(x_2)=0$ und versuchen das Minimum
 zu bestimmen.
 Für $u(x)=0$ ist $K(0)=0$.
 Sollte es aber Funktionen $u(x)$ geben, die $K(u)$ negativ machen,
-dann kann die Funktion $y(x)$ von der ausgehen die Funktionen $S(x)$
+dann kann die Funktion $y(x)$, von der ausgehend die Funktionen $S(x)$
 und $R(x)$ konstruiert wurden, kein Minimum sein.
 
 %
@@ -98,7 +98,7 @@ Daraus ergibt sich die Euler-Lagrange-Differentialgleichung
 \]
 Der gemeinsame Faktor $2$ kann weggelassen werden.
 Ausserdem ist es üblich, die Differentialgleichung mit umgekehrtem
-Vorzeichen hinzuschreiben, also als
+Vorzeichen hinzuschreiben, also äquivalent als
 \begin{equation}
 \frac{d}{dx} R(x)\frac{d}{dx} u(x) - S(x) u(x) = 0.
 \label{buch:variation2:jacobi:eqn:jacobisl}
@@ -167,9 +167,9 @@ u'(x)
 C(1+y'(x)^2)^{\frac32}.
 \]
 Insbesondere hat $u'(x)$ immer das gleiche Vorzeichen.
-Wenn $u(x)$ eine Lösung mit Anfangsbedingung $u(x_0)=0$ ist, dann
+Wenn $u(x)$ eine Lösung mit Anfangsbedingung $u(x_1)=0$ ist, dann
 kann es keine weitere Nullstelle geben, insbesondere kann es
-also keine Funktion $\eta(x)$ mit Randwerten $\eta(x_0)=\eta(x_1)=0$
+also keine Funktion $\eta(x)$ mit Randwerten $\eta(x_1)=\eta(x_2)=0$
 geben, die die Jacobi-Differentialgleichung erfüllt.
 Lösungen der Euler-Lagrange-Differentialgleichung sind also Minima
 des Längenfunktionals.
@@ -205,21 +205,22 @@ Differentialgleichung durch $R(x)$ dividieren und die Gleichung
 u''(x) + \frac{R'(x)}{R(x)} u'(x) -\frac{S(x)}{R(x)} u(x) = 0
 \]
 erhalten.
+$R(x)>0$ ist die starke Legendre-Bedingung.
 
-\begin{definition}[Starke Legendre-Bedingung]
-Die Lagrange-Funktion $F(x,y,y')$ erfüllt die starke Legendre-Bedingung
-für die Extremale $y(x)$, wenn gilt
-\[
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x)) > 0
-\]
-für alle $x\in [x_0,x_1]$.
-\end{definition}
+%\begin{definition}[Starke Legendre-Bedingung]
+%Die Lagrange-Funktion $F(x,y,y')$ erfüllt die starke Legendre-Bedingung
+%für die Extremale $y(x)$, wenn gilt
+%\[
+%\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x)) > 0
+%\]
+%für alle $x\in [x_1,x_2]$.
+%\end{definition}
 
 Unter der Voraussetzung der starken Legendre-Bedingung ist die
 Jacobi-Differential\-glei\-chung also äquivalent zu einer
 Sturm-Liouville-Differentialgleichung.
 In Abschnitt~\ref{buch:variation2:section:diffgl}
-wurde die die Vorzeichen und Nullstellen der Lösungen einer solchen
+wurden die Vorzeichen und Nullstellen der Lösungen einer solchen
 Gleichung untersucht.
 Diese Eigenschaften gelten daher auch für die Jacobi-Differentialgleichung.
 
@@ -242,12 +243,12 @@ Su.
 \label{buch:variation2:jacobi:eqn:L}
 \end{equation}
 Falls die Funktion $u(x)$, die keine Lösung der Jacobi-Differentialgleichung
-zu sein braucht, die Randbedingungen $u(x_0)=u(x_1)=0$ erfüllt,
+zu sein braucht, die Randbedingungen $u(x_1)=u(x_2)=0$ erfüllt,
 kann das Integral
 \begin{align}
-\int_{x_0}^{x_1} u(x) L(u(x)) \,dx
+\int_{x_1}^{x_2} u(x) L(u(x)) \,dx
 &=
-\int_{x_0}^{x_1} u(x)
+\int_{x_1}^{x_2} u(x)
 \biggl(
 \frac{d}{dx}\bigl(R(x)u'(x)\bigr) 
 -
@@ -260,9 +261,9 @@ Es ergibt}
 &=
 \biggl[
 u(x)R(x)u'(x)
-\biggr]_{x_0}^{x_1}
+\biggr]_{x_1}^{x_2}
 -
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 u'(x) \bigl( R(x)u'(x) \bigr)
 +
 u(x) S(x) u(x)
@@ -272,7 +273,7 @@ u(x) S(x) u(x)
 Rest kann zu}
 &=
 -
-\int_{x_0}^{x_1} R(x) u'(x)^2 + S(x) u(x)^2 \,dx
+\int_{x_1}^{x_2} R(x) u'(x)^2 + S(x) u(x)^2 \,dx
 =
 - K(u).
 \label{buch:variation2:jacobi:eqn:LK}
@@ -282,9 +283,9 @@ Das Funktional $K(u)$ kann also mit der linken Seite der
 Jacobi-Diffe\-ren\-tial\-gleichung ausgedrückt werden.
 
 %
-% Nullstellen im Inneren von [x_0,x_1]
+% Nullstellen im Inneren von [x_1,x_2]
 %
-\subsubsection{Nullstellen im Inneren von $[x_0,x_1]$}
+\subsubsection{Nullstellen im Inneren von $[x_1,x_2]$}
 \input{chapters/060-variation2/fig/xstern.tex}
 Auf die Jacobi-Differentialgleichung sind wir gestossen, weil wir nach
 Variationsfunktionen $\eta$ gesucht haben, die die zweite Variation
@@ -294,26 +295,26 @@ Nullstellen einer Lösung starke Einschränkungen auferlegt.
 Sei also $u_0(x)$ eine Lösung der Jacobi-Differentialgleichung mit den
 Anfangsbedingungen
 \[
-u_0(x_0) = 0
+u_0(x_1) = 0
 \qquad\text{und}\qquad
-u_0'(x_0) = 1
+u_0'(x_1) = 1
 \]
-und sei $x_*$ die kleinste, von $x_0$ verschiedene Nullstelle von $u_0(x)$
-im Inneren von $[x_0,x_1]$.
-Insbesondere ist $u_0(x)>0$ im Teilintervall $(x_0,x_*)$.
+und sei $x_*$ die kleinste, von $x_1$ verschiedene Nullstelle von $u_0(x)$
+im Inneren von $[x_1,x_2]$.
+Insbesondere ist $u_0(x)>0$ im Teilintervall $(x_1,x_*)$.
 
 Aus der Funktion $u_0(x)$ konstruieren wir jetzt eine neue Funktion
 \[
 u_1(x)
 =
 \begin{cases}
-u_0(x) &\qquad \text{für $x\in [x_0,x_*]$}\\
+u_0(x) &\qquad \text{für $x\in [x_1,x_*]$}\\
 0      &\qquad \text{sonst.}
 \end{cases}
 \]
 Diese Funktion ist stetig, aber nicht differenzierbar an der Stelle
 $x_*$.
-Sie erfüllt aber die Randbedingungen $u_1(x_0)=u_1(x_1)=0$, so dass
+Sie erfüllt aber die Randbedingungen $u_1(x_1)=u_1(x_2)=0$, so dass
 \eqref{buch:variation2:jacobi:eqn:LK}
 zur Berechnung von $K(u_1)$ verwendet werden kann.
 Insbesondere gilt
@@ -321,12 +322,12 @@ Insbesondere gilt
 K(u_1)
 =
 -
-\int_{x_0}^{x_*}
+\int_{x_1}^{x_*}
 u_0
 \underbrace{L(u_0)}_{\displaystyle=0}
 \,dx
 -
-\int_{x_*}^{x_1}
+\int_{x_*}^{x_2}
 0
 \cdot L(0)
 \,dx
@@ -350,13 +351,13 @@ u'(x)\frac{\partial G}{\partial u'}(x,u(x),u'(x))
 \]
 stetige Funktionen sein müssen.
 Für die Lagrange-Funktion $G$ sind dies die Funktionen
-\[
+\begin{gather*}
 2R(x) u'(x)
-\qquad\text{und}\qquad
+\intertext{und}
 S(x)u(x)^2 + R(x)u'(x)^2 - u'(x) 2R(x)u'(x)
 =
 S(x)u(x)^2-R(x)u'(x)^2.
-\]
+\end{gather*}
 Die Funktion $u_1'(x)$ ist an der Stelle $x_*$ nicht stetig, denn da
 $u_0(x)$ eine Lösung der Jacobi-Differentialgleichung ist, hat sie nur
 einfache Nullstellen.
@@ -369,15 +370,15 @@ daher sind beide Eckenbedingungen verletzt.
 Da die Eckenbedingung nicht erfüllt ist, kann $u_1(x)$ dem Funktional
 $K(u)$ nicht ein Minimum erteilen.
 Da aber $K(u_1)=0$ ist, muss es auch Funktionen $u(x)$ mit Randbedingungen
-$u(x_0)=u(x_1)=0$ geben, für die $K(u)<0$ negative Werte annimmt.
+$u(x_1)=u(x_2)=0$ geben, für die $K(u)<0$ negative Werte annimmt.
 Wenn aber die zweite Variation $\delta^2I(y)=K(u)<0$ ist, kann $y(x)$
 nicht ein Minimum sein.
 
 \begin{satz}
 Erfüllt die Extremale $y(x)$ die starke Legendre-Bedingung und hat
 die Lösung $u_0(x)$ der Jacobi-Differentialgleichung mit Anfangsbedingung
-$u_0(x_0)=0$ und $u_0'(x_1)=1$ eine Nullstelle im Inneren des Intervalls
-$[x_1,x_2]$, dann ist $I(y)$ kein Minimum.
+$u_0(x_1)=0$ und $u_0'(x_1)=1$ eine Nullstelle im Inneren des Intervalls
+$[x_2,x_2]$, dann ist $I(y)$ kein Minimum.
 \end{satz}
 
 %
@@ -392,21 +393,21 @@ Die kürzesten Verbindung zweier Punkte ist dort immer ein Grosskreisbogen.
 Liegen die Punkte auf dem Äquator, dann liegt in Normalfall auch die
 kürzeste Verbindung auf dem Äquator.
 
-Seien jetzt $x_0$ und $x_1$ die geographische Länge von zwei Punkten
+Seien jetzt $x_1$ und $x_2$ die geographische Länge von zwei Punkten
 auf dem Äquator, zwischen denen die kürzeste Verbindung gesucht wird.
 In Abbildung~\ref{buch:variation2:fig:jacobi} sind die möglichen
 Situationen illustriert.
-In a) ist das Intervall $|x_1-x_0|<\pi$, in diesem Fall ist die
-das Intervall $[x_0,x_1]$ die kürzeste Verbindung und die 
+In a) ist das Intervall $|x_2-x_1|<\pi$, in diesem Fall ist die
+das Intervall $[x_1,x_2]$ die kürzeste Verbindung und die 
 Jacobi-Differentialgleichung hat keine Nullstellen im Inneren 
 dieses Intervalls.
 
-In c) ist das Intervall $|x_1-x_0|>\pi$, in diesem Fall ist das Intervall
-$[x_0,x_1]$ die längste Verbindung.
+In c) ist das Intervall $|x_2-x_1|>\pi$, in diesem Fall ist das Intervall
+$[x_1,x_2]$ die längste Verbindung.
 Die Lösung $u_0(x)$ Jacbi-Differentialgleichung hat eine Nullstelle
-bei $x_*=x_0+\pi$.
-Mit dem Bogen in der oberen Halbkugel zwischen $x_0$ und $x_*$
-gefolgt vom Äquatorabschnitt von $x_*$ bis $x_1$ kann man eine
+bei $x_*=x_1+\pi$.
+Mit dem Bogen in der oberen Halbkugel zwischen $x_1$ und $x_*$
+gefolgt vom Äquatorabschnitt von $x_*$ bis $x_2$ kann man eine
 alternative Verbindung herstellen, die zwar die gleiche Länge hat,
 die aber durch Abrundung der Ecke bei $x_*$ verkürzt werden kann.
 Dies ist die Erkenntnis aus der weierstrass-erdmannschen
@@ -414,15 +415,15 @@ Eckenbedingung für $u_1(x)$.
 Die kürzeste Verbindung ist der komplementäre, rot eingezeichnete
 Teil des Äquators.
 
-In b) ist $x_1=x_0+\pi$.
+In b) ist $x_2=x_1+\pi$.
 In diesem Fall ist $u_0(x)$ eine Lösung, die die Randbedingung
-$u_0(x_0)=u_0(x_1)=0$ erfüllt, sie kann also als Variation
+$u_0(x_1)=u_0(x_2)=0$ erfüllt, sie kann also als Variation
 für das ursprüngliche Integral verwendet werden.
 Die variierten Lösungen sind alle rot eingezeichnet und haben,
 da $u_0(x)$ die Jacobi-Differentialgleichung erfüllt, die gleiche
 Länge.
 
-Die Punkte $x_0$ und $x_*$ heissen {\em konjugierte} Punkte.
+Die Punkte $x_1$ und $x_*$ heissen {\em konjugierte} Punkte.
 \index{konjugierter Punkt}%
 Man kann das Phänomen auch so beschreiben: erweitert man den
 Definitionsbereich über einen konjugierten Punkt hinweg, wird die
@@ -438,9 +439,9 @@ des Funktionals, aber kein Minimum mehr.
 \label{buch:variation2:jacobi:subsection:ohne}}
 Wir nehmen jetzt an, dass $y(x)$ die starke Legendre-Bedingung
 erfüllt und die Lösung $u_0(x)$ der zugehörigen
-Jacobi-Differentialgleichung mit Anfangsbedingungen $u_0(x_0)=0$
-und $u_0'(x_0)=1$ keine Nullstellen im Inneren des Intervalls
-$[x_0,x_1]$ hat.
+Jacobi-Differentialgleichung mit Anfangsbedingungen $u_0(x_1)=0$
+und $u_0'(x_1)=1$ keine Nullstellen im Inneren des Intervalls
+$[x_1,x_2]$ hat.
 Wir wollen zeigen, dass unter diesen Voraussetzungen die zweite
 Variation nicht negativ sein kann.
 
@@ -448,13 +449,13 @@ Die zweite Variation ist das Integral
 \begin{align*}
 \delta^2 I(y)
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 S(x) \eta(x)^2 + R(x) \eta'(x)^2
 \,dx.
 \intertext{Da die starke Legendre-Bedingung gilt, ist $R(x)>0$ und
 kann daher ausgeklammert werden:}
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 R(x)
 \biggl(
 \eta'(x)^2 + \frac{S(x)}{R(x)}\eta(x)^2
@@ -467,7 +468,7 @@ ist, dann folgt, dass das Integral $\ge 0$ sein muss.
 Wir berechnen zu diesem Zweck das Integral
 \begin{align}
 J&=
-\int_{x_0}^{x_1} 
+\int_{x_1}^{x_2} 
 R(x) 
 \biggl(
 \eta'(x)
@@ -477,7 +478,7 @@ R(x)
 \label{buch:variation2:jacobi:eqn:Jquadrat}
 \intertext{welches ausmultipliziert zu}
 &=
-\int_{x_0}^{x_1} 
+\int_{x_1}^{x_2} 
 R(x) 
 \biggl(
 \eta'(x)^2
@@ -491,7 +492,7 @@ R(x)
 Die Faktoren mit $\eta$ im mittleren Term können kompakter
 als $2\eta(x)\eta'(x)=(\eta(x))'$ geschrieben werden:}
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 R(x)
 \biggl(
 \eta'(x)^2
@@ -506,9 +507,9 @@ R(x)
 \intertext{Dadurch wird es jetzt möglich im mittleren Term
 partielle Integration durchzuführen, bei der
 $(\eta(x)^2)'$ aufgeleitet und $R(x)u_0'(x)/u_0(x)$ abgeleitet wird.
-Man erhält wegen der Randbedingung $\eta(x_0)=\eta(x_1)=0$}
+Man erhält wegen der Randbedingung $\eta(x_1)=\eta(x_2)=0$}
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 R(x)\eta'(x)^2
 +
 \underbrace{
@@ -569,7 +570,7 @@ Eingesetzt im Integral erhalten wir schliesslich
 \[
 J
 =
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 R(x)\eta'(x)^2 + S(x) \eta(x)^2
 \,dx
 =
@@ -588,8 +589,8 @@ Damit haben wir den folgenden Satz gezeigt.
 \begin{satz}[Jacobi-Bedingung]
 Erfüllt eine Extremale $y(x)$ des Funktionals $I(y)$ die starke
 Legendre-Bedingung und hat die Lösung $u_0(x)$ der Jacobi-Differentialgleichung
-mit Anfangswerten $u_0(x_0)=0$ und $u_0'(x_0)=1$ im Inneren des
-Intervalls $[x_0,x_1]$ keine Nullstellen, dann ist
+mit Anfangswerten $u_0(x_1)=0$ und $u_0'(x_1)=1$ im Inneren des
+Intervalls $[x_1,x_2]$ keine Nullstellen, dann ist
 $\delta^2 I(y)\ge 0$.
 \end{satz}
 
@@ -602,7 +603,7 @@ $\delta^2 I(y)\ge 0$.
 \subsection{Kürzeste Verbindung auf einem Rotationskörper}
 Seit über 2000 Jahren ist der Menschheit bekannt, dass die Erde
 ungefähr die Form einer Kugel hat.
-Erathostenes gelang es als erstem, den Umfang der Erde mit
+Erathostenes gelang es als Erstem, den Umfang der Erde mit
 einem Fehler von weniger als $2\%$ zu bestimmen.
 Die Entfernungsmessung auf einer Kugeloberfläche ist deutlich
 komplizierter als auf einer Ebene.
@@ -658,7 +659,7 @@ Winkeln $\varphi_0$ und $\varphi_1$ ist.
 Die Variation einer solchen Kurve ist charakterisiert durch die
 Abweichung in $z$-Richtung.
 Man darf daher annehmen, dass die Kurve durch eine Funktion $z(\varphi)$
-mit $z(\varphi_0)=z(\varphi_1)=0$ beschrieben wird.
+mit $z(\varphi_1)=z(\varphi_2)=0$ beschrieben wird.
 Ein Punkt der Kurve ist daher die Koordinaten
 $(\varphi, r(z(\varphi)), z(\varphi))$
 gegeben.
@@ -672,7 +673,7 @@ wird durch ein Integral der Form
 \begin{align}
 l
 &=
-\int_{t_0}^{t_1}
+\int_{t_1}^{t_2}
 \sqrt{
 r^2
 \dot{\varphi}(t)^2
@@ -687,7 +688,7 @@ Mit $\varphi$ als Parameter für die Kurve vereinfacht sich das Integral
 auf}
 l(z)
 &=
-\int_{\varphi_0}^{\varphi_1}
+\int_{\varphi_1}^{\varphi_2}
 \sqrt{
 r(z(\varphi))^2
 +
@@ -699,7 +700,7 @@ z'(\varphi)^2
 \label{buch:variation2:jacobi:bsp:laenge:l}
 \\
 &=
-\int_{\varphi_0}^{\varphi_1}
+\int_{\varphi_1}^{\varphi_2}
 \sqrt{
 r(z(\varphi))^2 + z'(\varphi)^2 \bigl(1+r'(z(\varphi))^2\bigr)
 }
@@ -715,7 +716,7 @@ Man beachte, dass $L$ nicht von $\varphi$ abhängt, was die
 Euler-Lagrange-Differentialgleichung vereinfacht.
 
 Die Länge des Breitenkreises $z=0$ ist das Integral von
-$L(\varphi,0,0)$, also $l=(\varphi_1-\varphi_0)r(0)$.
+$L(\varphi,0,0)$, also $l=(\varphi_2-\varphi_1)r(0)$.
 Da der zweite Term unter der Wurzel von $L$ immer positiv
 ist, kann die Kurvenlänge nur kleiner werden, wenn dar Radius
 $r(z)$ für $z>0$ deutlich kleiner ist.
@@ -764,7 +765,7 @@ r(z(\varphi))^2
 +
 z'(\varphi)^2 (1+r'(z(\varphi))^2).
 \end{align*}
-Die gesuchte Ableitung von $L$ kann damit geschrieben werden als
+Die gesuchte Ableitung von $L$ kann damit als
 \begin{equation}
 \frac{d}{d\varphi}\frac{\partial L}{\partial z'}
 (\varphi,z(\varphi),z'(\varphi))
@@ -778,9 +779,10 @@ Z'(\varphi)N(\varphi)
 Z(\varphi)N'(\varphi)
 }{
 N(\varphi)^{\frac32}
-}.
+}
 \label{buch:variation2:jacobi:eqn:el2}
 \end{equation}
+geschrieben werden.
 Auch der Term~\eqref{buch:variation2:jacobi:rot:el-links}
 kann mit Hilfe von $N(\varphi)$ etwas kompakter geschrieben werden:
 \begin{align*}
@@ -798,9 +800,9 @@ r'(z(\varphi)) + z'(\varphi)^2\,r''(z(\varphi))\,r'(z(\varphi))
 N(\varphi)
 }{
 N(\varphi)^{\frac32}
-}
+}.
 \end{align*}
-Damit kann man jetzt die Euler-Lagrange-Differentialgleichung etwas
+Damit kann man jetzt die Euler-Lagrange-Differentialgleichung 
 kompakter schreiben.
 Nach Multiplikation mit $N(\varphi)^{\frac32}$ bleibt
 \begin{equation}
@@ -810,7 +812,7 @@ r'(z(\varphi)) + z'(\varphi)^2\,r''(z(\varphi))\,r'(z(\varphi))
 \,
 N(\varphi)
 -
-Z'(\varphi)N(\varphi) + \frac12 Z(\varphi)N'(\varphi)=0.
+Z'(\varphi)N(\varphi) + \frac12 Z(\varphi)N'(\varphi)=0
 \label{buch:variation2:jacobi:el-ZN}
 \end{equation}
 als Euler-Lagrange-Differentialgleichung.
@@ -837,8 +839,8 @@ N'(\varphi)
 und müssen in \eqref{buch:variation2:jacobi:el-ZN} eingesetzt
 werden. 
 
-Zur Berechnung von \eqref{buch:variation2:jacobi:el-ZN} wird
-etwas übersichtlicher, wenn die geschachtelten Funktionen nicht
+Die Berechnung von \eqref{buch:variation2:jacobi:el-ZN} wird
+übersichtlicher, wenn die geschachtelten Funktionen nicht
 mehr alle ausgeschrieben werden müssen.
 Wir kürzen daher wieder $r'(z(\varphi)) = r'$ und $z'(\varphi)=z'$
 und analog für höhere Ableitungen.
@@ -1017,7 +1019,7 @@ r(0)^3
 =
 r''(0).
 \end{align*}
-Die Jacobi-Differentialgleichung bekommt daher die Form
+Die Jacobi-Differentialgleichung bekommt somit die Form
 \begin{align}
 \frac{d}{d\varphi}
 R(\varphi)
@@ -1049,17 +1051,17 @@ weitere Nullstellen haben.
 \subsubsection{Die Lösungen der Jacobi-Differentialgleichung und die konjugierten Punkte}
 Die Differentialgleichung
 \[
-u''(x) = -\lambda u(x)\qquad\text{mit $u(\varphi_0)=0$}
+u''(x) = -\lambda u(x)\qquad\text{mit $u(\varphi_1)=0$}
 \]
 hat die Lösung 
 \[
 u(\varphi)
 =
-A\sin \sqrt{\lambda}(\varphi-\varphi_0),
+A\sin \sqrt{\lambda}(\varphi-\varphi_1),
 \]
-mit Nullstellen bei $\varphi_0 + \pi k/\sqrt{\lambda}$ mit $k\in\mathbb{Z}$.
+mit Nullstellen bei $\varphi_1 + \pi k/\sqrt{\lambda}$ mit $k\in\mathbb{Z}$.
 Daraus können wir jetzt ablesen, dass die konjugierten Punkte bei
-$\varphi_0\pm \pi/\sqrt{\lambda}$ zu finden sind.
+$\varphi_1\pm \pi/\sqrt{\lambda}$ zu finden sind.
 Mit dem Wert von $\lambda$ aus~\eqref{buch:variation2:jacobi:rot:lambda}
 erhalten wir 
 \begin{equation}
@@ -1146,15 +1148,15 @@ Ausgangspunkt entfernt.
 
 Man kann dieses Resultat auch wie in
 Abbildung~\ref{buch:variation2:fig:geodaeten} visualisieren.
-\input{chapters/060-variation2/fig/geodesics.tex}
+\input{chapters/060-variation2/fig/geodesics.tex}%
 Der Äquator ist eine Lösung der Euler-Lagrange-Differentialgleichung
-für die Verbindungen zwischen den Punkten $\varphi_0$ und $\varphi_1$.
-Sie wird für $b <= (\varphi_1-\varphi_0)/\pi$ instabil und es gibt
+für die Verbindungen zwischen den Punkten $\varphi_1$ und $\varphi_2$.
+Sie wird für $b <= (\varphi_2-\varphi_1)/\pi$ instabil und es gibt
 eine kürzere Verbindung, die nicht entlang dem Äquator verläuft.
 In Abbildung~\ref{buch:variation2:fig:geodaeten} beginnen alle
 Geodäten beim Punkt $P_0$.
-Der Punkt $P_1$ ist der konjugierte Punkt, für Punkte $P$ jenseits dieses
-Punktes gibt es eine kürzere Verbindung von $P_0$ zu $P$.
+Der Punkt $P_2$ ist der konjugierte Punkt, für Punkte $P$ jenseits dieses
+Punktes gibt es eine kürzere Verbindung von $P_1$ zu $P$.
 
 
 %
@@ -1178,7 +1180,7 @@ König Ludwig XV.~beauftragte daher Maupertuis mit einer Expedition
 nach Lappland.
 Als Teil der Expedition soll der Abstand zweier Breitengrade
 vermessen werden.
-Wenn der Radius im hohen Norden zunehmen abnimmt, wird auch die Länge
+Wenn der Radius im hohen Norden immer schneller abnimmt, wird auch die Länge
 eines Merdianbogens zu vorgegebenem Winkel kürzer.
 Die Expedition von Maupertuis und eine zeitgleich stattfindende Expedtion
 nach Ecuador bestätigten beide die Abplattung.

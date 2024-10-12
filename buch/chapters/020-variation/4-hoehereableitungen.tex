@@ -97,7 +97,7 @@ und sei eine Funktion $y(x)$ gesucht, die ein kritischer Punkt des Funktionals
 \[
 I(y)
 =
-\int_a^b L(x,y(x),y'(x),\dots,y^{(n)}(x))\,dx
+\int_a^b L\bigl(x,y(x),y'(x),\dots,y^{(n)}(x)\bigr)\,dx
 \]
 ist.
 Wir berechnen wieder die erste Variation mit Hilfe einer beliebig
@@ -110,22 +110,25 @@ von $\eta(x)$ als
 &=
 \frac{d}{dt}
 \int_a^b
-L(x,y(x)+t\eta(x),y'(x)+t\eta'(x),\dots,y^{(n)}(x)+t\eta^{(n)}(x))
+L\bigl(x,y(x)+t\eta(x),y'(x)+t\eta'(x),\dots,y^{(n)}(x)+t\eta^{(n)}(x)\bigr)
 \,dx\biggl|_{t=0}.
 \intertext{Durch Ableitung nach $t$ finden wir}
 &=
 \int_a^b
-\frac{\partial L}{\partial y}(x,y(x),y'(x),\dots,y^{(n)}(x))
+\frac{\partial L}{\partial y}\bigl(x,y(x),y'(x),\dots,y^{(n)}(x)\bigr)
+\,
 \eta(x)
 +
-\frac{\partial L}{\partial y'}(x,y(x),y'(x),\dots,y^{(n)}(x))
+\frac{\partial L}{\partial y'}\bigl(x,y(x),y'(x),\dots,y^{(n)}(x)\bigr)
+\,
 \eta'(x)
 \\
 &\qquad
 +
 \dots
 +
-\frac{\partial L}{\partial y^{(n)}}(x,y(x),y'(x),\dots,y^{(n)}(x))
+\frac{\partial L}{\partial y^{(n)}}\bigl(x,y(x),y'(x),\dots,y^{(n)}(x)\bigr)
+\,
 \eta^{(n)}(x)
 \,dx.
 \end{align*}
@@ -137,14 +140,16 @@ $\eta(x)$ enthalten:
 &=
 \int_a^b
 \frac{\partial L}{\partial y^{(k)}}
-(x,y(x),y'(x),\dots,y^{(n)}(x))
+\bigl(x,y(x),y'(x),\dots,y^{(n)}(x)\bigr)
+\,
 \eta^{(k)}(x)
 \,dx
 \\
 &=
 \biggl[
 \frac{\partial L}{\partial y^{(k)}}
-(x,y(x),y'(x),\dots,y^{(n)}(x))
+\bigl(x,y(x),y'(x),\dots,y^{(n)}(x)\bigr)
+\,
 \eta^{(k-1)}(x)
 \biggr]_a^b
 \\
@@ -153,14 +158,16 @@ $\eta(x)$ enthalten:
 \int_a^b
 \frac{d}{dx}
 \frac{\partial L}{\partial y^{(k)}}
-(x,y(x),y'(x),\dots,y^{(n)}(x))
+\bigl(x,y(x),y'(x),\dots,y^{(n)}(x)\bigr)
+\,
 \eta^{(k-1)}(x)
 \,dx.
 \intertext{Da die Ableitungen von $\eta(x)$ in den Intervallenden
 verschwinden, ist dies gleichbedeutend mit}
 &=
 -\int_a^b \frac{d}{dx} \frac{\partial L}{\partial y^{(k)}}
-(x,y(x),y'(x),\dots,y^{(n)}(x))
+\bigl(x,y(x),y'(x),\dots,y^{(n)}(x)\bigr)
+\,
 \eta^{(k-1)}(x)
 \,dx.
 \intertext{Durch Iterieren dieser Rechnung erhalten wir}
@@ -169,7 +176,8 @@ verschwinden, ist dies gleichbedeutend mit}
 \int_a^b
 \frac{d^k}{dx^k}
 \frac{\partial L}{\partial y^{(k)}}
-(x,y(x),y'(x),\dots,y^{(n)}(x))
+\bigl(x,y(x),y'(x),\dots,y^{(n)}(x)\bigr)
+\,
 \eta(x)
 \,dx.
 \end{align*}
@@ -193,7 +201,9 @@ Die Variation kann jetzt als
 \frac{d^n}{dx^n}
 \frac{\partial L}{\partial y^{(n)}}
 \biggr)
-\eta(x)\,dx
+\,
+\eta(x)
+\,dx
 \end{align*}
 geschrieben werden.
 Die Variation $\delta I$ muss für jede Wahl von $\eta(x)$ verschwinden,
@@ -229,7 +239,7 @@ Punkt des Integrals
 I
 =
 \int_a^b
-L(x,y(x),y'(x),\dots,y^{(n)}(x))
+L\bigl(x,y(x),y'(x),\dots,y^{(n)}(x)\bigr)
 \,dx
 \]
 mit der Lagrange-Funktion $n$-ter Ordnung $L(x,y,y',\dots,y^{(n)})$,

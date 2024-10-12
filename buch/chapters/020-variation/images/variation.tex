@@ -80,21 +80,21 @@ declare function = {
 	plot[domain=-1:1] ({X(x(1,\x),\x)},{Y(x(1,\x),\x)});
 
 \node[color=blue] at (2.0,1.3)
-	[rotate=-53] {$(x_0(\varepsilon),y_0(\varepsilon))$};
+	[rotate=-53] {$(x_1(\varepsilon),y_1(\varepsilon))$};
 \node[color=blue] at (9.0,1.7)
-	[rotate=80] {$(x_1(\varepsilon),y_1(\varepsilon))$};
+	[rotate=80] {$(x_2(\varepsilon),y_2(\varepsilon))$};
 
 % f1
 \draw[->,color=darkgreen,line width=2pt]
 	({X(x(1,0),0)},{Y(x(1,0),0)}) -- +({2.0*ry(1,0)},{-2.0*rx(1,0)});
 %\fill[color=darkgreen] ({X(x(1,0),0)},{Y(x(1,0),0)}) circle[radius=0.08];
-\node[color=darkgreen] at (10.7,2.0) {$\vec{f}_1$};
+\node[color=darkgreen] at (10.7,2.0) {$\vec{f}_2$};
 
 % f0
 \draw[->,color=darkgreen,line width=2pt]
 	({X(x(0,0),0)},{Y(x(0,0),0)}) -- +({-1.5*ry(0,0)},{1.5*rx(0,0)});
 \fill[color=darkgreen] ({X(x(0,0),0)},{Y(x(0,0),0)}) circle[radius=0.08];
-\node[color=darkgreen] at (0.8,1.3) {$\vec{f}_0$};
+\node[color=darkgreen] at (0.8,1.3) {$\vec{f}_1$};
 
 % Dreieck
 \def\l{2}
@@ -103,12 +103,12 @@ declare function = {
 \draw ({x(1,0)},{Y(x(1,0),0)}) -- +(\l,0);
 \draw ({x(1,0)},{Y(x(1,0),0)}) -- +(\l,{\l*ry(1,0)/rx(1,0)})
 	-- ({x(1,0)+\l},{Y(x(1,0),0)});
-\node at ({x(1,0)+1.5},{Y(x(1,0),0)+0.06}) [below] {$\delta x_1$};
+\node at ({x(1,0)+1.5},{Y(x(1,0),0)+0.06}) [below] {$\delta x_2$};
 \draw[color=darkred,line width=1.2pt] ({x(1,0)},{Y(x(1,0),0)})
 	-- +(\l,{\l*deltay(x(1,0),0)})
 	-- ({x(1,0)+\l},{Y(x(1,0),0)});
 \node[color=darkred] at ({x(1,0)+\l},{Y(x(1,0),0)+0.45})
-	[right] {$\displaystyle\frac{\partial y}{\partial x}\cdot\delta x_1$};
+	[right] {$\displaystyle\frac{\partial y}{\partial x}\cdot\delta x_2$};
 \node at ({x(1,0)+\l},{Y(x(1,0),0)+2.2}) [right]
 {$\displaystyle\frac{\partial y}{\partial\varepsilon}\cdot\delta\varepsilon$};
 
@@ -122,13 +122,13 @@ declare function = {
 	circle[radius=0.08];
 \node[color=hellblau] at 
 	({X(x(1,0.0),0.0)+\L*rx(1,0.0)},{Y(x(1,0.0),0.0)+\L*ry(1,0.0)})
-	[above] {$\vec{r}_1(\varepsilon)$};
+	[above] {$\vec{r}_2(\varepsilon)$};
 
 % r0(epsilon)
 \draw[->,color=hellblau,line width=2pt]
 	({X(x(0,0.4),0.4)},{Y(x(0,0.4),0.4)}) -- +({rx(0,0.4)},{ry(0,0.4)});
 \fill[color=hellblau] ({X(x(0,0.4),0.4)},{Y(x(0,0.4),0.4)}) circle[radius=0.08];
-\node[color=hellblau] at (0.4,3.7) {$\vec{r}_0(\varepsilon)$};
+\node[color=hellblau] at (0.4,3.7) {$\vec{r}_1(\varepsilon)$};
 
 \end{tikzpicture}
 \end{document}

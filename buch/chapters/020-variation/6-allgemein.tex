@@ -11,7 +11,7 @@ wurde gezeigt, wie sich in einem Variationsproblem mit vorgegebenem
 Randwert nur an einem Ende des Intervalls aus der ersten Variation
 automatisch eine zusätzliche Randbedingung am anderen Ende des
 Intervalls ergibt.
-Die Endpunkte $x_0$ und $x_1$ des Intervalls waren aber immer noch 
+Die Endpunkte $x_1$ und $x_2$ des Intervalls waren aber immer noch 
 fest.
 In diesem Abschnitt soll gezeigt werden, wie sich diese Einschränkung
 aufheben lässt.
@@ -30,7 +30,7 @@ y(x)+\varepsilon\eta(x)
 \label{buch:variation:allgemein:eqn:ansatz}
 \end{equation}
 konstruiert.
-Mit diesem Ansatz ist es nicht möglich, die Endpunkte $x_0$ und $x_1$
+Mit diesem Ansatz ist es nicht möglich, die Endpunkte $x_1$ und $x_2$
 des Intervalls zu varieren.
 Es war zwar möglich, die $y$-Werte zu varieren, was auf die zusätzliche
 Randbedingung von
@@ -49,7 +49,7 @@ verwenden wir jetzt eine Parametrisierung
 \begin{equation}
 y
 \colon
-[x_0(\varepsilon),x_1(\varepsilon)]
+[x_1(\varepsilon),x_2(\varepsilon)]
 \to
 \mathbb{R}
 :
@@ -62,13 +62,13 @@ Damit
 \eqref{buch:variation:allgemein:eqn:ansatz2}
 eine Variation der einer Funktion $y(x)$ beschreibt, soll
 $y(x) = y(x,0)$ sein.
-Die Funktionen $x_0(\varepsilon)$ und $x_1(\varepsilon)$ beschreiben
+Die Funktionen $x_1(\varepsilon)$ und $x_2(\varepsilon)$ beschreiben
 die Endpunkte des Definitionsintervalls der partiellen Funktion
 $x\mapsto y(x,\varepsilon)$.
 
 Der ursprüngliche Ansatz~\eqref{buch:variation:allgemein:eqn:ansatz}
 ist in \eqref{buch:variation:allgemein:eqn:ansatz2} enthalten, wenn
-man $x_0(\varepsilon)=x_0$, $x_1(\varepsilon)=x_1$ und
+man $x_1(\varepsilon)=x_1$, $x_2(\varepsilon)=x_2$ und
 \[
 y(x,\varepsilon) = y(x) + \varepsilon \eta(x)
 \]
@@ -86,9 +86,9 @@ gefordert werden.
 Eine stetig nach beiden Variablen differenzierbare Funktion $y(x,\varepsilon)$
 ist eine {\em allgemeine Variation} der Funktion $y(x)$, wenn es stetig
 differenzierbare Funktionen
-$x_0(\varepsilon)$ und $x_1(\varepsilon)$ gibt derart, dass
+$x_1(\varepsilon)$ und $x_2(\varepsilon)$ gibt derart, dass
 die partielle Funktion $x\mapsto y(x,\varepsilon)$ auf dem
-Intervall $[x_0(\varepsilon),x_1(\varepsilon)]$ stetig differenzierbar
+Intervall $[x_1(\varepsilon),x_2(\varepsilon)]$ stetig differenzierbar
 ist und für $\varepsilon=0$ mit $y(x)$ übereinstimmt: $y(x)=y(x,0)$.
 Der Einfachheit halber wird die partielle Ableitung von $y(x,\varepsilon)$
 nach $x$ auch
@@ -109,7 +109,7 @@ y'(x_i(0),0)
 \frac{\partial y}{\partial\varepsilon} (x(\varepsilon),\varepsilon)
 \bigg|_{\varepsilon=0}
 \end{align*}
-für $i=0,1$.
+für $i=1,2$.
 \end{definition}
 
 %
@@ -119,28 +119,28 @@ für $i=0,1$.
 Der Ansatz~\eqref{buch:variation:allgemein:eqn:ansatz2} beschreibt
 Kurven, die die beiden Punkte
 \begin{align*}
-P_0(\varepsilon)
-&=
-(x_0(\varepsilon),y(x_0(\varepsilon),\varepsilon))
-&&\text{und}&
 P_1(\varepsilon)
 &=
 (x_1(\varepsilon),y(x_1(\varepsilon),\varepsilon))
+&&\text{und}&
+P_2(\varepsilon)
+&=
+(x_2(\varepsilon),y(x_2(\varepsilon),\varepsilon))
 \end{align*}
 miteinander verbinden.
 Die Endpunkte der Kurve bewegen sich also auf den Kurven
 \begin{align*}
 \varepsilon
 &\mapsto
-P_0(\varepsilon)
+P_1(\varepsilon)
 =
-(x_0(\varepsilon),y(x_0(\varepsilon),\varepsilon)
+(x_1(\varepsilon),y(x_1(\varepsilon),\varepsilon)
 &&\text{und}&
 \varepsilon
 &\mapsto
-P_1(\varepsilon)
+P_2(\varepsilon)
 =
-(x_1(\varepsilon),y(x_1(\varepsilon),\varepsilon).
+(x_2(\varepsilon),y(x_2(\varepsilon),\varepsilon).
 \end{align*}
 Da alle beteiligten Funktionen als differenzierbar vorausgesetzt wurden,
 lassen sich auch die Tangenten dieser Kurven bestimmen.
@@ -156,13 +156,13 @@ y(x_i(\varepsilon),\varepsilon)
 \bigg|_{\varepsilon=0}
 \label{buch:variation:allgemein:eqn:tangential}
 \end{align}
-für $i=0,1$.
+für $i=1,2$.
 Die Kurve $\varepsilon\mapsto P_i(\varepsilon)$ lässt sich daher für
 genügend kleine $\varepsilon$ beliebig genau durch
 \[
 x\mapsto
 \begin{pmatrix}
-x_0(0)\\
+x_1(0)\\
 y(x,0) 
 \end{pmatrix}
 +
@@ -185,7 +185,7 @@ Wir betrachten jetzt wieder das Funktional
 \[
 I(y)
 =
-\int_{x_0}^{x_1} F(x,y(x),y'(x)) \,dx
+\int_{x_1}^{x_2} F(x,y(x),y'(x)) \,dx
 \]
 für die Lagrange-Funktion $f(x,y,y')$.
 Eine allgemeine Variation der Funktion $y(x)$ im Sinne der
@@ -194,8 +194,8 @@ $I(y)$ eine Funktion
 \[
 I(y,\varepsilon)
 =
-\int_{x_0(\varepsilon)}^{x_1(\varepsilon)}
-F(x,y(x,\varepsilon),y'(x,\varepsilon))
+\int_{x_1(\varepsilon)}^{x_2(\varepsilon)}
+F\bigl(x,y(x,\varepsilon),y'(x,\varepsilon)\bigr)
 \,dx
 \]
 von $\varepsilon$.
@@ -205,27 +205,27 @@ Sie ist
 \begin{align*}
 \frac{\partial}{\partial\varepsilon}I(y,\varepsilon)
 &=
-F(x_1(\varepsilon),y(x_1(\varepsilon),\varepsilon),
-y'(x_1(\varepsilon),\varepsilon))
-\frac{dx_1(\varepsilon)}{d\varepsilon}
+F\bigl(x_2(\varepsilon),y(x_2(\varepsilon),\varepsilon),
+y'(x_2(\varepsilon),\varepsilon)\bigr)
+\frac{dx_2(\varepsilon)}{d\varepsilon}
 \\
 &\qquad\qquad
 -
-F(x_0(\varepsilon),y(x_0(\varepsilon),\varepsilon),
-y'(x_0(\varepsilon),\varepsilon))
-\frac{dx_0(\varepsilon)}{d\varepsilon}
+F\bigl(x_1(\varepsilon),y(x_1(\varepsilon),\varepsilon),
+y'(x_1(\varepsilon),\varepsilon)\bigr)
+\frac{dx_1(\varepsilon)}{d\varepsilon}
 \\
 &\qquad
 +
-\int_{x_0(\varepsilon)}^{x_1(\varepsilon)}
-\frac{\partial F}{\partial y}(x, y(x,\varepsilon), y'(x,\varepsilon))
+\int_{x_1(\varepsilon)}^{x_2(\varepsilon)}
+\frac{\partial F}{\partial y}\bigl(x, y(x,\varepsilon), y'(x,\varepsilon)\bigr)
 \frac{\partial y}{\partial \varepsilon}(x,\varepsilon)
 \,dx
 \\
 &\qquad
 +
-\int_{x_0(\varepsilon)}^{x_1(\varepsilon)}
-\frac{\partial F}{\partial y'}(x, y(x,\varepsilon), y'(x,\varepsilon))
+\int_{x_1(\varepsilon)}^{x_2(\varepsilon)}
+\frac{\partial F}{\partial y'}\bigl(x, y(x,\varepsilon), y'(x,\varepsilon)\bigr)
 \frac{\partial^2 y}{\partial x\,\partial\varepsilon}(x,\varepsilon)
 \,dx.
 \end{align*}
@@ -233,25 +233,25 @@ An der Stelle $\varepsilon=0$ vereinfacht sich die Variation zu
 \begin{align}
 \delta I(y)
 &=
-F(x_1,y(x_1),y'(x_1))
-\frac{dx_0(0)}{d\varepsilon}
--
-F(x_0,y(x_0),y'(x_0))
+F\bigl(x_2,y(x_2),y'(x_2)\bigr)
 \frac{dx_1(0)}{d\varepsilon}
+-
+F\bigl(x_1,y(x_1),y'(x_1)\bigr)
+\frac{dx_2(0)}{d\varepsilon}
 \notag
 \\
 &\qquad
 +
-\int_{x_0}^{x_1}
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\int_{x_1}^{x_2}
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 \frac{\partial y}{\partial \varepsilon}(x,0)
 \,dx
 \notag
 \\
 &\qquad
 +
-\int_{x_0}^{x_1}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\int_{x_1}^{x_2}
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \frac{\partial^2 y}{\partial x\,\partial\varepsilon}(x,0)
 \,dx.
 \label{buch:variation:allgemein:eqn:var1}
@@ -259,21 +259,21 @@ F(x_0,y(x_0),y'(x_0))
 Die Ableitung $y'$ im zweiten Integral kann mit partieller Integration 
 vereinfacht werden:
 \begin{align*}
-\int_{x_0}^{x_1}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\int_{x_1}^{x_2}
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \frac{\partial y'}{\partial \varepsilon}(x,0)
 \,dx
 &=
 \biggl[
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \frac{\partial y}{\partial\varepsilon}(x,0)
-\biggr]_{x_0}^{x_1}
+\biggr]_{x_1}^{x_2}
 \\
 &\qquad
 -
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \frac{\partial y}{\partial\varepsilon}(x,0)
 \,dx.
 \end{align*}
@@ -284,26 +284,26 @@ ist die allgemeine Variation des Funktionals $I(y)$ daher
 \begin{aligned}
 \delta I(y)
 &=
-F(x_1,y(x_1),y'(x_1))
-\frac{dx_0(0)}{d\varepsilon}
--
-F(x_0,y(x_0),y'(x_0))
+F\bigl(x_2,y(x_2),y'(x_2)\bigr)
 \frac{dx_1(0)}{d\varepsilon}
+-
+F\bigl(x_1,y(x_1),y'(x_1)\bigr)
+\frac{dx_2(0)}{d\varepsilon}
 \\
 &\qquad
 +
 \biggl[
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \frac{\partial y}{\partial\varepsilon}(x,0)
-\biggr]_{x_0}^{x_1}
+\biggr]_{x_1}^{x_2}
 \\
 &\qquad
 +
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
-\frac{d}{dx}\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{d}{dx}\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
 \frac{\partial y}{\partial \varepsilon}(x,0)
 \,dx.
@@ -337,20 +337,23 @@ Der $y$-Wert kann sich auch dadurch ändern, dass $x$ variert wird:
 \frac{dx_i(\varepsilon)}{d\varepsilon}
 +
 \frac{\partial y(x_i(\varepsilon), \varepsilon)}{\partial \varepsilon}
+,\qquad i=1,2,
 \intertext{oder an der Stelle $\varepsilon=0$}
 \frac{dy(x_i(0),0)}{d\varepsilon}
 &=
 \frac{\partial y(x_i(0),0)}{\partial x}
 \frac{dx_i(0)}{d\varepsilon}
 +
-\frac{\partial y(x_i(0), 0)}{\partial \varepsilon}.
+\frac{\partial y(x_i(0), 0)}{\partial \varepsilon}
+,\qquad i=1,2.
 \intertext{Aufgelöst nach dem letzten Term ist dies}
 \frac{\partial y(x_i(0), 0)}{\partial \varepsilon}
 &=
 \frac{dy(x_i(0),0)}{d\varepsilon}
 -
 \frac{\partial y(x_i(0),0)}{\partial x}
-\frac{dx_i(0)}{d\varepsilon}
+\frac{dx_i(0)}{d\varepsilon},
+\qquad i=1,2.
 \end{align*}
 Dies können wir in die Variation
 \eqref{buch:variation:allgemein:eqn:variation}
@@ -360,40 +363,40 @@ einsetzen und erhalten
 \delta I(y)
 &=
 \biggl(
-F(x_1,y(x_1),y'(x_1))
+F\bigl(x_2,y(x_2),y'(x_2)\bigr)
+-
+\frac{\partial y(x_2(0),0)}{\partial x}
+\frac{\partial F}{\partial y'}\bigl(x_2,y(x_2),y'(x_2)\bigr)
+\biggr)
+\frac{dx_2(0)}{d\varepsilon}
+\\
+&\qquad
++
+\frac{\partial F}{\partial y'}\bigl(x_2,y(x_2),y'(x_2)\bigr)
+\frac{dy(x_2(0),0)}{d\varepsilon}
+\\
+&\qquad
+-
+\biggl(
+F\bigl(x_1,y(x_1),y'(x_1)\bigr)
 -
 \frac{\partial y(x_1(0),0)}{\partial x}
-\frac{\partial F}{\partial y'}(x_1,y(x_1),y'(x_1))
+\frac{\partial F}{\partial y'}\bigl(x_1,y(x_1),y'(x_1)\bigr)
 \biggr)
 \frac{dx_1(0)}{d\varepsilon}
 \\
 &\qquad
-+
-\frac{\partial F}{\partial y'}(x_1,y(x_1),y'(x_1))
+-
+\frac{\partial F}{\partial y'}\bigl(x_1,y(x_1),y'(x_1)\bigr)
 \frac{dy(x_1(0),0)}{d\varepsilon}
 \\
 &\qquad
--
-\biggl(
-F(x_0,y(x_0),y'(x_0))
--
-\frac{\partial y(x_0(0),0)}{\partial x}
-\frac{\partial F}{\partial y'}(x_0,y(x_0),y'(x_0))
-\biggr)
-\frac{dx_0(0)}{d\varepsilon}
-\\
-&\qquad
--
-\frac{\partial F}{\partial y'}(x_0,y(x_0),y'(x_0))
-\frac{dy(x_0(0),0)}{d\varepsilon}
-\\
-&\qquad
 +
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
-\frac{d}{dx}\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{d}{dx}\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
 \frac{\partial y}{\partial \varepsilon}(x,0)
 \,dx.
@@ -407,13 +410,13 @@ des Vektors
 =
 \begin{pmatrix}
 \displaystyle
-F(x_i,y(x_i),y'(x_i))
+F\bigl(x_i,y(x_i),y'(x_i)\bigr)
 -
-\frac{\partial F}{\partial y'}(x_i,y(x_i),y'(x_i))
+\frac{\partial F}{\partial y'}\bigl(x_i,y(x_i),y'(x_i)\bigr)
 \frac{\partial y(x_i(0),0)}{\partial\varepsilon}
 \\[3pt]
 \displaystyle
-\frac{\partial F}{\partial y'}(x_i,y(x_i),y'(x_i))
+\frac{\partial F}{\partial y'}\bigl(x_i,y(x_i),y'(x_i)\bigr)
 \end{pmatrix}
 \]
 mit dem Richtungsvektor  $\vec{r}_i(0)$ von
@@ -427,11 +430,11 @@ die Form
 -
 \vec{f}_0\cdot \vec{r}_0(0)
 +
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
-\frac{d}{dx}\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{d}{dx}\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
 \frac{\partial y}{\partial \varepsilon}(x,0)
 \,dx.
@@ -462,11 +465,11 @@ Dann ist die Variation
 -
 \vec{f}_0\cdot\vec{r}_0(0)
 +
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
-\frac{d}{dx}\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{d}{dx}\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
 \frac{\partial y}{\partial \varepsilon}(x,0)
 \,dx
@@ -481,10 +484,10 @@ mit
 F(x_i,y(x_i),y'(x_i))
 -
 y'(x_i)
-\frac{\partial F}{\partial y'}(x_i,y(x_i),y'(x_i))
+\frac{\partial F}{\partial y'}\bigl(x_i,y(x_i),y'(x_i)\bigr)
 \\[3pt]
 \displaystyle
-\frac{\partial F}{\partial y'}(x_i,y(x_i),y'(x_i))
+\frac{\partial F}{\partial y'}\bigl(x_i,y(x_i),y'(x_i)\bigr)
 \end{pmatrix}.
 \label{buch:nebenbedingungen:allgemein:eqn:fi}
 \end{equation}
@@ -494,7 +497,7 @@ Beliebige Variationen der Endpunkte sind nicht sinnvoll, denn
 wären die Endpunkte beliebig wählbar, dann lässt sich $I(y)$ kleiner
 (oder grösser) machen, indem der Weg geeignet verkürzt wird.
 Das einzig mögliche Minimum für das Funktional wird dann für eine
-Funktion erreicht, bei der $x_0=x_1$ gilt.
+Funktion erreicht, bei der $x_1=x_2$ gilt.
 Es sind daher nur Variationen zielführend, die tangential an eine
 Kurve in der $x$-$y$-Ebene sind.
 Die Skalarprodukte in 
@@ -509,7 +512,7 @@ liefern dann Randbedingungen für $y(x)$.
 Die Entwicklung des letzten Abschnitts lässt sich auch für mehrere
 Funktionen $y_1(x),\dots,$ $y_n(x)$ durchführen.
 Seien also $y_k(x,\varepsilon)$ Variationen der Funktionen $y_k(x)$
-mit der Variation $x_0(\varepsilon)$ und $x_1(\varepsilon)$ der 
+mit der Variation $x_1(\varepsilon)$ und $x_2(\varepsilon)$ der 
 Intervallenden.
 Die Endpunkte der Kurven
 \[
@@ -543,7 +546,7 @@ y_1(x_i(\varepsilon),\varepsilon)\\
 y_n(x_i(\varepsilon),\varepsilon)
 \end{pmatrix}
 \]
-für $i=0,1$.
+für $i=1,2$.
 
 Dem Vektor $\vec{f}_i$
 von Satz~\ref{buch:nichtdiff:section:splines}
@@ -559,17 +562,17 @@ F%(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i))
 -
 \sum_{k=1}^n y'_k(x_i) \frac{\partial F}{\partial y_k'}
 \biggr)
-(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i))
+\bigl(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i)\bigr)
 \\
 \displaystyle
 \frac{\partial F}{\partial y_1}
-(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i))
+\bigl(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i)\bigr)
 \\
 \vdots
 \\
 \displaystyle
 \frac{\partial F}{\partial y_n}
-(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i))
+\bigl(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i)\bigr)
 \end{pmatrix}.
 \]
 
@@ -640,30 +643,32 @@ Mit dieser Notation bekommen wir die sehr kompakte Form
 =
 \begin{pmatrix}
 \displaystyle
-F(x_i,y(x_i),y'(x_i)) - \frac{\partial}{\partial y'}(x_i,y(x_i),y'(x_i))
+F\bigl(x_i,y(x_i),y'(x_i)\bigr)
+-
+\frac{\partial}{\partial y'}\bigl(x_i,y(x_i),y'(x_i)\bigr)
 \\[5pt]
 \displaystyle
 \frac{\partial}{\partial y} F(x_i,y(x_i),y'(x_i))
 \end{pmatrix}
 \]
-für $i=0,1$.
+für $i=1,2$.
 
 Für die Variation finden wir dann
 \begin{align*}
 \delta I(y)
 &=
-\vec{f}_1\cdot \vec{r}_1(0)
+\vec{f}_2\cdot \vec{r}_2(0)
 -
-\vec{f}_0\cdot \vec{r}_0(0)
+\vec{f}_1\cdot \vec{r}_1(0)
 \\
 &\qquad
 +
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
-\frac{\partial}{\partial y}F(x,y(x),y'(x))
+\frac{\partial}{\partial y}F\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial}{\partial y'}F(x,y(x),y'(x))
+\frac{\partial}{\partial y'}F\bigl(x,y(x),y'(x)\bigr)
 \biggr)
 \cdot
 \frac{\partial y}{\partial\varepsilon}(x,0)
@@ -672,19 +677,14 @@ Für die Variation finden wir dann
 Damit die Variation verschwindet, müssen also die
 Euler-Lagrange-Differential\-glei\-chun\-gen erfüllt sein.
 Zusätzlich müssen aber die Skalarprodukte
-$\vec{f}_1\cdot \vec{r}_1(0)$
+$\vec{f}_2\cdot \vec{r}_2(0)$
 und
-$\vec{f}_0\cdot \vec{r}_0(0)$
+$\vec{f}_1\cdot \vec{r}_1(0)$
 verschwinden.
 Dies bedeutet, dass die Vektoren $\vec{f}_i$ auf den erlaubten
 Tangentialvektoren $\vec{r}_i(0)$ orthogonal sind.
 
 
-%%
-%% Erste Variation mit höheren Ableitungen
-%%
-%\subsection{Erste Variation mit höheren Ableitungen
-%\label{buch:variation:allgemein:subsection:var2h}}
 
 
 

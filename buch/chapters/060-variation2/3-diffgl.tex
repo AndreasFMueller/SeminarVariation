@@ -7,7 +7,7 @@
 \label{buch:variation2:section:diffgl}}
 \kopfrechts{Nullstellen von Lösungen}
 In Abschnitt~\ref{buch:variation2:section:jacobi} wird das
-Jacobi-Kriterium für die Existenz eines Extremus formuliert.
+Jacobi-Kriterium für die Existenz eines Extremums formuliert.
 Es basiert auf Eigenschaften der Lösungen der Jacobi-Differentialgleichung,
 einer linearen Differentialgleichung zweiter Ordnung.
 Diese Eigenschaften sind nicht spezifisch für das Variationsproblem
@@ -111,10 +111,10 @@ y_2(x_0)\\
 y'_2(x_0)
 \end{pmatrix}
 \]
-linear abhängig sind, dann gibt es eine Zahl $a$ mit $av_1(x_0)=v_2(x_0)$.
+linear abhängig sind, dann gibt es eine Zahl $c$ mit $cv_1(x_0)=v_2(x_0)$.
 Dies bedeutet, dass die Funktion $ay_1(x)$ an der Stelle $x_0$ 
 die gleichen Anfangsbedingungen erfüllt wie $y_2(x)$, nach dem
-Satz von Picard-Lindelöf folgt daher, dass $y_2(x)=ay_1(x)$ für 
+Satz von Picard-Lindelöf folgt daher, dass $y_2(x)=cy_1(x)$ für 
 \index{Picard-Lindelof@Picard-Lindelöf, Satz von}%
 alle $x$.
 Die Vektoren $v_1(x)$ und $v_2(x)$ sind daher immer für alle
@@ -143,7 +143,7 @@ y'_1(x) & y'_2(x)
 \ne
 0.
 \]
-Insbesondere wechselt die Wronski-Determinante das Vorzeichen nicht.
+Die Wronski-Determinante wechselt das Vorzeichen nicht.
 
 Die Wronski-Determinante hat die Ableitung
 \begin{align*}
@@ -156,7 +156,7 @@ y'_1(x)y'_2(x) + y_1(x)y''_2(x) - y'_2(x)y'_1(x) - y_2(x)y''_1(x)
 \\
 &=
 y_1(x)y''_2(x) - y_2(x)y''_1(x).
-\intertext{Durch Einsetzen der explizienten Form
+\intertext{Durch Einsetzen der expliziten Form
 \eqref{buch:variation2:diffgl:eqn:explizit} der
 Differentialgleichung für $y''(x)$ wird daraus}
 &=
@@ -169,7 +169,7 @@ y_1(x)y'_2(x) - y_2(x)y'_1(x)
 \bigr)
 \\
 &=
--p(x) W(y_1(x),y_2(x))
+-p(x) W(y_1(x),y_2(x)).
 \end{align*}
 Die Wronski-Determinante erfüllt also die Differentialgleichung
 \[
@@ -214,7 +214,7 @@ wechselt.
 \label{buch:variation2:diffgl:subsection:alternierendenullstellen}}
 Seien wieder $y_1(x)$ und $y_2(x)$ zwei linear unabhängige Lösungen
 der Differentialgleichung \eqref{buch:variation2:diffgl:eqn:dgl}.
-Da die Funktionen linear unab hängig sind, kann der
+Da die Funktionen linear unabhängig sind, kann der
 Quotient $y_2(x)/y_1(x)$ nicht konstant sein.
 Wir berechnen daher
 \[
@@ -234,7 +234,7 @@ e^{-\int_{x_0}^x p(\xi)\,d\xi}
 mit $\Delta_0 = W(y_1(x_0),y_2(x_0))$.
 Die Ableitung des Quotienten hat daher im ganzen Definitionsbereich
 keine Vorzeichenwechsel.
-Der Quotient ist daher monoton wachsend oder monoton fallend im 
+Der Quotient ist somit monoton wachsend oder monoton fallend im 
 ganzen Definitionsbereich.
 
 Bei den Nullstellen der Funktion $y_1(x)$ hat der Quotient

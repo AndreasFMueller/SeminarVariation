@@ -10,7 +10,7 @@
 \subsection{Freie Randbedingungen
 \label{buch:variation:eulerlagrange:subsection:freierb}}
 In der Herleitung der Euler-Lagrange-Differentialgleichung wurde angenommen,
-dass die Endpunkte der Lösungsfunktion durch $y(x_0)=y_0$ und $y(x_1)=y_1$
+dass die Endpunkte der Lösungsfunktion durch $y(x_1)=y_0$ und $y(x_2)=y_1$
 fest vorgegeben sind.
 Diese Voraussetzung soll in diesem Abschnitt abgeschwächt werden.
 Die Funktionswerte in den Endpunkten sollen also nicht mehr fest
@@ -23,7 +23,7 @@ wurde die kürzeste Kurve zwischen zwei Punkten in der Ebene
 gesucht und wie erwartet eine Gerade als Lösung gefunden.
 Wenn die Werte $y_0$ und $y_1$ jetzt nicht mehr vorgegeben sind,
 wird die kürzeste Verbindung zwischen den beiden Geraden
-$x=x_0$ und $x=x_1$ gesucht.
+$x=x_1$ und $x=x_2$ gesucht.
 Die Lösung dieses Problems ist nicht eindeutig, jede horizontale
 Strecke mit $y_0=y_1$ ist eine Lösung.
 \end{beispiel}
@@ -37,11 +37,11 @@ ein Anfangspunkt-Endkurve-Problem ist.
 
 \begin{aufgabe}
 Gesucht ist eine zweimal stetig differnzierbare Funktion $y(x)$ auf
-dem Intervall $[x_0,x_1]$ mit $y(x_0)=y_0$, die das Integral
+dem Intervall $[x_1,x_2]$ mit $y(x_1)=y_0$, die das Integral
 \[
 I(y)
 =
-\int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx
+\int_{x_1}^{x_2} F\bigl(x,y(x),y'(x)\bigr)\,dx
 \]
 zu einem Extremum macht.
 Am rechten Ende des Intervalls ist der Funktion $y(x)$ keine
@@ -50,11 +50,11 @@ Randbedingung auferlegt.
 
 \begin{proof}[Lösung]
 \input{chapters/020-variation/fig/variation1.tex}
-Sei $y(x)$ eine Lösung der Aufgabe und sei $y_1:=y(x_1)$ der Wert
+Sei $y(x)$ eine Lösung der Aufgabe und sei $y_1:=y(x_2)$ der Wert
 der Lösung am rechten Rand des Intervalls.
 Wir berechnen wieder die Variation von $I(y)$ mit Hilfe von
 stetig differenzierbaren Funktionen $\eta(x)$, die jetzt aber 
-nur noch die Bedingungn $\eta(x_0)=0$ erfüllen müssen
+nur noch die Bedingungn $\eta(x_1)=0$ erfüllen müssen
 (Abbildung~\ref{buch:variation:fig:variation1}).
 Die Richtungsableitung ist wie früher
 \begin{align*}
@@ -63,64 +63,67 @@ I(y+\varepsilon\eta)
 \bigg|_{\varepsilon=0}
 &=
 \frac{d}{d\varepsilon}
-\int_{x_0}^{x_1}
-F(x,y(x)+\varepsilon\eta(x),y'(x)+\varepsilon\eta'(x))\,dx
+\int_{x_1}^{x_2}
+F\bigl(x,y(x)+\varepsilon\eta(x),y'(x)+\varepsilon\eta'(x)\bigr)\,dx
 \\
 &=
-\int_{x_0}^{x_1}
-\frac{\partial F}{\partial y}(x,y(x),y'(x)) 
+\int_{x_1}^{x_2}
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr) 
 \eta(x)
 +
 \frac{\partial F}{\partial y'}
-(x,y(x),y'(x))
+\bigl(x,y(x),y'(x)\bigr)
 \eta'(x)
 \,dx
 \intertext{und mit partieller Integration}
 &=
 \biggl[
-\frac{\partial F}{\partial y'}(x,y(x),y'(x)) \eta(x)
-\biggr]_{x_0}^{x_1}
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr) \, \eta(x)
+\biggr]_{x_1}^{x_2}
 \\
 &\qquad
 +
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
 \,
 \eta(x)
 \,dx.
 \end{align*}
 Im Gegensatz zu früher können wir jetzt aber nicht mehr
-schliessen, dass der erste Term verschwindet, da $y(x_1)$ nicht
+schliessen, dass der erste Term verschwindet, da $y(x_2)$ nicht
 mehr als $=0$ vorausgesetzt wird.
 Vielmehr erhalten wir für die erste Variation
-\begin{equation*}
+\begin{align*}
 \delta I(y)
-=
-\frac{\partial F}{\partial y'} (x_1,y(x_1),y'(x_1)) \eta(x_1)+
-\int_{x_0}^{x_1}
+&=
+\frac{\partial F}{\partial y'} \bigl(x_2,y(x_2),y'(x_2)\bigr)\, \eta(x_2)
+\\
+&\qquad
++
+\int_{x_1}^{x_2}
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
 \,
 \eta(x)
 \,dx.
-\end{equation*}
+\end{align*}
 Die Klammer im Integral ist von der Euler-Lagrange-Differentialgleichung
 her bekannt.
 Es ist aber ein weiterer Term hinzugekommen, der genau dann
-verschwindet, wenn auch $\eta(x_1)=0$ ist.
+verschwindet, wenn auch $\eta(x_2)=0$ ist.
 
 Dann ist $y(x)$ natürlich erst recht eine Lösung des Problems, das
 Funktional $I(y)$ mit den {\em zwei} Randbedingungen
-$y(x_0)=y_0$ und $y(x_1)=y_1$ zu einem Extremum zu machen, also
+$y(x_1)=y_0$ und $y(x_2)=y_1$ zu einem Extremum zu machen, also
 muss die Funktion $y(x)$ sicher die Euler-Lagrange-Differentialgleichung
 erfüllen.
 Die Klammer im Integral wird daher verschwinden, die Variation
@@ -128,13 +131,13 @@ reduziert sich auf den ersten Term
 \[
 \delta I(y)
 =
-\frac{\partial F}{\partial y'} (x_1,y(x_1),y'(x_1)) \eta(x_1)
+\frac{\partial F}{\partial y'} \bigl(x_2,y(x_2),y'(x_2)\bigr)\, \eta(x_2)
 =
 0.
 \]
 Sie verschwindet nur dann für alle zulässigen Funktionen $\eta(x)$, wenn
 \begin{equation*}
-\frac{\partial F}{\partial y'}(x_1,y(x_1),y'(x_1))=0
+\frac{\partial F}{\partial y'}\bigl(x_2,y(x_2),y'(x_2)\bigr)=0
 \end{equation*}
 gilt.
 Dies ist eine zusätzliche Randbedingung für die Funktion $y(x)$, geschrieben
@@ -146,16 +149,16 @@ Wir halten das Resultat der Aufgabenlösung als Satz fest:
 \begin{satz}
 \label{buch:variation:eulerlagrange:satz:zusaetzlicherb}
 Wenn die zweimal stetig differenzierbare Funktion $y(x)$ mit dem
-Randwert $y(x_0)=y_0$ das Integral
+Randwert $y(x_1)=y_0$ das Integral
 \[
 I(y)
 =
-\int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx
+\int_{x_1}^{x_2} F\bigl(x,y(x),y'(x)\bigr)\,dx
 \]
 zu einem Extremum macht, dann erfüllt sie am rechten Intervallende
 die Randbedingung
 \begin{equation}
-\frac{\partial F}{\partial y'}(x_1,y(x_1),y'(x_1))=0.
+\frac{\partial F}{\partial y'}\bigl(x_2,y(x_2),y'(x_2)\bigr)=0.
 \label{buch:variation:eulerlagrange:eqn:zusaetzlicherb}
 \end{equation}
 zusätzlich zur Euler-Lagrange-Gleichung für die Lagrange-Funktion $F$.
@@ -167,11 +170,11 @@ Wir betrachten wieder das Funktional
 \[
 I(y)
 =
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \sqrt{1+y^{\prime 2}(x)}
 \,dx
 \]
-mit der einzigen Randbedingung $y(x_0)=y_0$, der Funktionswert auf 
+mit der einzigen Randbedingung $y(x_1)=y_0$, der Funktionswert auf 
 der rechten Seite ist nicht vorgebeben.
 Der Satz~\eqref{buch:variation:eulerlagrange:satz:zusaetzlicherb}
 besagt zunächst, dass die Lösungsfunktion wieder eine Gerade sein
@@ -183,10 +186,10 @@ Die Ableitung der Lagrange-Funktion ist in diesem Fall durch
 \eqref{buch:variation:eulerlagrange:eqn:ableitungFyp}
 gegeben, es muss also
 \[
-\frac{y'(x_1)}{\sqrt{1+y'(x_1)^2}}
+\frac{y'(x_2)}{\sqrt{1+y'(x_2)^2}}
 =
 0
-\qquad\Rightarrow\qquad y'(x_1)=0
+\qquad\Rightarrow\qquad y'(x_2)=0
 \]
 gelten.
 Die Lösung ist daher wie erwartet eine horizontale Strecke.

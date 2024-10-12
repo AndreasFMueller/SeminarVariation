@@ -43,7 +43,7 @@ Ableitungen nach $y$ und $y'$ benöigt, sie sind
 -
 \frac{\!\sqrt{1+y^{\prime 2}}}{2y^{\frac32}}
 &&\Rightarrow
-&\frac{\partial L}{\partial y}(x,y(x),y'(x))
+&\frac{\partial L}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 &=
 \frac{\!\sqrt{1+y'(x)^2}}{2y(x)^{\frac32}}
 \\
@@ -52,7 +52,7 @@ Ableitungen nach $y$ und $y'$ benöigt, sie sind
 \frac{y'}{\!\sqrt{y\cdot (1+y^{\prime 2})}}
 &&\Rightarrow
 &
-\frac{\partial L}{\partial y'}(x,y(x),y'(x))
+\frac{\partial L}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 &=
 \frac{y'(x)}{\!\sqrt{y(x)(1+y'(x)^2)}},
 \end{align*}
@@ -62,7 +62,7 @@ Für die Euler-Lagrange-Differentialgleichung muss die $y'$-Ableitung
 nach $x$ ableiten werden, dies ergibt
 \begin{align*}
 \frac{d}{dx}
-\frac{\partial L}{\partial y'}(x,y(x),y'(x))
+\frac{\partial L}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 &=
 \frac{d}{dx}
 \frac{y'(x)}{\!\sqrt{y(x)(1+y'(x)^2)}},
@@ -111,7 +111,7 @@ y'(x)
 auf den gleichen Nenner zu bringen, muss mit $(1+y'(x)^2)^\frac32$
 erweitert werden:
 }
-\frac{\partial L}{\partial y}(x,y(x),y'(x))
+\frac{\partial L}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 &=
 -
 \frac{
@@ -135,10 +135,10 @@ Damit kann man jetzt die Euler-Lagrange-Differentialgleichung
 \begin{align*}
 0
 &=
-\frac{\partial L}{\partial y}(x,y(x),y'(x))
+\frac{\partial L}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial L}{\partial y'}(x,y(x),y'(x))
+\frac{\partial L}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \\
 &=
 \frac{
