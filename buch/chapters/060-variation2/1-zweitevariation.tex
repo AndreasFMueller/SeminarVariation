@@ -11,7 +11,7 @@ Wir betrachten wieder ein Funktional der Form
 I(y)
 =
 \int_{x_1}^{x_2}
-F(x,y(x),y'(x))
+F\bigl(x,y(x),y'(x)\bigr)
 \,dx
 \]
 und eine Variation $y(x)+\varepsilon\eta(x)$ mit $\eta(x_1)=0$
@@ -23,10 +23,10 @@ wurde früher als
 =
 \int_{x_1}^{x_2}
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
 \,
 \eta(x)
@@ -44,9 +44,9 @@ f(\varepsilon)
 F(x,y(x),y'(x))
 +
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))\eta(x)
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)\,\eta(x)
 +
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))\eta'(x)
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)\,\eta'(x)
 \biggr)
 \varepsilon
 \\
@@ -54,16 +54,19 @@ F(x,y(x),y'(x))
 +
 \frac{1}{2!}
 \biggl(
-\frac{\partial^2 F}{\partial y^2}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y^2}\bigl(x,y(x),y'(x)\bigr)
+\,
 \eta(x)^2
 +
 2
-\frac{\partial^2 F}{\partial y\,\partial y'}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y\,\partial y'}\bigl(x,y(x),y'(x)\bigr)
+\,
 \eta(x)\eta'(x)
 \\
 &\qquad\qquad
 +
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr)
+\,
 \eta'(x)^2
 \biggr)
 \varepsilon^2
@@ -80,13 +83,13 @@ P(x)\eta(x)^2 + 2Q(x) \eta(x)\eta'(x) + R(x)\eta'(x)^2
 \]
 mit
 \begin{align*}
-P(x) &= \frac{\partial^2 F}{\partial y^2} (x,y(x),y'(x)),
+P(x) &= \frac{\partial^2 F}{\partial y^2} \bigl(x,y(x),y'(x)\bigr),
 &
-Q(x) &= \frac{\partial^2 F}{\partial y\,\partial y'} (x,y(x),y'(x))
+Q(x) &= \frac{\partial^2 F}{\partial y\,\partial y'} \bigl(x,y(x),y'(x)\bigr)
 \\
 \text{und}
 \qquad
-R(x) &= \frac{\partial^2 F}{\partial y^{\prime 2}} (x,y(x),y'(x)).
+R(x) &= \frac{\partial^2 F}{\partial y^{\prime 2}} \bigl(x,y(x),y'(x)\bigr).
 \end{align*}
 Wegen
 \[

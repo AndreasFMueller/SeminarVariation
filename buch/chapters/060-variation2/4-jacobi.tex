@@ -15,14 +15,14 @@ S(x)
 &=
 P(x) - Q'(x)
 =
-\frac{\partial^2F}{\partial y^2}(x,y(x),y'(x))
+\frac{\partial^2F}{\partial y^2}\bigl(x,y(x),y'(x)\bigr)
 -
-\frac{d}{dx}\frac{\partial^2 F}{\partial y'\,\partial y}(x,y(x),y'(x))
+\frac{d}{dx}\frac{\partial^2 F}{\partial y'\,\partial y}\bigl(x,y(x),y'(x)\bigr)
 \\
 \intertext{und}
 R(x)
 &=
-\frac{\partial^2F}{\partial y^{\prime2}}(x,y(x),y'(x))
+\frac{\partial^2F}{\partial y^{\prime2}}\bigl(x,y(x),y'(x)\bigr)
 \end{align*}
 ankommt.
 In einem Minimum garantiert die Legendre-Bedingung bereits,
@@ -135,7 +135,7 @@ untersucht worden, sie erfüllt die starke Legendre-Bedingung
 \[
 R(x)
 =
-\frac{\partial L}{\partial y^{\prime 2}}(x,y(x),y'(x))
+\frac{\partial L}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr)
 =
 \frac{1}{(1+y'(x)^2)^{\frac32}} > 0,
 \]
@@ -343,11 +343,11 @@ Die Eckenbedingung von
 Satz~\ref{buch:nichtdiff:splines:satz:weierstrass-erdmann}
 sagt, dass die Ableitung die Funktionen
 \[
-\frac{\partial G}{\partial u'}(x,u(x),u'(x))
+\frac{\partial G}{\partial u'}\bigl(x,u(x),u'(x)\bigr)
 \qquad\text{und}\qquad
-G(x,u(x),u'(x))
+G\bigl(x,u(x),u'(x)\bigr)
 -
-u'(x)\frac{\partial G}{\partial u'}(x,u(x),u'(x))
+u'(x)\frac{\partial G}{\partial u'}\bigl(x,u(x),u'(x)\bigr)
 \]
 stetige Funktionen sein müssen.
 Für die Lagrange-Funktion $G$ sind dies die Funktionen
