@@ -11,7 +11,7 @@ In diesem Abschnitt gehen wir wieder von einem Funktional
 I(y)
 =
 \int_{x_1}^{x_2}
-F(x,y(x),y'(x))
+F\bigl(x,y(x),y'(x)\bigr)
 \,dx
 \label{buch:nebenbedingungen:lagrangemult:eqn:}
 \end{equation}
@@ -148,7 +148,7 @@ wird $J(y)$ zum Funktional
 J(y)
 =
 \int_{x_1}^{x_2}
-G(x,y(x),y'(x))
+G\bigl(x,y(x),y'(x)\bigr)
 \,dx.
 \]
 Die einzige Schwierigkeit ist, dass die Funktion $G(x,y,y')$
@@ -162,10 +162,10 @@ dann wird das Funktional
 \tilde{J}(y)
 &=
 \int_{x_1}^{x_2}
-\tilde{G}(x,y(x),y'(x))\,dx
+\tilde{G}\bigl(x,y(x),y'(x)\bigr)\,dx
 \\
 &=
-\int_{x_1}^{x_2} G(x,y(x),y'(x)) - \frac{g}{x_2-x_1}\,dx
+\int_{x_1}^{x_2} G\bigl(x,y(x),y'(x)\bigr) - \frac{g}{x_2-x_1}\,dx
 \\
 &=
 J(y) - g
@@ -174,7 +174,7 @@ J(y) - g
 \end{align*}
 Es genügt also, Nebenbedingungen der Form
 \[
-\int_{x_1}^{x_2} G(x,y(x),y'(x))\,dx = 0
+\int_{x_1}^{x_2} G\bigl(x,y(x),y'(x)\bigr)\,dx = 0
 \]
 zu betrachten.
 
@@ -277,7 +277,7 @@ G(x,y,y')
 und den Wert $g$, den das Funktional
 \[
 \int_{x_1}^{x_2}
-G(x,y(x),y'(x))\,dx
+G\bigl(x,y(x),y'(x)\bigr)\,dx
 =
 g
 \]
@@ -298,11 +298,11 @@ und $y(x_2)=y_2$, die das Funktional
 \[
 I(y)
 =
-\int_{x_1}^{x_2} F(x,y(x),y'(x))\,dx
+\int_{x_1}^{x_2} F\bigl(x,y(x),y'(x)\bigr)\,dx
 \]
 unter der Nebenbedingung
 \[
-\int_{x_1}^{x_2} G(x,y(x),y'(x))\,dx = 0
+\int_{x_1}^{x_2} G\bigl(x,y(x),y'(x)\bigr)\,dx = 0
 \]
 extremal macht.
 \end{aufgabe}
@@ -364,14 +364,14 @@ J(y(x,\varepsilon))
 &=
 \frac{d}{d\varepsilon}
 \int_{x_1}^{x_2}
-G(x,y(x,\varepsilon),y'(x,\varepsilon))\,dx
+G\bigl(x,y(x,\varepsilon),y'(x,\varepsilon)\bigr)\,dx
 \\
 &=
 \int_{x_1}^{x_2}
-\frac{\partial G}{\partial y}(x,y(x,\varepsilon),y'(x,\varepsilon))
+\frac{\partial G}{\partial y}\bigl(x,y(x,\varepsilon),y'(x,\varepsilon)\bigr)
 \frac{\partial y}{\partial\varepsilon}(x,\varepsilon)
 +
-\frac{\partial G}{\partial y'}(x,y(x,\varepsilon),y'(x,\varepsilon))
+\frac{\partial G}{\partial y'}\bigl(x,y(x,\varepsilon),y'(x,\varepsilon)\bigr)
 \frac{\partial y'}{\partial\varepsilon}(x,\varepsilon)
 \,dx.
 \intertext{An der Stelle $\varepsilon=0$ schreiben wir $\eta(x)$ für
@@ -382,10 +382,10 @@ J(y(x,\varepsilon))
 \bigg|_{\varepsilon=0}
 &=
 \int_{x_1}^{x_2}
-\frac{\partial G}{\partial y}(x,y(x),y'(x))
+\frac{\partial G}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 \eta(x)
 +
-\frac{\partial G}{\partial y'}(x,y(x),y'(x))
+\frac{\partial G}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \eta'(x)
 \,dx.
 \intertext{Da $\eta(x_1)=\eta(x_2)=0$ ist, kann der zweite Term mit
@@ -393,17 +393,17 @@ partieller Integration in}
 &=
 \int_{x_1}^{x_2}
 \biggl(
-\frac{\partial G}{\partial y}(x,y(x),y'(x))
+\frac{\partial G}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 +
-\frac{d}{dx}\frac{\partial G}{\partial y'}(x,y(x),y'(x))
+\frac{d}{dx}\frac{\partial G}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)\eta(x)\,dx
 \intertext{oder, mit dem Skalarprodukt von Funktionen auf dem
 Intervall $[x_1,x_2]$ geschrieben, in}
 &=
 \biggl\langle
-\frac{\partial G}{\partial y}(x,y(x),y'(x))
+\frac{\partial G}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 +
-\frac{d}{dx}\frac{\partial G}{\partial y'}(x,y(x),y'(x)),
+\frac{d}{dx}\frac{\partial G}{\partial y'}\bigl(x,y(x),y'(x)\bigr),
 \eta
 \biggr\rangle
 \end{align*}
@@ -424,9 +424,9 @@ eine zweimal stetig differenzierbare Funktionen, dann schreiben wir
 \[
 \grad (G,y)
 =
-\frac{\partial G}{\partial y}(x,y(x),y'(x))
+\frac{\partial G}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 +
-\frac{d}{dx}\frac{\partial G}{\partial y'}(x,y(x),y'(x))
+\frac{d}{dx}\frac{\partial G}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 =
 \frac{\partial G}{\partial y}
 +
@@ -481,11 +481,11 @@ analog nachstehende Satz ableiten.
 \label{buch:nebenbedingungen:lagrangemult:satz:einenb}
 Wenn die Funktion $y(x)$ ein Extremum des Funktionals
 \[
-I(y) = \int_{x_1}^{x_2} F(x,y(x),y'(x))\,dx
+I(y) = \int_{x_1}^{x_2} F\bigl(x,y(x),y'(x)\bigr)\,dx
 \]
 unter der Nebenbedingung
 \[
-J(y) = \int_{x_1}^{x_2} G(x,y(x),y'(x))\,dx
+J(y) = \int_{x_1}^{x_2} G\bigl(x,y(x),y'(x)\bigr)\,dx
 \]
 mit zweimal stetig diferenzierbaren Funktionen $F$ und $G$
 unter allen zweimal stetig differenzierbaren Funktionen $y(x)$
@@ -733,7 +733,7 @@ das Funktional
 \[
 I(y)
 =
-\int_{x_1}^{x_2} F(x,y(x),y'(x))\,dx
+\int_{x_1}^{x_2} F\bigl(x,y(x),y'(x)\bigr)\,dx
 \]
 zu einem Extremwert macht unter allen solchen Funktionen, die zusätzlich
 die Nebenbedingungen
@@ -741,7 +741,7 @@ die Nebenbedingungen
 J_i(y)
 =
 \int_{x_1}^{x_2}
-G_i(x,y(x),y'(x))\,dx,
+G_i\bigl(x,y(x),y'(x)\bigr)\,dx,
 \quad
 i=1,\dots,k,
 \]

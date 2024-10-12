@@ -9,7 +9,7 @@
 Die bisher untersuchten Nebenbedingungen waren alle von der
 Form einer Gleichung, zum Beispiel 
 \[
-\int_{x_1}^{x_2} G(x,y(x),y'(x))\,dx = 0
+\int_{x_1}^{x_2} G\bigl(x,y(x),y'(x)\bigr)\,dx = 0
 \qquad\text{oder}\qquad
 y'(x_*) = c \quad\text{mit $x_*\in (x_1,x_2)$.}
 \]
@@ -160,7 +160,7 @@ mit Randwerten $y(x_1) = y_1$ und $y(x_2)=y_2$, welche das Integral
 \[
 I(y)
 =
-\int_{x_1}^{x_2} F(x,y(x),y'(x))\,dx
+\int_{x_1}^{x_2} F\bigl(x,y(x),y'(x)\bigr)\,dx
 \]
 minimiert und ausserdem die Gebietseinschränkung
 \[
@@ -199,24 +199,25 @@ Eingesetzt in das Integral erhalten wir
 &=
 \frac{d}{d\varepsilon}
 \int_{x_1}^{x_2}
-F(x,y(x)+\varepsilon \eta(x),y'(x)+\varepsilon \eta'(x))\,dx
+F\bigl(x,y(x)+\varepsilon \eta(x),y'(x)+\varepsilon \eta'(x)\bigr)\,dx
 \bigg|_{\varepsilon=0}
 \\
 &=
 \int_{x_1}^{x_2}
-\frac{\partial F}{\partial y}(x,y(x),y'(x))\eta(x)
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)\,\eta(x)
 +
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))\eta'(x)
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)\,\eta'(x)
 \,dx
 \\
 &=
 \int_{x_1}^{x_2}
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 +
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
+\,
 \eta(x)
 \,dx
 \intertext{Dieses Integral können wir zerlegen in ein Integral über $A$
@@ -226,6 +227,7 @@ und eines über $[x_1,x_2]\setminus A$:}
 \biggl(
 \frac{\partial F}{\partial y} + \frac{d}{dx}\frac{\partial F}{\partial y'}
 \biggr)
+\,
 \eta(x)
 \,dx
 +
@@ -233,6 +235,7 @@ und eines über $[x_1,x_2]\setminus A$:}
 \biggl(
 \frac{\partial F}{\partial y} + \frac{d}{dx}\frac{\partial F}{\partial y'}
 \biggr)
+\,
 \eta(x)
 \,dx
 \ge 0.
@@ -279,10 +282,10 @@ Folglich muss $f(x)\ge 0$ sein.
 
 Aus dem Lemma folgt also, dass
 \begin{equation}
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \ge 0
 \end{equation}
 gilt für $x\in A$.
@@ -298,11 +301,12 @@ Wir schreiben $B=[x_1,x_2]\setminus A$.
 Für eine solche Funktion muss
 \[
 \int_B \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
+\,
 \eta(x)
 \,dx
 \ge 0
@@ -318,6 +322,7 @@ Dasselbe muss auch für $-\eta(x)$ gelten, also
 \frac{d}{dx}
 \frac{\partial F}{\partial y'}
 \biggr)
+\,
 (-\eta(x))
 \,dx
 =
@@ -328,6 +333,7 @@ Dasselbe muss auch für $-\eta(x)$ gelten, also
 \frac{d}{dx}
 \frac{\partial F}{\partial y'}
 \biggr)
+\,
 \eta(x)
 \,dx
 \le 0,
@@ -346,19 +352,19 @@ löst, erfüllt dort, wo $y(x)=\varphi(x)$ ist, die Ungleichung
 \index{Euler-Lagrange-Differentialungleichung}%
 \index{Ungleichung, Differential-}%
 \begin{equation}
-\frac{\partial F}{\partial y'}(x,\varphi(x),\varphi'(x))
+\frac{\partial F}{\partial y'}\bigl(x,\varphi(x),\varphi'(x)\bigr)
 -
-\frac{d}{dx}\frac{\partial F}{\partial y'}(x,\varphi(x),\varphi'(x))
+\frac{d}{dx}\frac{\partial F}{\partial y'}\bigl(x,\varphi(x),\varphi'(x)\bigr)
 \ge
 0
 \label{buch:nebenbedingungen:einseitig:eqn:eldglu}
 \end{equation}
 und im Rest des Definitionsbereichs die Euler-Lagrange-Differentialgleichung
 \begin{equation}
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 =
 0.
 \label{buch:nebenbedingungen:einseitig:eqn:eldgl}
@@ -395,7 +401,7 @@ $y(x) = \varphi(x)$ für $x>x_*$ und nahe bei $x_*$, dann gilt
 für die linksseitige Steigung $y'(x_*-)$ von $y(x_*)$ die
 Bedingung
 \[
-F(x_*,y(x_*),y'(x_*-)) = F(x_*,\varphi(x_*),\varphi'(x_*)).
+F\bigl(x_*,y(x_*),y'(x_*-)\bigr) = F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr).
 \]
 \end{satz}
 
@@ -416,19 +422,19 @@ Wir berechnen jetzt das Funktional
 \begin{align}
 I(y(x,\varepsilon))
 &=
-\int_{x_1}^{x_2} F(x,y(x,\varepsilon),y'(x,\varepsilon))\,dx
+\int_{x_1}^{x_2} F\bigl(x,y(x,\varepsilon),y'(x,\varepsilon)\bigr)\,dx
 \\
 &=
-\int_{x_1}^{x_*+\varepsilon} F(x,y(x,\varepsilon),y'(x,\varepsilon))\,dx
+\int_{x_1}^{x_*+\varepsilon} F\bigl(x,y(x,\varepsilon),y'(x,\varepsilon)\bigr)\,dx
 +
-\int_{x_*+\varepsilon}^{x_2} F(x,\varphi(x),\varphi'(x))\,dx.
+\int_{x_*+\varepsilon}^{x_2} F\bigl(x,\varphi(x),\varphi'(x)\bigr)\,dx.
 \notag
 \intertext{Die Ableitung des zweiten Integrals gibt den Wert an der unteren
 Grenze, also}
 &=
-\int_{x_1}^{x_*+\varepsilon} F(x,y(x,\varepsilon),y'(x,\varepsilon))\,dx
+\int_{x_1}^{x_*+\varepsilon} F\bigl(x,y(x,\varepsilon),y'(x,\varepsilon)\bigr)\,dx
 -
-F(x_*,\varphi(x_*),\varphi'(x_*)).
+F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr).
 \notag
 \intertext{Die Ableitung des ersten Integrals ist durch die allgemeine
 Variationsformel von
@@ -442,7 +448,7 @@ Satz~\ref{buch:variation:allgemein:satz:allgemeinvariation1} gegeben, die}
 \biggr)
 \frac{\partial y}{\partial\varepsilon}(x,0)\,dx
 -
-F(x_*,\varphi(x_*),\varphi'(x_*))
+F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr)
 \label{buch:nebenbedingungen:einseitig:eqn:allgvariation}
 \end{align}
 ergibt.
@@ -462,12 +468,12 @@ Formel~\eqref{buch:nebenbedingungen:allgemein:eqn:fi}, also
 =
 \begin{pmatrix}
 \displaystyle
-F(x_*,y(x_*),y'(x_*))
+F\bigl(x_*,y(x_*),y'(x_*)\bigr)
 -
-\frac{\partial F}{\partial y'}(x_*,y(x_*),y'(x_*))
+\frac{\partial F}{\partial y'}\bigl(x_*,y(x_*),y'(x_*)\bigr)
 \frac{\partial y}{\partial \varepsilon}(x_*,0)\\
 \displaystyle
-\frac{\partial F}{\partial y'}(x_*,y(x_*),y'(x_*))
+\frac{\partial F}{\partial y'}\bigl(x_*,y(x_*),y'(x_*)\bigr)
 \end{pmatrix}.
 \]
 Da $y(x,\varepsilon)$ links von $x_*$ eine Lösung der
@@ -479,28 +485,28 @@ $\varepsilon=0$ ausgerechnet werden, sie ist
 \begin{align*}
 \delta I(y)
 &=
-F(x_*,y(x_*),y'(x_*))
+F\bigl(x_*,y(x_*),y'(x_*)\bigr)
 -
-\frac{\partial F}{\partial y'}(x_*,y(x_*),y'(x_*))
+\frac{\partial F}{\partial y'}\bigl(x_*,y(x_*),y'(x_*)\bigr)
 \frac{\partial y}{\partial \varepsilon}(x_*,0)
 \\
 &\qquad
 +
-\frac{\partial F}{\partial y'}(x_*,y(x_*),y'(x_*))\varphi'(x_*)
+\frac{\partial F}{\partial y'}\bigl(x_*,y(x_*),y'(x_*)\bigr)\varphi'(x_*)
 -
-F(x_*,\varphi(x_*),\varphi'(x_*)).
+F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr).
 \intertext{Wegen $\partial y(x_*,0)/\partial \varepsilon=\varphi'(x_*)$
 heben sich der zweite und dritte Term weg und es bleibt}
 &=
-F(x_*,y(x_*),y'(x_*))
+F\bigl(x_*,y(x_*),y'(x_*)\bigr)
 -
-F(x_*,\varphi(x_*),\varphi'(x_*)).
+F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr).
 \end{align*}
 Da die Ableitung $\delta I(y)$ verschwindet, folgt
 \[
-F(x_*,y(x_*),y'(x_*))
+F\bigl(x_*,y(x_*),y'(x_*)\bigr)
 =
-F(x_*,\varphi(x_*),\varphi'(x_*)),
+F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr),
 \]
 womit die Aussage bewiesen ist.
 \end{proof}
