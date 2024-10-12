@@ -23,16 +23,16 @@ Differentialgleichungssystem erster Ordnung umwandeln lässt.
 \subsection{Transversalität und kanonische Variable}
 Wir betrachten das Variationsproblem mit der Lagrange-Funktion
 $F(x,y,y')$.
-Eine Extremale durch die Punkte $(x_0,y_0)$ und $(x_1,y_1)$ ist
+Eine Extremale durch die Punkte $(x_1,y_1)$ und $(x_2,y_2)$ ist
 eine Lösung $y(x)$ der Euler-Lagrange-Differentialgleichung, die die
-Randbedingungen $y(x_0)=y_0$ und $y(x_1)=y_1$ erfüllt.
+Randbedingungen $y(x_1)=y_1$ und $y(x_2)=y_2$ erfüllt.
 Da die Euler-Lagrange-Differentialgleichung von zweiter Ordnung ist,
 enthält die allgemeine Lösung zwei Konstanten, die bestimmt werden 
 müssen, um die Randbedingungen zu erfüllen.
-Diese Konstanten können der Anfangswert $y_0=y(x_0)$ und die Anfangssteigung
-$y'(x_0)$.
+Diese Konstanten können der Anfangswert $y_1=y(x_1)$ und die Anfangssteigung
+$y'(x_1)$.
 Um das Randwertproblem zu lösen, muss also die Anfangssteigung gefunden
-werden, so dass die zugehörige Lösung die Randbedingung $y(x_1)=y_1$ 
+werden, so dass die zugehörige Lösung die Randbedingung $y(x_2)=y_2$ 
 erfüllt.
 
 %
@@ -66,13 +66,14 @@ umkehrbar ist und $y'$ durch $y$ und $p$ bestimmt werden kann.
 % Die Hamilton-Funktion
 %
 \subsubsection{Die Hamilton-Funktion}
-Der Ausdruck der Transversalitätsbedingung kann jetzt geschrieben werden
+Der Ausdruck der Transversalitätsbedingung kann jetzt
 als 
 \[
 F(x,y,y') - y'\frac{\partial F}{\partial y'}(x,y,y')
 =
-F(x,y,y') - y'\cdot p.
+F(x,y,y') - y'\cdot p
 \]
+geschrieben werden.
 Die partielle Ableitung der rechten Seite nach $y'$ ist
 \[
 \frac{\partial}{\partial y'}
@@ -97,7 +98,7 @@ H(x,y,p)
 y'\cdot p - F(x,y,y')
 \]
 wobei $y'$ mit Hilfe von \eqref{buch:hamiltonjacobi:kanonisch:eqn:pablF}
-durch $p$ ausgedruckt wird.
+durch $p$ ausgedrückt wird.
 \end{definition}
 
 \begin{beispiel}
@@ -108,7 +109,7 @@ F(x,y,y')
 =
 \sqrt{1+y^{\prime 2}},
 \]
-welches kürzeste Verbindung in der Ebene als Extremalen hat.
+welches kürzeste Verbindungen in der Ebene als Extremalen hat.
 Die partielle Ableitung nach $y'$ ist
 \begin{equation}
 p
@@ -204,10 +205,10 @@ Die Hamilton-Funktion hat also eine einfache geometrische Interpretation.
 Die Euler-Lagrange-Differentialgleichung für die Lagrange-Funktion $F$ ist 
 die Differentialgleichung
 \begin{equation}
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 =
 0
 \label{buch:hamiltonjacobi:kanonisch:eqn:kaneldgl}
@@ -219,7 +220,7 @@ auch eine Funktion
 \[
 p(x)
 =
-\frac{\partial F}{\partial y'}(x,y(x),y'(x)).
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr).
 \]
 Eingesetzt in die Euler-Lagrange-Differentialgleichung
 \eqref{buch:hamiltonjacobi:kanonisch:eqn:kaneldgl}
@@ -308,6 +309,7 @@ Dies gilt ganz allgemein, wie der folgende Satz zeigt.
 Kommt eine der abhängigen Variablen in der Hamilton-Funktion nicht vor,
 dann kann die Differentialgleichung durch eine Stammfunktion
 gelöst werden, man sagt auch, es sei nur eine {\em Quadratur}
+\index{Quadratur}%
 erforderlich.
 
 \begin{satz}
@@ -332,7 +334,7 @@ y'(x)
 \qquad\Rightarrow\qquad
 y(x)
 =
-\int_{x_0}^x
+\int_{x_1}^x
 \frac{\partial H_1}{\partial y}(\xi,p_0)
 \,d\xi
 + y_0.
@@ -351,7 +353,7 @@ p'(x)
 \qquad\Rightarrow\qquad
 p(x)
 =
-\int_{x_0}^x
+\int_{x_1}^x
 \frac{\partial H_2}{\partial y}(\xi,y_0)
 \,d\xi
 +
@@ -365,34 +367,34 @@ $p(x)$ ist damit durch Quadratur bestimmt.
 %
 \subsection{Transversalitätsbedingung}
 Der Startpunkt für die Einführung der kanonischen Variable $p$ und
-der Hamilton-Funktion war ihr auftreten in der Transversalitätsbedingung.
-Die Lösung eines Anfangspunkt-Endkurve-Problems erfüllt am rechten 
+der Hamilton-Funktion war ihr Auftreten in der Transversalitätsbedingung.
+Die Lösung eines Anfangspunkt-End\-kur\-ve-Problems erfüllt am rechten 
 Intervallende die Transversalitätsbedingung
 \[
-\vec{r_1}\cdot \vec{f}_1=0,
+\vec{r_2}\cdot \vec{f}_2=0,
 \]
 der Tangentialvektor $\vec{r}_1$ an die Endkurve ist orthogonal auf
 dem Vektor
 \begin{align*}
-\vec{f}_1
+\vec{f}_2
 &=
 \begin{pmatrix}
 \displaystyle
-F(x_1,y(x_1),y'(x_1))-y'(x_1)\frac{\partial F}{\partial y'}(x_1,y(x_1),y'(x_1))
+F(x_2,y(x_2),y'(x_2))-y'(x_2)\frac{\partial F}{\partial y'}(x_2,y(x_2),y'(x_2))
 \\[5pt]
 \displaystyle
-\frac{\partial F}{\partial y'}(x_1,y(x_1),y'(x_1))
+\frac{\partial F}{\partial y'}(x_2,y(x_2),y'(x_2))
 \end{pmatrix}
 \\
 &=
 \begin{pmatrix}
-F(x_1,y(x_1),y'(x_1)) - y'(x_1) p(x_1) \\
-p(x_1)
+F(x_2,y(x_2),y'(x_2)) - y'(x_2) p(x_2) \\
+p(x_2)
 \end{pmatrix}
 =
 \begin{pmatrix}
--H(x_1,y(x_1),p(x_1))\\
-p(x_1)
+-H(x_2,y(x_2),p(x_2))\\
+p(x_2)
 \end{pmatrix}.
 \end{align*}
 
@@ -404,7 +406,7 @@ den Neigungswinkel $\alpha$ des Graphen einer Extremalen $y(x)$
 ausgedrückt werden kann.
 Mit $y'(x)=\tan\alpha$ ist der Vektor
 \[
-\vec{f}_1
+\vec{f}
 =
 \begin{pmatrix}
 -H\\
@@ -429,14 +431,14 @@ Gerade durch den Punkt, die die Kurve orthogonal schneidet.
 %
 \subsection{Mehrere unabhängige Variable}
 Die Transformation auf die kanonische Variable $p$ ist auch dann möglich,
-wenn $y$ eine Vektorwertige Funktion ist.
+wenn $y$ eine vektorwertige Funktion ist.
 Wir betrachten daher in diesem Abschnitt ein Variationsproblem für
 eine Funktion $y\colon \mathbb{R}\to\mathbb{R}^n$, die das Integral
 \[
 I(y)
 =
 \int_{x_0}^{x_1}
-F(x,y(x),y'(x))
+F\bigl(x,y(x),y'(x)\bigr)
 \,dx
 \]
 mit der Lagrange-Funktion
@@ -450,17 +452,17 @@ Das Problem wird durch die Euler-Lagrange-Differentialgleichung
 \begin{align*}
 0
 &=
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \intertext{oder in Komponenten}
 0
 &=
-\frac{\partial F}{\partial y_k}(x,y(x),y'(x))
+\frac{\partial F}{\partial y_k}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'_k}(x,y(x),y'(x)).
+\frac{\partial F}{\partial y'_k}\bigl(x,y(x),y'(x)\bigr).
 \end{align*}
 Im Folgenden sei $y(x)$ jeweils eine Lösung dieser Differentialgleichungen.
 
@@ -509,9 +511,9 @@ Die Bedingung ist automatisch erfüllt, wenn die starke Legendre-Bedingung
 für $F$ erfüllt ist.
 Diese besagt, dass die Matrix $J$ positiv (oder negativ) definit ist, womit
 sie automatisch regulär ist.
-Da die Legendre-Bedingung notwendig ist in Variationsproblemen, in denen
-die Lösungen der Euler-Lagrange-Differentialgleichung das Funktional 
-extremal machen, können wir meist davon ausgehen,
+Da die Legendre-Bedingung notwendig ist, damit die Lösung der
+Euler-Lagrange-Differentialgleichung eines Variationsproblems das
+Funktional extremal macht, können wir meist davon ausgehen,
 dass auch $y'=y'(x,y,p)$ geschrieben werden kann.
 
 %
@@ -765,27 +767,28 @@ Die Verallgemeinerung der Transversalitätsbedingungen auf mehrere
 Funktionen verlangt, dass jeder Tangentialvektor an die Randfläche
 senkrecht steht auf dem Vektor
 \[
-\vec{f}_1
+\vec{f}(x)
 =
 \begin{pmatrix}
 \displaystyle
-F(x_1,y(x_1),y'(x_1))
+F\bigl(x,y(x),y'(x)\bigr)
 -
-y'(x_1)\cdot \frac{\partial F}{\partial y'}(x_1,y(x_1),y'(x_1))
+y'(x)\cdot \frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \\
 \displaystyle
-\frac{\partial F}{\partial y_1'}(x_1,y(x_1),y'(x_1))
+\frac{\partial F}{\partial y_1'}\bigl(x,y(x),y'(x)\bigr)
 \\[9pt]
 \displaystyle
-\frac{\partial F}{\partial y_2'}(x_1,y(x_1),y'(x_1))
+\frac{\partial F}{\partial y_2'}\bigl(x,y(x),y'(x)\bigr)
 \end{pmatrix}
 =
 \begin{pmatrix}
--H(x_1,y(x_1),p(x_1)\\
-p_1(x_1)\\
-p_2(x_1)
-\end{pmatrix}.
+-H\bigl(x,y(x),p(x)\bigr)\\
+p_1(x)\\
+p_2(x)
+\end{pmatrix},
 \]
+wo $(x,y(x))$ auf der Randfläche liegt.
 
 \begin{beispiel}
 In Beispiel~\ref{buch:hamiltonjacobi:kanonisch:bsp:3dlaenge} wurde
@@ -793,10 +796,10 @@ die Hamilton-Funktion für das Variationsproblem für kürzeste Verbindungen
 im Raum bestimmt.
 Der Vektor $\vec{f}$ 
 \begin{align*}
-\vec{f}_1
+\vec{f}(x)
 &=
 \begin{pmatrix}
--H(x_1,y(x_1),p(x_1)\\
+-H\bigl(x,y(x),p(x)\bigr)\\
 p_1(x_1)\\
 p_2(x_2)
 \end{pmatrix}
@@ -809,13 +812,13 @@ p_2
 \end{align*}
 ist ein Vektor mit Länge
 \[
-|\vec{f}_1|
+|\vec{f}(x)|
 =
 (1-p^2) + p_1^2+p_2^2
 =
 1,
 \]
-Der Vektor $\vec{f}_1$ ist also ein Tangentialeinheitsvektor an die
+Der Vektor $\vec{f}$ ist also ein Tangentialeinheitsvektor an die
 durch $y(x)$ beschriebene Kurve.
 Die Transversalitätsbedingung sagt daher, dass die Kurve kürzester
 Länge von einem Punkt zu einer Fläche senkrecht auf die Fläche trifft.
@@ -889,11 +892,11 @@ Sei jetzt $y(x)$ und $p(x)$ eine Lösung der kanonischen
 Differentialgleichungen.
 Die Funktion $x\mapsto H(y(x),p(x))$ hat die Ableitung
 \begin{align*}
-\frac{d}{dx}H(y(x),p(x))
+\frac{d}{dx}H\bigl(y(x),p(x)\bigr)
 &=
-\frac{\partial H}{\partial y}(y(x),p(x))\cdot y'(x)
+\frac{\partial H}{\partial y}\bigl(y(x),p(x)\bigr)\cdot y'(x)
 +
-\frac{\partial H}{\partial p}(y(x),p(x))\cdot p'(x)
+\frac{\partial H}{\partial p}\bigl(y(x),p(x)\bigr)\cdot p'(x)
 \\
 &=
 -p'(x)\cdot y'(x)
@@ -915,35 +918,35 @@ und $p(x)$ eine Lösung der kanonischen Differentialgleichungen.
 Mit Hilfe der kanonischen Differentialgleichungen kann die Ableitung
 nach $x$ mit der Kettenregel
 \begin{align*}
-\frac{d}{dx}G(x,y(x),p(x))
+\frac{d}{dx}G\bigl(x,y(x),p(x)\bigr)
 &=
-\frac{\partial G}{\partial x}(x,y(x),p(x))
+\frac{\partial G}{\partial x}\bigl(x,y(x),p(x)\bigr)
 \\
 &\qquad
 +
-\frac{\partial G}{\partial y}(x,y(x),p(x))
+\frac{\partial G}{\partial y}\bigl(x,y(x),p(x)\bigr)
 \cdot
 y'(x)
 +
-\frac{\partial G}{\partial p}(x,y(x),p(x))
+\frac{\partial G}{\partial p}\bigl(x,y(x),p(x)\bigr)
 \cdot
 p'(x)
 \intertext{berechnen und mit Hilfe der kanonischen Differenialgleichungen
 in die Form}
 &=
-\frac{\partial G}{\partial x}(x,y(x),p(x))
+\frac{\partial G}{\partial x}\bigl(x,y(x),p(x)\bigr)
 \\
 &\qquad
 +
-\frac{\partial G}{\partial y}(x,y(x),p(x))
+\frac{\partial G}{\partial y}\bigl(x,y(x),p(x)\bigr)
 \cdot
-\frac{\partial H}{\partial p}(x,y(x),p(x))
+\frac{\partial H}{\partial p}\bigl(x,y(x),p(x)\bigr)
 \\
 &\qquad
 -
-\frac{\partial G}{\partial p}(x,y(x),p(x))
+\frac{\partial G}{\partial p}\bigl(x,y(x),p(x)\bigr)
 \cdot
-\frac{\partial H}{\partial y}(x,y(x),p(x))
+\frac{\partial H}{\partial y}\bigl(x,y(x),p(x)\bigr)
 \end{align*}
 bringen.
 Die letzten zwei Term auf der rechten Seite 
