@@ -15,7 +15,8 @@ Dieser Abschnitt folgt der Darstellung in \cite[section 8.6]{buch:pde}.
 %
 % Divergenzform
 %
-\subsection{Divergenzform}
+\subsection{Divergenzform
+\label{buch:symmetrien:felder:subsection:divergenzform}}
 Wir versuchen erst zu ermitteln, welche Art von Gleichung wir anstelle
 einer Konstanten als Erhaltungssatz erwarten dürfen.
 
@@ -36,7 +37,7 @@ Einerseits wird sie approximiert durch die Änderung der Dichte
 \[
 \Delta m
 =
-(\varrho(x,y,z,t+\Delta t)-\varrho(x,y,z,t))
+\bigl(\varrho(x,y,z,t+\Delta t)-\varrho(x,y,z,t)\bigr)
 \Delta x
 \,
 \Delta y
@@ -50,29 +51,29 @@ Damit wird
 \begin{align*}
 \Delta m
 &=
-(
+\bigl(
 j_x(x+\Delta x,y,z,t)
 -
 j_x(x,y,z,t)
-)
+\bigr)
 \Delta y\,\Delta z \, \Delta t
 \\
 &\quad
 +
-(
+\bigl(
 j_y(x,y+\Delta y,z,t)
 -
 j_y(x,y,z,t)
-)
+\bigr)
 \Delta x\,\Delta z \, \Delta t
 \\
 &\quad
 +
-(
+\bigl(
 j_z(x,y,z+\Delta z,t)
 -
 j_z(x,y,z,t)
-)
+\bigr)
 \Delta x\,\Delta y \, \Delta t
 \end{align*}
 Nach Division durch $\Delta x\, \Delta y\, \Delta z\,\Delta t$ ergeben
@@ -216,7 +217,7 @@ sich leicht zu einem vollen Beweis für beliebiges $n$ ausbauen.
 Die Veränderung des Gebiets entsteht durch Verschiebung des Randes,
 den wir als Kurve $\gamma^s(t)$ parametrisieren 
 Abbildung~\ref{buch:symmetrien:felder:fig:rand}).
-Wir nehmen der Einfachheit halber dass sich die Verschiebung des
+Wir nehmen der Einfachheit halber an, dass sich die Verschiebung des
 Randes auf das Intervall $[a,b]$ beschränkt, dass also
 $\gamma^s(a)=\operatorname{const}$
 und
@@ -262,7 +263,7 @@ s\vec{v}(\gamma^0(t))\cdot \vec{n}(t)
 \]
 
 Das Veränderung des Gebietsintegrals durch die Verschiebung des
-Randes kann daher in erster Ordnung durch
+Randes ist daher in erster Ordnung durch
 \begin{align*}
 \int_{\varphi^s(U)} f(x)\,dx
 &=
@@ -372,10 +373,10 @@ Der Vektor $\vec{j}$ habe die Komponenten
 \[
 j_k
 =
-L(x,u(x),\nabla u(x))\,v_k(x)
+L\bigl(x,u(x),\nabla u(x)\bigr)\,v_k(x)
 -
 m(x)
-\frac{\partial L}{\partial u_{x_k}}(x,u(x),\nabla u(x)).
+\frac{\partial L}{\partial u_{x_k}}\bigl(x,u(x),\nabla u(x)\bigr).
 \]
 Dann gilt
 \begin{align}
@@ -386,19 +387,19 @@ Dann gilt
 \sum_{k=1}^n
 \frac{\partial }{\partial x_k}
 \biggl(
-L(x,u(x),\nabla u(x))\,v_k(x)
+L\bigl(x,u(x),\nabla u(x)\bigr)\,v_k(x)
 -
 m(x)
 \frac{\partial L}{\partial u_{x_k}}
-(x,u(x),\nabla u(x))
+\bigl(x,u(x),\nabla u(x)\bigr)
 \biggr)
 \notag
 \\
 &=
 m(x)\biggl(
-\frac{\partial L}{\partial u}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u}\bigl(x,u(x),\nabla u(x)\bigr)
 -
-\sum_{k=1}^n\frac{\partial L}{\partial u_{x_k}}(x,u(x),\nabla u(x))
+\sum_{k=1}^n\frac{\partial L}{\partial u_{x_k}}\bigl(x,u(x),\nabla u(x)\bigr)
 \biggr)
 \label{buch:symmetrien:felder:eqn:rhs}
 \end{align}
@@ -414,9 +415,9 @@ ist
 \[
 E(x)
 =
-\frac{\partial L}{\partial u}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u}\bigl(x,u(x),\nabla u(x)\bigr)
 -
-\sum_{k=1}^n\frac{\partial L}{\partial u_{x_k}}(x,u(x),\nabla u(x)).
+\sum_{k=1}^n\frac{\partial L}{\partial u_{x_k}}\bigl(x,u(x),\nabla u(x)\bigr).
 \]
 Dies ist die linke Seite der Euler-Ostrogradski-Diffe\-ren\-tial\-gleichung
 für die Funktion $u$.
@@ -432,11 +433,11 @@ Für die linke Seite erhalten wir wegen $w(x,s)=u(x)$
 \text{LHS}
 &=
 \int_U
-\frac{\partial L}{\partial u}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u}\bigl(x,u(x),\nabla u(x)\bigr)
 \frac{\partial w}{\partial s}(x,0)
 +
 \sum_{k=1}^n
-\frac{\partial L}{\partial u_{x_k}}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u_{x_k}}\bigl(x,u(x),\nabla u(x)\bigr)
 \cdot
 \frac{\partial}{\partial s}
 \frac{\partial w}{\partial x_k}(x,0)
@@ -457,24 +458,24 @@ Somit ist
 \text{LHS}
 &=
 \int_U
-\frac{\partial L}{\partial u}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u}\bigl(x,u(x),\nabla u(x)\bigr)
 m(x)
 +
 \sum_{k=1}^n
-\frac{\partial L}{\partial u_{x_k}}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u_{x_k}}\bigl(x,u(x),\nabla u(x)\bigr)
 \cdot
 \frac{\partial m}{\partial x_k}(x)
 \,dx.
 \intertext{Partielle Integration der Summe ergibt}
 &=
 \int_U
-\frac{\partial L}{\partial u}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u}\bigl(x,u(x),\nabla u(x)\bigr)
 m(x)
 \,dx
 +
 \int_{\partial U}
 m(x)
-\frac{\partial L}{\partial u_{x}}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u_{x}}\bigl(x,u(x),\nabla u(x)\bigr)
 \cdot
 d\vec{o}
 \\
@@ -484,25 +485,25 @@ d\vec{o}
 m(x)
 \sum_{k=1}^n
 \frac{\partial}{\partial x_k}
-\frac{\partial L}{\partial u_{x_k}}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u_{x_k}}\bigl(x,u(x),\nabla u(x)\bigr)
 \,dx.
 \\
 &=
 \int_U
 m(x)
 \biggl(
-\frac{\partial L}{\partial u}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u}\bigl(x,u(x),\nabla u(x)\bigr)
 -
 \sum_{k=1}^n
 \frac{\partial}{\partial x_k}
-\frac{\partial L}{\partial u_{x_k}}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u_{x_k}}\bigl(x,u(x),\nabla u(x)\bigr)
 \biggr)\,dx
 \\
 &\qquad
 +
 \int_{\partial U}
 m(x)
-\frac{\partial L}{\partial u_{x}}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u_{x}}\bigl(x,u(x),\nabla u(x)\bigr)
 \cdot
 d\vec{o}
 \intertext{oder noch einfacher}
@@ -514,7 +515,7 @@ E(x)
 +
 \int_{\partial U}
 m(x)
-\frac{\partial L}{\partial u_{x}}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u_{x}}\bigl(x,u(x),\nabla u(x)\bigr)
 \cdot
 d\vec{o}.
 \end{align*}
@@ -524,13 +525,13 @@ Identität~\eqref{buch:symmetrien:felder:eqn:invarianz}
 wendet die Formel für die Ableitung eines Integrals über ein
 von einem Parameter abhängendes Gebiet von
 Satz~\ref{buch:symmetrien:felder:satz:gebietsintegral}
-auf die Funktion $f(x) = L(x,u(x),\nabla u(x))$ an, die
+auf die Funktion $f(x) = L\bigl(x,u(x),\nabla u(x)\bigr)$ an, die
 \[
 \frac{d}{ds}
-\int_{\varphi^s(U)} L(x,u(x),\nabla u(x))\,dx
+\int_{\varphi^s(U)} L\bigl(x,u(x),\nabla u(x)\bigr)\,dx
 \bigg|_{s=0}
 =
-\int_U L(x,u(x),\nabla u(x))\,\vec{v}\cdot d\vec{o}.
+\int_U L\bigl(x,u(x),\nabla u(x)\bigr)\,\vec{v}\cdot d\vec{o}.
 \]
 ergibt.
 
@@ -539,9 +540,9 @@ Die bisherigen Rechnungen haben ergeben, dass
 \int_U m(x) E(x)\,dx
 +
 \int_{\partial U}
-m(x)\frac{\partial L}{\partial u_x}(x,u(x),\nabla u(x))\cdot d\vec{o}
+m(x)\frac{\partial L}{\partial u_x}\bigl(x,u(x),\nabla u(x)\bigr)\cdot d\vec{o}
 &=
-\int_{\partial U}L(x,u(x),\nabla u(x))\,\vec{v}(x)\cdot d\vec{o}.
+\int_{\partial U}L\bigl(x,u(x),\nabla u(x)\bigr)\,\vec{v}(x)\cdot d\vec{o}.
 \end{align*}
 Bringen wir das zweite Integral links auf die rechte Seite, ergibt
 sich
@@ -551,9 +552,9 @@ sich
 \int_{\partial U}
 \biggl(
 -
-m(x)\frac{\partial L}{\partial u_x}(x,u(x),\nabla u(x))
+m(x)\frac{\partial L}{\partial u_x}\bigl(x,u(x),\nabla u(x)\bigr)
 +
-\int_{\partial U}L(x,u(x),\nabla u(x))\,\vec{v}(x)
+\int_{\partial U}L\bigl(x,u(x),\nabla u(x)\bigr)\,\vec{v}(x)
 \biggr)
 \cdot d\vec{o}.
 \intertext{Mit dem Integralsatz von Gauss kann das Oberflächenintegral
@@ -562,9 +563,9 @@ auf der rechten Seite in das Gebietsintegral über $U$}
 \int_U
 \operatorname{div}
 \biggl(
-L(x,u(x),\nabla u(x))\,\vec{v}(x)
+L\bigl(x,u(x),\nabla u(x)\bigr)\,\vec{v}(x)
 -m(x)
-\frac{\partial L}{\partial u_x}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u_x}\bigl(x,u(x),\nabla u(x)\bigr)
 \biggr)
 \,dx
 \intertext{umgewandelt werden.
@@ -574,9 +575,9 @@ In Komponenten ist dies}
 \sum_{k=1}^n
 \frac{\partial}{\partial x_k}
 \biggl(
-L(x,u(x),\nabla u(x))\,v_k(x)
+L\bigl(x,u(x),\nabla u(x)\bigr)\,v_k(x)
 -m(x)
-\frac{\partial L}{\partial u_{x_k}}(x,u(x),\nabla u(x))
+\frac{\partial L}{\partial u_{x_k}}\bigl(x,u(x),\nabla u(x)\bigr)
 \biggr)
 \,dx
 \intertext{oder}
