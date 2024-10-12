@@ -12,8 +12,8 @@ abgeleitet.
 In den weiteren Untersuchungen war dann aber das Definitionsgebiet
 fest.
 Das zu minimierende Funktional enthielt ausser dem Integral auch
-noch weitere Terme, die aber nur von den Werten $y(x_0)$ und
-$y(x_1)$ der Funktion $y$ an den Endpunktend es Intervalls
+noch weitere Terme, die aber nur von den Werten $y(x_1)$ und
+$y(x_2)$ der Funktion $y$ an den Endpunktend es Intervalls
 abhingen.
 Die allgemeine Variationsformel ermöglicht aber auch die Behandlung
 von Randfunktionen, die auch von den möglicherweise variablen
@@ -29,15 +29,15 @@ benötigt.
 Wir betrachten wieder ein Variationsproblem für ein Integral mit einer
 Lagrange-Funktion $F(x,y,y')$, aber das Definitionsintervall soll
 jetzt variabel sein.
-Wir bezeichnen das Integral miut
+Wir bezeichnen das Integral mit
 \begin{equation*}
 I_0(y)
 =
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 F(x,y(x),y(x))\,dx
 \end{equation*}
-Wir verlangen nur dass sich die Endpunkte $(x_0,y_0=y(x_1))$ und 
-$(x_1,y_1=y(x_1))$ auf vorgegebenen Randkurven bewegen, die zum
+Wir verlangen nur dass sich die Endpunkte $(x_1,y_1=y(x_1))$ und 
+$(x_2,y_2=y(x_2))$ auf vorgegebenen Randkurven bewegen, die zum
 Beispiel durch eine Parameterdarstellung gegeben sein können.
 Zusätzlich soll aber der Wert des Funktionals nicht nur vom ``freien''
 Teil der Funktionskurve abhängen, sondern auch davon, wo die Kurve auf
@@ -49,7 +49,7 @@ Es ist jedoch einfacher, wenn sich diese Beträge durch die Koordinaten
 $(x_i,y_i)$ der Endpunkte ausdrücken alssen, also durch ein Funktionen
 $g_i(x,y)$, für die
 \[
-g_i(\alpha) = g_i(x_i(\alpha), y_i(\alpha))
+g_i(\alpha) = g_i(x_i(\alpha), y_i(\alpha)), \qquad i=1,2,
 \]
 gilt.
 
@@ -64,19 +64,19 @@ I(y)
 &=
 I_0(y)
 +
-g_1(x_1,y(x_1))
+g_2(x_2,y(x_2))
 -
-g_0(x_0,y(x_0))
+g_1(x_1,y(x_1))
 \notag
 \\
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 F(x,y(x),y'(x))
 \,dx
 +
-g_1(x_1,y(x_1))
+g_2(x_2,y(x_2))
 -
-g_0(x_0,y(x_0)),
+g_1(x_1,y(x_1)),
 \label{buch:nebenbedingungen:randfunktionen:eqn:funktional}
 \end{align}
 wobei die Funktion $y(x)$ die Randbedingungen
@@ -96,7 +96,7 @@ ist so, dass sich für die Bedingungen einfachere Formeln ergeben.
 %
 \subsection{Lösung
 \label{buch:nebenbedingungen:randfunktionen:subsection:loesung}}
-Die allgemeine Varitiationsformel ermöglicht, die Veränderung des
+Die allgemeine Variationsformel ermöglicht, die Veränderung des
 Integrals im Funktional
 \eqref{buch:nebenbedingungen:randfunktionen:eqn:funktional}
 zu berechnen.
@@ -123,14 +123,14 @@ gegeben durch
 \begin{align*}
 \delta I
 &=
-\vec{f}_i\cdot \vec{r}_i(0) - \vec{f}_0\cdot\vec{r}_0(0)
+\vec{f}_2\cdot \vec{r}_2(0) - \vec{f}_1\cdot\vec{r}_1(0)
 +
 \delta I_0(y)
 \\
 &=
-\vec{f}_i\cdot \vec{r}_i(0) - \vec{f}_0\cdot\vec{r}_0(0)
+\vec{f}_2\cdot \vec{r}_2(0) - \vec{f}_1\cdot\vec{r}_1(0)
 +
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
 \frac{\partial F}{\partial y}(x,y(x),y'(x))
 -
@@ -205,7 +205,7 @@ Ausserdem müssen an den Endpunkten die Randbedingungen
 \begin{equation}
 \vec{f}_i\cdot\vec{r}_i
 =
-0,\quad i=0,1,
+0,\quad i=1,2,
 \end{equation}
 mit den Vektoren $\vec{f}_i$ von
 \eqref{buch:nebenbedingungen:randfunktionen:eqn:fnew}
@@ -228,7 +228,7 @@ und die Randbedingungen
 \[
 \vec{f}_i\cdot \vec{r}_i =  0
 \qquad\Rightarrow\qquad
-\vec{f}_i\perp\vec{r}_i
+\vec{f}_i\perp\vec{r}_i,\qquad i=1,2,
 \]
 mit den Vektoren $\vec{f}_i$ von
 \eqref{buch:nebenbedingungen:randfunktionen:eqn:fnew}

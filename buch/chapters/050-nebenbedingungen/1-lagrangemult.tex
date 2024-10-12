@@ -73,8 +73,8 @@ Dieser Mythos impliziert, dass Karthago als Lösung eines sogenannten
 isoperimetrischen Problems gegründet wurde.
 \index{isoperimetrisch}%
 Im konkreten Fall geht es zum Beispiel darum, eine Funktion $y(x)$
-auf dem Intervall $[x_1,x_2]$ zu finden, welche $y(x_1)=y(x_2)=0$,
-die den Flächeninhalt
+auf dem Intervall $[x_1,x_2]$ zu finden, welche $y(x_1)=y(x_2)=0$
+erfüllt und den Flächeninhalt
 \[
 I(y)
 =
@@ -143,7 +143,7 @@ G(x,y,y')
 y'
 \label{buch:nebenbedingungen:lagrangemult:eqn:heavilagrange}
 \end{equation}
-wird $J(y)$ zu einem Funktional
+wird $J(y)$ zum Funktional
 \[
 J(y)
 =
@@ -151,8 +151,8 @@ J(y)
 G(x,y(x),y'(x))
 \,dx.
 \]
-Die einzige Schwierigkeit ist, dass die Funktion $G(x,y,y')$ nicht
-differenzierbar ist in der ersten Variablen.
+Die einzige Schwierigkeit ist, dass die Funktion $G(x,y,y')$
+in der ersten Variablen nicht differenzierbar ist.
 
 Die Forderung, dass $J(y)$ einen vorgegebenen Wert $g$ annehmen muss,
 kann weiter vereinfacht werden.
@@ -256,8 +256,8 @@ verallgemeinern.
 %
 \subsubsection{Nebenbedingungsfunktionale}
 Die beiden Beispiele illustrieren, dass sich Nebenbedingungen für
-Variationsprobleme meistens in der Form eines Nebenbedingungsfunktionls
-schreiben kann.
+Variationsprobleme meistens in der Form eines Nebenbedingungsfunktionals
+schreiben lassen.
 Eine Nebenbedingung ist also gegeben durch eine Lagrange-Funktion
 \[
 G
@@ -274,7 +274,7 @@ G
 \mapsto
 G(x,y,y')
 \]
-und den Wert, $g$, den das Funktional
+und den Wert $g$, den das Funktional
 \[
 \int_{x_1}^{x_2}
 G(x,y(x),y'(x))\,dx
@@ -374,7 +374,7 @@ G(x,y(x,\varepsilon),y'(x,\varepsilon))\,dx
 \frac{\partial G}{\partial y'}(x,y(x,\varepsilon),y'(x,\varepsilon))
 \frac{\partial y'}{\partial\varepsilon}(x,\varepsilon)
 \,dx.
-\intertext{An der Stelle $\varepsilon=0$ schreiben wir für $\eta(x)$ für
+\intertext{An der Stelle $\varepsilon=0$ schreiben wir $\eta(x)$ für
 die partielle Ableitung von $y(x,\varepsilon)$ nach $\varepsilon$ und
 erhalten}
 \frac{d}{d\varepsilon}
@@ -432,7 +432,7 @@ eine zweimal stetig differenzierbare Funktionen, dann schreiben wir
 +
 \frac{d}{dx}\frac{\partial G}{\partial y'}
 \]
-für den Vektor Terme, die in der Euler-Lagrange-Differentialgleichung
+für die Terme, die in der Euler-Lagrange-Differentialgleichung
 für $F$ auftreten.
 \end{definition}
 
@@ -473,7 +473,8 @@ daher, dass
 wird für alle Funktionen $\eta$, die auch
 \eqref{buch:nebenbedingungen:lagrangemult:eqn:Gskalar}
 erfüllen.
-Daraus lässt sich der zu Satz~\ref{}
+Daraus lässt sich der zu
+Satz~\ref{buch:fuvar:nebenbedingungen:satz:nebenbedingung}
 analog nachstehende Satz ableiten.
 
 \begin{satz}
@@ -649,7 +650,8 @@ der Funktion
 \[
 y(x) = \sqrt{r^2-x^2} - \sqrt{r^2-1}.
 \]
-Der zweite Term ist konstant und spielt daher in der Differentialgleichung
+Der zweite Term ist konstant und spielt daher in der Differentialgleichung,
+die nur die Ableitung $y'$ enthält,
 keine Rolle.
 Die ersten beiden Ableitungen von $y(x)$ sind
 \begin{align}
@@ -717,7 +719,8 @@ Dieser Widerspruch zeigt, dass die Kurve ein Kreis sein muss.
 \label{buch:nebenbedingungen:lagrangemult:subsection:lagrangemult}}
 Die Formulierung der notwendigen Bedingung für ein Extremum eines
 Variationsproblems mit einer einzelnen Nebenbedingung kann jetzt
-ganz analog wie in Abschnitt~\ref{} für das Minimalproblem für eine
+ganz analog wie in Abschnitt~\ref{buch:fuvar:nebenbedingungen:satz:lm}
+für das Minimalproblem für eine
 Funktion mehrere Variablen mit Nebenbedingungen verallgemeinert
 werden.
 
