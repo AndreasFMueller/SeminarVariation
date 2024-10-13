@@ -6,7 +6,7 @@
 % !TEX root = ../../buch.tex
 % !TEX encoding = UTF-8
 %
-\section{Erweiterung auf $n$ Dimensionen\label{fem:nD}}
+\section{Erweiterung auf $\mathbf{n}$ Dimensionen\label{fem:nD}}
 \kopfrechts{Erweiterung auf $n$ Dimensionen}
 Der Schritt vom eindimensionalen Prinzip in höherdimensionale Räume bedingt einige Anpassungen. 
 Um den Umfang zu reduzieren, wurde das Vorgehen grob im Prinzip dargestellt, jedoch nicht bis ins Detail behandelt.
@@ -14,7 +14,7 @@ Für eine detailliertere Ausführung ist das Buch ``Methode der finiten Elemente
 
 
 \subsection{Bilden der schwachen Form}
-Um die schwache Form auf höhere Dimensionen zu erweitern, muss zum Einen statt über eine Länge über den n-Dimensionalen Raum $\Omega$ integriert werden --- aus 
+Um die schwache Form auf höhere Dimensionen zu erweitern, muss zum Einen statt über eine Länge über den n-Dimensionalen Raum $\Omega$ integriert werden, aus 
 \begin{equation}
     \int_{l} u(x) \cdot v(x) \diff x
 \end{equation}
@@ -22,7 +22,7 @@ wird also
 \begin{equation}
     \int_{\Omega} u(\vec{x}) \cdot v(\vec{x}) \diff \vec{x}.
 \end{equation}
-Zum anderen werden die Ableitungen durch Gradienten ersetzt ---
+Zum anderen werden die Ableitungen durch Gradienten ersetzt,
 \begin{equation}
     \int_{l} f'(x) \cdot v'(x) \diff x
 \end{equation}
@@ -34,8 +34,8 @@ wird zu
 
 \subsection{Diskretisieren}
 Meist wird das zu evaluierende Gebiet in Dreiecke, Tetraeder oder höherdimensionale euklidische Simplexe unterteilt. 
-Entlang den Dreieckskanten werden dieselben Formfunktionen, die im Abschnitt \ref{fem:1d:diskretisieren} beschrieben wurden, verwendet.
-Das Gebiet zwischen zwei Elementverbindungen wird wie in der Abbildung \ref{fem:nd:basisfkt} ``ausgefüllt''.
+Entlang den Dreieckskanten werden die im Abschnitt \ref{fem:1d:diskretisieren} beschrieben Formfunktionen verwendet.
+Das Gebiet zwischen zwei Elementverbindungen wird wie in der Abbildung~\ref{fem:nd:abb}~(\subref{fem:nd:abb:basisfkt}) ``ausgefüllt''.
 \input{papers/fem/fig/2d_mesh_und_basisfkt.tex}
 
 
@@ -44,7 +44,7 @@ Das zu lösende Problem wird erneut diskretisiert, es werden also einzelne Punkt
 Diese Knoten werden dann jeweils mit den nächstgelegenen Nachbarn verbunden und nummeriert.
 Bei der Nummerierung der Elemente sollte darauf geachtet werden, dass benachbarte Elemente auch in der Nummerierung nebeneinander sind, da so die Matrix ``möglichst diagonal'' wird.
 Dies macht das Invertieren effizienter.
-Es sollte ein Bild ähnlich des zweidimensionalen Beispiels in Abbildung \ref{fem:nd:2d_mesh}
+Es sollte ein Bild ähnlich des zweidimensionalen Beispiels in Abbildung~\ref{fem:nd:abb}~(\subref{fem:nd:abb:2d_mesh})
 resultieren.
 
 Zum Befüllen der Matrizen wird analog zum eindimensionalen Fall jeder Eintrag mit der zugehörigen Formel ausgewertet.
@@ -58,17 +58,15 @@ während für jene von $\mathbf{M}$
 \end{equation}
 eingesetzt werden muss.
 
-Es werden auch hier nur die Einträge ungleich null sein, deren Elemente sich wie in Abbildung \ref{fem:nd:basisfkt} gezeigt berühren.
-Der Eintrag in der Zeile $a$ und Spalte $b$ ist also nur dann ungleich Null, wenn Element $a$ und Element $b$ im Graphen, welcher in Abbildung \ref{fem:nd:2d_mesh} gezeigt ist, verbunden sind.
+Es werden auch hier nur die Einträge ungleich Null sein, deren Elemente sich wie in Abbildung~\ref{fem:nd:abb}~(\subref{fem:nd:abb:basisfkt}) gezeigt berühren.
+Der Eintrag in der Zeile $a$ und Spalte $b$ ist also nur dann ungleich Null, wenn Element $a$ und Element $b$ im Graphen, welcher in Abbildung~\ref{fem:nd:abb}~(\subref{fem:nd:abb:2d_mesh}) gezeigt ist, verbunden sind.
 
 \subsection{Codieren der Anfangsbedingungen}
-Beim Codieren von Dirichlet-Randbedingungen
-\footnote{Randbedingungen, bei denen Werte am Rand des Definitionsbereichs vorgegeben sind}
+Beim Codieren von Dirichlet-Randbedingungen\footnote{Randbedingungen, bei denen Werte am Rand des Definitionsbereichs vorgegeben sind}
 unterscheidet sich das Vorgehen nicht von dem des im Abschnitt \ref{fem:1d:anfangsbedingungen} beschriebenen eindimensionalen Fall. 
 
-Beim Codieren von Neumann-Randbedingungen 
-\footnote{Randbedingungen, die Ableitungswerte am Rand des Definitionsbereichs festlegen}
-ist zu beachten, dass die Normalenableitung bezüglich der äusseren Normalen des Rands $\partial \Omega$ codiert wird.
+Beim Codieren von Neumann-Randbedingungen\footnote{Randbedingungen, die Ableitungswerte am Rand des Definitionsbereichs festlegen}
+ist zu beachten, dass die Normalableitung bezüglich der äusseren Normalen des Rands $\partial \Omega$ codiert wird.
 
 \subsection{Invertieren der Matrix}
 Hier unterscheidet sich das Vorgehen nicht vom im Abschnitt \ref{fem:1d:matrix_invertieren} behandelten eindimensionalen Fall.

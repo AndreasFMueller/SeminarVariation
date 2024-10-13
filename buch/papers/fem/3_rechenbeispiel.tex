@@ -66,23 +66,23 @@ und kann durch partielles Integrieren des Terms $\int_\Omega \theta'' \cdot v \d
 
 
 \subsection{Diskretisieren}
-Um den Lösungsweg möglichst übersichtlich zu gestalten, werden die Funktionen $f(x)$ und $\theta(t)$ in $N$ $\Delta t$ lange Stücke unterteilt:
-\begin{equation}
+Um den Lösungsweg möglichst übersichtlich zu gestalten, werden die Funktionen $f(t)$ und $\theta(t)$ in $N$ $\Delta t$ lange Stücke unterteilt:
+\begin{align}
     f(t) = \sum_{n=0}^{N} f_n \cdot a(t) \quad
     \text{mit} \quad
     f_n = f(n \cdot \Delta t)
-\end{equation}
-und
-\begin{equation}
+\intertext{und}
     \theta(t) = \sum_{n=0}^{N} \theta_n \cdot a(t) \quad
     \text{mit} \quad
     \theta_n = \theta(n \cdot \Delta t).
-\end{equation}
+\end{align}
 
 Zur Interpolation werden lineare Formfunktionen verwendet, da dies die weiteren Rechnungen erleichtert und weil es die Ordnung des zu lösenden Problems erlaubt.
 Für $a_n(t)$ ist also mit $t_0 = n \cdot \Delta t$
 \begin{equation}
-    a_n(t) = \left\{ \begin{array}{ll}
+    a_n(t) = \left\{ 
+    \def\arraystretch{\formfktStretch}
+    \begin{array}{ll}
         1+\frac{t-t_0}{\Delta t} & \text{für} \quad t_0 - \Delta t < t < t_0 \\
         1-\frac{t-t_0}{\Delta t} & \text{für} \quad t_0 \leq t < t_0 + \Delta t \\
         0 & \text{sonst}
@@ -96,7 +96,7 @@ Der Vektor $\vec{b}$ ist in diesem Fall besonders einfach zu bestimmen: Da die r
 \begin{equation}
     \vec{b} = \vec{0}.
 \end{equation}
-Um die Elemente der Matrix $\mathbf{L}$ zu ermitteln, werden die Integrale aus Gleichung \ref{fem:rechenbsp:schwache_form} verwendet:
+Um die Elemente der Matrix $\mathbf{L}$ zu ermitteln, werden die Integrale aus Gleichung \eqref{fem:rechenbsp:schwache_form} verwendet:
 \begin{equation}
     l_{ij} = - \int_\Omega a_i'(t) \cdot a_j'(t) \diff t + \int_\Omega \frac{g}{l} a_i(t) \cdot a_j(t) \diff t.
 \end{equation}
@@ -111,24 +111,44 @@ Bei einem mehrdimensionalen Problem müsste anhand des Graphen ermittelt werden,
 \subsubsection{Volles Überlappen ($i = j$)}
 Da die Integrale aller Elemente gleich und die Formfunktionen symmetrisch sind, reicht es aus, nur das Integral
 \begin{equation}
-    \int_{0}^{\Delta t} \frac{1}{(\Delta t)^2} t^2 \diff t = \frac{1}{3} \Delta t
+    \int_{0}^{\Delta t} a_1(t) \cdot a_1(t) \diff t
+    = \int_{0}^{\Delta t} \frac{t^2}{(\Delta t)^2} \diff t 
+    = \frac{1}{3} \Delta t
 \end{equation}
 der Formfunktion $ a_1(t) = \frac{t}{\Delta t} $ zu berechnen.
 Es resultiert
 \begin{equation}
-    \int_\Omega a_k(t) \cdot a_k(t) \diff t = 2 \cdot \int_{0}^{\Delta t} \frac{t^2}{(\Delta t)^2} \diff t = \frac{2}{3} \Delta t \quad \text{für} \quad 0 < k < N.
+    \int_\Omega a_k(t) \cdot a_k(t) \diff t 
+    = 2 \cdot \int_{0}^{\Delta t} a_1(t) \cdot a_1(t) \diff t 
+    = \frac{2}{3} \Delta t 
+    \quad \text{für} \quad 0 < k < N.
 \end{equation}
-Dabei werden die Indizes $1$ und $N$ ausgeklammert, da die linke Hälfte der Formfunktion $a_0(t)$ sowie die rechte Hälfte der Formfunktion $a_N$ ausserhalb des Definitionsbereichs liegen und für diese Knotenvariablen folglich
+Dabei werden die Indizes $0$ und $N$ ausgeklammert, da die linke Hälfte der Formfunktion $a_0(t)$ sowie die rechte Hälfte der Formfunktion $a_N(t)$ ausserhalb des Definitionsbereichs liegen und für diese Knotenvariablen folglich
 \begin{equation}
-    \int_\Omega a_k(t) \cdot a_k(t) \diff t = \int_{0}^{\Delta t} \frac{t^2}{(\Delta t)^2} \diff t = \frac{1}{3} \Delta t \quad \text{für} \quad k = 1 \quad \text{oder} \quad k = N
+    \int_\Omega a_k(t) \cdot a_k(t) \diff t 
+    = \int_{0}^{\Delta t} a_1(t) \cdot a_1(t) \diff t 
+    = \frac{1}{3} \Delta t 
+    \quad \text{für} \quad k = 1 \quad \text{oder} \quad k = N
 \end{equation}
 gilt.
 
-Für das Integral über die Ableitungen der Formfunktionen resultiert
+Für das Integral über die Ableitungen der Formfunktionen resultiert nach dem Gleichen Vorgehen
 \begin{equation}
-    \int_\Omega a_k'(t) \cdot a_k'(t) \diff t = 2 \cdot \int_{0}^{\Delta t} \frac{1}{\Delta t} \cdot \frac{1}{\Delta t} \diff t = \frac{2}{\Delta t},
+    \int_\Omega a_k'(t) \cdot a_k'(t) \diff t 
+    = 2 \cdot \int_{0}^{\Delta t} a_1'(t) \cdot a_1'(t) \diff t
+    = 2 \cdot \int_{0}^{\Delta t} \frac{1}{\Delta t} \cdot \frac{1}{\Delta t} \diff t 
+    = \frac{2}{\Delta t}
+    \quad \text{für} \quad 0 < k < N,
 \end{equation}
-da $a_1'(t)= \frac{1}{\Delta t} \ \text{wenn} \ 0 \leq t < \Delta t$.
+da $a_1'(t)= \frac{1}{\Delta t}$ wenn $0 \leq t < \Delta t$.
+Auch hier werden die Knoten $0$ und $N$ ausgeklammert, denn für diese gilt
+\begin{equation}
+    \int_\Omega a_k'(t) \cdot a_k'(t) \diff t 
+    = \int_{0}^{\Delta t} a_1'(t) \cdot a_1'(t) \diff t
+    = \int_{0}^{\Delta t} \frac{1}{\Delta t} \cdot \frac{1}{\Delta t} \diff t 
+    = \frac{1}{\Delta t}
+    \quad \text{für} \quad k = 1 \quad \text{oder} \quad k = N.
+\end{equation}
 
 \subsubsection{Benachbarte Elemente ($|i - j| = 1$)}
 Auch hier reicht es aus, eines der Integrale zu berechnen. 
@@ -146,20 +166,19 @@ Hierbei gilt $a_0'(t)= -\frac{1}{\Delta t} \ \text{und} \ a_1'(t)= \frac{1}{\Del
 
 \subsubsection{Resultat}
 Für die Elemente $l_{ij}$ der Array $\mathbf{L}$ gilt also
-\begin{equation}
-    \begin{aligned}
-        l_{ij} 
-        &= - \int_\Omega a_i'(t) \cdot a_j'(t) \diff t + \frac{g}{l} \int_\Omega a_i(t) \cdot a_j(t) \diff t \\
-        &=  \left\{ 
-                \begin{array}{ll}
-                    - \frac{1}{\Delta t} + \frac{g}{3l} \Delta t & \text{für} \quad i = j = 0 \\
-                    - \frac{2}{\Delta t} + \frac{2g}{3l} \Delta t & \text{für} \quad i = j \neq 0 \\
-                    \frac{1}{\Delta t} + \frac{g}{6l} \Delta t & \text{für} \quad |i - j| = 1 \\
-                    0 & \text{sonst}
-                \end{array} 
-            \right.
-    \end{aligned}.
-\end{equation}
+\begin{align}
+    l_{ij} 
+    &= - \int_\Omega a_i'(t) \cdot a_j'(t) \diff t + \frac{g}{l} \int_\Omega a_i(t) \cdot a_j(t) \diff t \notag \\
+    &=  \left\{ 
+            \def\arraystretch{\formfktStretch}    
+            \begin{array}{ll}
+                - \frac{1}{\Delta t} + \frac{g}{3l} \Delta t & \text{für} \quad i = j = 0 \\
+                - \frac{2}{\Delta t} + \frac{2g}{3l} \Delta t & \text{für} \quad i = j \neq 0 \\
+                \frac{1}{\Delta t} + \frac{g}{6l} \Delta t & \text{für} \quad |i - j| = 1 \\
+                0 & \text{sonst}
+            \end{array} 
+        \right. .
+\end{align}
 Für einen willkürlich gewählten Zeitschritt von $\Delta t = 0.1$ und den in der Aufgabenstellung festgelegten Parametern $g = 10$ und $l = 1$ resultiert das Gleichungssystem
 \begin{equation}
     \def\arraystretch{1.5}
@@ -179,7 +198,7 @@ Für einen willkürlich gewählten Zeitschritt von $\Delta t = 0.1$ und den in d
     \begin{pmatrix}
         0 \\ 0 \\ 0 \\ 0 \\ \vdots \\ 0
     \end{pmatrix}
-    = 0
+    = 0.
     \label{fem:rechenbsp:gleichungssystem}
 \end{equation}
 
@@ -191,8 +210,8 @@ Die Anfangsbedingungen
     \quad \text{und} \quad
     u'(0) = 0
 \end{equation}
-werden wie in Kapitel \ref{fem:1d:anfangsbedingungen} beschrieben in die Matrix eingebracht.
-Dazu wird das Gleichungssystem \ref{fem:rechenbsp:gleichungssystem} zunächst als Gauss-Tableau geschrieben:
+werden wie in Abschnitt \ref{fem:1d:anfangsbedingungen} beschrieben in die Matrix eingebracht.
+Dazu wird das Gleichungssystem \eqref{fem:rechenbsp:gleichungssystem} zunächst als Gauss-Tableau geschrieben:
 \begin{equation}
     \def\arraystretch{1.5}
     \begin{array}{|cccccc|c|}
@@ -228,7 +247,7 @@ ersetzt also die Zeile $0$:
         \hline
     \end{array}.
 \end{equation}
-Anschliessend wird noch die Spalte Null gesetzt, indem das $ 10.17 $-fache der $1$. Zeile von der $2$. abgezogen wird.
+Anschliessend wird noch die Spalte Null gesetzt, indem das $ 10.17 $-fache der ersten Zeile von der zweiten abgezogen wird.
 Es resultiert
 \begin{equation}
     \def\arraystretch{1.5}
