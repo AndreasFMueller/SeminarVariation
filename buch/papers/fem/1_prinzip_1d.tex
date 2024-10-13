@@ -7,7 +7,7 @@
 % !TEX encoding = UTF-8
 %
 \section{Prinzip in einer Dimension\label{fem:1d}}
-\kopfrechts{Prinzip 1D}
+\kopfrechts{Prinzip in einer Dimension}
 
 Das Vorgehen zum Lösen eines Problems mit der Methode der finiten Elemente kann in fünf Schritte unterteilt werden:
 \begin{enumerate}
@@ -33,8 +33,10 @@ gelten.
 
 
 \subsection{Bilden der schwachen Form}
+\index{schwache Form}%
 Um das Problem in die schwache Form zu bringen, wird über beide Seiten der Poisson-Gleichung \eqref{fem:1d:poisson_gleichung} integriert.
 Zuvor werden jedoch beide Seiten mit der Testfunktion $ v(x) $ multipliziert.
+\index{Testfunktion}%
 Diese wird definiert als eine beliebige Funktion $ v \colon \mathbb{R} \rightarrow \mathbb{R} $.
 Die resultierende stetig differenzierbare Gleichung
 \begin{equation}
@@ -43,22 +45,23 @@ Die resultierende stetig differenzierbare Gleichung
 \end{equation}
 sollte einem bekannt vorkommen, denn sie entsteht auch beim Herleiten der ersten Variation.
 Im Abschnitt \ref{buch:variation:section:fundamentallemma} zum Fundamentallemma wird bewiesen, dass die beiden Ausdrücke \eqref{fem:1d:poisson_gleichung} und \eqref{fem:1d:schwache_form} gleichwertig sind.
+\index{Fundamtentallemma}%
 
 Durch partielles Integrieren der linken Seite kann die Ordnung der Differenzialgleichung um eins verringert werden:
-\begin{align}
+\begin{align*}
     \int_l f(x) \cdot v(x) \diff x &= \int_l u''(x) \cdot v(x) \diff x \\
                                  &= \left[ u'(x) \cdot v(x) \right]_{a}^{b} - \int_l u'(x) \cdot v'(x) \diff x \\
                                  &= - \int_l u'(x) \cdot v'(x) \diff x \\
                                  &= - \Phi(u, v).
-\end{align}
+\end{align*}
 Dabei wurde für $u'(x)$ die Randbedingung
-\begin{equation}
+\begin{equation*}
     u'(a) = u'(b) = 0
-\end{equation}
+\end{equation*}
 gestellt, sodass der Term
-\begin{equation}
+\begin{equation*}
     \left[ u'(x) \cdot v(x) \right]_{a}^{b}
-\end{equation}
+\end{equation*}
 Null wird.
 
 Der erhaltene Term wird oft als $-\Phi(u, v)$ abgekürzt.
@@ -72,15 +75,17 @@ Dies spart Rechenleistung.
 Ziel des Diskretisierens ist es, das unendlichdimensionale Problem in ein endlichdimensionales umzuwandeln.
 Dazu werden die ursprünglichen Funktionen $u(x)$, $f(x)$ und $v(x)$ an $N$ verschiedenen Punkten $x_n$ abgetastet.
 Die resultierenden Knotenvariablen
-\begin{equation}
+\index{Knotenvariable}%
+\begin{equation*}
     u_n = u(x_n) 
     \text{,} \quad
     f_n = f(x_n)
     \quad \text{und} \quad
     v_n = v(x_n)
-\end{equation}
+\end{equation*}
 können dann mit einer stetigen Interpolationsfunktion mit schmalem Träger
-\begin{equation}
+\index{Interpolationsfunktion}%
+\begin{equation*}
     a_n(x) = \left\{ \begin{array}{ll}
         1
             & \text{für} \quad x = x_n \\
@@ -89,15 +94,15 @@ können dann mit einer stetigen Interpolationsfunktion mit schmalem Träger
         0
             & \text{sonst} 
     \end{array} \right.
-\end{equation}
+\end{equation*}
 multipliziert werden und zu einer durch $N$ Werte parametrisierten stetigen Funktion zusammengesetzt werden:
-\begin{equation}
+\begin{equation*}
     u(x) \approx \sum_{n=0}^{N}{u_n \cdot a_n(x)} 
     \text{,} \quad
     f(x) \approx \sum_{n=0}^{N}{f_n \cdot a_n(x)} 
     \quad \text{und} \quad
     v(x) \approx \sum_{n=0}^{N}{v_n \cdot a_n(x)}.
-\end{equation}
+\end{equation*}
 Dies funktioniert, da die Formfunktionen so gewählt wurden, dass an den Stützstellen jeweils nur eine der Formfunktionen von Null verschieden ist.
 Dabei hat die Formfunktion an ebendieser Stützstelle den Wert Eins.
 Das führt dazu, dass die interpolierte Funktion, die aus der Summe der einzelnen skalierten Formfunktionen entsteht, in den Stützstellen die gleichen Werte aufweist wie die ursprüngliche Funktion.
@@ -125,61 +130,73 @@ Für die Interpolationsfunktion $a(x)$ können verschiedene Ansätze gewählt we
 \end{itemize}
 
 \subsubsection{Linearer Ansatz}
-\input{papers/fem/fig/linearer_ansatz.tex}
-Der lineare Ansatz verwendet die in Abbildung~\ref{fem:1d:abb:linear}~(\subref{fem:1d:abb:linear:formfkt}) gezeigten linearen Funktionen
-\begin{equation}
+\input{papers/fem/fig/linearer_ansatz.tex}%
+\index{Ansatz!inear}%
+\index{linearer Ansatz}%
+Der lineare Ansatz verwendet die in
+Abbildung~\ref{fem:1d:abb:linear}~(\subref{fem:1d:abb:linear:formfkt})
+gezeigten linearen Funktionen
+\begin{equation*}
     a_n(x) = \left\{ 
     \def\arraystretch{\formfktStretch}
-    \begin{array}{ccc}
+    \begin{array}{clc}
+	\displaystyle
         1+\frac{x-x_n}{x_n - x_{n-1}} 
             & \text{für} & x_{n-1} < x < x_n \\
-
+	\displaystyle
         1-\frac{x-x_n}{x_{n+1} - x_n} 
             & \text{für} & x_n \leq x < x_{n+1} \\
 
         0
             & \text{sonst}
     \end{array} \right..
-\end{equation}
+\end{equation*}
 Diese Formfunktionen können mit dem Ansatz 
-\begin{equation}
+\begin{equation*}
     a_n(x) = c_1x + c_0
-\end{equation}
+\end{equation*}
 und den zu erfüllenden Bedingungen
-\begin{equation}
+\begin{equation*}
         a_n(x_n) = 1 
         \quad \text{und} \quad
         a_n(x_{n-1}) = a(x_{n+1}) = 0
-\end{equation}
+\end{equation*}
 hergeleitet werden.
 
 Die interpolierte Funktion $f_\text{linear} (x)$ folgt der vorgegebenen Funktion $f(x)$ nicht sehr präzise.
 Es ist also naheliegend, dass für eine bestimmte Menge Stützstellen mit dem linearen Ansatz nur bedingt genaue Resultate folgen werden.
 
 \subsubsection{Quadratischer Ansatz}
-\input{papers/fem/fig/quadratischer_ansatz.tex} 
+\input{papers/fem/fig/quadratischer_ansatz.tex}%
+\index{Ansatz!quadratisch}%
+\index{quadratischer Ansatz}%
 Für das Interpolieren mit dem quadratischen Ansatz muss das Vorgehen leicht angepasst werden, da sonst die Bedingung \eqref{fem:1d:zerlegung_v_eins} nicht erfüllt wird. 
 Wie beim linearen Fall werden im Definitionsbereich Knotenpunkte definiert und diese mit Elementen verbunden.
 Pro Element wird nun ein weiterer Knoten definiert. 
 Dieser wird oft in der Mitte des Elements gewählt und erhält seine eigene Formfunktion.
 Die Elemente werden anschliessend wieder durchnummeriert.
 
-Die in Abbildung~\ref{fem:1d:abb:quadratisch}~(\subref{fem:1d:abb:quadratisch:formfkt}) gezeigten Formfunktionen lauten
-\begin{align}
+Die in Abbildung~\ref{fem:1d:abb:quadratisch}\,(\subref{fem:1d:abb:quadratisch:formfkt})
+gezeigten Formfunktionen lauten
+\begin{align*}
     a_n(x) &= \left\{ 
     \def\arraystretch{\formfktStretch}
-    \begin{array}{ccc}
+    \begin{array}{clc}
+	\displaystyle
          \frac{1}{2} \left(\frac{x-x_{n-1}}{x_{n-2}-x_{n-1}}\right)^2 
         -\frac{1}{2}       \frac{x-x_{n-1}}{x_{n-2}-x_{n-1}}
             & \text{für} & x_{n-2} \leq x < x_{n-1} \\
+	\displaystyle
          \frac{1}{2} \left(\frac{x-x_{n  }}{x_{n-1}-x_{n  }}\right)^2 
         -\frac{3}{2}       \frac{x-x_{n  }}{x_{n-1}-x_{n  }} 
         +1  
             & \text{für} & x_{n-1} \leq x < x_n \\
+	\displaystyle
          \frac{1}{2} \left(\frac{x-x_{n  }}{x_{n+1}-x_{n  }}\right)^2 
         -\frac{3}{2}       \frac{x-x_{n  }}{x_{n+1}-x_{n  }} 
         +1  
             & \text{für} & x_{n-1} \leq x < x_n \\
+	\displaystyle
          \frac{1}{2} \left(\frac{x-x_{n+1}}{x_{n+2}-x_{n+1}}\right)^2 
         -\frac{1}{2}       \frac{x-x_{n+1}}{x_{n+2}-x_{n+1}}
             & \text{für} & x_{n-1} \leq x < x_n \\
@@ -189,35 +206,37 @@ Die in Abbildung~\ref{fem:1d:abb:quadratisch}~(\subref{fem:1d:abb:quadratisch:fo
     \intertext{für die Knoten an den Enden der Elemente und}
     b_n(x) &= \left\{ 
     \def\arraystretch{\formfktStretch}
-    \begin{array}{ccc}
+    \begin{array}{clc}
+	\displaystyle
         -\left(\frac{x-x_{n}}{x_{n}-x_{n-1}}\right)^2+1
             & \text{für} & x_{n-1} < x < x_n \\
+	\displaystyle
         -\left(\frac{x-x_{n}}{x_{n}-x_{n+1}}\right)^2+1
             & \text{für} & x_n \leq x < x_{n+1} \\
         0 
             & \text{sonst}
     \end{array} \right.
-\end{align}
+\end{align*}
 für die Knoten in der Mitte der Elemente.
 
 Diese Formfunktionen können mit den Ansätzen 
-\begin{equation}
+\begin{equation*}
     a_n(x) = c_2x^2 + c_1x + c_0
     \quad \text{bzw.} \quad
     b_n(x) = d_2x^2 + d_1x + d_0
-\end{equation}
+\end{equation*}
 und den Bedingungen 
-\begin{equation}
+\begin{equation*}
     a_n(x_n) = 1 
     \quad \text{und} \quad 
     a_n(x_{n-2}) = a_n(x_{n-1}) = a_n(x_{n+1}) = a_n(x_{n+2}) = 0
-\end{equation}
+\end{equation*}
 für Knotenpunkte am Ende der Elemente bzw.
-\begin{equation}
+\begin{equation*}
     b_n(x_n) = 1
     \quad \text{und} \quad 
     b_n(x_{n-1}) = b_n(x_{n+1}) = 0
-\end{equation}
+\end{equation*}
 für Knotenpunkte in der Mitte der Elemente hergeleitet werden.
 Dabei ist zu beachten, dass die Formfunktionen $a_n(x)$ aus zwei quadratischen Funktionen zusammensetzen: 
 Eine für den Bereich $x_{n-2} \leq x \leq x_n$ und eine für den Bereich $x_n \leq x \leq x_{n+2}$.
@@ -229,21 +248,25 @@ Dies ist nicht besonders schön.
 Abhilfe schafft der kubische Ansatz.
 
 \subsubsection{Kubischer Ansatz}
-\input{papers/fem/fig/kubischer_ansatz.tex}
+\input{papers/fem/fig/kubischer_ansatz.tex}%
+\index{kubischer Ansatz}%
+\index{Ansatz!kubisch}%
 Der kubische Ansatz bringt die Möglichkeit, den Wert der Funktion wie auch den Wert der Ableitung an den Stützstellen frei zu wählen.
 Dafür muss der Ansatz etwas erweitert werden:
-\begin{equation}
+\begin{equation*}
     u(x) \approx \sum_{n}{u_n \cdot a_n(x)} \rightarrow u(x) \approx \sum_{n}{\left(u_n \cdot a_n(x) + u'_n \cdot b_n(x)\right)}.
-\end{equation}
+\end{equation*}
 
 Die Formfunktionen 
-\begin{align}
+\begin{align*}
     a(x) &= \left\{ 
     \def\arraystretch{\formfktStretch}
-    \begin{array}{ccc}
+    \begin{array}{clc}
+	\displaystyle
         - 2 \cdot \left(\frac{x-x_{n-1}}{x_n-x_{n-1}}\right)^3 
         + 3 \cdot \left(\frac{x-x_{n-1}}{x_n-x_{n-1}}\right)^2 
             & \text{für} & x_{n-1} < x < x_n \\
+	\displaystyle
         - 2 \cdot \left(\frac{x-x_{n+1}}{x_n-x_{n+1}}\right)^3 
         + 3 \cdot \left(\frac{x-x_{n+1}}{x_n-x_{n+1}}\right)^2 
             & \text{für} & x_n \leq x < x_{n+1} \\
@@ -253,68 +276,74 @@ Die Formfunktionen
     \intertext{und}
     b(x) &= \left\{ 
     \def\arraystretch{\formfktStretch}
-    \begin{array}{ccc}
+    \begin{array}{clc}
+	\displaystyle
         \frac{(x-x_{n-1})^3}{(x_n-x_{n-1})^2}
         - \frac{(x-x_{n-1})^2}{x_n-x_{n-1}}
             & \text{für} & x_{n-1} < x < x_n \\
+	\displaystyle
         \frac{(x-x_{n+1})^3}{(x_n-x_{n+1})^2}
         - \frac{(x-x_{n+1})^2}{x_n-x_{n+1}}
             & \text{für} & x_n \leq x < x_{n+1} \\
         0
             & \text{sonst}
     \end{array} \right.
-\end{align}
+\end{align*}
 dargestellt in Abbildung~\ref{fem:1d:abb:kubisch}~(\subref{fem:1d:abb:kubisch:formfkt}), können mit dem Ansatz
-\begin{equation}
+\begin{equation*}
     a(x) = c_3x^3 + c_2x^2 + c_1x + c_0 
     \quad \text{bzw.} \quad
     b(x) = d_3x^3 + d_2x^2 + d_1x + d_0
-\end{equation}
+\end{equation*}
 und den Bedingungen 
-\begin{equation}
+\begin{equation*}
         a(x_n) = 1 
         \quad \text{und} \quad
         a(x_{n-1}) = a(x_{n+1}) = 0 
         \quad \text{sowie} \quad
         a'(x_{n-1}) = a'(x_n) = a'(x_{n+1}) = 0
-\end{equation}
+\end{equation*}
 und
-\begin{equation}
+\begin{equation*}
         b'(x_n) = 1 
         \quad \text{und} \quad
         b'(x_{n-1}) = b'(x_{n+1}) = 0 
         \quad \text{sowie} \quad
         b(x_{n-1}) = b(x_n) = b(x_{n+1}) = 0
-\end{equation}
+\end{equation*}
 hergeleitet werden.
 
-Die durch diese Funktionen interpolierte Funktion $f_\text{kubisch} (x)$ ist wie in Abbildung~\ref{fem:1d:abb:kubisch}~(\subref{fem:1d:abb:kubisch:vergleich}) zu sehen ist kaum mehr von der ursprünglichen Funktion $f(x)$ zu unterscheiden.
+Die durch diese Funktionen interpolierte Funktion $f_\text{kubisch}
+(x)$ ist wie in
+Abbildung \ref{fem:1d:abb:kubisch}~(\subref{fem:1d:abb:kubisch:vergleich})
+zu sehen ist kaum mehr von der ursprünglichen Funktion $f(x)$ zu
+unterscheiden.
 Dass der kubische Ansatz gute Resultate liefert, war zu erwarten, denn die Formfunktionen entsprechen den in Abschnitt \ref{buch:nichtdiff:section:splines} hergeleiteten Hermite-Polynomen.
 
 
 \subsection{Erstellen der Matrix\label{fem:1d:matrix_erstellen}}
 Um das Problem als Matrixgleichung zu repräsentieren, muss zunächst die Differenzialgleichung in der schwachen Form in ein lineares Gleichungssystem überführt werden.
 Mit den Approximationen 
-\begin{align}
+\begin{align*}
     u(x) &\approx \sum_i u_i \cdot a_i(x) \\
     f(x) &\approx \sum_i f_i \cdot a_i(x) \\
     v(x) &\approx \sum_j v_j \cdot a_j(x)
-\end{align}
+\end{align*}
 aus der Diskretisierung kann die schwache Form der Differenzialgleichung 
-\begin{equation}
+\begin{equation*}
     - \int_l u'(x) \cdot v'(x) \diff x = \int_l f(x) \cdot v(x) \diff x
-\end{equation}
+\end{equation*}
 als
-\begin{equation}
+\begin{equation*}
     - \int_l \biggl(\sum_i u_i \cdot a'_i(x)\biggr) \biggl(\sum_j v_j \cdot a'_j(x)\biggr) \diff x 
     = \int_l \biggl(\sum_i f_i \cdot a_i(x) \biggr) \biggl(\sum_j v_j \cdot a_j(x) \biggr) \diff x 
     \myforall v_i
-\end{equation}
+\end{equation*}
 geschrieben werden.
 Die vorherige Gleichung kann zu
-\begin{equation}
+\begin{equation*}
     - \int_l \sum_i u_i \cdot a'_i(x) \cdot a'_j(x) \diff x = \int_l \sum_i f_i \cdot a_i(x) \cdot a_j(x) \diff x \myforall j
-\end{equation}
+\end{equation*}
 vereinfacht werden.
 Dabei wird die Menge der Testfunktionen reduziert.
 Um nicht alle Testfunktionen mit beliebig breitem Träger berücksichtigen zu müssen, werden nur die $N$ verschiedenen Testfunktionen mit schmalstmöglichem Träger verwendet.
@@ -359,20 +388,20 @@ Das erhaltene Gleichungssystem lässt sich nun sehr gut als Matrizen, bei denen 
     \right),
 \end{multline}
 was kompakt als
-\begin{equation}
+\begin{equation*}
     -\mathbf{L}\vec{u} = \mathbf{M}\vec{f}
-\end{equation}
+\end{equation*}
 geschrieben wird.
 Auch gängig ist das Zusammenfassen von $\mathbf{M}\vec{f}$ zu $\vec{b}$, was zur Gleichung
-\begin{equation}
+\begin{equation*}
     \mathbf{L}\vec{u} + \vec{b} = 0
-\end{equation}
+\end{equation*}
 führt.
 
 $\mathbf{L}$ wird aufgrund des schmalen Trägers der Formfunktionen sehr schwach besetzt sein, da viele der Integrale
-\begin{equation}
+\begin{equation*}
     \quad \int_l a'_i(x) \cdot a'_j(x) \diff x 
-\end{equation}
+\end{equation*}
 Null sein werden.
 Von Null verschieden sind nur die Einträge, deren zugehörige Datenpunkte nebeneinander liegen.
 Die Matrix ist zudem symmetrisch, da es keine Rolle spielt in welcher Reihenfolge man die Testfunktionen multipliziert.
@@ -394,7 +423,7 @@ Wir betrachten das Gleichungssystem in der Form
     \label{fem:1d:gleichungssystem}
 \end{equation}
 Dieses kann, um die kommenden Schritte besser verständlich zu machen, in einem Gauss-Tableau als
-\begin{equation}
+\begin{equation*}
     \begin{array}{|ccccc|c|}
         \hline
         l_{11} & l_{12} & l_{13} & \cdots & l_{1N} & -b_1   \\
@@ -404,7 +433,7 @@ Dieses kann, um die kommenden Schritte besser verständlich zu machen, in einem 
         l_{N1} & l_{N2} & l_{N3} & \cdots & l_{NN} & -b_N   \\
         \hline
     \end{array}
-\end{equation}
+\end{equation*}
 repräsentiert werden.
 
 Das Ziel ist es nun also, die Anfangsbedingung
@@ -415,7 +444,7 @@ Das Ziel ist es nun also, die Anfangsbedingung
 in das Gleichungssystem einzufügen.
 Am einfachsten gelingt dies, indem man die $n$-te Zeile so umformt, dass sie die Gleichung \eqref{fem:1d:eq:anfangsbedingung} widerspiegelt.
 Ist beispielsweise $n = 2$ gegeben, so resultiert
-\begin{equation}
+\begin{equation*}
     \begin{array}{|ccccc|c|}
         \hline
         l_{11} & 
@@ -431,7 +460,7 @@ Ist beispielsweise $n = 2$ gegeben, so resultiert
         l_{N1} & l_{N2} & l_{N3} & \cdots & l_{NN} & -b_N   \\
         \hline
     \end{array}.
-\end{equation}
+\end{equation*}
 Die dabei ersetzte Gleichung sagt, wie jede Zeile der Matrix, etwas über den Bezug von den verschiedenen Knotenvariablen zueinander aus.
 Diese wird durch die Anfangsbedingung, die etwas über eine einzelne Variable aussagt, ersetzt.
 Es kann grundsätzlich irgendeine Zeile des Gleichungssystems durch die Anfangsbedingung ersetzt werden, denn da für die $N$ Unbekannten nach wie vor $N$ Gleichungen bestehen, kann das Gleichungssystem immernoch gelöst werden.
@@ -441,7 +470,7 @@ Durch die vorherige Operation wurde die Matrix asymmetrisch.
 Es sollte nun also die Symmetrie wieder hergestellt werden.
 Dazu bedienen wir uns dem im Gauss-Algorithmus angewandten Vorgehen zum Nullsetzen einer Spalte: Von jeder Zeile (ausser der $n$-ten bzw. hier der zewiten) wird ein Vielfaches der $n$-ten Zeile abgezogen.
 Es resultiert
-\begin{equation}
+\begin{equation*}
         \begin{array}{|ccccc|c|}
             \hline
             l_{11} & 0      & l_{13} & \cdots & l_{1N} & -b_1 - l_{12} \cdot c \\
@@ -451,35 +480,35 @@ Es resultiert
             l_{N1} & 0      & l_{N3} & \cdots & l_{NN} & -b_N - l_{N2} \cdot c \\
             \hline
         \end{array}.
-\end{equation}
+\end{equation*}
 Dabei ist leicht zu erkennen, dass homogene Anfangsbedingungen, also $c=0$, besonders einfach zu codieren sind, da der von $-\vec{b}$ subtrahierte Term Null sein wird.
 
 \subsubsection{Codieren von gegebenen Ableitungen}
 Da der lineare wie auch der quadratische Ansatz keinen direkten Weg bietet, die Ableitungen der Funktion $u(x)$ zu bestimmen, muss mit einem Trick Abhilfe geschafft werden: 
 Die Anfangsbedingung
-\begin{equation}
+\begin{equation*}
     u'(0) = 0
-\end{equation}
+\end{equation*}
 kann näherungsweise als 
-\begin{equation}
+\begin{equation*}
     u_0 = u_1
-\end{equation}
+\end{equation*}
 codiert werden. 
 
 Der kubische Ansatz hat dabei einen klaren Vorteil: 
 Der gegebene Wert der Ableitung kann direkt als 
-\begin{equation}
+\begin{equation*}
     u'_n = u'(0)
-\end{equation}
+\end{equation*}
 codiert werden.
 
 
 \subsection{Invertieren der Matrix\label{fem:1d:matrix_invertieren}}
 Zur Lösung der Poisson-Gleichung muss nun also ``nur'' noch die Matrix $\mathbf{L}$ invertiert werden.
 Das Resultat in Form des Spaltenvektors $\vec{u}$, der die Stützstellen der Lösungsfunktion enthält, lässt sich dann als
-\begin{equation}
+\begin{equation*}
     \vec{u} = - \mathbf{L}^{-1}\mathbf{M}\vec{f} = - \mathbf{L}^{-1}\vec{b}
-\end{equation}
+\end{equation*}
 berechnen.
 
 Zum Invertieren der Matrix gibt es optimierte Zerlegungsalgorithmen wie SuperLU, Cholmod oder Mumps, die die schwache Besetzung der Matrizen ausnützen, um diese effizient zu zerlegen.
