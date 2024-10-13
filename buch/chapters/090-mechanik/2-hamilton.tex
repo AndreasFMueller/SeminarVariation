@@ -28,9 +28,11 @@ L(t, q(t), \dot{q}(t))\,dt
 \end{equation}
 mit der Lagrange-Funktion $L(t,q,\dot{q})$, von $n$ Variablen
 $q=(q_1,\dots,q_n)$ beschrieben wird.
-Im Beispiel des Kapitza-Pendels waren dies die Koordinaten $\varphi(t)$
+Im Beispiel des Kapiza-Pendels waren dies die Koordinaten $\varphi(t)$
 und $h(t)$.
+\index{Kapiza-Pendel}%
 Nach dem Prinzip von Maupertuis ist $L$ die Differenz von kinetischer
+\index{Maupertuis}%
 und potenzieller Energie.
 
 Die Verwendung der verallgemeinerten Koordinaten $q_i$ vereinfacht
@@ -42,6 +44,7 @@ Das Beispiel des Kapiza-Pendels von
 Abschnitt \ref{buch:mechanik:lagrange:subsection:kapiza}
 demonstriert dies ebenso wie das Kapitel~\ref{chapter:doppelpendel}
 über das Doppelpendel.
+\index{Doppelpendel}%
 
 Die Verwendung der Variablen $q_i$ haben jedoch zwei Nachteile.
 Zunächst ist die Euler-Lagrange-Differentialgleichung eine
@@ -77,6 +80,7 @@ Grösse $v=y'$ als nicht unbedingt zweckmässig erwiesen.
 
 Der Impuls der newtonschen Mechanik ermöglicht, Erhaltungssätze auf besonders
 gut nachvollziehbare Weise zu formulieren.
+\index{Impuls}%
 Solche Erhaltungssätze können auch in komplizierteren Systemen
 vorhanden sein, die gewählten verallgemeinerten Koordinaten machen
 es jedoch schwierig, die Erhaltungsgrössen zu finden.
@@ -88,9 +92,9 @@ Die Euler-Lagrange-Differentialgleichungen für das Variationsproblem
 \eqref{buch:mechanik:hamilton:eqn:variation} haben die Form
 \[
 \frac{d}{dt}
-\frac{\partial L}{\partial \dot{q}_i}(t,q(t),\dot{q}(t))
+\frac{\partial L}{\partial \dot{q}_i}\bigl(t,q(t),\dot{q}(t)\bigr)
 =
-\frac{\partial L}{\partial q_i}(t,q(t),\dot{q}(t)),\qquad
+\frac{\partial L}{\partial q_i}\bigl(t,q(t),\dot{q}(t)\bigr),\qquad
 \text{mit $i=1,\dots,n$}.
 \]
 Schreibt man
@@ -126,7 +130,7 @@ p\dot{q}
 -
 L(t,q,\dot{q}).
 \]
-Der letzte Term ist als Skalarprodukt der beiden Vektoren $p$ und $\dot{q}$
+Der erste Term ist als Skalarprodukt der beiden Vektoren $p$ und $\dot{q}$
 zu lesen.
 Die Ableitung nach $q$ ist
 \[
@@ -145,7 +149,8 @@ Als Funktion von $q$, $\dot{q}$ und $p$ hängt $H$ also nicht von $\dot{q}_i$
 ab, kann also als eine Funktion von $q$ und $p$ allein geschrieben werden.
 
 \begin{definition}[Hamilton-Funktion]
-Die {\em Hamilton-Funktion} zur Lagrange-Funktion $L(t,q,\dot{q})$ ist
+\index{Hamilton-Funktion}%
+Die {\em Hamilton-Funktion} zur Lagrange-Funktion $L(t,$ $q,\dot{q})$ ist
 \[
 H(t,q,p)
 =
@@ -169,6 +174,7 @@ L
 T+V,
 \]
 die Hamilton-Funktion ist also die Gesamtenergie des Systems.
+\index{Gesamt-Energie}%
 
 %
 % Bewegungsgleichungen
@@ -190,7 +196,7 @@ Die Euler-Lagrange-Differentialgleichung ist
 =
 \frac{d}{dt} p_i.
 \]
-Damit kann di Bewegungsgleichung für den verallemeinerten Impuls $p_i$ auch als
+Damit kann die Bewegungsgleichung für den verallemeinerten Impuls $p_i$ auch als
 \[
 \frac{d}{dt}p_i
 =

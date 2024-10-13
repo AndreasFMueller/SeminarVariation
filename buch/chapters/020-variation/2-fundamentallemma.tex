@@ -6,13 +6,15 @@
 \section{Das Fundamentallemma
 \label{buch:variation:section:fundamentallemma}}
 \kopfrechts{Das Fundamentallemma}
-Im Fall des endlichdimensionalen Extremalproblems ist aus der
-Forderung, dass alle Richtungsableitung verschwinden müssen, 
+Im Fall des endlichdimensionalen Extremalproblems
+in Abschnitt~\ref{buch:fuvar:subsection:kritisch}
+und \ref{buch:fuvar:subsection:fundamentallemma}
+ist aus der Forderung, dass alle Richtungsableitung verschwinden müssen, 
 die Bedingung geworden, dass
 \[
 v\cdot\grad f = 0
 \]
-sein muss für alle Vektoren $v\in\mathbb{R}^n$.
+für alle Vektoren $v\in\mathbb{R}^n$ sein muss.
 Wir haben daraus geschlossen, dass der Gradient $\grad f=0$
 sein muss.
 Wir hatten dies das endlichdimensionale Fundamentallemma genannt,
@@ -69,8 +71,8 @@ ist beliebig oft stetig differenzierbar.
 \end{satz}
 
 \begin{proof}
-Es ist klar, dass die Funktion $f$ beliebig oft stetig differenzierbar
-ist in jedem Punkt $x\ne 0$.
+Es ist klar, dass die Funktion $f$ in jedem Punkt $x\ne 0$
+beliebig oft stetig differenzierbar ist.
 Es ist also nur nachzuweisen, dass $f(x)$ im Punkt $0$ beliebig
 oft stetig differenzierbar ist.
 
@@ -265,9 +267,13 @@ g_{x_0-\varepsilon,x_0+\varepsilon} (x)
 \,dx
 >
 \frac{f(x_0)}{2}
+\underbrace{
 \int_a^b
 g_{x_0-\varepsilon,x_0+\varepsilon} (x)
 \,dx
+}_{\displaystyle =1}
+=
+\frac{f(x_0)}{2}
 >
 0
 \]
@@ -287,18 +293,64 @@ wenn alle Richtungsableitungen verschwinden.
 Diese Schlussweise ist auch für Funktionen möglich, wenn man Funktionen
 ein Skalarprodukt definieren kann.
 
-\begin{definition}[$L^2$-Skalarprodukt]
+\begin{definition}[Quadratintegrierbare Funktion]
+\index{quadratintegrierbar}%
+Eine Funktion $f\colon[a,b]\to\mathbb{R}$ heisst {\em quadratintegrierbar},
+wenn das Integral
+\[
+\int_a^b |f(x)|^2\,dx
+<
+\infty
+\]
+ist.
+Die Menge der quadratintegrierbaren Funktionen wird mit
+$\mathscr{L}^2([a,b])$ bezeichnet.
+\end{definition}
+
+Stetige Funktionen auf einem abgeschlossenen Interval sind
+quadratintegrierbar.
+Für quadratintegrierbare Funktionen lässt sich eine Norm definieren, die wie
+die euklidische Norm eines endlichdimensionalen Vektorraums aus einem
+Skalarprodukt abgeleitet werden kann.
+
+\begin{definition}[$L^2$-Skalarprodukt, $L^2$-Norm]
 Das {\em Skalarprodukt} zweier quadratintegrierbarer Funktion $f$ und $g$
+\index{L2-Skalarprodukt@$L^2$-Skalarprodukt}%
+\index{L2-Norm@$L^2$-Norm}%
 auf dem Intervall $[a,b]$ ist definiert durch
 \[
 \langle f,g\rangle
 =
 \int_a^b f(x)g(x)\,dx.
 \]
+Die $L^2$-Norm $\| f\|_2$ ist
+\[
+\|f\|_2^2
+=
+\int_a^b |f(x)|^2\,dx
+=
+\langle f,f\rangle.
+\]
 \end{definition}
 
+Für die $L^2$-Skalarprodukt gelten analoge Gesetze wie für das
+Skalarprodukt endlichdimensionaler Vektoren, insbesondere gelten
+die Cauchy-Schwarz-Ungleichung
+\[
+|\langle f,g\rangle| \le \|f\|_2\,\|g\|_2
+\]
+mit Gleichheit genau dann, wenn $f$ und $g$  linear abhängig sind
+und die Dreiecksungleichung
+\[
+\|f+g\|_2 \le \|f\|_2 + \|g\|_2.
+\]
+Auch die Beweise sind identisch (Siehe \cite{buch:linalg}).
+Die $L^2$-Norm macht den Raum $\mathscr{L}^2([a,b])$ zu einem
+normierten Raum, der aber nicht vollständig ist.
+
 \begin{satz}[Fundamentallemma, Skalarproduktform]
-Wenn für eine stetige Funktion $f\colon[a,b]\to\mathbb{R}$ das Skalarprodukt
+Wenn für eine stetige Funktion $f$ auf dem Intervall $[a,b]$
+das Skalarprodukt
 \[
 \langle f,\varphi\rangle = 0
 \]

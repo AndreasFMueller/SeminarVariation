@@ -12,7 +12,7 @@ der Form $L(t,x,\dot{x})$ und damit ein Funktional der Form
 I(x)
 =
 \int_{t_0}^{t_1}
-L(t,x(t),\dot{x}(t))\,dt,
+L\bigl(t,x(t),\dot{x}(t)\bigr)\,dt,
 \]
 abhängig von einer Funktion $x\colon[t_0,t_1]\to\mathbb{R}$.
 In diesem Abschnitt soll definiert werden, was unter einer
@@ -48,11 +48,14 @@ sinnvoll, von der Invarianz einer Lagrange-Funktion zu sprechen.
 
 \begin{definition}[Invarianz einer Lagrange-Funktion]
 Eine Lagrange-Funktion heisst {\em invariant} unter einer differenzierbaren
+\index{Invarianz der Lagrange-Funktion}%
 Symmetrieabbildung $\varphi\colon\mathbb{R}^n\to\mathbb{R}^n$, wenn
 \[
-L(t,\varphi(x), D_x\varphi(\dot{x}))
+L\bigl(t,\varphi(x), D_x\varphi(\dot{x})\bigr)
 =
 L(t,x,\dot{x})
+=
+I(x)
 \]
 für alle $t$, $x$ und $\dot{x}$.
 \end{definition}
@@ -69,11 +72,11 @@ solchen Funktionen
 I(\varphi\circ x)
 =
 \int_{t_0}^{t_1}
-L(t,\varphi(x(t)),D_{x(t)}\varphi(\dot{x}(t)))
+L\bigl(t,\varphi(x(t)),D_{x(t)}\varphi(\dot{x}(t))\bigr)
 \,dt
 =
 \int_{t_0}^{t_1}
-L(t,x(t),\dot{x}(t))
+L\bigl(t,x(t),\dot{x}(t)\bigr)
 \,dt.
 \]
 Daraus kann man allerdings noch nicht schliessen, dass $x(t)$ genau
@@ -105,7 +108,7 @@ Ist nämlich $y(t,\varepsilon)$ ein Variation von $\varphi(x(t))$
 mit $y(t,0) = \varphi(x(t))$, dann ist $\varphi^{-1}(y(t,\varepsilon))$
 eine Variation der Funktion $x(t)$.
 Die Abbildung $\varphi$ ändert aber den Wert des Funktionals nicht,
-also ändert sich dadurch auch die Ableitung nach $\varepsilon$.
+also ändert sich dadurch auch die Ableitung nach $\varepsilon$ nicht.
 Verschwindet die Ableitung von $I(x(t,\varepsilon))$ nach $\varepsilon$
 für alle Variationen $x(t,\varepsilon)$ von $x(t)$, dann verschwindet
 auch die Ableitung von $I(y(t,\varepsilon))$ für alle Variationen
@@ -125,11 +128,13 @@ die zusätzlich stetig oder sogar differenzierbar von einem Parameter
 abhängen.
 
 \begin{definition}[Stetige Symmetrie]
+\index{stetige Symmetrie}%
+\index{Symmetrie!stetig}%
 Sei $h^s\colon \mathbb{R}^n\to\mathbb{R}^n$ für jeden Wert $s$
 eine invertierbare und differenzierbare Abbildung.
 Sie heisst eine {\em stetige Symmetrie} von $L$, wenn
 \[
-L(t, h^s(x), Dh^s(\dot{x}))
+L\bigl(t, h^s(x), Dh^s(\dot{x})\bigr)
 =
 L(t,x,\dot{x})
 \]
@@ -139,6 +144,8 @@ und $h^s$ hängt stetig von $s$ ab.
 \begin{definition}[Differenzierbare Symmetrie]
 Eine stetige Symmetrie 
 $h^s$ heisst {\em differenzierbar}, wenn $h^s(x)$
+\index{Symmetrie!differenzierbar}%
+\index{differenzierbare Symmetrie}%
 eine differenzierbare Funktion von $s$ ist.
 \end{definition}
 
@@ -187,25 +194,27 @@ Term wegen
 invariant.
 Der zweite Term ist genau dann invariant, wenn das Potential $V(x)$
 invariant ist, wenn also $V(O(x))=V(x)$ ist.
+Das Potential muss rotationsinvariant sein.
 \end{beispiel}
 
 %
 % Zeitunabhängige Lagrange-Funktion
 %
 \subsection{Zeitinvarianz}
+\index{Zeitinvarianz}%
 Die bisher betrachteten Symmetrien betrafen nur die abhängigen
 Variablen $x$ und $\dot{x}$, nicht die unabhängige Variable $t$.
 Die unabhängige Variable spielt eine spezielle Rolle, die nicht
 direkt mit den abhängigen Variablen vergleichbar ist.
 Eine Transformation der unabhängigen Variablen ändert auch den
 Definitionsbereich, so dass eine erweiterte Theorie nötig wird, 
-die in Abschnitt~\ref{buch:symmetrien:section:kontinuitaet}
+die in Abschnitt~\ref{buch:symmetrien:felder:subsection:divergenzform}
 besprochen wird.
 Ein einfacher Spezialfall ist der Fall, wo $L$ nicht von der
 Zeit abhängt, also $L(t,x,\dot{x})=L(x,\dot{x})$ geschrieben werden
 kann.
 In diesem Fall ergibt der Hamilton-Formalismus die Hamilton-Funktion
-$H=L-pq$, die ebenfalls nicht explizit von der Zeit abhängt, also
+$H=pq-L$, die ebenfalls nicht explizit von der Zeit abhängt, also
 auch in der Form $H(p,q)$ geschrieben werden kann.
 Nach den hamiltonschen Differentialgleichungen ist dann
 \begin{align*}
@@ -228,8 +237,9 @@ Nach den hamiltonschen Differentialgleichungen ist dann
 0.
 \end{align*}
 Somit ist $H(p,q)$ eine Erhaltungsgrösse.
-Im Falle einer zeitunabhängigen Lagrange-Funktion ist also die
+Im Falle einer zeitunabhängigen Lagrange-Funk\-tion ist also die
 Energie eine Erhaltungsgrösse.
+\index{Energie}%
 Auch in diesem Fall ergibt sich also ein Erhaltungssatz, wie ihn
 der Satz von Emmy Noether im nächsten Abschnitt für jede differenzierbare
 Symmetrie einer Lagrange-Funktion liefern wird.

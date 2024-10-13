@@ -1,0 +1,40 @@
+%
+% paper.tex -- Buch zum mathematischen Seminar Variationsprinzipien
+%
+% (c) 2022 Prof. Dr. Andreas Mueller, OST Ostschweizer Fachhochschule
+%
+\def\IncludeBookCover{0}
+\documentclass{book}
+\input{common/packages.tex}
+
+% additional packages used by the individual papers, add a line for
+% each paper
+\input{papers/common/addpackages.tex}
+
+% PDF info
+\hypersetup{
+pdftitle={Mathematisches Seminar Variationsprinzipien},
+pdfauthor={Andreas Müller}
+}
+
+% workaround for biblatex bug
+\makeatletter
+\def\blx@maxline{77}
+\makeatother
+\addbibresource{../chapters/references.bib}
+
+% Bibresources for each article
+\input{papers/common/addbibresources.tex}
+
+%\pgfplotsset{compat=1.12}
+\setlength{\headheight}{15pt} % fix headheight warning
+\DeclareGraphicsRule{*}{mps}{*}{}
+\begin{document}
+
+\input{common/macros.tex}
+
+\mainmatter
+
+\input{papers/schwimmen/main.tex}
+
+\end{document}

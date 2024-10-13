@@ -42,8 +42,8 @@ Gewichtes in kürzester Zeit vom Punkt $A$ zum anderen Punkt $B$ absteigt.
 Die Situation der Aufgabenstellung ist in
 Abbildung~\ref{buch:variation:problem:fig:bernoulli}
 dargestellt.
-Bernoulli hat als Lösung gefunden, dass die Kurve eine Ausschnitt
-aus einer Zykloide (in der Abbildung grau) sein muss.
+Bernoulli hat als Lösung gefunden, dass die Kurve ein Ausschnitt
+aus einer Zykloide (in der Abbildung rot) sein muss.
 Seine Lösung beruhte auf der Beobachtung, dass sich das Problem analog
 zu einem Lichtausbreitungsproblem ist, für welches Fermat bereits
 eine Lösung gefunden hat.
@@ -87,6 +87,7 @@ Koordinate abhängt.
 % Das Fermat-Problem
 %
 \subsection{Das Fermat-Prinzip}
+\index{Fermat-Prinzip}%
 Bereits Fermat hat erkannt, dass das Brechnungsgesetz von Snellius
 als Lösung eines Extremalproblems verstanden werden kann.
 
@@ -107,11 +108,13 @@ des Mediums ist.
 \index{optische Dichte}%
 Der Brechungsindex in einem Medium hängt ausserdem von der Wellenlänge ab.
 verschiedenfarbiges Licht wird daher mehr oder weniger stark gebrochen,
-Was in Prismen zur Aufspaltung des Lichts in ein Spektrum verwendet
+was in Prismen zur Aufspaltung des Lichts in ein Spektrum verwendet
 werden kann, aber in einem optischen System auch zu Farbrändern an
 hellen Objekten führen kann.
 Aus dem Fermatprinzip ergibt sich jetzt das Brechungsgesetz von 
 Snellius.
+\index{Brechungsgesetz}%
+\index{Snellius}%
 
 \begin{satz}[Snellius]
 \label{buch:variation:problem:satz:snellius}
@@ -132,7 +135,7 @@ gilt.
 \input{chapters/020-variation/fig/snellius.tex}
 
 \begin{proof}
-Ohne der Beschränkung der Allgmeinheit können wir auf die Betrachtung
+Ohne der Beschränkung der Allgemeinheit können wir auf die Betrachtung
 einer Ebene beschränken, die die beiden Punkte $A_i$ enthält und senkrecht
 auf der Grenzfläche steht (Abbildung~\ref{buch:variation:problem:fig:snellius}).
 Wir dürfen weiter annehmen, dass die $x$-Achse in der Grenzfläche liegt 
@@ -279,9 +282,9 @@ konnte durch eine lokale Bedingung an die Steigung der Kurve ersetzt
 werden.
 
 %
-% Die Bernoullische Lösung
+% Die bernoullische Lösung
 %
-\subsubsection{Die Bernoullische Lösung}
+\subsubsection{Die bernoullische Lösung}
 Bernoulli hat gefunden, dass die Brachistochrone ein Zykloidenbogen ist.
 Dies ist auch der Tatsache geschuldet, dass den Mathematikern seiner
 Zeit die Eigenschaften vieler ebener Kurven so gut bekannt waren, dass
@@ -306,6 +309,7 @@ Wir verwenden dazu die Parameterdarstellung einer Zykloide und
 setzten sie in die Gleichung~\eqref{buch:variation:problem:eqn:bernoullidgl}
 ein.
 Die Zykloide hat die Parametrisierung
+\index{Zykloide}%
 \[
 \left.
 \begin{aligned}
@@ -375,14 +379,15 @@ Differentialgleichung~\eqref{buch:variation:problem:eqn:bernoullidgl}.
 \label{buch:variation:problem:subsection:variationsproblem}}
 Die Bernoullische Lösung des Brachistochronenproblems verwendet die
 Analogie zum Fermat-Prinzip.
+\index{Brachistochronenproblem}%
 Eine solche Analogie ist nur selten möglich, daher soll das Problem
 jetzt in eine Form gebracht werden, in die auch viele ähnliche
 Optimierungsproblem gebracht werden können.
 
 Wir erinnern daran, dass die Geschwindigkeit des Massepunktes durch
-$v(y)=\sqrt{C-y}$ gegeben ist.
+$v(y)=\sqrt{C-y\mathstrut}$ gegeben ist.
 Damit lässt sich die Zeit berechnen, die der Massepunkt entlang der
-Lösungskurve braucht, wenn man diese als Funktion $y(x)$ mit beschreibt.
+Lösungskurve braucht, wenn man diese als Funktion $y(x)$ beschreibt.
 Die Punkte $A$ und $B$ sollen die $x$-Koordinaten $a$ bzw.~$b$ haben.
 Für das Kurvenstück zwischen den $x$-Koordinaten $x$ und $x+\Delta x$
 braucht der Massepunkt die Zeit
@@ -431,6 +436,7 @@ L(x,y,y')
 \label{buch:variation:problem:subsection:funktionale}}
 Die Variationsrechnung löst Optimierungsproblem, die von einer
 Funktion abhängen.
+\index{Funktional}%
 Um dies mathematisch präzis zu fassen, ist zunächst nötig, die Menge
 der in Frage kommenden Funktionen so einzuschränken, dass die interessierende
 Grösse überhaupt wohldefiniert ist.
@@ -444,6 +450,7 @@ die wir von den für unsere Untersuchungen zweckmässigen Funktionenmengen
 erwarten.
 
 \begin{definition}[Vektorraum]
+\index{Vektorraum}%
 Ein Vektorraum über den reellen Zahlen $\mathbb{R}$ ist einem Menge $V$ mit
 zwei Operationen, der Addition und der Multiplikation mit Skalaren
 \begin{align*}
@@ -455,33 +462,38 @@ mit den folgenden Eigenschaften.
 \begin{enumerate}
 \item
 Es gelten die Assoziativgesetze
+\index{Assoziativgesetz}%
 \begin{align*}
 (u+v)+w&=u+(v+w)&&\text{für alle $u,v,w\in V$}\\
 (\lambda \mu)v&=\lambda(\mu v)&&\text{für alle $\lambda,\mu\in\mathbb{R},\;v\in V$.}
 \end{align*}
 \item
-Es gibt einen Vektor $0\in V$ mit der Eigenschaft $0+v=v$ für alle
-Vektoren $v\in V$.
+Es gibt einen Vektor $0\in V$, den {\em Nullvektor}, mit der Eigenschaft
+$0+v=v$ für alle Vektoren $v\in V$.
+\index{Nullvektor}%
 \item
-Zu jedem Vektor $v\in V$ gibt es den entgegengesetzten Vektor $-v\in V$
-mit der Eigenschaft, dass $-v+v=0$ ist.
+Zu jedem Vektor $v\in V$ gibt es den {\em entgegengesetzten Vektor}
+$-v\in V$ mit der Eigenschaft, dass $-v+v=0$ ist.
+\index{entgegengesetzt}%
 \item
 Die Addition von Vektoren ist kommutativ: $u+v=v+u$ für alle $u,v\in V$.
+\index{kommutativ}%
 \item
 Es gelten die Distributivgesetze 
 \begin{align*}
 (\lambda + \mu) v &= \lambda v + \mu v
 	&\quad\text{für alle $\lambda,\mu\in\mathbb{R},\;v\in V$}\\
 \lambda(u+v)      &= \lambda u + \lambda v
-	&\quad\text{für alle $\lambda\in\mathbb{R},\;u,v\in V$}
+	&\quad\text{für alle $\lambda\in\mathbb{R},\;u,v\in V$.}
 \end{align*}
+\index{Distributivgesetz}%
 \end{enumerate}
 \end{definition}
 
 Die Mengen $\mathbb{R}^n$ erfüllen die genannten Eigenschaften, sind
 also Vektorräume.
 Die Definition eines Vektorraums ist aber viel allgemeiner, insbesondere
-gehören dazu auch Mengen von Funktionen.
+gehören dazu auch Vektorräume von Funktionen.
 Damit wird es möglich, die Berechnungen in $\mathbb{R}^n$ auf Funktionen
 auszudehnen.
 Zum Beispiel bilden die stetigen Funktionen auf einem Intervall einen
@@ -494,7 +506,7 @@ C([a,b])
 =
 \{f\colon[a,b]\to\mathbb{R}\mid \text{$f$ ist stetig}\}
 \]
-der stetigen Funktionen bildet einen Vektorraum.
+der auf dem Intervall $[a,b]$ stetigen Funktionen bildet einen Vektorraum.
 Die Operationen sind die punktweise Addition von Funktionen und die
 Multiplikation der Werte mit Skalaren, für $f,g\in C([a,b])$ und
 $\lambda\in \mathbb{R}$ ist
@@ -587,7 +599,7 @@ Begriff des Grenzwertes zu definieren.
 \begin{definition}[Cauchy-Folge, Grenzwert]
 Eine Folge $(x_n)_{n\in\mathbb{N}}$ in $V$ in einem normierten Raum $V$
 mit der Norm $\|\cdot\|$
-heisst eine Cauchy-Folge, wenn es für jedes $\varepsilon>0$ eine
+heisst eine {\em Cauchy-Folge}, wenn es für jedes $\varepsilon>0$ eine
 \index{Cauchy-Folge}%
 $N\in \mathbb{N}$ gibt derart, dass
 \[
@@ -609,8 +621,10 @@ $x$ der Grenzwert von $(x_n)_{n\in\mathbb{N}}$ ist.
 Der durch die Supremum-Norm definierte Konvergenzbegriff ist die gleichmässige
 Konvergenz.
 Zur Erinnerung:
-Eine Folge $f_n$ von Funktionen heisst gleichmässig konvergent gegen die
-Funktion $f$, wenn es zu jedem
+Eine Folge $f_n$ von Funktionen heisst {\em gleichmässig}
+gegen die
+\index{gleichmässig konvergent}%
+Funktion $f$ {\em konvergent}, wenn es zu jedem
 $\varepsilon >0$ ein $N\in\mathbb{N}$ gibt derart, dass
 \[
 |f_n(x) - f(x)|<\varepsilon\quad\forall n>N\text{ und }x\in [a,b].
@@ -633,20 +647,20 @@ wenn jede Cauchy-Folge in $V$ einen Grenzwert hat.
 \end{definition}
 
 \begin{beispiel}
-Die Menge $C^1([0,2])$
-der stetigen Funktionen auf dem Intervall $[0,2]$ ist ein normierter
-Raum mit der Norm
+Die Menge $\mathscr{L}^1([0,2])$
+der auf auf dem Intervall $[0,2]$ integrierbaren kann mit der Norm
 \[
 \|f\|_1
 =
 \int_0^2 |f(x)|\,dx,
 \]
-die auch die $L^1$-Norm heisst.
+zu einem normierten Raum gemacht werden.
+Sie heisst auch die $L^1$-Norm.
 \index{L1-Norm@$L^1$-Norm}%
 Zunächst ist nachzuprüfen, dass dies tatsächlich eine Norm ist.
 Die Definitheit und die Homogenität von $\|\cdot\|_1$ ist klar, nur
 die Dreiecksungleichung erfordert etwas Arbeit.
-Für Funktionen $f,g\in L^1([0,2])$ gilt
+Für Funktionen $f,g\in \mathscr{L}^1([0,2])$ gilt
 \begin{align*}
 \|f+g\|_1
 &=
@@ -666,13 +680,13 @@ was die Dreeicksungleichung beweist.
 Eine Cauchy-Folge in der $L^1$-Norm muss aber nicht unbedingt einen
 stetigen Grenzwert haben.
 Die Funktionen
-\(
+\[
 f_n(x) =
 \begin{cases}
 x^n&\quad x< 1\\
 1&\quad x\ge 1
 \end{cases}
-\)
+\]
 haben die $L^1$-Norm
 \begin{align*}
 \|f_n-f_m\|_1
@@ -713,7 +727,7 @@ f(x)
 \]
 Diese Funktion ist aber nicht stetig, da sie bei $x=1$ einen
 Sprung hat.
-Bezüglich der $L^1$-Norm ist $C^1([a,b])$ als im Allgemeinen
+Bezüglich der $L^1$-Norm ist $\mathscr{L}^1([a,b])$ als im Allgemeinen
 kein Banach-Raum.
 \end{beispiel}
 
@@ -739,6 +753,7 @@ wenn
 \).
 Eine Funktion $f\colon U\to V$ heisst {\em stetig}, wenn sie in
 jedem Punkt von $U$ stetig ist.
+\index{stetig}%
 \end{definition}
 
 Das Bild einer Folge $x_n\in U$, die gegen $x_0\in U$ konvergiert,
@@ -787,9 +802,9 @@ wobei $o(v)$ bedeutet, dass für diese Funktion
 gilt.
 \end{definition}
 
-Funktionen auf einem Vektorraum mit reellen Werten weren auch
-{\em Funktionale} genannt.
-\index{Funktional}
+Reellwertige Funktionen auf einem Vektorraum von Funktionen
+werden auch {\em Funktionale} genannt.
+\index{Funktional}%
 Vor dem 20.~Jahrhundert wurde häufig ein Untersschied zwischen
 Funktionen von endlich vielen reellen Variablen und Funktionen
 von einem unendlichdimensionalen Vektorraum gemacht.
@@ -802,7 +817,8 @@ verwendende Norm Rechenschaft abzulegen.
 %
 % Grundaufgaben der Variationsrechnung
 %
-\subsection{Grundaufgaben der Variationsrechnung}
+\subsection{Grundaufgaben der Variationsrechnung
+\label{buch:variation:subsection:grundaufgaben}}
 \input{chapters/020-variation/fig/grundaufgaben.tex}
 Das Brachistochronenproblem sucht eine Kurve, die zwei Punkte miteinander
 verbindet.
@@ -810,7 +826,8 @@ Dies ist bekannt als das {\em Anfangspunkt-Endpunkt-Problem}.
 \index{Anfangspunkt-Endpunkt-Problem}.
 Andere Aufgabenstellungen sind jedoch auch denkbar.
 Ein Schwimmer startet seine Flussüberquerung an einem Punkt
-und will am anderen Ufer das Wasser wieder verlassen.
+und will am anderen Ufer das Wasser wieder verlassen
+(Kapitel~\ref{chapter:schwimmen}).
 In welchem Punkt das geschieht, ist weniger wichtig.
 In dieser Situation ist der Anfangspunkt vorgegeben, der Endpunkt ist
 weniger eingeschränkt, er muss nur auf einer Kurve liegen.

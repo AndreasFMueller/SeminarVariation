@@ -61,7 +61,7 @@ derart, dass
 \begin{align*}
 y(x_1(\alpha_1)) &= y_1(\alpha_1)
 &&\text{und}&
-y(x_1(\beta_1)) &= y_1(\beta_1)
+y(x_2(\beta_2)) &= y_2(\beta_2)
 \end{align*}
 gilt.
 Die Kurve $\gamma_1$ heisst auch die {\em Anfangskurve}, $\gamma_2$
@@ -96,7 +96,7 @@ varieren können, muss der Definitionsbereich der Lagrange-Funktion
 jedes mögliche $x$-Intervall beinhalten, welches für verschiedene
 Werte von $\alpha$ und $\beta$ entstehen kann.
 Für den Definitionsbereich $I\times\mathbb{R}\times\mathbb{R}$  der
-Lagrange-Funktion $L(x,y,y')$ muss also
+Lagrange-Funktion $F(x,y,y')$ muss also
 \[
 [x_1(\alpha),x_2(\beta)]\subset I
 \qquad\forall \alpha\in I_\alpha\wedge \beta\in I_\beta
@@ -112,8 +112,10 @@ Gegeben sind zwei Kurven $\gamma_1$ und $\gamma_2$ wie in
 Definition~\ref{buch:nebenbedingungen:transversal:def:zwischenkurven}
 und eine zulässige Lagrange-Funktion 
 \[
-F\colon I\times \mathbb{R}\times\mathbb{R}\to\mathbb{R}
-: (x,y,y') \mapsto L(x,y,y').
+F\colon
+I\times \mathbb{R}\times\mathbb{R}\to\mathbb{R}
+:
+(x,y,y') \mapsto F(x,y,y').
 \]
 Gesucht ist eine Funktion $y(x)$ und Werte $\alpha$ und $\beta$ derart,
 dass $y(x_1(\alpha)) = y_1(\alpha)$ und $y(x_2(\beta))=y_2(\beta)$
@@ -141,7 +143,7 @@ es könnte mit der Euler-Lagrange-Differential\-gleichung der Lagrange-Funktion
 $L$ gelöst werden.
 Zu jedem Paar von Parameterwerten $\alpha$ und $\beta$ ergeben sich
 zwei Punkte $\gamma_1(\alpha)$ und $\gamma_2(\beta)$, zwischen denen
-eien Lösung zu finden ist.
+eine Lösung zu finden ist.
 Es bleibt dann nur noch das Problem zu lösen, $\alpha$ und $\beta$ so
 zu bestimmen, dass das
 Integral~\eqref{buch:nebenbedingungen:transversal:eqn:integral}
@@ -161,14 +163,14 @@ allgemeinen Lösung und den Parametern der Randkurve.
 Dieser ist nicht unbedingt einfacher, als der Zusammenhang zwischen den
 Parametern und dem Wert des Integrals.
 
-Gesucht ist daher eine Methode, die Integrationskonstanten zu bestimmen
+Gesucht ist daher eine Methode, die die Integrationskonstanten zu bestimmen
 erlaubt, ohne dass dazu die Abhängigkeit von den Kurvenparametern bekannt
 sein muss.
 Die kürzeste Verbindung zwischen einem Punkt und einer Ebene ist die
 Gerade durch den Punkt, die auf der Ebene senkrecht steht.
 Die Orthogonalität ist also eine geometrische Bedingung über den Endpunkt
 der Kurve auf der Ebene, die den Endpunkt vollständig festlegt, ohne dass
-dazu die Abhängikgeit der Kurvenlänge vom Endpunkt bekannt sein muss.
+dazu die Abhängigkeit der Kurvenlänge vom Endpunkt bekannt sein muss.
 Eine Bedingung dieser Art würde einen Zusammenhang zwischen der Richtung
 der Kurve $y(x)$ an den Endpunkten und den Tangentialvektoren
 \[
@@ -180,7 +182,7 @@ der Kurve $y(x)$ an den Endpunkten und den Tangentialvektoren
 =
 \frac{d}{d\beta}\gamma_1(\beta)
 \]
-an die Endkurven herstellund.
+an die Endkurven herstellen.
 Mit einer solchen Bedingung könnten $\alpha$ und $\beta$ bestimmt und
 damit auch die
 Aufgabe~\ref{buch:nebenbedingungen:transversal:aufgabe:allg}
@@ -198,7 +200,7 @@ Integral und es bleibt
 \[
 \delta I
 =
-\vec{f}_1\cdot\vec{r}_1 - \vec{f}_0\cdot\vec{r}_0.
+\vec{f}_2\cdot\vec{r}_2 - \vec{f}_1\cdot\vec{r}_1.
 \]
 Die Variation hängt jetzt nur noch von den zwei Parametern
 $\alpha$ und $\beta$ ab, und zwar hängt der erste Term auf der rechten
@@ -219,7 +221,7 @@ Aufgabe~\ref{buch:nebenbedingungen:transversal:aufgabe:allg}
 löst die Euler-Lagrange-Differentialgleichung und erfüllt ausserdem
 die Bedingungen
 \begin{equation}
-\vec{r}_i\cdot\vec{f}_i=0.
+\vec{r}_i\cdot\vec{f}_i=0,\qquad i=1,2.
 \end{equation}
 Der Tangentialvektor $\vec{r}_i$ steht also senkrecht auf dem Vektor,
 \begin{equation}
@@ -232,8 +234,9 @@ F(x_i, y(x_i),y'(x_i))-y'(x_i)\frac{\partial F}{\partial y'}(x_i,y(x_i),y'(x_i))
 \displaystyle 
 \frac{\partial F}{\partial y'}(x_i,y(x_i),y'(x_i))
 \end{pmatrix},
+\qquad i=1,2,
 \end{equation}
-der allein durch die Werte $x_0 = x_0(\alpha)$ und $x_1=x_1(\beta)$
+der allein durch die Werte $x_1 = x_1(\alpha)$ und $x_2=x_2(\beta)$
 und die Lösungsfunktion $y(x)$ bestimmt ist.
 \end{satz}
 
@@ -247,9 +250,9 @@ Das zu minimierende Funktional ist
 \[
 I(y)
 =
-\int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx
+\int_{x_1}^{x_2} F(x,y(x),y'(x))\,dx
 =
-\int_{x_0}^{x_1} \sqrt{1+y'(x)^2}\,dx
+\int_{x_1}^{x_2} \sqrt{1+y'(x)^2}\,dx
 \]
 mit der Lagrange-Funktion
 \[
@@ -277,9 +280,9 @@ Lösungen sind also Geraden $y(x)=ax+b$ mit $y'=a$.
 
 Der Richtungsvektor der Randgeraden sei
 \[
-\vec{r}_0
-=
 \vec{r}_1
+=
+\vec{r}_2
 =
 \vec{r}
 =
@@ -356,14 +359,14 @@ a
 -\frac{r_y}{r_x},
 \]
 die Steigung von $y(x)$ ist so, dass die Gerade in den Endpunkten senkrecht
-auf den Tangentialvektoren $\vec{r}_i$ ist.
+auf den Tangentialvektoren $\vec{r}_i$ steht.
 
 %
 % Randterme
 %
 \subsection{Randterme
 \label{buch:nebenbedingungen:transversal:subsection:randterme}}
-In diesem Abschnitt sollen Variationsproblem gelöst werden, in denen
+In diesem Abschnitt sollen Variationsprobleme gelöst werden, in denen
 nicht nur ein Integral minimiert werden soll, sondern ein Funktional,
 welches zusätzlich von den Randpunkten abhängig ist.
 
@@ -372,8 +375,8 @@ welches zusätzlich von den Randpunkten abhängig ist.
 %
 \subsubsection{Aufgabenstellung}
 In einem Anfangspunkt-Endpunkt-Problem muss die Lösung einen Punkt
-$\gamma_0(\alpha)$ auf einer mit $\alpha$ parametrisierten Anfangskurve
-und $\gamma_1(\beta)$ auf einer mit $\beta$ parametrisierten Endkurve
+$\gamma_1(\alpha)$ auf einer mit $\alpha$ parametrisierten Anfangskurve
+und $\gamma_2(\beta)$ auf einer mit $\beta$ parametrisierten Endkurve
 miteinander verbinden.
 Die beiden Parameter $\alpha$ und $\beta$ sind im Rahmen der Problemlösung
 ebenfalls zu bestimmen.
@@ -384,32 +387,32 @@ aber das Funktional
 \[
 I(y)
 =
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 F(x,y(x),y'(x))
 \,dx
 +
-f_1(y(x_1))
+f_2(y(x_2))
 -
-f_0(y(x_0))
+f_1(y(x_1))
 \]
 zusätzlich von Werten von $y(x)$ an den Endpunkten des Intevalls
 abhängt.
-Die beiden Funktionen $f_0$ und $f_1$ heissen auch die {\em Randterme}
+Die beiden Funktionen $f_1$ und $f_2$ heissen auch die {\em Randterme}
 \index{Randterm}%
 des Funktionals $I(y)$.
 
 \begin{aufgabe}
 \label{buch:nebenbedingungen:transversal:aufgabe:randterme}
-Finde eine Funktion $y\colon[x_0,x_1]\to\mathbb{R}$, die das Funktional
+Finde eine Funktion $y\colon[x_1,x_2]\to\mathbb{R}$, die das Funktional
 \begin{equation}
 I(y)
 =
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 F(x,y(x),y'(x))\,dx
 +
-f_1(y(x_1))
+f_2(y(x_2))
 -
-f_0(y(x_0))
+f_1(y(x_1))
 \label{buch:nebenbedingungen:transversal:eqn:randterme}
 \end{equation}
 extremal macht.
@@ -422,14 +425,14 @@ extremal macht.
 Für die Lösung der
 Aufgabe~\ref{buch:nebenbedingungen:transversal:aufgabe:randterme}
 berechnen wir wie gewohnt die Variation mit einer Funktion
-$\eta:[x_0,x_1]\to\mathbb{R}$, wobei wir aber nicht annehmen dürfen,
+$\eta:[x_1,x_2]\to\mathbb{R}$, wobei wir aber nicht annehmen dürfen,
 dass $\eta$ an den Intervallenden verschwindet.
 Die Variation ist
 \begin{align*}
 \frac{d}{d\varepsilon}I(y+\varepsilon\eta)
 \bigg|_{\varepsilon=0}
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \frac{\partial F}{\partial y}(x,y(x),y'(x))\eta(x)
 +
 \frac{\partial F}{\partial y'}(x,y(x),y'(x))\eta'(x)
@@ -437,12 +440,12 @@ Die Variation ist
 \\
 &\qquad
 +
-f_1'(y(x_1))\eta(x_1)
+f_2'(y(x_2))\eta(x_2)
 -
-f_0'(y(x_0))\eta(x_0).
+f_1'(y(x_1))\eta(x_1).
 \intertext{Durch partielle Integration erhalten wir}
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
 \frac{\partial F}{\partial y}(x,y(x),y'(x))
 +
@@ -455,11 +458,11 @@ f_0'(y(x_0))\eta(x_0).
 +
 \biggl[
 \frac{\partial F}{\partial y'}(x,y(x),y'(x))\eta(x)
-\biggr]_{x_0}^{x_1}
+\biggr]_{x_1}^{x_2}
 +
-f_1'(y(x_1))\eta(x_1)
+f_2'(y(x_2))\eta(x_2)
 -
-f_0'(y(x_0))\eta(x_0).
+f_1'(y(x_1))\eta(x_1).
 \end{align*}
 Für Variationen $\eta$, die in den Endpunkten des Intervalls verschwinden,
 bleibt nur der Integralterm.
@@ -471,34 +474,34 @@ Wir betrachten jetzt Variationen $\eta$, die am Intervallende nicht
 verschwinden.
 Die Funktionen 
 \[
-\eta_0(x)
-=
-\frac{
-g_{x_0-\varepsilon,x_0+\varepsilon}(x)
-}{
-g_{x_0-\varepsilon,x_0+\varepsilon}(x_0)
-}
-\qquad\text{und}\qquad
 \eta_1(x)
 =
 \frac{
 g_{x_1-\varepsilon,x_1+\varepsilon}(x)
 }{
-g_{x_1-\varepsilon,x_1+\varepsilon}(x_0)
+g_{x_1-\varepsilon,x_1+\varepsilon}(x_1)
+}
+\qquad\text{und}\qquad
+\eta_2(x)
+=
+\frac{
+g_{x_2-\varepsilon,x_2+\varepsilon}(x)
+}{
+g_{x_2-\varepsilon,x_2+\varepsilon}(x_1)
 }
 \]
-für $x$ im Intervall $[x_0,x_1]$ sind beliebig oft stetig differenzierbar
+für $x$ im Intervall $[x_1,x_2]$ sind beliebig oft stetig differenzierbar
 und nehmen die Werte
 \begin{align*}
-\eta_0(x_0) &= 1 & \eta_0(x_1) &= 0
+\eta_1(x_1) &= 1 & \eta_1(x_2) &= 0
 \\
-\eta_1(x_0) &= 0 & \eta_1(x_1) &= 1
+\eta_2(x_1) &= 0 & \eta_2(x_2) &= 1
 \end{align*}
 und haben die Träger
 \begin{align*}
-\operatorname{supp}\eta_0 &= [x_0,x_0+\varepsilon]
+\operatorname{supp}\eta_1 &= [x_1,x_1+\varepsilon]
 &&\text{und}&
-\operatorname{supp}\eta_1 &= [x_1-\varepsilon,x_1],
+\operatorname{supp}\eta_2 &= [x_2-\varepsilon,x_2],
 \end{align*}
 sie sind also zulässige Variationen.
 Da für die Funktion $y(x)$  Euler-Lagrange-Differential\-gleichung
@@ -506,13 +509,13 @@ gilt, trägt das Integral nichts zur Variation bei, es bleibt dann nur
 \begin{align*}
 \delta I(y)
 &=
--\frac{\partial F}{\partial y'}\bigl(x_0,y(x_0),y'(x_0)\bigr) - f_0'(y(x_0))
-&&\text{für $\eta_0$}
+-\frac{\partial F}{\partial y'}\bigl(x_1,y(x_1),y'(x_1)\bigr) - f_1'(y(x_1))
+&&\text{für $\eta_1$}
 \intertext{und}
 \delta I(y)
 &=
-\phantom{-}\frac{\partial F}{\partial y'}\bigl(x_1,y(x_1),y'(x_1)\bigr) + f_1'(y(x_1))
-&&\text{für $\eta_1$.}
+\phantom{-}\frac{\partial F}{\partial y'}\bigl(x_2,y(x_2),y'(x_2)\bigr) + f_2'(y(x_2))
+&&\text{für $\eta_2$.}
 \end{align*}
 Da $\delta I$ auch für diese Funktionen $\eta_i$ verschwinden müssen,
 ergibt sich der folgende Satz.
@@ -525,9 +528,9 @@ wird extremal für Funktionen $y(x)$, die die
 Euler-La\-gran\-ge-Differentialgleichung für die Lagrange-Funktion $F$ erfüllen
 und ausserdem die Bedingungen
 \begin{align}
-\frac{\partial F}{\partial y'}\bigl(x_0,y(x_0),y'(x_0)) &= -f_0'(y(x_0)\bigr)
-&&\text{und}&
 \frac{\partial F}{\partial y'}\bigl(x_1,y(x_1),y'(x_1)) &= -f_1'(y(x_1)\bigr)
+&&\text{und}&
+\frac{\partial F}{\partial y'}\bigl(x_2,y(x_2),y'(x_2)) &= -f_2'(y(x_2)\bigr)
 \label{buch:nebenbedingungen:transversal:eqn:randtermbed}
 \end{align}
 erfüllen.
@@ -601,9 +604,9 @@ L(x,y,y')
 \]
 und den Randtermen
 \[
-f_0(y) = -\sigma y
+f_1(y) = -\sigma y
 \qquad\text{und}\qquad
-f_1(y) = \sigma y.
+f_2(y) = \sigma y.
 \]
 
 \input{chapters/050-nebenbedingungen/fig/meniskus.tex}
@@ -637,11 +640,11 @@ Die Randbedingungen sind
 \begin{align*}
 \frac{y'(-l)}{\sqrt{1+y'(-l)^2}}
 =
-\frac{\partial L}{\partial y'}(-l,y(-l),y'(-l)) &= f_0'(y(-l)) = -\sigma
+\frac{\partial L}{\partial y'}(-l,y(-l),y'(-l)) &= f_1'(y(-l)) = -\sigma
 \\
 \frac{y'(l)}{\sqrt{1+y'(l)^2}}
 =
-\frac{\partial L}{\partial y'}(l,y(l),y'(l)) &= f_1'(y(l)) = \sigma,
+\frac{\partial L}{\partial y'}(l,y(l),y'(l)) &= f_2'(y(l)) = \sigma,
 \end{align*}
 dies sind Gleichungen, mit denen die Steigung $y'(\pm l)$ am Rand ermittelt
 werden kann.
@@ -706,7 +709,7 @@ r
 \]
 und den Randterm
 \[
-f_1(z) = 2\pi a \sigma z.
+f_2(z) = 2\pi a \sigma z.
 \]
 Da nur ein Randterm vorliegt, ist noch eine weitere Bedingung notwendig,
 um die Lösung zu bestimmen.

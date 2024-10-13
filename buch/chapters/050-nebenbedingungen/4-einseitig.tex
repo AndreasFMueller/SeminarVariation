@@ -9,15 +9,15 @@
 Die bisher untersuchten Nebenbedingungen waren alle von der
 Form einer Gleichung, zum Beispiel 
 \[
-\int_{x_0}^{x_1} G(x,y(x),y'(x))\,dx = 0
+\int_{x_1}^{x_2} G\bigl(x,y(x),y'(x)\bigr)\,dx = 0
 \qquad\text{oder}\qquad
-y'(x_2) = c \quad\text{mit $x_2\in (x_0,x_1)$.}
+y'(x_*) = c \quad\text{mit $x_*\in (x_1,x_2)$.}
 \]
 Im ersten Fall liefert die Idee der Lagrange-Multiplikatoren
 eine Lösungsmethode.
 Das zweite Problem kann aufgeteilt werden in zwei Probleme auf
-den Teilintervallen $[x_0,x_2]$ und $[x_2,x_1]$ mit einem zusätzlichen
-Randterm an der Stelle $x=x_2$.
+den Teilintervallen $[x_1,x_*]$ und $[x_*,x_2]$ mit einem zusätzlichen
+Randterm an der Stelle $x=x_*$.
 Es sind aber auch Aufgabenstellungen denkbar, in denen Nebenbedingungen
 in der Form einer Ungleichung gegeben sind.
 
@@ -47,17 +47,17 @@ Die Gesamtlänge des Seils bleibt gleich, aber in der Seilauflagerung
 folgt es mindestens ein Stück weit deren Krümmung
 (Abbildung~\ref{buch:nebenbedingungen:fig:seilbahn}).
 
-Gesucht ist die Funktion $y(x)$, definiert auf dem Intervall $[x_0,x_1]$,
+Gesucht ist die Funktion $y(x)$, definiert auf dem Intervall $[x_1,x_2]$,
 welche das Seil beschreibt.
 Die Gesamtlänge des Seils ist 
 \[
-l(y) = \int_{x_0}^{x_1} \sqrt{1+y'(x)^2}\,dx,
+l(y) = \int_{x_1}^{x_2} \sqrt{1+y'(x)^2}\,dx,
 \]
 wie wir in früheren Beispielen gesehen haben.
 Im Kapitel~\ref{chapter:kettenlinie} wird dargelegt, dass das Seil
 versucht, die potentielle Energie
 \begin{equation}
-E(y) = \mu g \int_{x_0}^{x_1} y\sqrt{1+y'(x)^2}\,dx
+E(y) = \mu g \int_{x_1}^{x_2} y\sqrt{1+y'(x)^2}\,dx
 \label{buch:nebenbedingungen:einseitig:eqn:seilE}
 \end{equation}
 zu minimieren, wobei $g$ die Erdbeschleunigung und $\mu$ die
@@ -95,7 +95,7 @@ der Flächeninhalt
 F(y)
 =
 2\pi
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 y(x)\sqrt{1+y'(x)^2}\,dx.
 \label{buch:nebenbedingungen:einseitig:eqn:schlauchF}
 \end{equation}
@@ -115,7 +115,7 @@ Dies bedeutet, dass der Innenradius $y(x)$ des Schlauchs immer
 mindestens so gross sein muss wie der Radius $r(x)$ des Schlauchanschlusses.
 Die Funktion $y(x)$ muss daher eine Nebenbedingung der Form
 \[
-y(x) \ge r(x),\quad x\in[x_0,x_1]
+y(x) \ge r(x),\quad x\in[x_1,x_2]
 \]
 erfüllen.
 
@@ -150,21 +150,21 @@ oder Gebietseinschränkungen nicht mehr möglich ist.
 %
 \subsubsection{Aufgabenstellung}
 Gegeben ist ein Lagrange-Funktion
-$F\colon [x_0,x_1]\times\mathbb{R}\times\mathbb{R}\to\mathbb{R}:(x,y,y')\mapsto F(x,y,y')$ 
-und eine Funktion $\varphi\colon[x_0,x_1]\to\mathbb{R}$.
+$F\colon [x_1,x_2]\times\mathbb{R}\times\mathbb{R}\to\mathbb{R}:(x,y,y')\mapsto F(x,y,y')$ 
+und eine Funktion $\varphi\colon[x_1,x_2]\to\mathbb{R}$.
 
 \begin{aufgabe}
 \label{buch:nebenbedingungen:einseitig:aufgabe}
-Gesucht ist eine Funktion $y(x)$, definiert auf dem Intervall $[x_0,x_1]$,
-mit Randwerten $y(x_0) = y_0$ und $y(x_1)=y_1$, welche das Integral
+Gesucht ist eine Funktion $y(x)$, definiert auf dem Intervall $[x_1,x_2]$,
+mit Randwerten $y(x_1) = y_1$ und $y(x_2)=y_2$, welche das Integral
 \[
 I(y)
 =
-\int_{x_0}^{x_1} F(x,y(x),y'(x))\,dx
+\int_{x_1}^{x_2} F\bigl(x,y(x),y'(x)\bigr)\,dx
 \]
 minimiert und ausserdem die Gebietseinschränkung
 \[
-y(x) \ge \varphi(x), \quad x\in[x_0,x_1]
+y(x) \ge \varphi(x), \quad x\in[x_1,x_2]
 \]
 erfüllt.
 \end{aufgabe}
@@ -173,7 +173,7 @@ erfüllt.
 % Variation mit einseitiger Bindung
 %
 \subsubsection{Variation mit einseitiger Bindung}
-Auf einer Teilmenge $A$ des Definitionsbereichs $[x_0,x_1]$ folgt
+Auf einer Teilmenge $A$ des Definitionsbereichs $[x_1,x_2]$ folgt
 die Lösung der Funktion $\varphi(x)$, auf dem Rest ist die Differenz
 $y(x)-\varphi(x)>0$.
 Mit einer Variationsfunktionen $\eta(x)$ wird die erste Variation
@@ -198,41 +198,44 @@ Eingesetzt in das Integral erhalten wir
 \delta I
 &=
 \frac{d}{d\varepsilon}
-\int_{x_0}^{x_1}
-F(x,y(x)+\varepsilon \eta(x),y'(x)+\varepsilon \eta'(x))\,dx
+\int_{x_1}^{x_2}
+F\bigl(x,y(x)+\varepsilon \eta(x),y'(x)+\varepsilon \eta'(x)\bigr)\,dx
 \bigg|_{\varepsilon=0}
 \\
 &=
-\int_{x_0}^{x_1}
-\frac{\partial F}{\partial y}(x,y(x),y'(x))\eta(x)
+\int_{x_1}^{x_2}
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)\,\eta(x)
 +
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))\eta'(x)
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)\,\eta'(x)
 \,dx
 \\
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 +
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
+\,
 \eta(x)
 \,dx
 \intertext{Dieses Integral können wir zerlegen in ein Integral über $A$
-und eines über $[x_0,x_1]\setminus A$:}
+und eines über $[x_1,x_2]\setminus A$:}
 &=
 \int_A
 \biggl(
 \frac{\partial F}{\partial y} + \frac{d}{dx}\frac{\partial F}{\partial y'}
 \biggr)
+\,
 \eta(x)
 \,dx
 +
-\int_{[x_0,x_1]\setminus A}
+\int_{[x_1,x_2]\setminus A}
 \biggl(
 \frac{\partial F}{\partial y} + \frac{d}{dx}\frac{\partial F}{\partial y'}
 \biggr)
+\,
 \eta(x)
 \,dx
 \ge 0.
@@ -266,7 +269,7 @@ Wir führen den Beweis mit Widerspruch.
 Sei $x_*\in A$ eine Stelle, an der $f(x_*)<0$ ist.
 Dann gibt es wegen der Stetigkeit von $f$ auch eine kleine Umgebung $U$ von
 $x_*$, in der $f(x)$ immer noch $<\frac12f(x_*)<0$ ist.
-Mit einer deliebig oft differenzierbaren, positiven Funktion $\eta(x)$,
+Mit einer beliebig oft differenzierbaren, positiven Funktion $\eta(x)$,
 die nur in der Umgebung $U$ Werte $\ge 0$ hat, folgt wie im
 Fundamentallemma \ref{buch:variation:fundamentallemma:satz:fundamentallemma},
 dass
@@ -279,10 +282,10 @@ Folglich muss $f(x)\ge 0$ sein.
 
 Aus dem Lemma folgt also, dass
 \begin{equation}
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \ge 0
 \end{equation}
 gilt für $x\in A$.
@@ -294,15 +297,16 @@ gilt für $x\in A$.
 Ausserhalb von $A$ darf $\eta(x)$ positive und negative Werte annehmen.
 Wir betrachten daher jetzt Funktionen $\eta(x)$, die innerhalb von $A$
 verschwinden.
-Wir schreiben $B=[x_0,x_1]\setminus A$.
+Wir schreiben $B=[x_1,x_2]\setminus A$.
 Für eine solche Funktion muss
 \[
 \int_B \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
+\,
 \eta(x)
 \,dx
 \ge 0
@@ -318,6 +322,7 @@ Dasselbe muss auch für $-\eta(x)$ gelten, also
 \frac{d}{dx}
 \frac{\partial F}{\partial y'}
 \biggr)
+\,
 (-\eta(x))
 \,dx
 =
@@ -328,6 +333,7 @@ Dasselbe muss auch für $-\eta(x)$ gelten, also
 \frac{d}{dx}
 \frac{\partial F}{\partial y'}
 \biggr)
+\,
 \eta(x)
 \,dx
 \le 0,
@@ -346,19 +352,19 @@ löst, erfüllt dort, wo $y(x)=\varphi(x)$ ist, die Ungleichung
 \index{Euler-Lagrange-Differentialungleichung}%
 \index{Ungleichung, Differential-}%
 \begin{equation}
-\frac{\partial F}{\partial y'}(x,\varphi(x),\varphi'(x))
+\frac{\partial F}{\partial y'}\bigl(x,\varphi(x),\varphi'(x)\bigr)
 -
-\frac{d}{dx}\frac{\partial F}{\partial y'}(x,\varphi(x),\varphi'(x))
+\frac{d}{dx}\frac{\partial F}{\partial y'}\bigl(x,\varphi(x),\varphi'(x)\bigr)
 \ge
 0
 \label{buch:nebenbedingungen:einseitig:eqn:eldglu}
 \end{equation}
 und im Rest des Definitionsbereichs die Euler-Lagrange-Differentialgleichung
 \begin{equation}
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 =
 0.
 \label{buch:nebenbedingungen:einseitig:eqn:eldgl}
@@ -388,14 +394,14 @@ $y'(x_*+)$ und $y'(x_*-)$ ähnlich wie die Transversalitätsbedingungen.
 
 \begin{satz}[Anschlussbedingungen]
 \label{buch:nebenbedingungen:einseitig:satz:anschlussbedingungen}
-Ist $x_*$ ein Punkt in $[x_0,x_1]$, links von dem eine Lösung $y(x)$ der
+Ist $x_*$ ein Punkt in $[x_1,x_2]$, links von dem eine Lösung $y(x)$ der
 Aufgabe~\ref{buch:nebenbedingungen:einseitig:aufgabe}
 frei ist, während sie rechts davon an $\varphi(x)$ anliegt, also
 $y(x) = \varphi(x)$ für $x>x_*$ und nahe bei $x_*$, dann gilt
 für die linksseitige Steigung $y'(x_*-)$ von $y(x_*)$ die
 Bedingung
 \[
-F(x_*,y(x_*),y'(x_*-)) = F(x_*,\varphi(x_*),\varphi'(x_*)).
+F\bigl(x_*,y(x_*),y'(x_*-)\bigr) = F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr).
 \]
 \end{satz}
 
@@ -403,8 +409,8 @@ F(x_*,y(x_*),y'(x_*-)) = F(x_*,\varphi(x_*),\varphi'(x_*)).
 Indem wir uns nötigenfalls auf eine Umgebung von $x_*$ beschränken,
 können wir eine Variation $x(\varepsilon)=x_*+\varepsilon$ und
 $y(x,\varepsilon)$ derart wählen, dass die Funktion $x\mapsto y(x,\varepsilon)$
-für $x\in[x_0,x_*+\varepsilon]$ eine Lösung der
-Euler-Lagrange-Differentialgleichung ist, und in $x\in[x_*+\varepsilon,x_1]$
+für $x\in[x_1,x_*+\varepsilon]$ eine Lösung der
+Euler-Lagrange-Differentialgleichung ist, und in $x\in[x_*+\varepsilon,x_2]$
 mit der Funktion $\varphi(x)$ übereinstimmt.
 Eine solche Variation ist in
 Abbildung~\ref{buch:nebenbedingungen:einseitig:fig:einseitig}
@@ -416,19 +422,19 @@ Wir berechnen jetzt das Funktional
 \begin{align}
 I(y(x,\varepsilon))
 &=
-\int_{x_0}^{x_1} F(x,y(x,\varepsilon),y'(x,\varepsilon))\,dx
+\int_{x_1}^{x_2} F\bigl(x,y(x,\varepsilon),y'(x,\varepsilon)\bigr)\,dx
 \\
 &=
-\int_{x_0}^{x_*+\varepsilon} F(x,y(x,\varepsilon),y'(x,\varepsilon))\,dx
+\int_{x_1}^{x_*+\varepsilon} F\bigl(x,y(x,\varepsilon),y'(x,\varepsilon)\bigr)\,dx
 +
-\int_{x_*+\varepsilon}^{x_1} F(x,\varphi(x),\varphi'(x))\,dx.
+\int_{x_*+\varepsilon}^{x_2} F\bigl(x,\varphi(x),\varphi'(x)\bigr)\,dx.
 \notag
 \intertext{Die Ableitung des zweiten Integrals gibt den Wert an der unteren
 Grenze, also}
 &=
-\int_{x_0}^{x_*+\varepsilon} F(x,y(x,\varepsilon),y'(x,\varepsilon))\,dx
+\int_{x_1}^{x_*+\varepsilon} F\bigl(x,y(x,\varepsilon),y'(x,\varepsilon)\bigr)\,dx
 -
-F(x_*,\varphi(x_*),\varphi'(x_*).
+F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr).
 \notag
 \intertext{Die Ableitung des ersten Integrals ist durch die allgemeine
 Variationsformel von
@@ -436,13 +442,13 @@ Satz~\ref{buch:variation:allgemein:satz:allgemeinvariation1} gegeben, die}
 &=
 \vec{r}_* \cdot \vec{f}_*
 +
-\int_{x_0}^{x_*}
+\int_{x_1}^{x_*}
 \biggl(
 \frac{\partial F}{\partial y}-\frac{d}{dx}\frac{\partial F}{\partial y}
 \biggr)
 \frac{\partial y}{\partial\varepsilon}(x,0)\,dx
 -
-F(x_*,\varphi(x_*),\varphi'(x_*)
+F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr)
 \label{buch:nebenbedingungen:einseitig:eqn:allgvariation}
 \end{align}
 ergibt.
@@ -462,12 +468,12 @@ Formel~\eqref{buch:nebenbedingungen:allgemein:eqn:fi}, also
 =
 \begin{pmatrix}
 \displaystyle
-F(x_*,y(x_*),y'(x_*))
+F\bigl(x_*,y(x_*),y'(x_*)\bigr)
 -
-\frac{\partial F}{\partial y'}(x_*,y(x_*),y'(x_*))
+\frac{\partial F}{\partial y'}\bigl(x_*,y(x_*),y'(x_*)\bigr)
 \frac{\partial y}{\partial \varepsilon}(x_*,0)\\
 \displaystyle
-\frac{\partial F}{\partial y'}(x_*,y(x_*),y'(x_*))
+\frac{\partial F}{\partial y'}\bigl(x_*,y(x_*),y'(x_*)\bigr)
 \end{pmatrix}.
 \]
 Da $y(x,\varepsilon)$ links von $x_*$ eine Lösung der
@@ -479,28 +485,28 @@ $\varepsilon=0$ ausgerechnet werden, sie ist
 \begin{align*}
 \delta I(y)
 &=
-F(x_*,y(x_*),y'(x_*))
+F\bigl(x_*,y(x_*),y'(x_*)\bigr)
 -
-\frac{\partial F}{\partial y'}(x_*,y(x_*),y'(x_*))
+\frac{\partial F}{\partial y'}\bigl(x_*,y(x_*),y'(x_*)\bigr)
 \frac{\partial y}{\partial \varepsilon}(x_*,0)
 \\
 &\qquad
 +
-\frac{\partial F}{\partial y'}(x_*,y(x_*),y'(x_*))\varphi'(x_*)
+\frac{\partial F}{\partial y'}\bigl(x_*,y(x_*),y'(x_*)\bigr)\varphi'(x_*)
 -
-F(x_*,\varphi(x_*),\varphi'(x_*)).
+F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr).
 \intertext{Wegen $\partial y(x_*,0)/\partial \varepsilon=\varphi'(x_*)$
 heben sich der zweite und dritte Term weg und es bleibt}
 &=
-F(x_*,y(x_*),y'(x_*))
+F\bigl(x_*,y(x_*),y'(x_*)\bigr)
 -
-F(x_*,\varphi(x_*),\varphi'(x_*)).
+F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr).
 \end{align*}
 Da die Ableitung $\delta I(y)$ verschwindet, folgt
 \[
-F(x_*,y(x_*),y'(x_*))
+F\bigl(x_*,y(x_*),y'(x_*)\bigr)
 =
-F(x_*,\varphi(x_*),\varphi'(x_*)),
+F\bigl(x_*,\varphi(x_*),\varphi'(x_*)\bigr),
 \]
 womit die Aussage bewiesen ist.
 \end{proof}

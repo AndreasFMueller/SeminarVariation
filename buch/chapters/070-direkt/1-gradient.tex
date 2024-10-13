@@ -45,6 +45,7 @@ definiert.
 Sei $\Omega\subset\mathbb{R}^n$ ein Gebiet in $\mathbb{R}$ und
 $f\colon\Omega\to\mathbb{R}$ eine stetig differenzierbare
 Funktion.
+Finde das absolute Maximum oder Minimum von $f$ in $\Omega$.
 \end{aufgabe}
 
 %
@@ -77,9 +78,10 @@ Entlang der Geraden mit Richtungsvektor $\grad f(x)$ kann man also
 dem Minimum der Funktion $f$ näher kommen.
 
 \begin{definition}[Gradientabstieg]
+\index{Gradientabstieg}%
 Ist $f\colon\mathbb{R}^n\to\mathbb{R}$ eine stetig differenzierbare
 Funktion, $x_0\in\mathbb{R}$ und $\alpha\in\mathbb{R}$, dann heisst
-die Folge $(x_n)_{n\mathbb{N}}$ definiert durch
+die Folge $(x_n)_{n\in\mathbb{N}}$ definiert durch
 \[
 x_n = x_{n-1} - \alpha \grad f(x_{n-1})
 \]
@@ -233,7 +235,7 @@ schreiben, wobei $A$ eine symmetrische Matrix ist.
 %
 \subsubsection{Die Matrix $A$ ist definit}
 Damit eine solche Funktion ein Minimum hat, muss für jeden beliebigen
-Richtungsvektor $r$, $|r|=1$, der quadratische Term gegenüber dem
+Richtungsvektor $r$, $|r|=1$, der quadratische Term von $f$ gegenüber dem
 linearen Term dominant sein, für $t\to\pm\infty$ muss also
 \[
 f(tr)
@@ -439,7 +441,9 @@ Ein solcher Vektor heisst ein verallgemeinerter Eigenvektor im Sinne
 der folgenden Definition.
 
 \begin{definition}[Verallgmeinerter Eigenvektor]
-Seine $A$ und $B$ $n\times n$-Matrizen.
+\index{Eigenvektor, verallgemeinert}%
+\index{verallgemeinerter Eigenvektor}%
+Seien $A$ und $B$ $n\times n$-Matrizen.
 Ein Vektor $x\in\mathbb{R}$ heisst ein verallgemeinerter Eigenvektor,
 wenn es $\lambda\in\mathbb{R}\setminus \{0\}$ gibt derart, dass
 $Ax=\lambda Bx$.
@@ -490,16 +494,16 @@ x_{n-1} -\alpha \grad f(x_{n-1})
 =
 x_{n-1} - \alpha (2A x_{n-1} + b).
 \]
-Jetzt soll $\alpha$ so gewöhlt werden, dass das Extremum ausgehend von 
+Jetzt soll $\alpha$ so gewählt werden, dass das Extremum ausgehend von 
 $x_0$ in einem Schritt erreicht wird, also
 \[
 -\frac12 A^{-1}b
 =
 x_1
 =
-x_0 - \alpha (2A x_0 + b)
+x_0 - \alpha (2A x_0 + b).
 \]
-Dies ist eine $n$-dimensionale Vektorgleichung für die einzige Unbekannt
+Dies ist eine $n$-dimensionale Vektorgleichung für die einzige Unbekannte
 $\alpha$, man kann also keine Lösung erwarten.
 Dies ist auch aus geometrischen Gründen naheliegen: dazu müsste nämlich
 die Gerade durch $x_0$ mit dem Richtungsvektor $\grad f(x_0)$ durch das
@@ -546,7 +550,7 @@ Das Minimum wird erreicht für
 \frac{2\transpose{x_0}Av -\transpose{b}x_0}{\transpose{v}Av}
 \]
 Wenn eine Funktion ausreichend gut durch eine quadratische Funktion
-beschreibbar ist, kann man also dieser Methode versuchen, einen gut
+beschreibbar ist, kann man also mit dieser Methode versuchen, einen gut
 geeigneten Wert von $\alpha$ zu finden.
 
 

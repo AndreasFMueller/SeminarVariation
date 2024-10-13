@@ -90,7 +90,7 @@ geworden und kann mit den bereits behandelten Methoden gelöst werden.
 \subsubsection{Zusätzliche Bedingungen}
 Der Lösungsansatz durch Umparametrisierung wird weiter erschwert,
 wenn zusätzliche Bedingungen erfüllt werden muss.
-Wird zusätzlich Verlangt, dass der Punkt $x\in\mathbb{R}^3$ auf
+Wird zusätzlich verlangt, dass der Punkt $x\in\mathbb{R}^3$ auf
 dem Ellipsoid mit der Gleichung
 \begin{equation}
 g(x)
@@ -110,7 +110,8 @@ x_1\\x_2\\x_3
 1.
 \label{buch:fuvar:nebenbedingungen:eqn:beispielg},
 \end{equation}
-liegt, dann werden die zulässigen Punkte durch eine Kurve in der
+liegt, dann werden die zulässigen Punkte nach Übergang zu Kugelkoordinaten
+durch eine Kurve in der
 $(\varphi,\vartheta)$-Ebene beschrieben, für die eine Parametrisierung
 gefunden werden muss.
 Eine solche Lösung ist offenbar sehr kompliziert.
@@ -152,11 +153,11 @@ Tatsächlich nimmt die Funktion auch in jeder Richtung ausgehend
 von $x_0$ zu.
 Unter der Nebenbedingung gilt dies nicht mehr.
 Nur noch Änderungen von $x$, die auch die Nebenbedingung
-erfüllen, durfen in Betracht gezogen werden.
-Die von $x_0$ ausgehdenden Geraden $t\mapsto x_0+vt$ mit dem
+erfüllen, dürfen in Betracht gezogen werden.
+Die von $x_0$ ausgehenden Geraden $t\mapsto x_0+vt$ mit dem
 Richtungsvektor $v$ erfüllen die Nebenbedingungen nur dann, wenn
-die Menge $M=\{x\in\mathbb{R}^n \mid g(x)=0\}$ Geraden enthält, also
-typischerweise gar nicht.
+die Menge $M=\{x\in\mathbb{R}^n \mid g(x)=0\}$ diese Geraden enthält,
+also typischerweise gar nie.
 
 Es müssen also Kurven $t\mapsto x(t)\in\mathbb{R}^n$ mit $x(0)=x_0$
 betrachtet werden, die $g(x(t))=0$ für alle $t$ in einer kleinen Umgebung
@@ -204,15 +205,17 @@ $\grad g(x_0)\cdot v=0$ gilt.
 \end{lemma}
 
 Damit haben wir die folgende notwendige Bedingung gefunden.
+\input{chapters/010-fuvar/fig/nebenbedingung.tex}%
 
 \begin{satz}[Extremalproblem mit einer Nebenbedingung]
 \label{buch:fuvar:nebenbedingungen:satz:nebenbedingung}
 Sei $f\colon\mathbb{R}^n\to\mathbb{R}$ eine stetig differenzierbare
 Funktion, die im Punkt $x_0\in\mathbb{R}^n$ unter allen Punkten
-$x\in\mathbb{R}^n$ ein Extremum annimmt unter der Nebenbedingung
+$x\in\mathbb{R}^n$ ein Extremum unter der Nebenbedingung
 $g(x)=0$ für eine stetig differenzierbare Funktion
 $g\colon\mathbb{R}^n\to\mathbb{R}$ mit nicht verschwindendem Gradienten.
-Dann ist $\grad{f}(x_0)$ ein Vielfaches von $\grad{g}(x_0)$.
+Dann ist $\grad{f}(x_0)$ ein Vielfaches von $\grad{g}(x_0)$
+annimmt.
 \end{satz}
 
 \begin{proof}
@@ -233,7 +236,6 @@ ein Vielfaches von $\grad g(x_0)$ ist.
 
 Die Lösung des Extremalproblems in
 Satz~\ref{buch:fuvar:nebenbedingungen:satz:nebenbedingung}
-\input{chapters/010-fuvar/fig/nebenbedingung.tex}
 lässt sich auch wie in
 Abbildung~\ref{buch:fuvar:nebenbedingungen:fig:nebenbedingung}
 visualisieren.
@@ -442,6 +444,7 @@ In Matrixform sind dies die Lösungen des homogenen Gleichungssystems
 &\dots&
 \displaystyle\frac{\partial g_k}{\partial x_n}(x_0)
 \end{pmatrix}}
+\renewcommand{\arraystretch}{1.7}
 \begin{pmatrix}
 v_1\\
 \vdots\\

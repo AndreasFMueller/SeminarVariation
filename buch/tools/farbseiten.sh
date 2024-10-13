@@ -25,173 +25,172 @@ END {
 }' <<EOF
 # Kapitel  0
 # Kapitel  1
-17
-20
+8
+10
+12
+14
+21
+22
+23
+24
+29
 # Kapitel  2
-35
-36
-37
 38
-39
-41
-# Kapitel  3
+42
 48
-49
+50
 51
-62
+52
+56
 63
-66
-68
-69
-71
-75
-76
-# Kapitel  4
+64
+73
+# Kapitel  3
+83
 88
-91
 92
-99
+96
 101
-107
-117
-119
+102
+104
+# Kapitel  4
+108
+110
+111
+112
+121
+122
+123
+124
+126
+136
+138
+142
 # Kapitel  5
-139
-140
+146
+147
+152
 161
-# Kapitel  6
 165
-186
+170
+174
+# Kapitel  6
+178
+181
+187
+189
+196
 # Kapitel  7
-198
-200
-201
-204
-205
-215
-236
+209
+211
+212
+213
 # Kapitel  8
-243
+229
 246
-249
-250
-256
-258
-260
-261
-264
+254
 # Kapitel  9
-282
+259
 # Kapitel 10
-# Kapitel 11
-301
+273
+277
+# Teil 2
+288
+# Kapitel 11: Doppelpendel
+290
+292
+296
+297
+# Kapitel 12: Kettenlinie
+304
+305
 306
-309
+# Kapitel 13: Minimalflächen
+311
 312
 313
-314
 317
-319
-325
+318
+# Kapitel 14: Balkengleichung
+321
+323
 326
-327
-330
-332
-334
-335
-338
-341
-342
-346
-# Kapitel 12: Verfolgungskurven
+329
+333
+# Kapitel 15: Oberflächenwasserwellen
+350
+# Kapitel 16: Relativistische Mechanik
+355
 356
 361
-368
-# Kapitel 13: FM
+# Kapitel 17: Maxwell-Gleichungen als Variationsprinzip
+364
+367
 372
-373
-374
-375
 381
-382
-383
+# Kapitel 18: Geodäten
 384
-# Kapitel 14 parzyl
+385
 386
-390
-392
-# Kapitel 15 fresnel
-396
-397
+387
+389
 398
-399
-401
-# Kapitel 16 kreismembran
-410
-417
+400
+403
+# Kapitel 19: Elektrische Schaltungen
+408
+411
+412
+413
+414
+415
+# Kapitel 20: Antennen
 418
-419
-# Kapitel 17 sturmliouville
-# Kapitel 18 laguerre
-437
-443
-444
+420
+422
+423
+425
+426
+427
+# Kapitel 21: Finite Elemente
+432
+433
+435
+438
+441
 445
-446
 447
 448
 449
-# Kapitel 19 zeta
+# Kapitel 22: Die optimale Flussüberquerung
+451
 452
-454
-455
+453
+457
+# Kapitel 23: LEO
 460
-# Kapitel 20 0f1
-463
-465
+466
 467
 468
-469
-470
-# Kapitel 21 nav
-474
-475
-476
-480
+472
+# Kapitel 24: Warum sind Planeten Sphären
+477
+479
 482
-483
+484
 485
 486
-487
-488
-# Kapitel 22 transfer
-492
+# Kapitel 25: Variationsprinzipien für Algorithmen
+490
 493
-494
 495
 496
+497
 498
-# Kapitel 23 kra
-505
-507
-# Kapitel 24 kugel
-515
-517
-519
-522
-532
-533
-535
-543
-# Kapitel 25 elliptisch
-550
-552
-553
-554
-556
-557
-558
-559
-560
-# Kapitel 26
+# Kapitel 26: Cahn-Hilliard Gleichung
+509
+511
+513
+# Kapitel 27: Newtonsche Widerstandsformel
+516
 EOF

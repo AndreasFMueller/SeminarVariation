@@ -8,11 +8,12 @@
 \kopfrechts{Klassische Mechanik nach Lagrange}
 Die Basis der klassischen Mechanik wurde von Newton in der
 Principia gelegt.
+\index{Newton}%
 Insbesondere das zweite newtonsche Gesetz
 \(
 F=ma
 \)
-definiert Kräfte die Ursache für die Beschleunigung.
+Kräfte als die Ursache für die Beschleunigung definiert.
 Es ermöglicht, für jedes mechanische System eine Bewegungsgleichung
 in der Form einer Differentialgleichung zweiter Ordnung für die
 Koordinaten aufzustellen.
@@ -20,6 +21,7 @@ Der Prozess kann etwas schwerfällig sein, vor allem unter dem Einfluss
 externer Zwangskräfte.
 Das Maupertuissche Prinzip der geringsten Wirkung erlaubt, dies wesentlich
 zu vereinfachen.
+\index{Maupertuis}%
 Wir führen die Vorgehensweise in
 Abschnitt~\ref{buch:mechanik:lagrange:subsection:massepunkt}
 ein und zeigen in
@@ -36,8 +38,10 @@ Koordinaten herleiten lassen.
 Wir betrachten ein Teilchen mit der Masse $m$, welches sich in
 einem dreidimensionalen Koordinatensystem $\mathbb{R}^3$ bewegt.
 Die Bahn eines Teilchens ist eine Kurve
-$\mathbb{R}\to\mathbb{R}^3:t\to x(t)$.
+$\mathbb{R}\to\mathbb{R}^3:t\mapsto x(t)$.
 Die kinetische Energie hängt von der Geschwindigkeit 
+\index{Energie!kinetisch}%
+\index{kinetische Energie}%
 \[
 \dot{x}(t) = \frac{dx}{dt}(t)
 \]
@@ -54,6 +58,7 @@ Die Kräft sind dann durch den Gradienten $-\operatorname{grad}V(t,x)$
 gegeben.
 
 Aus der kinetischen Energie $T$ und dem Potential $V(t,x)$ lässt sich
+\index{Potential}%
 die Lagrange-Funktion $L(t,x,\dot{x}) = \frac12m\dot{x}^2-V(t,x)$ 
 zusammensetzen.
 Das Funktional
@@ -67,6 +72,7 @@ L(t,x(t),\dot{x}(t))
 \end{equation}
 heisst die Wirkung, sie hat die Dimension $\text{Energie}\times\text{Zeit}$.
 Für die Euler-Lagrange-Dif\-fe\-ren\-tialgleichung des
+\index{Wirkung}%
 Funktionals~\eqref{buch:mechanik:lagrange:eqn:wirkung} brauchen wir
 zunächst die partiellen Ableitungen
 \begin{align*}
@@ -177,6 +183,7 @@ Nach Division durch $m(1+f'(q)^2)$ erhält man die Form
 \subsection{Das Kapiza-Pendel
 \label{buch:mechanik:lagrange:subsection:kapiza}}
 \input{chapters/090-mechanik/fig/kapiza.tex}
+\index{Kapiza-Pendel}%
 Ein invertiertes Pendel mit der Länge $l$ und Masse $m$ wird im
 Drehpunkt mit der Kreisfrequenz $\omega$ vertikal bewegt
 (Abbildung~\ref{buch:mechanik:lagrange:fig:kapiza}).
@@ -186,7 +193,7 @@ aufstellt und dann die zugehörige Euler-Lagrange-Differentialgleichung
 ableitet.
 Wir werden die Bewegungsgleichungen etwas allgemeiner für eine
 vertikale Bewegung mit $h(t)$ berechnen und erst später auf eine
-Bewegung mit Kreisbewegung spezialisieren.
+harmonische Bewegung spezialisieren.
 
 Das Pendel kann beschrieben werden durch den Ablenkungswinkel $\varphi$
 von der Vertikalen.
@@ -249,7 +256,7 @@ V(t,\varphi)
 =
 mgy(t)
 =
-mgl\cos\varphi(t) + mgh(t)
+mgl\cos\varphi(t) + mgh(t).
 \]
 Insbesamt erhalten wir die zeitabhängige Lagrange-Funktion
 \[
@@ -291,7 +298,7 @@ Ausdrucks nach $t$, dafür bekommen wir
 &=
 ml^2 \ddot{\varphi}
 -ml\ddot{h}\sin\varphi
--ml\dot{h}\dot{\varphi}\cos\varphi
+-ml\dot{h}\dot{\varphi}\cos\varphi.
 \end{align*}
 Die Euler-Lagrange-Differentialgleichung ist jetzt
 \begin{align*}
@@ -309,7 +316,7 @@ mgl\sin\varphi
 -
 ml^2 \ddot{\varphi}
 +ml\ddot{h}(t)\sin\varphi
-+ml\dot{h}(t)\dot{\varphi}\cos\varphi
++ml\dot{h}(t)\dot{\varphi}\cos\varphi.
 \intertext{Der erste und der letzte Term heben sich weg:}
 &=
 mgl\sin\varphi
@@ -341,8 +348,11 @@ l\ddot{\varphi}
 (g-\omega^2 A \sin\omega t)\sin\varphi.
 \]
 Die Differentialgleichung kann mit der Mathieu-Differentialgleichung
+\index{Mathieu-Differentialgleichung}%
 oder mit Floquet-Theorie behandelt werden.
+\index{Floquet-Theorie}%
 Für hohe Frequenzen kann nach Pyotr Kapiza durch zeitliche Mittelung
+\index{Kapiza, Pyotr}%
 gezeigt werden, dass die Lage $\varphi=0$ eine stabile Lage wird.
 
 

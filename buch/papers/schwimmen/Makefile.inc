@@ -6,9 +6,11 @@
 dependencies-schwimmen =						\
 	papers/schwimmen/packages.tex					\
 	papers/schwimmen/main.tex					\
-	papers/schwimmen/references.bib				\
-	papers/schwimmen/teil0.tex					\
-	papers/schwimmen/teil1.tex					\
-	papers/schwimmen/teil2.tex					\
-	papers/schwimmen/teil3.tex
+	papers/schwimmen/01_herangehensweise.tex			\
+	papers/schwimmen/02_Naiver_weg.tex				\
+	papers/schwimmen/03_auswertung.tex				\
+	papers/schwimmen/fig-fluss.tex					\
+	papers/schwimmen/fig-ueberquerung.tex				\
+	papers/schwimmen/fig-grafiken.tex				\
+	papers/schwimmen/references.bib					
 

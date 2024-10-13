@@ -60,14 +60,14 @@ F
 :
 (x,y_1,\dots,y_n,y'_1,\dots,y'_n)\mapsto F(x,y_1,\dots,y_n,y'_1,\dots,y'_n)
 \end{equation*}
-Mit dieser Schreibweise wird das Funktional, das extremal gemacht 
-werden soll.
+Mit dieser Schreibweise wird das
 \[
 I(y)
 =
 \int_{x_0}^{x_1}
-F(x,y_1(x),\dots,y_n(x),y'_1(x),\dots,y'_n(x))\,dx.
+F\bigl(x,y_1(x),\dots,y_n(x),y'_1(x),\dots,y'_n(x)\bigr)\,dx
 \]
+Funktional, das extremal gemacht werden soll.
 Der Fall $n=1$ ist der bereits früher behandelte.
 
 Besonders elegant lässt sich die Theorie formulieren, wenn wir
@@ -125,46 +125,54 @@ Sie bilden zwei Vektoren, die wir als
 F(x,y,y')
 =
 \begin{pmatrix}
+\displaystyle
 \frac{\partial}{\partial y_1}F(x,y,y')\\
 \vdots\\
+\displaystyle
 \frac{\partial}{\partial y_n}F(x,y,y')
 \end{pmatrix}
 \qquad\text{und}\qquad
 \frac{\partial}{\partial y'} F(x,y,y')
 =
 \begin{pmatrix}
+\displaystyle
 \frac{\partial}{\partial y'_1}F(x,y,y')\\
 \vdots\\
+\displaystyle
 \frac{\partial}{\partial y'_n}F(x,y,y')
 \end{pmatrix}
 \end{equation}
 schreiben wollen.
 Ist $\eta(x)$ eine vektorwertige Funktion mit Komponenten
-$\eta_k(x)$, dann kann man jetzt 
-die in der Variation von
-$f(\varepsilon) = F(x,y(x)+\varepsilon\eta(x),y(x)+\varepsilon\eta(x))$
-benötigte Ableitung nach $\varepsilon$ schreiben:
+$\eta_k(x)$, dann kann man die in der Variation von
+$f(\varepsilon)
+=
+F\bigl(x,y(x)+\varepsilon\eta(x),y(x)+\varepsilon\eta(x)\bigr)$
+benötigte Ableitung nach $\varepsilon$ als
 \begin{align*}
 \frac{d}{d\varepsilon}f(\varepsilon)
 &=
 \sum_{k=1}^n
 \frac{\partial}{\partial y_k}
-F(x,y(x)+\varepsilon\eta(x),y'(x)+\varepsilon\eta'(x))
+F\bigl(x,y(x)+\varepsilon\eta(x),y'(x)+\varepsilon\eta'(x)\bigr)
+\,
 \eta_k(x)
 \\
 &\qquad
 +
 \frac{\partial}{\partial y'_k}
-F(x,y(x)+\varepsilon\eta(x),y'(x)+\varepsilon\eta'(x))
+F\bigl(x,y(x)+\varepsilon\eta(x),y'(x)+\varepsilon\eta'(x)\bigr)
+\,
 \eta_k'(x)
 \\
 &=
 \frac{\partial}{\partial y}
-F(x,y(x),y'(x))\cdot \eta(x)
+F\bigl(x,y(x),y'(x)\bigr)\cdot \eta(x)
 +
 \frac{\partial}{\partial y'}
-F(x,y(x),y'(x))\cdot \eta'(x)
+F\bigl(x,y(x),y'(x)\bigr)\cdot \eta'(x)
 \end{align*}
+schreiben.
 Der einzige Unterschied in der Notation gegenüber dem skalaren Fall
 ist, dass jeweils das Skalarprodukt zur Multiplikation mit $\eta(x)$
 bzw.~$\eta'(x)$ verwendet werden muss.
@@ -190,37 +198,37 @@ in den Endpunkten verschwinden und berechnen die Variation
 &=
 \frac{d}{dt}
 \int_a^b
-L(x,y_1(x)+t\eta_1(x),y_1'(x)+t\eta_1'(x),\dots,
-y_r(x)+t\eta_r(x),y_r'(x)+t\eta_r'(x))
+L\bigl(x,y_1(x)+t\eta_1(x),y_1'(x)+t\eta_1'(x),\dots,
+y_r(x)+t\eta_r(x),y_r'(x)+t\eta_r'(x)\bigr)
 \,dx
 \bigg|_{t=0}
 \notag
 \\
 &=
 \int_a^b
-\frac{\partial L}{\partial y_1}\eta_1(x)
+\frac{\partial L}{\partial y_1}\,\eta_1(x)
 +
-\frac{\partial L}{\partial y'_1}\eta'_1(x)
+\frac{\partial L}{\partial y'_1}\,\eta'_1(x)
 +
 \dots
-\frac{\partial L}{\partial y_r}\eta_r(x)
+\frac{\partial L}{\partial y_r}\,\eta_r(x)
 +
-\frac{\partial L}{\partial y'_r}\eta'_r(x)
-\,dx
+\frac{\partial L}{\partial y'_r}\,\eta'_r(x)
+\,dx.
 \notag
 \intertext{Die Terme mit Ableitungen von $\eta'_i(x)$ können durch partielle
 Integration umgeformt werden:}
 &=
 \int_a^b
-\frac{\partial L}{\partial y_1}\eta_1(x)
+\frac{\partial L}{\partial y_1}\,\eta_1(x)
 +\dots+
-\frac{\partial L}{\partial y_r}\eta_r(x)
+\frac{\partial L}{\partial y_r}\,\eta_r(x)
 \,dx
 +
 \biggl[
-\frac{\partial L}{\partial y'_1}\eta_1(x)
+\frac{\partial L}{\partial y'_1}\,\eta_1(x)
 +
-\frac{\partial L}{\partial y'_r}\eta_r(x)
+\frac{\partial L}{\partial y'_r}\,\eta_r(x)
 \biggr]_a^b
 \\
 &\qquad
@@ -228,12 +236,14 @@ Integration umgeformt werden:}
 \int_a^b
 \frac{d}{dx}
 \frac{\partial L}{\partial y'_1}
+\,
 \eta_1(x)
 +
 \dots
 +
 \frac{d}{dx}
 \frac{\partial L}{\partial y'_r}
+\,
 \eta_r(x).
 \notag
 \intertext{Der mittlere Term verschwindet, weil die Funktionen
@@ -244,7 +254,7 @@ Die Variation ist daher}
 \int_a^b
 \biggl(
 \frac{\partial L}{\partial y_1}-\frac{d}{dx}\frac{\partial L}{\partial y'_1}
-\biggr)\eta_1(x)
+\biggr)\,\eta_1(x)
 \,dx
 +
 \dots
@@ -252,7 +262,7 @@ Die Variation ist daher}
 \int_a^b
 \biggl(
 \frac{\partial L}{\partial y_r}-\frac{d}{dx}\frac{\partial L}{\partial y'_r}
-\biggr)\eta_r(x)
+\biggr)\,\eta_r(x)
 \,dx.
 \label{buch:variation:mehrere:eqn:summe}
 \end{align}
@@ -265,16 +275,16 @@ Nach dem Fundamentallemma folgt daher der folgende Satz.
 \label{buch:variation:mehrere:satz:rfunktionen}
 Das Integral
 \[
-\int_a^b L(x,y_1(x),y_1'(x),\dots,y_r(x),y'_r(x))\,dx
+\int_a^b L\bigl(x,y_1(x),y_1'(x),\dots,y_r(x),y'_r(x)\bigr)\,dx
 \]
 mit einer Lagrange-Funktion für $r$ Funktionen $y_1(x),\dots,y_r(x)$
-nimmt einen stationären Wert an für Funktionen %$y_1(x),\dots,y_r(x)$,
+nimmt einen stationären Wert an für Funktionen,
 welche das Differentialgiechungssystem
 \begin{equation}
-\frac{\partial L}{\partial y_k}(x,y_1(x),y'_1(x),\dots,y_r(x),y'_r(x))
+\frac{\partial L}{\partial y_k}\bigl(x,y_1(x),y'_1(x),\dots,y_r(x),y'_r(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial L}{\partial y'_k}(x,y_1(x),y'_1(x),\dots,y_r(x),y'_r(x))
+\frac{\partial L}{\partial y'_k}\bigl(x,y_1(x),y'_1(x),\dots,y_r(x),y'_r(x)\bigr)
 =
 0,
 \label{buch:variation:mehrerefunktionen:eqn:reulerlagrange}
@@ -306,47 +316,51 @@ Gesucht ist wie früher ein stationärer Punkt des Integrals
 \[
 I
 =
-\int_a^b L(x,y(x),y'(x))\,dx,
+\int_a^b L\bigl(x,y(x),y'(x)\bigr)\,dx,
 \]
 wobei $y\colon[a,b]\to\mathbb{R}^r$ eine vektorwertige Funktion ist.
 Um die Variation zu bilden, brauchen wir eine vektorwertige Funktion
-$\eta\colon[a,b]\to\mathbb{R}$, deren Komponenten in den Endpunkten
+$\eta\colon[a,b]\to\mathbb{R}^r$, deren Komponenten in den Endpunkten
 des Intervalls verschwinden.
 Die Variation ist dann
 \begin{align*}
 \delta I
 &=
 \frac{d}{dx}
-\int_a^b L(x, y(x)+t\eta(x), y'(x)+t\eta'(x))\,dx
+\int_a^b L\bigl(x, y(x)+t\eta(x), y'(x)+t\eta'(x)\bigr)\,dx
 \bigg|_{t=0}
 \\
 &=
 \int_a^b
-D_2L(x,y(x),y'(x)) \eta(x)
+D_2L\bigl(x,y(x),y'(x)\bigr)\, \eta(x)
 +
-D_3L(x,y(x),y'(x)) \eta'(x)
+D_3L\bigl(x,y(x),y'(x)\bigr)\, \eta'(x)
 \,dx
 \intertext{$D_2L$ ist eine Linearform, die auf den Vektor $\eta(x)$ 
 angewendet wird, und analog für $D_3L$.
 Für den Term mit $\eta'(x)$ verwenden wir wieder partielle Integration}
 &=
-\int_a^b D_2L(x,y(x),y'(x))\eta(x)\,dx
+\int_a^b D_2L\bigl(x,y(x),y'(x)\bigr)\,\eta(x)\,dx
 +
-\biggl[L(x,y(x),y'(x))\biggr]_a^b
+\biggl[L\bigl(x,y(x),y'(x)\bigr)\,\eta(x)\biggr]_a^b
 \\
 &\qquad
 -
-\int_a^b \frac{d}{dx}D_eL(x,y(x),y'(x)) \eta(x)\,dx.
+\int_a^b \frac{d}{dx}D_eL\bigl(x,y(x),y'(x)\bigr)\, \eta(x)\,dx.
 \intertext{Da die Komponenten von $\eta(x)$ an den Intervallenden
 verschwinden, fällt der mittlere Term weg und es bleibt}
 &=
-\int_a^b \bigl(D_2L(x,y(x),y'(x))-\frac{d}{dx}D_3L(x,y(x),y'(x))\bigr)
+\int_a^b
+\bigl(
+D_2L\bigl(x,y(x),y'(x)\bigr)-\frac{d}{dx}D_3L\bigl(x,y(x),y'(x)\bigr)
+\bigr)
+\,
 \eta(x)\,dx.
 \end{align*}
 Nach dem Fundamentallemma folgt die $r$-dimensionale
-Vektor-Differentialgleichung
+Vektordifferentialgleichung
 \[
-D_2L(x,y(x),y'(x)) - \frac{d}{dx}D_3L(x,y(x),y'(x)) = 0.
+D_2L\bigl(x,y(x),y'(x)\bigr) - \frac{d}{dx}D_3L\bigl(x,y(x),y'(x)\bigr) = 0.
 \]
 Beide Terme sind Linearformen auf $\mathbb{R}^r$, ihre Koeffizienten
 sind die einzelnen Differentialgleichungen von
@@ -389,7 +403,7 @@ aus der das Funktional
 I(\gamma)
 =
 \int_{t_0}^{t_1}
-L(t,\gamma(t),\dot{\gamma}(t))
+L\bigl(t,\gamma(t),\dot{\gamma}(t)\bigr)
 \,dt
 \label{buch:variation:mehrerefunktionen:eqn:funktionalkurve}
 \end{equation}
@@ -399,12 +413,12 @@ des Vektors $\gamma(t)$.
 
 Die Euler-Lagrange-Differentialgleichung für das Funktional
 \eqref{buch:variation:mehrerefunktionen:eqn:funktionalkurve}
-ist die $r$-dimensionale Vektordifferentialgleichung
+ist die $r$-di\-men\-sio\-na\-le Vektordifferentialgleichung
 \begin{equation}
-\frac{\partial L}{\partial x}(t,\gamma(t), \dot{\gamma}(t))
+\frac{\partial L}{\partial x}\bigl(t,\gamma(t), \dot{\gamma}(t)\bigr)
 -
 \frac{d}{dt}
-\frac{\partial L}{\partial \dot{x}}(t,\gamma(t),\dot{\gamma}(t))
+\frac{\partial L}{\partial \dot{x}}\bigl(t,\gamma(t),\dot{\gamma}(t)\bigr)
 =
 0.
 \label{buch:variation:mehrerefunktionen:eqn:eulerlagrangekurve}
@@ -419,8 +433,8 @@ sind stationäre Punkte des Funktionals
 %
 % Das homogene Problem
 %
-\subsection{Das homogene Variationsproblem
-\label{buch:variation:mehrerefunktionen:subsection:homogen}}
+%\subsection{Das homogene Variationsproblem
+%\label{buch:variation:mehrerefunktionen:subsection:homogen}}
 
 
 

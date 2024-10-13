@@ -19,11 +19,11 @@ notwendig, dass
 \[
 R(x)
 =
-\frac{\partial^2F}{\partial y^{\prime 2}}(x,y(x),y'(x))
+\frac{\partial^2F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr)
 \ge
 0
 \]
-im ganzen Intervall $[x_0,x_1]$ ist.
+im ganzen Intervall $[x_1,x_2]$ ist.
 \end{satz}
 
 \begin{definition}[Legendre-Bedingung]
@@ -32,11 +32,12 @@ Man sagt, eine Lagrange-Funktion $F(x,y,y')$ erfüllt die
 \index{Legendre-Bedingung}%
 für eine Funktion $y(x)$, wenn 
 \[
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x)) \ge 0.
+\frac{\partial^2 F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr) \ge 0.
 \]
 $F$ erfüllt sogar die {\em starke Legendre-Bedingung}, wenn
+\index{Legendre-Bedingung!stark}%
 \[
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x)) > 0
+\frac{\partial^2 F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr) > 0
 \]
 gilt.
 \end{definition}
@@ -88,20 +89,22 @@ wenn auch nicht differenzierbar an den Stellen $x_*\pm d$.
 
 Zunächst ist $|\eta(x)|\le b$ für alle $x$, der erste Summand
 des Integrals kann daher wegen
-\[
+\begin{align*}
 \biggl|
-\int_{x_0}^{x_1} S(x)\eta(x)^2\,dx
+\int_{x_1}^{x_2} S(x)\eta(x)^2\,dx
 \biggr|
-=
+&=
 \biggl|
 \int_{x_*-d}^{x_*+d} S(x)\eta(x)^2\,dx
 \biggr|
-\le
+\\
+&\le
 \int_{x_*-d}^{x_*+d} |S(x)|\cdot |\eta(x)|^2\,dx
-\le
+\\
+&\le
 b^2
 \int_{x_*-d}^{x_*+d} |S(x)|\,dx
-\]
+\end{align*}
 beliebig klein gemacht werden, indem $a$ klein gewählt wird.
 Für die Ableitung gilt
 \[
@@ -115,7 +118,7 @@ Für die Ableitung gilt
 \]
 Der zweite Summand des Integrals wird damit zu
 \begin{align*}
-\int_{x_0}^{x_1} R(x) \eta'(x)^2\,dx
+\int_{x_1}^{x_2} R(x) \eta'(x)^2\,dx
 &=
 \int_{x_*-d}^{x_*+d} R(x)\eta'(x)^2\,dx
 \\
@@ -130,7 +133,7 @@ Perioden ist die halbe Intervalllänge, somit wird das Integral zu}
 &=
 -ab^2
 \frac{(c+\frac12)^2\pi^2}{d^2}
-2d
+d
 =
 -\frac{ab^2(c+\frac12)^2\pi^2}{d}
 \end{align*}
@@ -140,12 +143,13 @@ geeignet grosses $c$ gewählt wird.
 So wird die zweite Variation
 \begin{align}
 \delta^2I(y)
-=
-\int_{x_0}^{x_1} S(x)\eta(x)^2 + R(x)\eta'(x)^2\,dx
 &=
-\int_{x_0}^{x_1} S(x)\eta(x)^2\,dx
+\int_{x_1}^{x_2} S(x)\eta(x)^2 + R(x)\eta'(x)^2\,dx
+\\
+&=
+\int_{x_1}^{x_2} S(x)\eta(x)^2\,dx
 +
-\int_{x_0}^{x_1} R(x)\eta'(x)^2\,dx
+\int_{x_1}^{x_2} R(x)\eta'(x)^2\,dx
 \notag
 \\
 &\le

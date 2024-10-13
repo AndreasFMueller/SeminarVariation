@@ -8,144 +8,20 @@
 %
 \section{Herleitung
 \label{schwimmen:section:naiver_weg}}
-\rhead{Problemstellung}
+\kopfrechts{Problemstellung}
 
+Hier ist eine Schritt für Schritt Darstellung der Herleitung zur optimalen Flussüberquerung dargestellt. Als Inspiration der Bilder und der Herangehensweise wurde an die Forumsfrage in \cite{schwimmen:mathForum} angelehnt. 
 
-
-% \begin{figure}
-%     \centering
-       
-   
-
-%     \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
-    
-%     \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
-% %uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
-
-% %Curve Lines [id:da608977851192717] 
-% \draw [color={rgb, 255:red, 65; green, 117; blue, 5 }  ,draw opacity=1 ][line width=3]    (300,110) .. controls (340,80) and (493.51,138.06) .. (530,100) ;
-% %Shape: Polygon Curved [id:ds9392726871646548] 
-% \draw  [fill={rgb, 255:red, 74; green, 144; blue, 226 }  ,fill opacity=1 ] (300,112) .. controls (312.68,95.2) and (403.92,107.66) .. (420,110) .. controls (436.08,112.34) and (510.65,122.34) .. (530,102) .. controls (549.35,81.66) and (549.3,143.91) .. (528,168) .. controls (506.7,192.09) and (432.13,176.66) .. (420,176) .. controls (407.87,175.34) and (322.13,158.94) .. (300,178) .. controls (277.87,197.06) and (287.32,128.8) .. (300,112) -- cycle ;
-% %Curve Lines [id:da6433547723995421] 
-% \draw [color={rgb, 255:red, 65; green, 117; blue, 5 }  ,draw opacity=1 ][line width=3]    (300,180) .. controls (340,150) and (493.51,208.06) .. (530,170) ;
-% %Shape: Polygon Curved [id:ds34371397326569686] 
-% \draw  [fill={rgb, 255:red, 85; green, 151; blue, 11 }  ,fill opacity=1 ] (300,182) .. controls (323.56,164.66) and (403.92,177.66) .. (420,180) .. controls (436.08,182.34) and (510.65,192.34) .. (530,172) .. controls (549.35,151.66) and (566.44,213.06) .. (522,210) .. controls (477.56,206.94) and (481.01,233.06) .. (432,218) .. controls (382.99,202.94) and (374.13,221.23) .. (342,216) .. controls (309.87,210.77) and (276.44,199.34) .. (300,182) -- cycle ;
-% %Shape: Polygon Curved [id:ds3342416894164969] 
-% \draw  [fill={rgb, 255:red, 85; green, 151; blue, 11 }  ,fill opacity=1 ] (324,78) .. controls (369.58,81.49) and (387.92,77.66) .. (404,80) .. controls (420.08,82.34) and (442.15,80.63) .. (470,82) .. controls (497.85,83.37) and (542.72,73.49) .. (528,98) .. controls (513.28,122.51) and (432.13,106.66) .. (420,106) .. controls (407.87,105.34) and (312.7,92.51) .. (300,108) .. controls (287.3,123.49) and (278.42,74.51) .. (324,78) -- cycle ;
-% %Curve Lines [id:da7504908272245701] 
-% \draw [color={rgb, 255:red, 155; green, 155; blue, 155 }  ,draw opacity=1 ]   (318,152) .. controls (369.01,135.91) and (378,182) .. (418,152) ;
-% %Curve Lines [id:da01966435364089625] 
-% \draw [color={rgb, 255:red, 155; green, 155; blue, 155 }  ,draw opacity=1 ]   (376,130) .. controls (427.01,113.91) and (436,160) .. (476,130) ;
-% %Curve Lines [id:da5498107083025197] 
-% \draw [color={rgb, 255:red, 155; green, 155; blue, 155 }  ,draw opacity=1 ]   (430,156) .. controls (481.01,139.91) and (490,186) .. (530,156) ;
-% %Shape: Circle [id:dp01198373160385724] 
-% \draw  [draw opacity=0][fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (406,106) .. controls (406,103.79) and (407.79,102) .. (410,102) .. controls (412.21,102) and (414,103.79) .. (414,106) .. controls (414,108.21) and (412.21,110) .. (410,110) .. controls (407.79,110) and (406,108.21) .. (406,106) -- cycle ;
-% %Shape: Circle [id:dp6252725126232461] 
-% \draw  [draw opacity=0][fill={rgb, 255:red, 245; green, 166; blue, 35 }  ,fill opacity=1 ] (406,176) .. controls (406,173.79) and (407.79,172) .. (410,172) .. controls (412.21,172) and (414,173.79) .. (414,176) .. controls (414,178.21) and (412.21,180) .. (410,180) .. controls (407.79,180) and (406,178.21) .. (406,176) -- cycle ;
-% %Straight Lines [id:da006269855405936053] 
-% \draw [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ]   (552,140) -- (568,140) ;
-% \draw [shift={(570,140)}, rotate = 180] [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-% %Shape: Axis 2D [id:dp579588107341299] 
-% \draw  (268,223.4) -- (297.36,223.4)(270.94,200) -- (270.94,226) (290.36,218.4) -- (297.36,223.4) -- (290.36,228.4) (265.94,207) -- (270.94,200) -- (275.94,207)  ;
-% %Curve Lines [id:da1687299064997403] 
-% \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=1.5]    (410,176) .. controls (385.7,163.93) and (370.61,137.1) .. (407.67,107.8) ;
-% \draw [shift={(410,106)}, rotate = 143.13] [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ][line width=1.5]    (14.21,-4.28) .. controls (9.04,-1.82) and (4.3,-0.39) .. (0,0) .. controls (4.3,0.39) and (9.04,1.82) .. (14.21,4.28)   ;
-% %Straight Lines [id:da5117559499291524] 
-% \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (386,146) -- (386,172) ;
-% %Straight Lines [id:da7911427218260162] 
-% \draw [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,draw opacity=1 ]   (386,172) -- (404,172) ;
-% %Shape: Axis 2D [id:dp020929963075495994] 
-% \draw [color={rgb, 255:red, 144; green, 19; blue, 254 }  ,draw opacity=1 ] (414,164) -- (436,164)(416.2,146) -- (416.2,166) (429,159) -- (436,164) -- (429,169) (411.2,153) -- (416.2,146) -- (421.2,153)  ;
-% %Straight Lines [id:da5963450198567739] 
-% \draw [color={rgb, 255:red, 46; green, 0; blue, 255 }  ,draw opacity=1 ]   (480,148) -- (504,148) ;
-% \draw [shift={(506,148)}, rotate = 180] [color={rgb, 255:red, 46; green, 0; blue, 255 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-% %Straight Lines [id:da016477493607424232] 
-% \draw [color={rgb, 255:red, 46; green, 0; blue, 255 }  ,draw opacity=1 ]   (480,158) -- (498,158) ;
-% \draw [shift={(500,158)}, rotate = 180] [color={rgb, 255:red, 46; green, 0; blue, 255 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-% %Straight Lines [id:da8245950958515168] 
-% \draw [color={rgb, 255:red, 46; green, 0; blue, 255 }  ,draw opacity=1 ]   (480,138) -- (498,138) ;
-% \draw [shift={(500,138)}, rotate = 180] [color={rgb, 255:red, 46; green, 0; blue, 255 }  ,draw opacity=1 ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
-
-% % Text Node
-% \draw (415,84) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,opacity=1 ] [align=left] {A};
-% % Text Node
-% \draw (415,185) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 245; green, 166; blue, 35 }  ,opacity=1 ] [align=left] {B};
-% % Text Node
-% \draw (552,120) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 74; green, 144; blue, 226 }  ,opacity=1 ] [align=left] {{\scriptsize flow}};
-% % Text Node
-% \draw (267,182) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {{\scriptsize x}};
-% % Text Node
-% \draw (301,213) node [anchor=north west][inner sep=0.75pt]  [color={rgb, 255:red, 0; green, 0; blue, 0 }  ,opacity=1 ] [align=left] {{\scriptsize y}};
-% % Text Node
-% \draw (385,176.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\textcolor[rgb]{0.96,0.65,0.14}{\Delta y}$};
-% % Text Node
-% \draw (367,158.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize]  {$\textcolor[rgb]{0.96,0.65,0.14}{\Delta x}$};
-% % Text Node
-% \draw (409,132.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize,color={rgb, 255:red, 144; green, 19; blue, 254 }  ,opacity=1 ]  {$\textcolor[rgb]{0.56,0.07,1}{c_{x}}$};
-% % Text Node
-% \draw (437,158.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize,color={rgb, 255:red, 144; green, 19; blue, 254 }  ,opacity=1 ]  {$\textcolor[rgb]{0.56,0.07,1}{c_{y}}$};
-% % Text Node
-% \draw (511,141.4) node [anchor=north west][inner sep=0.75pt]  [font=\scriptsize,color={rgb, 255:red, 144; green, 19; blue, 254 }  ,opacity=1 ]  {$\textcolor[rgb]{0.18,0,1}{u}$};
-
-
-% \end{tikzpicture}
-
-
-
-%     \caption{Fluss, der überquert werden soll. Die Strömungsgeschwindigkeit \(u\) ist dunkelblau eingezeichnet und bezieht sich auf die Geschwindigkeit des Flusses. Dabei ist zu beachten, dass diese nicht überall im Fluss gleich sein muss; sie könnte zum Ufer hin langsamer und in der Mitte des Flusses schneller sein. Somit ist sie von \(x\) abhängig. \(c_x\) und \(c_y\) bezeichnen die Geschwindigkeiten in \(x\)- und \(y\)-Richtung der schwimmenden Person. Diese geschwindigkeiten sind relative zu ruhigem wasser. Es ist definiert das die schwimmende Person in ruhigem Wasser mit einer Geschwindigkeit \(v\) schwimmen kann. Wobei sich \(c_x\) und \(c_y\) über die Formel \(v^2=c_x^2+c_y^2\) berechnen lässt. Diese Grössen beziehen sich daher auf ruhiges Wasser. \(\Delta x\) und \(\Delta y\) sind die sehr kleinen Distanzen auf der Strecke von \(A\) nach \(B\).
-%     \label{fig:river_dif}}
-% \end{figure}
-
-
-
-
-
-
-
-
-
-% \begin{tikzpicture}[scale=1.5]
-
-%     % Define coordinates and colors
-%     \fill[blue!10] (0,0) rectangle (2,5);  % Blue rectangle
-%     \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$};  % x-axis
-%     \draw[->] (0,-0.5) -- (0,5.5) node[above] {$y$};  % y-axis
-
-%     % Draw the curve
-%     \draw[thick,red] plot[domain=0:2, samples=100] (\x,{(\x)^2}) node[right] {$(a, A)$};
-
-%     % Plot points
-%     \filldraw[black] (0,0) circle (1.5pt) node[below left] {$(0,0)$};
-%     \filldraw[black] (2,4) circle (1.5pt) node[below right] {$(a,A)$};
-
-%     % Draw vertical arrows representing v(x)
-%     \foreach \x in {0,0.4,0.8,1.2,1.6,2} {
-%         \draw[->] (\x,4.5) -- (\x,5);
-%     }
-
-%     % Arrow on the curve
-%     \draw[red,->] (1,1) -- (1.5,2.25);
-
-%     % Light background for the rectangle
-%     % \draw[blue!20, fill=blue!20] (0,0) rectangle (2,5);
-
-% \end{tikzpicture}
-
-
-
-
-
-Hier ist eine Schritt für Schritt Darstellung der Herleitung zur optimalen Flussüberquerung dargestellt. 
-
+% papers/schwimmen/
 \begin{figure}
     \centering
         \centering
-        \includegraphics[width=0.6\textwidth]{papers/schwimmen/Grafiken/Figure_1.png}	
-        \caption{Stillstehender Fluss}
+        \includegraphics[width=0.6\textwidth]{papers/schwimmen/Grafiken/Figure_1-crop.png}	
+        \caption{Fluss mit quadratischer Strömung. Ziel ist es von Punkt \((0,0)\) zum Punkt \((a,A)\) zu kommen, der am anderen Ufer liegt.}
         \label{fig:river_template}
 \end{figure}
 
-Ziel ist es die schnellste Rute über den Fluss zu finden. In Abbildung \ref{fig:river_template} ist dies abgebildet, wobei \(a\) die Flussbreite ist und \(A\) die Distanz dem Fluss entlang. In diesem Fall ist \(A=0\) da man am andern Ufer auf gleicher Höhe ankommt.
+Ziel ist es die schnellste Route über den Fluss zu finden. In Abbildung \ref{fig:river_template} ist eine Flussüberquerung abgebildet, wobei \(a\) die Flussbreite ist und \(A\) die Distanz entlang des Flusses. Im Falle unserer Aufgabenstellung ist \(A=0\), da man am andern Ufer auf gleicher Höhe ankommt.
 
 \subsubsection{Wichtige Kenngrössen}
 Ein paar wichtige Kenngrössen für die Herleitung sind in Tabelle \ref{table:Wichtige_Kenngroessen} zufinden.
@@ -162,7 +38,7 @@ Ein paar wichtige Kenngrössen für die Herleitung sind in Tabelle \ref{table:Wi
         \(c\)   &   Schwimmgeschwindigkeit        &   Definiert von der schwimmenden Person       \\
         \(v(x)\)   &   Flussgeschwindigkeit         &   Ist von der \(x\)-Position im Fluss abhängig     \\
         \((0,0)\)   &   Startpunkt         &   Startpunkt am Flussufer     \\
-        \((a,A)\)   &   Endpunkt         &   Endpunkt auf anderer Uferseite aber auf gleicher Höhe     \\
+        \((a,A)\)   &   Endpunkt         &   Endpunkt auf anderer Ufer aber auf gleicher Höhe     \\
         \specialrule{.1em}{.05em}{.05em}
     \end{tabularx}
     \caption{Wichtige Kenngrössen für die Herleitung}
@@ -172,89 +48,83 @@ Ein paar wichtige Kenngrössen für die Herleitung sind in Tabelle \ref{table:Wi
 
 \subsubsection{Schwimmgeschwindigkeiten}
 
-Als erstes werden die Geschwindigkeiten der Schwimmenden Person definiert. Mittels den Schwimmrichtungsvektoren und dem Flussvektor, können folgende Geschwindigkeiten für die in \(x\)- und \(y\)-Richtungen geschwommenen Geschwindigkeiten relativ zum Ufer genommen werden:
+Als erstes werden die Geschwindigkeiten der schwimmenden Person definiert. Mittels den Schwimmrichtungsvektoren und dem Flussvektor können folgende Geschwindigkeiten für die in \(x\)- und \(y\)-Richtungen geschwommenen Geschwindigkeiten relativ zum Ufer genommen werden:
 \begin{align}
-    c_x &= c\cdot cos(\theta) \label{eq:c_x_equation}\\
-    c_y &= u(x) + c \cdot sin(\theta) \label{eq:c_y_equation}
+    c_x &= c\cdot \cos(\theta) \label{eq:c_x_equation}\\
+    c_y &= u(x) + c \cdot \sin(\theta) \label{eq:c_y_equation}.
 \end{align}
-
 \(c_x\) ist die Geschwindigkeit in \(x\)-Richtung der schwimmenden Person, \(c_y\) ist die Geschwindigkeit in \(y\)-Richtung wie auch die Flussgeschwindigkeit. Dabei ist der Winkel \(\theta\) der Schwimmwinkel in Bezug auf die \(x\)-Richtung.
 
 
 \subsubsection{Zeitoptimierung}
 
-Da für den geringsten Energiekonsum die Zeit optimiert wird, hier das Integral für die total gebrauchte Zeit der Flussüberquerung:
+Für den geringsten Energiekonsum wird die Zeit optimiert. Die Zeit kann durch folgendes Integral dargestellt werden:
 \begin{equation}
-    T = \int_0^adt \label{eq:Time_river_1}
+    T = \int_0^adt \label{eq:Time_river_1}.
 \end{equation}
-Da \(dt = \frac{dx}{c_x}\), die Zeit die es benötigt um sich ein kleines Stück in \(x\)-Richtung zu bewegen, von der Geschwindigkeit in \(x\)-Richtung abhängt, kann man \ref{eq:Time_river_1} erweitern zu
+Da \(dt = \frac{dx}{c_x}\), die Zeit, die benötigt wird um sich ein kleines Stück in \(x\)-Richtung zu bewegen, von der Geschwindigkeit in \(x\)-Richtung abhängt, kann man \eqref{eq:Time_river_1} erweitern zu
 
 \begin{equation}
-    T = \int_0^adt = \int_0^a\frac{dx}{||c_x||} = \int_0^a\frac{dx}{c\cdot cos(\theta)} \label{eq:Time_river_2}.
-\end{equation}
-
-Wobei \(||c_x||\) den Vektor \(c_x\) definiert. 
+    T = \int_0^adt = \int_0^a\frac{dx}{c\cdot \cos(\theta)} \label{eq:Time_river_2}.
+\end{equation} 
 
 
 \subsubsection{Beziehung der \(x\)- und \(y\)-Geschwindigkeiten}
 
-Als nächstes die Beziehung der \(x\)- und \(y\)-Geschwindigkeiten im System. Dies ist auch am Schluss wichtig um den genauen Schwimmverlauf der schwimmenden Person observieren zu können.
+Als nächstes wird die Beziehung der \(x\)- und \(y\)-Geschwindigkeiten im System behandelt. Dies ist auch am Schluss wichtig, um den genauen Schwimmverlauf der schwimmenden Person beobachten zu können.
 
 Die \(y\)-Geschwindigkeit soll im Bezug zur \(x\)-Richtung gegeben werden. Die Schwimmgeschwindigkeit in \(y\)-Richtung is gegeben durch
 \begin{equation}
-    c_y = \frac{dy}{dt}
+    c_y = \frac{dy}{dt}.
 \end{equation}
-worauf die Kettenregel angewendet werden kann um
+Darauf kann die Kettenregel angewendet werden, um
 \begin{equation}
-    \frac{dy}{dt} = \frac{dy}{dx} = \frac{dx}{dt} = \frac{dy}{dx}\cdot c_x = \frac{dy}{dx}\cdot c\cdot cos(\theta)
+    \frac{dy}{dt} = \frac{dy}{dx} \cdot \frac{dx}{dt} = \frac{dy}{dx}\cdot c_x = \frac{dy}{dx}\cdot c\cdot \cos(\theta)
 \end{equation}
-zubekommen. Mittels \(c_y = u(x) + c\cdot sin(\theta)\) bekommt man die Beziehung der \(x\)- und \(y\)-Geschwindigkeiten:
+zu bekommen. Mittels \(c_y = u(x) + c\cdot \sin(\theta)\) bekommt man die Beziehung der \(x\)- und \(y\)-Geschwindigkeiten:
 \begin{equation}
-    \frac{dy}{dx} = \frac{u(x) + c \cdot sin(\theta)}{c \cdot sin(\theta)} \label{eq:dy_dx}
+    \frac{dy}{dx} = \frac{u(x) + c \cdot \sin(\theta)}{c \cdot \sin(\theta)}. \label{eq:dy_dx}
 \end{equation}
 
 
 
 \subsubsection{Auflösen nach \(\theta\)}
 
-Der letzte Schritt für das aufstellen des Integrals ist es eine Formel für den Winkel \(\theta\) zu haben.
-Ausgehend von \ref{eq:dy_dx} können Umformungen gemacht werden
+Der letzte Schritt für das Aufstellen die Integrals ist es, eine Formel für den Winkel \(\theta\) zu haben.
+Ausgehend von \eqref{eq:dy_dx} können die Umformungen  
 \begin{align}
-    \frac{dy}{dx} &= \frac{\dot{y}}{\dot{x}} = \frac{c_y}{c_x} = \frac{u(x) + c \cdot sin(\theta)}{c \cdot sin(\theta)} \\
-    \frac{dy}{dx} &= \frac{u}{c}\cdot sec(\theta) + tan(\theta) \\
-    \frac{dy}{dx} &= \frac{u}{c}\cdot sec(\theta) + \sqrt{sec^2(\theta)-1} \\
+    \frac{dy}{dx} &= \frac{\dot{y}}{\dot{x}} = \frac{c_y}{c_x} = \frac{u(x) + c \cdot \sin(\theta)}{c \cdot \sin(\theta)} \\
+    \frac{dy}{dx} &= \frac{u}{c}\cdot \sec(\theta) + \tan(\theta) \\
+    \frac{dy}{dx} &= \frac{u}{c}\cdot \sec(\theta) + \sqrt{\sec^2(\theta)-1}. 
 \end{align}
-
-es sein folgende Formeln für die Umformungen zu beachten: \(\frac{1}{cos(\theta)} = sec(\theta)\) und \(sec^2(\theta)-tan^2(\theta) = 1\). Durch Quartieren und \(\frac{dy}{dx} = y'\) folgt 
+gemacht werden. Dabei sind folgende Formeln für die Umformungen zu beachten: \[\frac{1}{\cos(\theta)} = \sec(\theta)\] und \[\sec^2(\theta)-\tan^2(\theta) = 1.\] Durch Quadrieren und \[\frac{dy}{dx} = y'\] folgt 
 \begin{equation}
-    (\frac{u^2}{c^2}-1)\cdot sec^2(\theta) - \frac{2uy'}{c}\cdot sec(\theta) + y'^2 +1 = 0
+    \biggl(\frac{u^2}{c^2}-1 \biggr) \cdot \sec^2(\theta) - \frac{2uy'}{c}\cdot \sec(\theta) + y'^2 +1 = 0 \label{eq:gleichung_pre_quad}
 \end{equation}
-als Gleichung. Durch die Mitternachtsformel bekommt man 
+als Gleichung. Als Lösung der quadratischen Gleichung \eqref{eq:gleichung_pre_quad} bekommt man mit der bekannten Lösungsformel 
 \begin{equation}
-    sec(\theta) = \frac{\frac{2uy'}{c} \pm \sqrt{4(y'^2-\frac{u^2}{c^2} + 1)}}{2(\frac{u^2}{c^2}-1)}
+    \sec(\theta) = \frac{\frac{2uy'}{c} \pm \sqrt{4(y'^2-\frac{u^2}{c^2} + 1)}}{2(\frac{u^2}{c^2}-1)}
 \end{equation}
-für den Winkel \(\theta\). Durch weiteres Umformen bekommt man:
+für den Winkel \(\theta\). Durch weiteres Umformen bekommt man
 \begin{equation}
-    \frac{1}{c}\cdot sec(\theta) = \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2} \label{eq:theta_1}
+    \frac{1}{c}\cdot \sec(\theta) = \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2} .\label{eq:theta_1}
 \end{equation}
 
 
-\subsubsection{Zeit Integral}
+\subsubsection{Zeitintegral}
 
-Nun kann man die Formel \ref{eq:theta_1} für den Winkel, in das Zeit-Integral einfügen:
-
+Nun kann man die Formel \eqref{eq:theta_1} für den Winkel, in das Zeitintegral einfügen:
 \begin{equation}
-    T = \int_0^adt = \int_0^a\frac{dx}{c\cdot cos(\theta)} = \int_0^a \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2} dx
+    T = \int_0^adt = \int_0^a\frac{dx}{c\cdot \cos(\theta)} = \int_0^a \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2} dx.
     \label{eq:Time_river_2} 
 \end{equation}
-
-Dieses Integral  beschreibt die Zeit die für die Flussüberquerung benötigt wird. 
+Dieses Integral  beschreibt die Zeit, die für die Flussüberquerung benötigt wird. 
 
 
 
 \subsubsection{Lagrange-Funktion} 
-Um die Rute zu finden die die kürzeste Zeit für die Flussüberquerung benötigt wendet man das Variationsprinzip. Für das braucht man das sogenannte Lagrange-Integral welches minimiert werden soll in diesem Fall \ref{eq:Time_river_2}. 
-Aus dem Lagrange-Integral \ref{eq:Time_river_2} kann die Lagrange-Funktion
+Um die Route zu finden, die die kürzeste Zeit für die Flussüberquerung benötigt, wendet man die Variationsrechnung an. Für das braucht man das  Funktional, welches minimiert werden soll, in diesem Fall \eqref{eq:Time_river_2}. 
+Aus dem Funktional \eqref{eq:Time_river_2} kann die Lagrange-Funktion
 \begin{equation}\label{eq:lagrange_integral}
     L(x, y, y') = \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2}
 \end{equation}
@@ -266,7 +136,6 @@ herausgelesen werden.
     \frac{\partial L}{\partial y} - \frac{d}{dx}\frac{\partial L}{\partial y'} = 0 - \frac{d}{dx}\frac{\partial L}{\partial y'} &= 0 \\
     \frac{d}{dx}\frac{\partial L}{\partial y'} &= 0.
 \end{align}
-
 Daraus folgt die Ableitung der Lagrange-Funktion:
 \begin{align}
     \frac{\partial L}{\partial y'} &= \text{constant} \label{eq:Lagrange_derivites_1}\\
@@ -275,13 +144,12 @@ Daraus folgt die Ableitung der Lagrange-Funktion:
     &=  \frac{1}{c^2-u^2} \biggl( \frac{c^2\cdot y'}{\sqrt{c^2(y'^2-u^2)}} - u \biggr ) \\
     &= \text{constant} = \frac{1}{g}.\label{eq:Lagrange_derivites_2}
 \end{align}
-Auflösung nach \(y'\):
+Auflösung nach \(y'\) ergibt
    
 \begin{equation}
-    y' = \frac{c^2 + g\cdot u - u^2}{c \cdot \sqrt{u^2-2\cdot g\cdot u - c^2 + g^2}} \label{eq:angle} \\
+    y' = \frac{c^2 + g\cdot u - u^2}{c \cdot \sqrt{u^2-2\cdot g\cdot u - c^2 + g^2}} .\label{eq:angle} \\
 \end{equation}
-
-\(y'\) gibt an mit welchem Verhältnis von \(y\) zu \(x\) sich die Schwimmende Person im Wasser bewegt.
+\(y'\) gibt an, mit welchem Verhältnis von \(y\) zu \(x\) sich die schwimmende Person im Wasser bewegt.
 
 
 

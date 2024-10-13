@@ -10,23 +10,23 @@ Wir betrachten wieder ein Funktional der Form
 \[
 I(y)
 =
-\int_{x_0}^{x_1}
-F(x,y(x),y'(x))
+\int_{x_1}^{x_2}
+F\bigl(x,y(x),y'(x)\bigr)
 \,dx
 \]
-und eine Variation $y(x)+\varepsilon\eta(x)$ mit $\eta(x_0)=0$
-und $\eta(x_1)=0$.
+und eine Variation $y(x)+\varepsilon\eta(x)$ mit $\eta(x_1)=0$
+und $\eta(x_2)=0$.
 Die erste Ableitung der Funktion $\varepsilon\mapsto I(y+\varepsilon\eta)$
 wurde früher als
 \[
 \delta I(y)
 =
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 \biggr)
 \,
 \eta(x)
@@ -44,9 +44,9 @@ f(\varepsilon)
 F(x,y(x),y'(x))
 +
 \biggl(
-\frac{\partial F}{\partial y}(x,y(x),y'(x))\eta(x)
+\frac{\partial F}{\partial y}\bigl(x,y(x),y'(x)\bigr)\,\eta(x)
 +
-\frac{\partial F}{\partial y'}(x,y(x),y'(x))\eta'(x)
+\frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)\,\eta'(x)
 \biggr)
 \varepsilon
 \\
@@ -54,16 +54,19 @@ F(x,y(x),y'(x))
 +
 \frac{1}{2!}
 \biggl(
-\frac{\partial^2 F}{\partial y^2}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y^2}\bigl(x,y(x),y'(x)\bigr)
+\,
 \eta(x)^2
 +
 2
-\frac{\partial^2 F}{\partial y\,\partial y'}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y\,\partial y'}\bigl(x,y(x),y'(x)\bigr)
+\,
 \eta(x)\eta'(x)
 \\
 &\qquad\qquad
 +
-\frac{\partial^2 F}{\partial y^{\prime 2}}(x,y(x),y'(x))
+\frac{\partial^2 F}{\partial y^{\prime 2}}\bigl(x,y(x),y'(x)\bigr)
+\,
 \eta'(x)^2
 \biggr)
 \varepsilon^2
@@ -80,13 +83,13 @@ P(x)\eta(x)^2 + 2Q(x) \eta(x)\eta'(x) + R(x)\eta'(x)^2
 \]
 mit
 \begin{align*}
-P(x) &= \frac{\partial^2 F}{\partial y^2} (x,y(x),y'(x)),
+P(x) &= \frac{\partial^2 F}{\partial y^2} \bigl(x,y(x),y'(x)\bigr),
 &
-Q(x) &= \frac{\partial^2 F}{\partial y\,\partial y'} (x,y(x),y'(x))
+Q(x) &= \frac{\partial^2 F}{\partial y\,\partial y'} \bigl(x,y(x),y'(x)\bigr)
 \\
 \text{und}
 \qquad
-R(x) &= \frac{\partial^2 F}{\partial y^{\prime 2}} (x,y(x),y'(x)).
+R(x) &= \frac{\partial^2 F}{\partial y^{\prime 2}} \bigl(x,y(x),y'(x)\bigr).
 \end{align*}
 Wegen
 \[
@@ -99,30 +102,32 @@ Q(x)\cdot \frac{d\eta(x)^2}{dx}
 kann bei der Berechnung des Integrals des mittleren Terms partielle
 Integration verwendet werden:
 \begin{align*}
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 2Q(x)\eta(x)\eta'(x)
 \,dx
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 Q(x) \frac{d\eta(x)^2}{dx}
 \,dx
 =
-\biggl[Q(x)\eta(x)^2\biggr]_{x_0}^{x_1}
+\biggl[Q(x)\eta(x)^2\biggr]_{x_1}^{x_2}
 -
-\int_{x_0}^{x_1} Q'(x) \eta(x)^2\,dx
+\int_{x_1}^{x_2} Q'(x) \eta(x)^2\,dx
 \end{align*}
-Wegen der Randbedingung $\eta(x_0)=\eta(x_1)=0$ fällt der
+Wegen der Randbedingung $\eta(x_1)=\eta(x_2)=0$ fällt der
 erste Term auf der rechten Seite weg.
-Das Integral von $G(x)$ heisst die zweite Variation von $I$ an der
+Das Integral von $G(x)$ heisst die {\em zweite Variation} von $I$ an der
+\index{zweite Variation}%
+\index{Variation!zweite}%
 Stelle $y$ und kann damit zu
 \begin{align}
 \delta^2 I(y)
 &=
-\int_{x_0}^{x_1} G(x)\,dx
+\int_{x_1}^{x_2} G(x)\,dx
 \notag
 \\
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 (\underbrace{P(x)-Q'(x)}_{\displaystyle = S(x)}) \eta(x)^2
 +
 R(x)\eta'(x)^2
@@ -130,7 +135,7 @@ R(x)\eta'(x)^2
 \notag
 \\
 &=
-\int_{x_0}^{x_1}
+\int_{x_1}^{x_2}
 S(x)\eta(x)^2 + R(x)\eta'(x)^2
 \,dx
 \label{buch:variation2:zweitevariation:eqn:SRintegral}

@@ -12,14 +12,14 @@ Variationsprobleme für Funktionen von nur einer Variablen sind auf
 Funktionen auf einem Intervall beschränkt.
 Besteht der Definitionsbereich aus mehreren Intervallen, kann jedes
 einzelne Intervall unabhängig von allen anderen betrachtet werden.
-Für ein Intervall $[x_0,x_1]$ ist auch das Integral einfach zu definieren,
+Für ein Intervall $[x_1,x_2]$ ist auch das Integral einfach zu definieren,
 wie es zur Konstruktion des zu minimierenden Funktionals nötig ist.
 
 Für Funktionen von zwei oder mehr Variablen ist bereits die
 Festlegung des Definitionsgebietes viel komplizierter.
 Sie muss so erfolgen, dass auch die partielle Integration eines
 Produktes darauf übertragbar ist.
-Diese wurde im eindimensionalen Fall dazu aus dem Integral
+Diese wurde im eindimensionalen Fall dazu verwendet, aus dem Integral
 über $F\cdot\eta'$ eine Integral über $dF/dx\cdot \eta$ zu
 machen, auf welches das Fundamentallemma anwendbar war.
 
@@ -81,12 +81,20 @@ die nicht zum Intervall gehören.
 Diese anschauliche Beschreibung appelliert aber an eine Vorstellung
 einer Richtung und ist daher nicht direkt übersetzbar.
 Sie lässt sich aber noch etwas vereinfachen: ein Endpunkt eines
-Intervalls hat beliebig nahe Werte die zum Intervall gehören, und
+Intervalls hat beliebig nahe Punkte, die zum Intervall gehören, und
 solche die nicht mehr dazu gehören.
 Dies suggeriert die folgende Definition für den Rand eines Gebietes.
 
 \begin{definition}[Rand]
 \label{buch:felder:fundamentallemma:def:rand}
+Ein offener {\em Ball} $B_r(x)$ vom Radius um den Punkt $x\in\mathbb{R}^n$
+\index{Ball}%
+ist die Menge
+\[
+B_r(x)
+=
+\{y\in\mathbb{R}^n \mid |x-y|<r\}.
+\]
 Ein Randpunkt eines Gebietes $\Omega\subset\mathbb{R}^n$ ist ein Punkt
 $x\in\mathbb{R}^n$ mit der Eigenschaft, dass in jeder noch so kleinen 
 Umgebung von $x$ Punkte von $\Omega$ und von $\mathbb{R}^n\setminus\Omega$
@@ -128,7 +136,7 @@ liegen ausserhalb der Menge.
 Der Rand ist berühmt dafür, dass man beliebig tief hineinzoomen
 und immer neue Strukturen entdecken kann.
 
-Im folgenden sollen daher nur solche Gebiete betrachtet werden,
+Im Folgenden sollen daher nur solche Gebiete betrachtet werden,
 deren Rand die zusätzliche Eigenschaft haben, dass er mit stetigen
 oder sogar differenzierbaren Funktionen beschrieben werden kann.
 Dies wird von der folgenden Definition erreicht.
@@ -147,7 +155,7 @@ U\to \mathbb{R}^n
 x\mapsto \varphi(x)
 \]
 einer offenen Umgebung $U$ des Nullpunktes gibt derart, dass $\varphi(0)=P$
-das Bild $\varphi(x)$ eines Punktes $x=(x_1,\dots,x_{n-1},x_n)$ in $\Omega$
+das Bild $\varphi(x)$ eines Punktes $x=(x_2,\dots,x_{n-1},x_n)$ in $\Omega$
 liegt, wenn $x_n\ge 0$ ist, nicht in $\Omega$ liegt, wenn $x_n<0$ ist und auf
 dem Rand $\partial\Omega$ liegt, wenn $x_n=0$ ist
 (Abbildung~\ref{buch:felder:fundamentallemma:fig:randdef}).
@@ -162,11 +170,11 @@ endlich viele solche Abbildungen parametrisieren lässt.
 In zwei Dimensionen kann man den Rand eines Gebietes mit
 glattem Rand stückweise als Graphen von differenzierbaren Funktionen
 $y_k(x)$ beschreiben, wie dies in
-\input{chapters/040-felder/fig/2drand.tex}
+\input{chapters/040-felder/fig/2drand.tex}%
 Abbildung~\ref{buch:felder:fundamentallemma:fig:2drand}
 dargestellt ist.
 Mit dieser Definition lassen sich aber natürlich vorkommende Gebiete
-wie ein Rechteck $(x_1,x_2)\times(y_1,y_2)$ nicht beschreiben, da
+wie ein Rechteck $(x_2,x_2)\times(y_1,y_2)$ nicht beschreiben, da
 es in den Ecken des Rechtecks keine Abbildung gibt, wie sie in der
 Definition~\ref{buch:felder:fundamentallemma:def:glatterrand}
 verlangt wird.
@@ -178,20 +186,20 @@ verlangt wird.
 Eine Variationsaufgabe sucht eine Funktion, die ein Integral minimiert,
 dessen Integrand von der Funktion abhängt.
 Im Falle einer Funktion einer Variablen ist das Definitionsgebiet der
-Funktion ein Intervall $I=[x_0,x_1]$, die Funktion $y\colon I\to\mathbb{R}$
+Funktion ein Intervall $I=[x_1,x_2]$, die Funktion $y\colon I\to\mathbb{R}$
 wird als differenzierbar angenommen und das zu minimierende Funktional
 ist
 \[
 J(y)
 =
-\int_{x_0}^{x_1} L(x,y(x),y'(x))\,dx
+\int_{x_1}^{x_2} L\bigl(x,y(x),y'(x)\bigr)\,dx
 =
-\int_I L(x,y(x),y'(x))\,dx.
+\int_I L\bigl(x,y(x),y'(x)\bigr)\,dx.
 \]
 Für Funktionen mehrerer Variablen muss also insbesondere der Begriff
 der Integration auf ein Integral über ein Gebiet verallgemeinert werden.
 
-Eine Funktion $f(x) = f(x_1,\dots,x_n)$ kann über beliebige
+Eine Funktion $f(x) = f(x_2,\dots,x_n)$ kann über beliebige
 Koordinatenrechtecke oder mehrdimensionale Quader $R$,
 die durch Ungleichungen $a_i< x_i<b_i$ gegeben sind, durch das iterierte
 Integral
@@ -202,10 +210,10 @@ Integral
 \int_{a_1}^{b_1}
 \dots
 \int_{a_n}^{b_n}
-f(x_1,\dots,x_n)
+f(x_2,\dots,x_n)
 \,dx_n
 \dots
-\,dx_1
+\,dx_2
 \]
 berechnet werden.
 
@@ -235,37 +243,37 @@ Ein konvexes Gebiet $G$ wie zum Beispiel die Ellipse
 G
 =
 \biggl\{
-(x_1,x_2)
+(x_2,x_2)
 \in
 \mathbb{R}^2
 \,
 \bigg|
 \,
-\frac{x_1^2}{a^2}+\frac{x_2^2}{b^2}< 1
+\frac{x_2^2}{a^2}+\frac{x_2^2}{b^2}< 1
 \biggr\}
 \]
 kann auch durch die Ungleichungen
 \begin{align*}
--b\sqrt{1-\frac{x_1^2}{a^2}}
+-b\sqrt{1-\frac{x_2^2}{a^2}}
 &< x_2 <
-b\sqrt{1-\frac{x_1^2}{a^2}}
-&&\text{für $x_1\in (-a,a)$}
+b\sqrt{1-\frac{x_2^2}{a^2}}
+&&\text{für $x_2\in (-a,a)$}
 \intertext{bzw.}
 -a\sqrt{1-\frac{x_2^2}{b^2}}
-&< x_1 <
+&< x_2 <
 a\sqrt{1-\frac{x_2^2}{b^2}}
 &&\text{für $x_2\in (-b,b)$}
 \end{align*}
 beschrieben werden.
 Etwas allgemeiner gibt es Funktionen
-$x_{2,\pm}(x_1)$ 
+$x_{2,\pm}(x_2)$ 
 und
 $x_{1,\pm}(x_2)$ 
 derart, dass das Gebiet $G$ durch die Ungleichungen
 \begin{align*}
-x_{2,-}(x_1) &< x_2 < x_{2,+}(x_1)&& \text{für $x_1\in(x_{10},x_{11})$}
+x_{2,-}(x_2) &< x_2 < x_{2,+}(x_2)&& \text{für $x_2\in(x_{10},x_{11})$}
 \intertext{bzw.}
-x_{1,-}(x_2) &< x_1 < x_{1,+}(x_2)&& \text{für $x_2\in(x_{20},x_{21})$}
+x_{1,-}(x_2) &< x_2 < x_{1,+}(x_2)&& \text{für $x_2\in(x_{20},x_{21})$}
 \end{align*}
 gegeben ist.
 Mit diesen Bezeichnungen lässt sich das Integral über das Gebiet auch
@@ -274,12 +282,12 @@ auf zwei verschiedene Arten als das iterierte Integral
 \int_G f(x) \,dx
 =
 \int_{x_{10}}^{x_{11}}
-\int_{x_{2,-}(x_1)}^{x_{2,+}(x_1)} f(x_1,x_2)\,dx_2\,dx_1
+\int_{x_{2,-}(x_2)}^{x_{2,+}(x_2)} f(x_2,x_2)\,dx_2\,dx_2
 =
 \int_{x_{20}}^{x_{21}}
-\int_{x_{1,-}(x_2)}^{x_{1,+}(x_2)} f(x_1,x_2)\,dx_1\,dx_2
+\int_{x_{1,-}(x_2)}^{x_{1,+}(x_2)} f(x_2,x_2)\,dx_2\,dx_2
 \]
-geschrieben werden.
+schreiben.
 Änliche iterierte Integrale können verwenden werden, um Integrale
 über Gebiete zu berechnen, deren Dimension grösser als $2$ ist.
 
@@ -301,7 +309,7 @@ Die zusammengesetze Funktion
 \[
 f(x(y))
 =
-f(x_1(y_1,\dots,y_n),\dots,x_n(y_1,\dots,y_n))
+f(x_2(y_1,\dots,y_n),\dots,x_n(y_1,\dots,y_n))
 \]
 hat ein Gebiet $\tilde{G}$ als Definitionsgebiet.
 Approximiert man $\tilde{G}$ mit Quader $\tilde{R}_k$, dann sind
@@ -318,13 +326,13 @@ Parallelepiped mit dem Volumen
 \renewcommand{\arraystretch}{1.9}
 \begin{matrix}
 \displaystyle
-\frac{\partial x_1}{\partial y_1}
+\frac{\partial x_2}{\partial y_1}
 &
 \displaystyle
-\frac{\partial x_1}{\partial y_2}
+\frac{\partial x_2}{\partial y_2}
 &\dots&
 \displaystyle
-\frac{\partial x_1}{\partial y_n}
+\frac{\partial x_2}{\partial y_n}
 \\
 \displaystyle
 \frac{\partial x_2}{\partial y_1}
@@ -360,7 +368,7 @@ $\det Dx$ hinzuzufügen, zeigt, dass ein vom Koordinatensystem unabhängiges
 Integral einer Funktion über ein Gebiet $G$ erst durch eine zusätzliche
 Gewichtsfunktion $g(x)$ definiert ist, die sich beim Wechsel des
 Koordinatensystems mit der Determinanten der Ableitung $Dx$ multipliziert.
-Die Gewichtsfunktion ist im willkürlich.
+Die Gewichtsfunktion ist im Übrigen willkürlich.
 Sie wird erst eindeutig,
 wenn die Verbindung zwischen dem Volumeninhalt des Gebietes und 
 dem Integral dadurch hergestellt wird, dass das Integral der konstanten
@@ -372,7 +380,7 @@ Funktion $1$ das Volumen
 \]
 sein soll.
 
-Für kartesische Koordinaten ist die diese Gewichtsfunktion $g(x)=1$.
+Für kartesische Koordinaten ergibt dies die Gewichtsfunktion $g(x)=1$.
 Wählt man stattdessen Kugelkoordinaten $(r,\vartheta,\varphi)$, mit der
 Koordinatentransformation
 \begin{equation}
@@ -472,7 +480,7 @@ Gewichtsfunktion das Volumen eines von den Tangentialvektoren
 \[
 \vec{v}_1
 =
-\frac{\partial\varphi}{\partial x_1}
+\frac{\partial\varphi}{\partial x_2}
 ,\dots,
 \vec{v}_n
 =
@@ -517,7 +525,7 @@ in $\gamma_2 = \gamma_1\circ u$ überführen.
 Dabei geht das Integral
 \eqref{buch:felder:gebiete:eqn:kurvenintegral}
 mit der Substitution $t=u(s)$
-über in das Integral
+in das Integral
 \[
 \int_{i_1}
 f(\gamma_1(t))
@@ -533,8 +541,9 @@ u'(s)
 f(\gamma_2(s))
 \,
 u'(s)
-\,ds.
+\,ds
 \]
+über.
 Der zusätzliche Faktor $u'(s)$ gibt wieder, wie die Umparametrisierung
 die Kurvenlänge verzerrt.
 
@@ -550,14 +559,15 @@ Das Integral
 \]
 ist daher eine Grösse, die von der Parametrisierung unabhängig ist.
 
-Ist $\vec{v}$ ein entlang der Kurve $C$, dann sind im Skalarprodukt
+Ist $\vec{v}$ ein Vektorfeld entlang der Kurve $C$, dann sind im Skalarprodukt
 \[
 \vec{v}(\gamma(t))\cdot \dot{\gamma}(t)
 =
 |\vec{v}(\gamma(t))| \, |\dot{\gamma}(t)|\, \cos \alpha,
 \]
 wobei $\alpha$ der Winkel zwischen der $\vec{v}$ und der Kurventangente
-im Punkt $\gamma(t)$ ist, der Betrag $|\vec{v}|$ und der Winkel $\alpha$
+im Punkt $\gamma(t)$ ist.
+Der Betrag $|\vec{v}|$ und der Winkel $\alpha$ sind
 nur von der Position entlang der Kurve abhängig.
 Der Faktor $|\dot{\gamma}(t)|$ ist das Längenelement, welches das Integral
 \[
@@ -581,7 +591,7 @@ der partiellen Integration präzisiert werden.
 Die Definition~\ref{buch:felder:fundamentallemma:def:glatterrand}
 stellt sicher, dass der Rand eines Gebietes mindestens stückweise
 durch ein Koordinatensystem parametrisiert wird, welches die
-Koordinaten $(x_1,\dots,x_{n-1})$ verwendet.
+Koordinaten $(x_2,\dots,x_{n-1})$ verwendet.
 
 Sei also $\varphi\colon U\to\mathbb{R}^n$ mit $U\subset\mathbb{R}^{n-1}$
 eine Parametrisierung des Randes.
@@ -590,7 +600,7 @@ eines Parallelepipeds verwendet werden, welches von den Tangentialvektoren
 \[
 \vec{v}_1
 =
-\frac{\partial\varphi}{\partial x_1},
+\frac{\partial\varphi}{\partial x_2},
 \dots,
 \vec{v}_{n-1}
 \frac{\partial\varphi}{\partial x_{n-1}}

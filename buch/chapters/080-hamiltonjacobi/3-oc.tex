@@ -23,7 +23,7 @@ In diesem Abschnitt wird die Lösung des optimalen Steuerungsproblem
 mit Hilfe des Minimum-Prinzips von Pontryagin skizziert.
 In Abschnitt~\ref{buch:hamiltonjacobi:oc:subsection:problem}
 wird das Problem exakt formuliert.
-Danach wird die Vorgehensweise Anhang eines Variationsproblems
+Danach wird die Vorgehensweise anhand eines Variationsproblems
 mit Nebenbedingungen motiviert und die zugehörige Hamilton-Funktion
 hergeleitet.
 In Abschnitt~\ref{buch:hamiltonjacobi:oc:subsection:minimum}
@@ -36,6 +36,7 @@ sich viele dieser Probleme lösen lassen.
 \subsection{Das optimale Steuerungsproblem
 \label{buch:hamiltonjacobi:oc:subsection:problem}}
 Ein {\em Steuerungsproblem} für ein System mit Differentialgleichung
+\index{Steuerungsproblem}%
 der Form
 \[
 \dot{x}
@@ -176,6 +177,7 @@ Differentialgleichung~\eqref{buch:hamiltonjacobi:oc:eqn:dgl}
 lösen, bevor man das
 Kostenfunktional~\eqref{buch:hamiltonjacobi:oc:eqn:kosten}
 berechnen kann.
+\index{Kostenfunktional}%
 Diese Formulierung macht es unmöglich, die Aufgabe als 
 Variationsproblem zu sehen.
 
@@ -339,7 +341,7 @@ F(q_*(t),\dot{q}_*(t))
 L(x_*(t),u_*(t))
 \,dt,
 \]
-Der Wert des Integrals im Funktion ändert also nicht.
+Der Wert des Integrals im Funktional ändert also nicht.
 
 Am Intervallende bei $t_1$ sind die Werte von $x_*(t)$ nicht
 vorgegeben.
@@ -367,7 +369,7 @@ findet man
 \frac{\partial K}{\partial x}(x_*(t_1))
 &&\Rightarrow&p_*(t_1)
 &=
-\frac{\partial K}{\partial x}(x_*(t_1))
+\frac{\partial K}{\partial x}(x_*(t_1)).
 \intertext{Dies ist die gesuchte Randbedingung für $p_*(t)$.
 Die verbleibenden Komponenten sind}
 0
@@ -456,6 +458,7 @@ H(x,p,u)
 p\cdot f(x,u) + L(x,u)
 \]
 heisst die {\em Steuerungs-Hamilton-Funktion}
+\index{Steuerungs-Hamilton-Funktion}%
 der optimalen Steuerungsaufgabe~\ref{buch:hamiltonjacobi:oc:aufgabe}.
 \end{definition}
 
@@ -548,7 +551,7 @@ Unter Verwendung von
 \eqref{buch:hamiltonjacobi:oc:eqn:Fuabl}
 und
 \eqref{buch:hamiltonjacobi:oc:eqn:Fpabl}
-Folgen die Gleichungen
+folgen die Gleichungen
 \begin{equation}
 \renewcommand{\arraycolsep}{2pt}
 \renewcommand{\arraystretch}{2.0}
@@ -577,7 +580,7 @@ p_*(t)\cdot
 &=&
 f_k(x_*(t),u_*(t))
 &=&
-\dot{x}_{*k}(t)
+\dot{x}_{*k}(t).
 \end{array}
 \label{buch:hamiltonjacobi:oc:Habl}
 \end{equation}
@@ -590,7 +593,7 @@ Die Anfangsbedingung $x_*(t_0)=x_0$ für $x_*(t)$ ist bereits durch
 die Aufgabenstellung gegeben.
 Für die Funktion $p_*(t)$ wird eine weitere Randbedingung benötigt,
 damit die Differentialgleichungen~\eqref{buch:hamiltonjacobi:oc:Habl}
-Beide Funktionen $x_*(t)$ und $p_*(t)$ bestimmen können.
+beide Funktionen $x_*(t)$ und $p_*(t)$ bestimmen können.
 Der Satz~\ref{buch:hamiltonjacobi:oc:satz:optimal-lagrange}
 definiert auch die Randbedingung
 \[
@@ -609,6 +612,7 @@ den folgenden Satz.
 
 \begin{satz}[Hamilton-Gleichungen]
 \label{buch:hamiltonjacobi:oc:satz:hamilton-gleichungen}
+\index{Hamilton-Differentialgleichungen}%
 Eine Lösung $(x_*(t),u_*(t),p_*(t))$ der optimalen Steuerungsaufgabe
 erfüllt die {\em Hamilton-Differentialgleichungen}
 \begin{align*}
@@ -669,7 +673,7 @@ Sei die Funktion $u_*\colon[t_0,t_1]\to\mathbb{R}$ eine Lösung des
 optimalen Steuerungsproblems Aufgabe~\ref{buch:hamiltonjacobi:oc:aufgabe}
 und sei $x_*(t)$ die resultierende optimale Bahnkurve, dann gibt es
 eine eindeutig bestimmte Funktion $p_*\colon[t_0,t_1]\to\mathbb{R}$,
-So dass $x_*(t),u_*(t),p_*(t)$ die Hamilton-Differentialgleichungen
+So dass $x_*(t),\,u_*(t),\,p_*(t)$ die Hamilton-Differentialgleichungen
 von Satz~\ref{buch:hamiltonjacobi:oc:satz:hamilton-gleichungen}
 erfüllen.
 Die Funktion $u_*(t)$ erfüllt
@@ -972,14 +976,15 @@ J(\bar{u}) - J(u_*)
 K(x_*(t_1)+\delta x(t_1)) - K(x_*(t_1))
 +
 \int_{t_0}^{t_1} 
-L(x_*(t) + \delta x(t), u_*(t)+\delta u(t))
+L\bigl(x_*(t) + \delta x(t), u_*(t)+\delta u(t)\bigr)
 -
-L(x_*(t), u_*(t))
+L\bigl(x_*(t), u_*(t)\bigr)
 \,dt.
 \intertext{Da $K$ differenzierbar ist, können die ersten beiden Terme 
 bis auf ein $o(\varepsilon)$ durch die Ableitung approximiert werden.
 Den Integranden drücken wir mittels $L=-p\cdot f+H$ durch die
 Hamilton-Funktion aus und erhalten}
+\Delta
 &=
 \frac{\partial K}{\partial x}(x_*(t_1))\cdot \delta x(t_1) + o(\varepsilon)
 \\
@@ -994,7 +999,7 @@ p_*(t)
 &\quad
 +
 \int_{t_0}^{t_1}
-H(\bar{x}(t),\bar{u}(t),p_*(t)) - H(x_*(t),u_*(t),p_*(t))
+H\bigl(\bar{x}(t),\bar{u}(t),p_*(t)\bigr) - H\bigl(x_*(t),u_*(t),p_*(t)\bigr)
 \,dt.
 \end{align*}
 Die Funktionen $\bar{x}(t)$ und $x_*(t)$ erfüllen die
@@ -1024,17 +1029,17 @@ p_*(t)\frac{d}{dt}(\delta x)(t)\,dt
 &\quad
 +
 \int_{t_0}^{t_1}
-H(x_*(t)+\delta x(t), u_*(t) + \delta u(t), p_*(t))
+H\bigl(x_*(t)+\delta x(t), u_*(t) + \delta u(t), p_*(t)\bigr)
 -
-H(x_*(t), u_*(t) + \delta u(t), p_*(t))
+H\bigl(x_*(t), u_*(t) + \delta u(t), p_*(t)\bigr)
 \,dt
 \\
 &\quad
 +
 \int_{t_0}^{t_1}
-H(x_*(t), u_*(t) + \delta u(t), p_*(t))
+H\bigl(x_*(t), u_*(t) + \delta u(t), p_*(t)\bigr)
 -
-H(x_*(t), u_*(t), p_*(t))
+H\bigl(x_*(t), u_*(t), p_*(t)\bigr)
 \,dt
 \intertext{Die Differenz im zweiten Integral kann durch die Ableitung nach $x$
 approximiert und mit dem ersten Integral zusammengefasst werden:}
@@ -1046,7 +1051,7 @@ p_*(t_1)\cdot \delta x(t_1) + o(\varepsilon)
 \int_{t_0}^{t_1}
 -p_*(t)\frac{d}{dt}(\delta x)(t)\,dt
 +
-\frac{\partial H}{\partial x}(x_*(t),u_*(t)+\delta u(t),p_*(t))
+\frac{\partial H}{\partial x}\bigl(x_*(t),u_*(t)+\delta u(t),p_*(t)\bigr)
 \cdot 
 \delta x(t)
 +
@@ -1056,9 +1061,9 @@ o(\varepsilon)
 &\quad
 +
 \int_{t_0}^{t_1}
-H(x_*(t), u_*(t) + \delta u(t), p_*(t))
+H\bigl(x_*(t), u_*(t) + \delta u(t), p_*(t)\bigr)
 -
-H(x_*(t), u_*(t), p_*(t))
+H\bigl(x_*(t), u_*(t), p_*(t)\bigr)
 \,dt.
 \intertext{Die Funktion $\bar{u}(t)$ ist nur im Intervall
 $[\bar{t},\bar{t}+\varepsilon]$  von $u_*(t)$ verschieden, daher ist auch
@@ -1084,9 +1089,9 @@ o(\varepsilon)
 &\quad
 +
 \int_{t_0}^{t_1}
-H(x_*(t), u_*(t) + \delta u(t), p_*(t))
+H\bigl(x_*(t), u_*(t) + \delta u(t), p_*(t)\bigr)
 -
-H(x_*(t), u_*(t), p_*(t))
+H\bigl(x_*(t), u_*(t), p_*(t)\bigr)
 \,dt.
 \intertext{Die ersten beiden Terme im ersten Integral sind die
 Ableitung von $-p_*(t)\cdot \delta x(t)$, mit dieser Stammfunktion
@@ -1298,6 +1303,7 @@ Die Matrix
 \end{pmatrix}
 \]
 heisst die {\em Hamilton-Matrix} für das linear-quadratische
+\index{Hamilton-Matrix}%
 Problem~\ref{buch:hamiltonjacobi:oc:aufgabe:lqc}.
 \end{definition}
 
@@ -1523,6 +1529,7 @@ M
 wohldefiniert ist.
 Es stellt sich heraus, dass dies unter den gegebenen Voraussetzungen
 immer der Fall ist.
+Einen Beweis des Satzes kann man in \cite[chapter 4]{buch:control} finden.
 
 \begin{satz}
 Falls $S_1$ und $Q$ positiv semidefinit sind und $R$ positiv definit,
@@ -1531,9 +1538,9 @@ dann ist die Matrix $M$ von
 wohldefiniert.
 \end{satz}
 
-\begin{proof}
-XXX TODO
-\end{proof}
+%\begin{proof}
+%XXX TODO
+%\end{proof}
 
 Die Berechnung des Kostenfunktionals in
 Satz~\ref{buch:hamiltonjacobi:oc:satz:optimale-kosten}

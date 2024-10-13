@@ -13,6 +13,7 @@ Erhaltungsgrösse gibt.
 
 \begin{satz}[Emmy Noether]
 \label{buch:symmetrien:noether:satz:noether}
+\index{Satz!von Noether}%
 Sei $L(x,\dot{x})$ eine Lagrange-Funktion, die nicht von der Zeit
 abhängt und $h^s\colon\mathbb{R}^n\to\mathbb{R}^n$ eine differenzierbare
 Symmetrie, unter der $L$ invariant bleibt.
@@ -49,13 +50,13 @@ invariant ist, muss die Ableitung von $L(\Phi(s,t), \dot{\Phi}(s,t))$
 von $s$ unabhängig sein.
 Die Ableitung
 \begin{equation}
-\frac{\partial}{\partial s} L(\Phi(s,t), \dot{\Phi}(s,t))
+\frac{\partial}{\partial s} L\bigl(\Phi(s,t), \dot{\Phi}(s,t)\bigr)
 =
-\frac{\partial L}{\partial x}(\Phi(s,t),\dot{\Phi}(s,t))
+\frac{\partial L}{\partial x}\bigl(\Phi(s,t),\dot{\Phi}(s,t)\bigr)
 \cdot
 \frac{\partial \Phi}{\partial s}
 +
-\frac{\partial L}{\partial \dot{x}}(\Phi(s,t),\dot{\Phi}(s,t))
+\frac{\partial L}{\partial \dot{x}}\bigl(\Phi(s,t),\dot{\Phi}(s,t)\bigr)
 \cdot
 \frac{\partial \dot{\Phi}}{\partial s}
 =0
@@ -68,10 +69,10 @@ dann ist auch $t\mapsto h^s(x(t)) = \Phi(s,t)$ für jeden Wert von $s$
 eine Lösungskurve der Euler-Lagrange-Differentialgleichung.
 Die Euler-Lagrange-Differentialgleichung ist
 \begin{equation}
-\frac{\partial L}{\partial x}(\Phi(s,t),\dot{\Phi}(s,t))
+\frac{\partial L}{\partial x}\bigl(\Phi(s,t),\dot{\Phi}(s,t)\bigr)
 =
 \frac{\partial t}{\partial t}
-\frac{\partial L}{\partial \dot{x}}(\Phi(s,t),\dot{\Phi}(s,t)).
+\frac{\partial L}{\partial \dot{x}}\bigl(\Phi(s,t),\dot{\Phi}(s,t)\bigr).
 \end{equation}
 Dies kann dazu verwendet werden, den ersten Term auf der rechten
 Seite von \eqref{buch:symmetrioen:noether:eqn:sabl} umzuformen,
@@ -81,26 +82,26 @@ wir erhalten
 &=
 \frac{\partial}{\partial t}
 \biggl(
-\frac{\partial L}{\partial \dot{x}}(\Phi(s,t),\dot{\Phi}(s,t))
+\frac{\partial L}{\partial \dot{x}}\bigl(\Phi(s,t),\dot{\Phi}(s,t)\bigr)
 \biggr)
 \cdot
 \frac{\partial \Phi}{\partial s}
 +
-\frac{\partial L}{\partial\dot{x}}(\Phi(s,t),\dot{\Phi}(s,t))
+\frac{\partial L}{\partial\dot{x}}\bigl(\Phi(s,t),\dot{\Phi}(s,t)\bigr)
 \cdot
-\frac{\partial \dot{\Phi}}{\partial s}(s,t)
+\frac{\partial \dot{\Phi}}{\partial s}(s,t).
 \notag
-\intertext{im zweiten Term kann man die Ableitung nach $s$ mit der Ableitung
+\intertext{Im zweiten Term kann man die Ableitung nach $s$ mit der Ableitung
 nach $t$ vertauschen:}
 &=
 \frac{\partial}{\partial t}
 \biggl(
-\frac{\partial L}{\partial \dot{x}}(\Phi(s,t),\dot{\Phi}(s,t))
+\frac{\partial L}{\partial \dot{x}}\bigl(\Phi(s,t),\dot{\Phi}(s,t)\bigr)
 \biggr)
 \cdot
 \frac{\partial \Phi}{\partial s}
 +
-\frac{\partial L}{\partial\dot{x}}(\Phi(s,t),\dot{\Phi}(s,t))
+\frac{\partial L}{\partial\dot{x}}\bigl(\Phi(s,t),\dot{\Phi}(s,t)\bigr)
 \cdot
 \frac{\partial^2\Phi}{\partial s\,\partial t}(s,t)
 \notag
@@ -108,12 +109,12 @@ nach $t$ vertauschen:}
 &=
 \frac{\partial}{\partial t}
 \biggl(
-\frac{\partial L}{\partial \dot{x}}(\Phi(s,t),\dot{\Phi}(s,t))
+\frac{\partial L}{\partial \dot{x}}\bigl(\Phi(s,t),\dot{\Phi}(s,t)\bigr)
 \biggr)
 \cdot
 \frac{\partial \Phi}{\partial s}
 +
-\frac{\partial L}{\partial\dot{x}}(\Phi(s,t),\dot{\Phi}(s,t))
+\frac{\partial L}{\partial\dot{x}}\bigl(\Phi(s,t),\dot{\Phi}(s,t)\bigr)
 \cdot
 \frac{\partial}{\partial t}
 \biggl(
@@ -168,8 +169,9 @@ u
 =
 p\cdot u
 \]
-für jeden horizontalten Einheitsvektor.
+für jeden horizontalten Einheitsvektor $u$.
 Das Skalarprodukt $p\cdot u$ ist die horizontale Komponente des Impulses,
+\index{Impuls}%
 die horizontalen Komponenten des Impulses sind also erhalten, die
 vertikale aber natürlich nicht.
 \end{beispiel}
@@ -241,6 +243,7 @@ m\dot{x}\cdot
 m(x_1\dot{x}_2 - x_2\dot{x}_1).
 \]
 Dies ist die dritte Komponente des Drehimpulses.
+\index{Drehimpuls}%
 
 Eine allgemeine Drehung um die Achse $u$ kann geschrieben werden also
 \[
@@ -335,9 +338,9 @@ u_3(x_1\dot{x}_2-x_2\dot{x}_1)
 \cdot
 (x\times m\dot{x})
 =
-u\cdot \vec{L},
+u\cdot \vec{L}.
 \end{align*}
-die Erhaltungsgrösse ist also die Projektion des Drehimpulses $\vec{L}$
+Die Erhaltungsgrösse ist also die Projektion des Drehimpulses $\vec{L}$
 auf die Achsrichtung $u$.
 \end{beispiel}
 

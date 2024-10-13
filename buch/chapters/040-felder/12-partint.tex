@@ -39,7 +39,7 @@ einer Variable ist die Integralform der Produktregel
 \[
 \frac{d}{dx}(f(x)g(x)) = f'(x)g(x) + f(x)g'(x).
 \]
-Für eine Erweiterung auf ist daher als erstes zu klären, welche Art
+Für eine Erweiterung auf ist daher als Erstes zu klären, welche Art
 von Differentialoperatoren überhaupt in Frage kommen.
 
 Die partielle Ableitung nach einer der Variablen bei Funktionen
@@ -726,7 +726,8 @@ $n$-dimensionales Vektorfeld, dann gilt
 \end{align*}
 \end{definition}
 
-Formal wird die Zusammensetzung von Divergenz und Gradient einer Funktion
+Formal wird die Zusammensetzung von Divergenz und Gradient einer skalaren
+Funktion
 $f\colon\mathbb{R}^n\to\mathbb{R}$ 
 zu
 \[
@@ -1220,7 +1221,7 @@ Der entscheidende Schritt im Beweis war die Anwendung des Hauptsatzes
 der Integralrechnung in
 \eqref{buch:felder:fundamentallemma:eqn:greenhaupt}.
 Damit wird auch gerechtfertigt, dass der Satz von Green eine Art
-Erweiterung des Hauptsatzes auf zweidimensionale Gebiet ist.
+Erweiterung des Hauptsatzes auf zweidimensionale Gebiete ist.
 
 %
 % Der Satz von Green in vektorieller Schreibweise
@@ -1344,7 +1345,7 @@ Der Rand einer solchen Säule besteht dann zusätzlich noch aus der
 Mantelfläche, deren Normale aber überall senkrecht auf dem Standarbasisvektor
 $\vec{e}_3$ ist.
 
-Wir im Satz von Green berechnen wir die linke Seite von
+Wird im Satz von Green berechnen wir die linke Seite von
 \eqref{buch:felder:fundamentallemma:eqn:gauss} für eine Säule und erhalten
 \begin{align*}
 I_l
@@ -1358,7 +1359,7 @@ I_l
 &=
 \int_G \biggl[ g_3(x,y,z)\biggr]_{z_-(x,y)}^{z_+(x,y)}\,dx\,dy
 =
-\int_G g_3(x,y,z_+(x,y)) - g_3(x,y,z_-(x,y)) \,dx\,dy
+\int_G g_3(x,y,z_+(x,y)) - g_3(x,y,z_-(x,y)) \,dx\,dy.
 \end{align*}
 Die rechte Seite ist ein Oberflächenintegral über die drei früher
 identifizierten Teile der Oberfläche, wobei der Teil über die Mantelfläche
@@ -1417,10 +1418,10 @@ linear in $g(x)$ ist, folgt die allgemeine Formel.
 Der Satz von Gauss gilt noch etwas allgemeiner auch für Integrale der
 Divergenz eines $n$-dimensionalen differenzierbaren Vektorfeldes über
 ein $n$-dimensionales Gebiet.
-Der Beweis bleibt ist mutatis mutandis auch auf die allgemeinere Situation
+Der Beweis ist mutatis mutandis auch auf die allgemeinere Situation
 anwendbar.
 
-Der Satz von Gauss ermöglicht also, einen Divergenz-Operator loszuwerden,
+Der Satz von Gauss ermöglicht also, einen Divergenzoperator loszuwerden,
 indem man zu einem Integral über den Rand übergeht.
 
 %
@@ -1603,7 +1604,7 @@ g\circ\varphi
 +
 g\circ\varphi
 \cdot
-\frac{\partial^2\varphi}{\partial v\,\partial u}
+\frac{\partial^2\varphi}{\partial v\,\partial u}.
 \end{align*}
 Da $\varphi$ stetig differenzierbar ist, stimmen die zweiten Terme auf
 der rechten Seite überein und verschwinden daher im Integranden
@@ -1708,17 +1709,17 @@ Dg-Dg^t
 \\
 &=
 \begin{pmatrix}
-0
-	&(\operatorname{rot} g)_3
+\phantom{-}0
+	&\phantom{-}(\operatorname{rot} g)_3
 		&-(\operatorname{rot} g)_2
 \\
 -(\operatorname{rot}g)_3
-	&0
-		&(\operatorname{rot}g)_1
+	&\phantom{-}0
+		&\phantom{-}(\operatorname{rot}g)_1
 \\
-(\operatorname{rot}g)_2
+\phantom{-}(\operatorname{rot}g)_2
 	&-(\operatorname{rot}g)_1
-		&0
+		&\phantom{-}0
 \end{pmatrix}.
 \end{align*}
 Damit kann man jetzt auch das Produkt

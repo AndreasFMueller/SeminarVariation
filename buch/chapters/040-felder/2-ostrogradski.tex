@@ -16,7 +16,8 @@ Differentialgleichung zu lösen.
 % 
 % Variationsprinzipien für Felder
 %
-\subsection{Variationsprinzipien für Felder}
+\subsection{Variationsprinzipien für Felder
+\label{buch:felder:ostrogradski:subsection:variationsprinzipien}}
 In diesem Abschnitt werden drei Beispiele von Variationsprinzipien aus
 der Physik vorgestellt.
 Dabei geht es vor allem um die Illustration der Gemeinsamkeiten,
@@ -84,7 +85,7 @@ zu finden.
 Der potentiellen Energie $mgh$ in der Mechanik des Massepunktes
 entspricht die potentielle Energiedichte $\varrho(x)\varphi(x)$
 in der
-Lagrangefunktion~\eqref{buch:felder:ostrogradski:eqn:gravitationslagrange}.
+Lagrange-Funktion~\eqref{buch:felder:ostrogradski:eqn:gravitationslagrange}.
 Wir werden später sehen, dass sich die Feldgleichungen für das
 Gravitationsfeld dadurch finden lassen, dass man das Minimum des
 Funktionals
@@ -138,7 +139,8 @@ eine eine Funktion von der angegebenen Argumente, denn die Felder
 $\vec{E}$ und $\vec{B}$ lassen sich aus $\varphi$ und $\vec{\jmath}$ 
 berechnen.
 Wir erwarten, dass sich die Maxwell-Gleichungen wieder durch
-Lösung eines Variationsproblems finden lassen.
+Lösung eines Variationsproblems finden lassen, wie dies in
+Kapitel~\ref{chapter:maxwell} ausgeführt wird.
 
 %
 % Elastizitätstheorie
@@ -257,7 +259,7 @@ Das zugehörige Funktional ist
 I(\varphi)
 &=
 \int_{\Omega}
-L(x,\varphi,\grad\varphi(x))
+L\bigl(x,\varphi,\grad\varphi(x)\bigr)
 \,dx
 \\
 &=
@@ -285,7 +287,7 @@ die vorgegebene Randwerte
 \varphi(x) = f(x)
 \)
 für $x\in\partial\Omega$ erfüllen.
-Gesucht wird jetzt diejenige solche Funktion $\varphi(x)$, die das Funktional
+Gesucht wird jetzt diejenige Funktion $\varphi(x)$, die das Funktional
 $I(\varphi)$ zu einem Extremum macht.
 
 In zwei Dimensionen für die unabhängigen Variablen $x$ und $y$
@@ -301,7 +303,7 @@ x,y,\varphi(x,y),
 \,dx
 \]
 einen Extremwert erreicht für alle Funktionen, die ausserdem die 
-Randbedingungen $\varphi(x,y)=f(x,y)$ erfüllt für $(x,y)\in\partial\Omega$.
+Randbedingungen $\varphi(x,y)=f(x,y)$ für $(x,y)\in\partial\Omega$ erfüllt.
 
 \begin{definition}[1.~Variation]
 Die {\em erste Variation} des Funktionals $I(\varphi)$ von
@@ -354,18 +356,18 @@ ein Extremum erteilt, dann erfüllt $\varphi$ die Differentialgleichung
 \frac{\partial L}{\partial u} 
 -
 \frac{\partial}{\partial x_1}
-\frac{\partial L}{\partial u_{x_1}}(x,\varphi(x),\grad\varphi(x))
+\frac{\partial L}{\partial u_{x_1}}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 -
 \dots
 -
 \frac{\partial}{\partial x_n}
-\frac{\partial L}{\partial u_{x_n}}(x,\varphi(x),\grad\varphi(x)).
+\frac{\partial L}{\partial u_{x_n}}\bigl(x,\varphi(x),\grad\varphi(x)\bigr).
 \\
 &=
-\frac{\partial L}{\partial u}(x,\varphi(x),\grad\varphi(x))
+\frac{\partial L}{\partial u}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 -
 \operatorname{div}
-(\grad_{u_x} L)(x,\varphi(x),\grad\varphi(x))
+(\grad_{u_x} L)\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 \end{aligned}
 \label{buch:felder:ostrogradski:eqn:euler-ostrogradski}
 \end{equation}
@@ -395,22 +397,26 @@ L\bigl(x,\varphi(x)+\varepsilon\eta(x),
 Entwicklung der Funktion $L$ nach Potenzen von $\varepsilon$ ergbibt
 }
 &=
-\int_{\Omega} \frac{\partial L}{\partial u}(x,\varphi(x),\grad\varphi(x))\,dx
+\int_{\Omega}
+\frac{\partial L}{\partial u}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
+\,dx
 +
 \int_{\Omega}
 \sum_{k=1}^n
 \frac{\partial L}{\partial u_{x_k}}
-L\bigl(x,\varphi(x),\grad\varphi(x))
+L\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 \frac{\partial\eta}{\partial x_k}
 \,dx.
 \notag
 \intertext{Die Summe im zweiten Integral lässt sich etwas kompakter
 als ein Skalarprodukt von der Form}
 &=
-\int_{\Omega} \frac{\partial L}{\partial u}(x,\varphi(x),\grad\varphi(x))\,dx
+\int_{\Omega}
+\frac{\partial L}{\partial u}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
+\,dx
 +
 \int_{\Omega}
-(\grad_{u_x}L)(x,\varphi(x),\grad\varphi(x))
+(\grad_{u_x}L)\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 \cdot
 \grad\eta(x)
 \,dx.
@@ -437,16 +443,16 @@ Die zugehörige partielle Integrationsformel wendelt das zweite Integral
 in 
 \[
 \int_{\partial \Omega}
-v(x) \eta(x) \grad_{u_x}(L(x,\varphi(x),\grad\varphi(x)))
+v(x) \eta(x) \grad_{u_x}\bigl(L(x,\varphi(x),\grad\varphi(x))\bigr)
 \,d\vec{\omega}
 -
 \int_{\Omega}
-(\grad_{u_x} L)(x,\varphi(x),\grad \varphi(x))
+(\grad_{u_x} L)\bigl(x,\varphi(x),\grad \varphi(x)\bigr)
 \,dx
 \]
 um.
 Die Art des Integrals über den Rand spielt dabei überhaupt keine Rolle,
-denn da $\eta(x)=0$ ist auf dem Rand, verschwindet es unabhängig davon.
+denn da auf dem Rand $\eta(x)=0$ ist, verschwindet es unabhängig davon.
 Aus der Gleichung
 \eqref{buch:felder:ostrogradski:eqn:abgeleitet}
 wird dann
@@ -455,10 +461,10 @@ wird dann
 =
 \int_{\Omega}
 \biggl(
-\frac{\partial L}{\partial u}(x,\varphi(x),\grad\varphi(x))
+\frac{\partial L}{\partial u}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 -
 \operatorname{div}
-(\grad_{u_x}L)(x,\varphi(x),\grad\varphi(x))
+(\grad_{u_x}L)\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 \biggr)
 \eta(x)
 \,dx.
@@ -494,11 +500,11 @@ ableiten.
 Dazu muss die Ableitungen nach $u$ und $u_{x_k}$ ermittelt werden.
 Sie sind
 \begin{align*}
-\frac{\partial L}{\partial u}(x,\varphi(x),\grad\varphi(x))
+\frac{\partial L}{\partial u}\bigl(x,\varphi(x),\grad\varphi(x)\bigr)
 &=
 -\varrho(x)
 \\
-\frac{\partial L}{\partial u_{x_k}}(x,\varphi(x),\grad \varphi(x))
+\frac{\partial L}{\partial u_{x_k}}\bigl(x,\varphi(x),\grad \varphi(x)\bigr)
 &=
 -\frac{1}{4\pi G}\frac{\partial \varphi}{\partial x_k}(x)
 &&\Rightarrow&
@@ -565,7 +571,7 @@ wobei $V(x)$ das Potential ist, in dem sich das Teilchen bewegt.
 Zur Herleitung der Euler-Ostrogradski-Differentialgleichung zur
 Lagrange-Funktion
 \eqref{buch:felder:ostrogradski:eqn:schroedingerlagrange}
-bestimmen wir zu nächst die Ableitung nach den Feldbariablen:
+bestimmen wir zunächst die Ableitung nach den Feldbariablen:
 \begin{equation}
 \begin{aligned}
 \frac{\partial L}{\partial u}
@@ -590,7 +596,7 @@ Sie wird gerechtfertigt dadurch, dass in der komplexen Analysis die
 Variablen $u$ und $\bar{u}$ als unabhängig betrachtet werden können,
 insbesondere verschwindet die Ableitung von $\bar{u}$ nach $u$.
 Eigentlich gibt es also zwei Felder, die unabhängig voneinander
-variert werden können, nämlich $u$ und $\bar{u}$.
+variiert werden können, nämlich $u$ und $\bar{u}$.
 Indem wir die Ableitungen $\bar{u}$ ignorieren, führen wir die Variation
 nur für die Funktionen $u$ durch.
 
