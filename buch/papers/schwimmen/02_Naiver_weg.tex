@@ -36,7 +36,7 @@ Ein paar wichtige Kenngrössen für die Herleitung sind in Tabelle \ref{table:Wi
         \hline
         \(a\)   &   Flussbreite  &   definiert von der Umgebung \\
         \(c\)   &   Schwimmgeschwindigkeit        &   Definiert von der schwimmenden Person       \\
-        \(v(x)\)   &   Flussgeschwindigkeit         &   Ist von der \(x\)-Position im Fluss abhängig     \\
+        \(u(x)\)   &   Flussgeschwindigkeit         &   Ist von der \(x\)-Position im Fluss abhängig     \\
         \((0,0)\)   &   Startpunkt         &   Startpunkt am Flussufer     \\
         \((a,A)\)   &   Endpunkt         &   Endpunkt auf anderer Ufer aber auf gleicher Höhe     \\
         \specialrule{.1em}{.05em}{.05em}
@@ -73,7 +73,7 @@ Da \(dt = \frac{dx}{c_x}\), die Zeit, die benötigt wird um sich ein kleines St�
 
 Als nächstes wird die Beziehung der \(x\)- und \(y\)-Geschwindigkeiten im System behandelt. Dies ist auch am Schluss wichtig, um den genauen Schwimmverlauf der schwimmenden Person beobachten zu können.
 
-Die \(y\)-Geschwindigkeit soll im Bezug zur \(x\)-Richtung gegeben werden. Die Schwimmgeschwindigkeit in \(y\)-Richtung is gegeben durch
+Die \(y\)-Geschwindigkeit soll im Bezug zur \(x\)-Richtung gegeben werden. Die Schwimmgeschwindigkeit in \(y\)-Richtung ist gegeben durch
 \begin{equation}
     c_y = \frac{dy}{dt}.
 \end{equation}
@@ -123,7 +123,7 @@ Dieses Integral  beschreibt die Zeit, die für die Flussüberquerung benötigt w
 
 
 \subsubsection{Lagrange-Funktion} 
-Um die Route zu finden, die die kürzeste Zeit für die Flussüberquerung benötigt, wendet man die Variationsrechnung an. Für das braucht man das  Funktional, welches minimiert werden soll, in diesem Fall \eqref{eq:Time_river_2}. 
+Um die Route zu finden, die die kürzeste Zeit für die Flussüberquerung benötigt, wendet man die Variationsrechnung an. Dafür braucht man das  Funktional, welches minimiert werden soll, in diesem Fall \eqref{eq:Time_river_2}. 
 Aus dem Funktional \eqref{eq:Time_river_2} kann die Lagrange-Funktion
 \begin{equation}\label{eq:lagrange_integral}
     L(x, y, y') = \frac{-uy' \mp \sqrt{c^2(y'^2+1)-u^2}}{c^2-u^2}
@@ -149,7 +149,12 @@ Auflösung nach \(y'\) ergibt
 \begin{equation}
     y' = \frac{c^2 + g\cdot u - u^2}{c \cdot \sqrt{u^2-2\cdot g\cdot u - c^2 + g^2}} .\label{eq:angle} \\
 \end{equation}
-\(y'\) gibt an, mit welchem Verhältnis von \(y\) zu \(x\) sich die schwimmende Person im Wasser bewegt.
+\(y'\) gibt an, mit welchem Verhältnis von \(y\) zu \(x\) sich die schwimmende Person im Wasser bewegt. Die rechte Seite von \eqref{eq:angle} ist eine Funktion nur von \(x\), nicht von \(y\). Daher kann die Route durch die Integration
+\begin{align}
+    y(x) &= \int_0^x y'(\xi) d\xi \\
+    &= \int_0^x \frac{c^2+g\cdot u(\xi) - u(\xi)^2}{c\cdot \sqrt{u^2 - 2\cdot g \cdot u(\xi) - c^2 + g^2}} d\xi
+\end{align}
+gefunden werden. Die Konstante \(g\) muss so gewählt werden, dass \(y(a) = A\), d.h. dass die schwimmende Person am gewünschten Zielort ankommt.
 
 
 
