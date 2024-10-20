@@ -23,14 +23,14 @@ wird jetzt eine vektorwertige Funktion
 \[
 u
 \colon
-\mathbb{R}^n \to \mathbb{R}^m
+\mathbb{R}^n \to \mathbb{R}^r
 :
 (x_1,\dots,x_n)
 \mapsto
 (
 u_1(x_1,\dots,x_n)
 ,\dots,
-u_m(x_1,\dots,x_n)
+u_r(x_1,\dots,x_n)
 )
 \]
 gesucht.
@@ -41,7 +41,7 @@ Im Folgenden werden Funktionen betrachtet, die ein- oder mehrmals
 stetig differenzierbar sind.
 Dies bedeutet, dass die partiellen Ableitungen nach jeder beliebigen
 Variablen stetige Funktionen sind.
-Die $m$ Funktionen $u_1,\dots,u_m$ haben $nm$ partielle Ableitungen
+Die $r$ Funktionen $u_1,\dots,u_r$ haben $nr$ partielle Ableitungen
 nach den $n$ Variablen $x_1,\dots,x_n$.
 Wir schreiben wieder $u_x$ für die die ersten Ableitungen.
 $u_x$ besteht aus den $nm$ Ableitungen 
@@ -64,7 +64,7 @@ Die Lagrange-Funktion ist also eine Funktion
 \begin{equation*}
 L
 \colon
-\mathbb{R}^n\times \mathbb{R}^m \times \mathbb{R}^{nm}\to\mathbb{R}
+\mathbb{R}^n\times \mathbb{R}^r \times \mathbb{R}^{nr}\to\mathbb{R}
 :
 (x,u,u_x)
 \mapsto
@@ -72,20 +72,20 @@ L(x,u,u_x).
 \end{equation*}
 Wenn wir die Komponenten explizit machen wollen, schreiben wir
 \[
-L(x_1,\dots,x_n,u_1,\dots,u_m,u_{11},\dots,u_{1n},\dots,u_{mn}).
+L(x_1,\dots,x_n,u_1,\dots,u_r,u_{11},\dots,u_{1n},\dots,u_{rn}).
 \]
-Das zugehörige Funktion ist dann wieder das Integral
+Das zugehörige Funktional ist dann wieder das Integral
 \begin{equation}
 I(\varphi)
 =
 \int_{\Omega}
 L\biggl(x_1,\dots,x_n,
-\varphi_1(x),\dots,\varphi_m(x),
+\varphi_1(x),\dots,\varphi_r(x),
 \frac{\partial\varphi_1}{\partial x_1}(x),
 \dots,
 \frac{\partial\varphi_1}{\partial x_k}(x),
 \dots,
-\frac{\partial\varphi_m}{\partial x_n}(x)
+\frac{\partial\varphi_r}{\partial x_n}(x)
 \biggr)
 \,dx
 \label{buch:felder:vektorfelder:eqn:lagrange-funktional}
@@ -94,7 +94,7 @@ für eine auf dem Gebiet $\Omega$ definierte vektorwertige Funktion
 $\varphi$ mit den Komponenten $\varphi_i(x_1,\dots,x_n)$.
 
 In der Euler-Ostrogradski-Gleichung treten die Ableitungen nach
-den $u_i$ und den Variablen $u_{ik}$, die für die partiellen
+den $u_i$ und den Variablen $u_{ik}$ auf, die für die partiellen
 Ableitungen stehen.
 Die partiellen Ableitungen nach den $u_i$ bilden einen Vektor
 mit Komponenten
@@ -104,11 +104,11 @@ mit Komponenten
 \biggl(
 \frac{\partial L}{\partial u_1}
 ,\dots,
-\frac{\partial L}{\partial u_m}
+\frac{\partial L}{\partial u_r}
 \biggr)
 \end{align*}
-mit $m$ Komponenten.
-Die $mn$ partiellen Ableitungen der Komponenten $i$ nach der Variablen $x_k$
+mit $r$ Komponenten.
+Die $rn$ partiellen Ableitungen der Komponenten $i$ nach der Variablen $x_k$
 sind von Paaren $(i,k)$ indiziert, wir schreiben Komponenten als
 \[
 \biggl(
@@ -117,7 +117,7 @@ sind von Paaren $(i,k)$ indiziert, wir schreiben Komponenten als
 =
 \frac{\partial L}{\partial u_{ik}}
 \]
-mit $i=1,\dots,n$ und $k=1,\dots,m$.
+mit $i=1,\dots,n$ und $k=1,\dots,r$.
 
 %
 % Euler-Ostrogradski-Differentialgleichung
@@ -175,7 +175,7 @@ die Gleichungen
 \frac{\partial \eta_i}{\partial x_k}
 \,dx
 \end{equation*}
-für $i=1,\dots,m$.
+für $i=1,\dots,r$.
 Partielle Integration ermöglicht, das Integral über den zweiten
 Term in ein Integral mit $\eta_i$ als zweitem Faktor umzuwandeln,
 nämlich
@@ -196,7 +196,7 @@ nämlich
 \eta_i(x)
 \,dx
 \end{equation*}
-mit $i=1,\dots m$.
+mit $i=1,\dots, r$.
 Nach dem Fundamentallemma
 (Satz~\ref{buch:felder:fundamentallemma:satz:fundamentallemma})
 folgt jetzt wieder, dass
@@ -212,7 +212,7 @@ folgt jetzt wieder, dass
 0
 \label{buch:felder:vektorrelder:eqn:euler-ostrogradski}
 \end{equation}
-für $i=1,\dots m$ ist.
+für $i=1,\dots, r$ ist.
 Man beachte, dass die ``äussere'' partielle Ableitung im zweiten Term
 von
 \eqref{buch:felder:vektorrelder:eqn:euler-ostrogradski}

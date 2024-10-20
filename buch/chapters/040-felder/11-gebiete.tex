@@ -18,7 +18,7 @@ wie es zur Konstruktion des zu minimierenden Funktionals nötig ist.
 Für Funktionen von zwei oder mehr Variablen ist bereits die
 Festlegung des Definitionsgebietes viel komplizierter.
 Sie muss so erfolgen, dass auch die partielle Integration eines
-Produktes darauf übertragbar ist.
+Produktes von Funktionen darauf übertragbar ist.
 Diese wurde im eindimensionalen Fall dazu verwendet, aus dem Integral
 über $F\cdot\eta'$ eine Integral über $dF/dx\cdot \eta$ zu
 machen, auf welches das Fundamentallemma anwendbar war.
@@ -29,7 +29,7 @@ machen, auf welches das Fundamentallemma anwendbar war.
 \subsubsection{Offene Mengen}
 Die Ableitung einer Funktion $f$ in einem Punkt $x\in\mathbb{R}$ erfordert,
 dass man Funktionswerte in $x$ mit Funktionswerten in Punkten $x+h$
-vergleichen kann, wobei $h\in\mathbb{R}^n$ ein beliebiger kleiner Vektor
+vergleichen kann, wobei $h\in\mathbb{R}^n$ ein beliebiger, kleiner Vektor
 sein kann.
 Die Ableitung einer Funktion ist dann definiert als die lineare
 Ersatzfunktion $Df(x)$ mit der Eigenschaft
@@ -75,12 +75,12 @@ Gebietes zu finden ist.
 
 Der Rand eines Intervalls ist einfach zu finden.
 Ein Endpunkt eines Intervalls hat die Eigenschaft, dass sich
-auf der einen Seite des Punktes lauter Werte befinden, die zum
-Intervall gehören, während auf der anderen Seite nur Werte liegen,
+auf der einen Seite des Punktes lauter Zahlen befinden, die zum
+Intervall gehören, während auf der anderen Seite nur Zahlen liegen,
 die nicht zum Intervall gehören.
 Diese anschauliche Beschreibung appelliert aber an eine Vorstellung
 einer Richtung und ist daher nicht direkt übersetzbar.
-Sie lässt sich aber noch etwas vereinfachen: ein Endpunkt eines
+Sie lässt sich aber noch etwas vereinfachen: Ein Endpunkt eines
 Intervalls hat beliebig nahe Punkte, die zum Intervall gehören, und
 solche die nicht mehr dazu gehören.
 Dies suggeriert die folgende Definition für den Rand eines Gebietes.
@@ -271,9 +271,9 @@ und
 $x_{1,\pm}(x_2)$ 
 derart, dass das Gebiet $G$ durch die Ungleichungen
 \begin{align*}
-x_{2,-}(x_2) &< x_2 < x_{2,+}(x_2)&& \text{für $x_2\in(x_{10},x_{11})$}
+x_{2,-}(x_1) &< x_2 < x_{2,+}(x_1)&& \text{für $x_1\in(x_{10},x_{11})$}
 \intertext{bzw.}
-x_{1,-}(x_2) &< x_2 < x_{1,+}(x_2)&& \text{für $x_2\in(x_{20},x_{21})$}
+x_{1,-}(x_2) &< x_1 < x_{1,+}(x_2)&& \text{für $x_2\in(x_{20},x_{21})$}
 \end{align*}
 gegeben ist.
 Mit diesen Bezeichnungen lässt sich das Integral über das Gebiet auch
@@ -282,10 +282,10 @@ auf zwei verschiedene Arten als das iterierte Integral
 \int_G f(x) \,dx
 =
 \int_{x_{10}}^{x_{11}}
-\int_{x_{2,-}(x_2)}^{x_{2,+}(x_2)} f(x_2,x_2)\,dx_2\,dx_2
+\int_{x_{2,-}(x_1)}^{x_{2,+}(x_1)} f(x_2,x_2)\,dx_2\,dx_1
 =
 \int_{x_{20}}^{x_{21}}
-\int_{x_{1,-}(x_2)}^{x_{1,+}(x_2)} f(x_2,x_2)\,dx_2\,dx_2
+\int_{x_{1,-}(x_2)}^{x_{1,+}(x_2)} f(x_2,x_2)\,dx_1\,dx_2
 \]
 schreiben.
 Änliche iterierte Integrale können verwenden werden, um Integrale
@@ -315,7 +315,7 @@ hat ein Gebiet $\tilde{G}$ als Definitionsgebiet.
 Approximiert man $\tilde{G}$ mit Quader $\tilde{R}_k$, dann sind
 die Bildmengen $x(\tilde{R}_k)$ keine Quader.
 Da die Funktionen $x_i$ differenzierbar, sind sie jedoch näherungsweise
-Quader.
+Parallelepipeds.
 Durch die Abbildung $x$ werden die Kantenvektoren $e_j$ der Quader 
 $\tilde{R}_k$ auf die Vektoren $Dx\cdot e_j$ abgebildet, die ein
 Parallelepiped mit dem Volumen
@@ -449,8 +449,8 @@ r^2
 &=
 r^2\sin\vartheta
 \end{align*}
-ist.
-In Kugelkoordinaten ist das Integral daher als
+ist,
+ist das Integral daher als
 \[
 \int_G f(r,\vartheta,\varphi)
 \,
@@ -565,7 +565,7 @@ Ist $\vec{v}$ ein Vektorfeld entlang der Kurve $C$, dann sind im Skalarprodukt
 =
 |\vec{v}(\gamma(t))| \, |\dot{\gamma}(t)|\, \cos \alpha,
 \]
-wobei $\alpha$ der Winkel zwischen der $\vec{v}$ und der Kurventangente
+wobei $\alpha$ der Winkel zwischen $\vec{v}$ und der Kurventangente
 im Punkt $\gamma(t)$ ist.
 Der Betrag $|\vec{v}|$ und der Winkel $\alpha$ sind
 nur von der Position entlang der Kurve abhängig.
@@ -585,7 +585,7 @@ Ist der Rand eines Gebietes glatt im Sinne der
 Definition~\ref{buch:felder:fundamentallemma:def:glatterrand},
 darf man einen Zusammenhang zwischen einem Integral über das Gebiet
 und einem Integral über den Rand erwarten.
-Die Sätze von Green, Stokes und Gauss, die im
+Dies sind die Sätze von Green, Stokes und Gauss, die im
 Abschnitt~\ref{buch:felder:subsection:partint} als Verallgemeinerung
 der partiellen Integration präzisiert werden.
 Die Definition~\ref{buch:felder:fundamentallemma:def:glatterrand}

@@ -39,8 +39,8 @@ einer Variable ist die Integralform der Produktregel
 \[
 \frac{d}{dx}(f(x)g(x)) = f'(x)g(x) + f(x)g'(x).
 \]
-Für eine Erweiterung auf ist daher als Erstes zu klären, welche Art
-von Differentialoperatoren überhaupt in Frage kommen.
+Für eine Erweiterung auf mehrere Variablen ist daher als Erstes zu klären,
+welche Art von Differentialoperatoren überhaupt in Frage kommen.
 
 Die partielle Ableitung nach einer der Variablen bei Funktionen
 $f$ und $g$ von $n$ Variablen erfüllt eine Produktregel:
@@ -211,7 +211,8 @@ f(x)\operatorname{div}g(x).
 
 Die Produktregel sagt also auch hier, dass der Differentialoperator
 auf jeden Faktor einzeln angewendet werden kann. 
-Je nach Art des Faktors passt aber der Gradient oder die Divergenz.
+Je nach Art des Faktors passt aber der Gradient oder die Divergenz
+als Differentialoperator.
 
 %
 % Laplace-Operator
@@ -342,7 +343,8 @@ h\operatorname{div}g
 -
 (g\grad)h,
 \end{align*}
-wobei der Vektorgrand $(g\grad)h$ als $k$-te Komponente
+wobei der {\em Vektorgradient} $(g\grad)h$ als $k$-te Komponente
+\index{Vektorgradient}
 \[
 \sum_{i=1}^3 g_i\frac{\partial h_k}{\partial x_i}
 =
@@ -1249,7 +1251,7 @@ Der Integrand auf der linken Seite von
 der Rotation von $\vec{v}$.
 Das Integral auf der linken Seite von
 \eqref{buch:felder:fundamentallemma:eqn:green}
-ist daher die das Flächenintegral
+ist daher das Flächenintegral
 \[
 \int_\Omega
 \frac{\partial g}{\partial x}-\frac{\partial f}{\partial y}\,dx\,dy
@@ -1448,7 +1450,7 @@ f\operatorname{div}g
 \left\{
 \begin{aligned}
 (\grad f)g &= \operatorname{div}(fg) - f\operatorname{div}g \\
-f\operatorname{div}g &= \operatorname{div}(fg) - (\grad f)g
+f\operatorname{div}g &= \operatorname{div}(fg) - (\grad f)g.
 \end{aligned}
 \right.
 \]
@@ -1475,7 +1477,7 @@ Dann gilt
 &=
 \int_{\partial\Omega} f(x)g(x)\cdot do(x)
 -
-\int_{\Omega} f(x)\operatorname{div}g(x)\,dx.
+\int_{\Omega} f(x)\operatorname{div}g(x)\,dx,
 \\
 \int_{\Omega} (\nabla f)(x)g(x)\,dx
 &=
@@ -1816,7 +1818,7 @@ Das Integral des Satzes von Green über $\Omega$ ist jetzt
 \cdot
 do.
 \end{align*}
-Dies ist der Satz von Stokes bewiesen.
+Damit ist der Satz von Stokes bewiesen.
 \end{proof}
 
 %
@@ -1824,7 +1826,7 @@ Dies ist der Satz von Stokes bewiesen.
 %
 \subsubsection{Partielle Integration und der Satz von Stokes}
 Für eine differenzierbare skalare Funktion
-$f\colon\mathbb{R}^3\to\mathbb{R}$, ein differenzierbares dreidimensionales
+$f\colon\mathbb{R}^3\to\mathbb{R}$, ein differenzierbares, dreidimensionales
 Vektorfeld $g\colon\mathbb{R}^3\to\mathbb{R}^3$.
 Dann gilt die Produktregel
 \[
@@ -1857,7 +1859,7 @@ Term den Satz von Stokes anzuwenden, so entsteht die Identität
 \int_{S} f(x)(\nabla\times g)(x)\cdot do(x).
 \end{align*}
 Wieder kann der Differentialoperator vom einen Faktor auf den anderen
-zu verschieben.
+verschoben werden.
 Dabei entsteht wieder ein Term, der nur von den Funktionswerten
 auf dem Rand der Fläche $S$ abhängt.
 
