@@ -44,7 +44,7 @@ Abbildung~\ref{buch:variation:problem:fig:bernoulli}
 dargestellt.
 Bernoulli hat als Lösung gefunden, dass die Kurve ein Ausschnitt
 aus einer Zykloide (in der Abbildung rot) sein muss.
-Seine Lösung beruhte auf der Beobachtung, dass sich das Problem analog
+Seine Lösung beruhte auf der Beobachtung, dass das Problem analog
 zu einem Lichtausbreitungsproblem ist, für welches Fermat bereits
 eine Lösung gefunden hat.
 Den Zusammenhang zwischen dem Brachistochronenproblem und der geometrischen
@@ -73,8 +73,7 @@ v(y)
 =
 \!\sqrt{2gy}.
 \]
-Durch Wahl einer anderen Zeiteinheit kann die Gleichung noch weiter
-vereinfacht zu
+Durch Wahl einer anderen Zeiteinheit kann die Gleichung noch weiter zu
 \(
 v(y) = \sqrt{y}
 \)
@@ -107,11 +106,11 @@ des Mediums ist.
 \index{Dichte, optische}%
 \index{optische Dichte}%
 Der Brechungsindex in einem Medium hängt ausserdem von der Wellenlänge ab.
-verschiedenfarbiges Licht wird daher mehr oder weniger stark gebrochen,
+Verschiedenfarbiges Licht wird daher mehr oder weniger stark gebrochen,
 was in Prismen zur Aufspaltung des Lichts in ein Spektrum verwendet
 werden kann, aber in einem optischen System auch zu Farbrändern an
 hellen Objekten führen kann.
-Aus dem Fermatprinzip ergibt sich jetzt das Brechungsgesetz von 
+Aus dem Fermat-Prinzip ergibt sich jetzt das Brechungsgesetz von 
 Snellius.
 \index{Brechungsgesetz}%
 \index{Snellius}%
@@ -160,7 +159,7 @@ n_2\overline{A_2B}
 &=
 n_1\!\sqrt{(x-x_1)^2 + y_1^2}
 +
-n_2\!\sqrt{(x_2-x)^2 + y_2^2}
+n_2\!\sqrt{(x_2-x)^2 + y_2^2}.
 \end{align*}
 Das Minimum wird bei einer Nullstelle der Ableitung nach $x$ gefunden,
 also bei einer Lösung der Gleichung
@@ -215,7 +214,7 @@ In jedem Punkt des Strahls muss aber weiterhin $n(y)\sin\alpha(y)$
 gelten, wobei $\alpha(y)$ der Winkel zwischen der Vertikalen und
 der Tangente an den Strahl ist.
 
-Folgt der Strahl der Kurve $x(y)$, die mit der vertikalen den Winkel
+Folgt der Strahl der Kurve $x(y)$, die mit der Vertikalen den Winkel
 $x'(y) = \tan\alpha(y)$ einschliesst, dann lässt sich der Sinus
 auch durch die Ableitung als
 \[
@@ -266,7 +265,7 @@ C
 K
 \label{buch:variation:problem:eqn:bernoullidgl}
 \end{equation}
-erfüllen.
+erfüllt.
 Es genügt somit, eine Lösung dieser Differentialgleichung zu finden,
 die durch die beiden Punkte $A$ und $B$ geht.
 Allerdings ist die Lösung der Differentialgleichung
@@ -377,7 +376,7 @@ Differentialgleichung~\eqref{buch:variation:problem:eqn:bernoullidgl}.
 %
 \subsection{Das Brachistochronenproblem als Variationsproblem
 \label{buch:variation:problem:subsection:variationsproblem}}
-Die Bernoullische Lösung des Brachistochronenproblems verwendet die
+Die bernoullische Lösung des Brachistochronenproblems verwendet die
 Analogie zum Fermat-Prinzip.
 \index{Brachistochronenproblem}%
 Eine solche Analogie ist nur selten möglich, daher soll das Problem
@@ -396,7 +395,7 @@ braucht der Massepunkt die Zeit
 =
 \frac{ \sqrt{1 + y'(x)^2} }{ v(y) } \Delta x.
 \]
-Die Zeit ist das Integral
+Die gesamte Zeit ist somit das Integral
 \begin{equation}
 t
 =
@@ -544,7 +543,7 @@ genau dann, wenn $v=0$.
 \item Absolute Homogenität: Für alle Vektoren $v\in V$ und
 \index{Homogenität}%
 $\lambda\in\mathbb{R}$ gilt $\|\lambda v\| = |\lambda|\, \|v\|$.
-\item Dreiecksungleichung: für alle Vektoren $u,v\in V$ gilt
+\item Dreiecksungleichung: Für alle Vektoren $u,v\in V$ gilt
 \index{Dreiecksungleichung}%
 $\|u+v\|\le \|u\|+\|v\|$.
 \end{itemize}
@@ -558,7 +557,7 @@ Der Vektorraum der stetigen Funktionen kann mit der Supremum-Norm
 \|f\| = \sup_{x\in[a,b]} |f(x)|
 \]
 zu einem normierten Raum gemacht werden.
-Die Definitheit ist durch die Definition offensichtlich sichersgtellt.
+Die Definitheit ist durch die Definition offensichtlich sichergestellt.
 Für $\|\lambda f\|$ finden wir
 \[
 \|\lambda f\|
@@ -608,7 +607,7 @@ $N\in \mathbb{N}$ gibt derart, dass
 \]
 Der Vektor $x\in V$ heisst {\em Grenzwert} der Folge $(x_n)_{n\in\mathbb{N}}$,
 \index{Grenzwert}%
-wenn es zu jedem $\varepsilon > 0$ ein $N\mathbb{N}$ gibt derart, dass
+wenn es zu jedem $\varepsilon > 0$ ein $N\in\mathbb{N}$ gibt derart, dass
 \[
 \|x_n-x\| < \varepsilon 
 \quad\forall n\ge N.
@@ -648,7 +647,7 @@ wenn jede Cauchy-Folge in $V$ einen Grenzwert hat.
 
 \begin{beispiel}
 Die Menge $\mathscr{L}^1([0,2])$
-der auf auf dem Intervall $[0,2]$ integrierbaren kann mit der Norm
+der auf auf dem Intervall $[0,2]$ integrierbaren Funktionen kann mit der Norm
 \[
 \|f\|_1
 =
@@ -823,7 +822,7 @@ verwendende Norm Rechenschaft abzulegen.
 Das Brachistochronenproblem sucht eine Kurve, die zwei Punkte miteinander
 verbindet.
 Dies ist bekannt als das {\em Anfangspunkt-Endpunkt-Problem}.
-\index{Anfangspunkt-Endpunkt-Problem}.
+\index{Anfangspunkt-Endpunkt-Problem}%
 Andere Aufgabenstellungen sind jedoch auch denkbar.
 Ein Schwimmer startet seine Flussüberquerung an einem Punkt
 und will am anderen Ufer das Wasser wieder verlassen
@@ -833,7 +832,7 @@ In dieser Situation ist der Anfangspunkt vorgegeben, der Endpunkt ist
 weniger eingeschränkt, er muss nur auf einer Kurve liegen.
 Dies ist das {\em Anfangspunkt-Endkurve-Problem}.
 Abbildung~\ref{buch:variation:problem:fig:grundaufgaben}
-\index{Anfangspunkt-Endkurve-Problem}
+\index{Anfangspunkt-Endkurve-Problem}%
 zeigt alle möglichen Kombinationen.
 
 Sobald bei der Lösung eines Problems mit gegebener Anfangs- oder Endkurve

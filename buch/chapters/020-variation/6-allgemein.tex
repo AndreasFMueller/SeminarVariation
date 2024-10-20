@@ -507,10 +507,10 @@ liefern dann Randbedingungen für $y(x)$.
 %
 % Erste Variation für mehrere Funktionen 
 %
-\subsection{Erste Variation mehrere Funktionen
+\subsection{Erste Variation mehrerer Funktionen
 \label{buch:variation:allgemein:subsection:var1n}}
 Die Entwicklung des letzten Abschnitts lässt sich auch für mehrere
-Funktionen $y_1(x),\dots,$ $y_n(x)$ durchführen.
+Funktionen $y_1(x),\dots,$ $y_r(x)$ durchführen.
 Seien also $y_k(x,\varepsilon)$ Variationen der Funktionen $y_k(x)$
 mit der Variation $x_1(\varepsilon)$ und $x_2(\varepsilon)$ der 
 Intervallenden.
@@ -520,8 +520,8 @@ x
 \mapsto
 (x,
 y_1(x,\varepsilon),\dots
-y_n(x,\varepsilon))
-\in \mathbb{R}^{n+1}
+y_r(x,\varepsilon))
+\in \mathbb{R}^{r+1}
 \]
 bewegen sich jetzt auf der Kurve
 \[
@@ -532,7 +532,7 @@ P_i(\varepsilon)
 (x_i(\varepsilon),
 y_1(x_i(\varepsilon),\varepsilon),
 \dots
-y_n(x_i(\varepsilon),\varepsilon))
+y_r(x_i(\varepsilon),\varepsilon))
 \]
 mit dem Tangentialvektor
 \[
@@ -543,7 +543,7 @@ mit dem Tangentialvektor
 x_i(\varepsilon)\\
 y_1(x_i(\varepsilon),\varepsilon)\\
 \vdots\\
-y_n(x_i(\varepsilon),\varepsilon)
+y_r(x_i(\varepsilon),\varepsilon)
 \end{pmatrix}
 \]
 für $i=1,2$.
@@ -558,21 +558,21 @@ entspricht der Vektor
 \begin{pmatrix}
 \displaystyle
 \biggl(
-F%(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i))
+F%(x_i,y_1(x_i),y'_1(x_i),\dots,y_r(x_i),y_r'(x_i))
 -
 \sum_{k=1}^n y'_k(x_i) \frac{\partial F}{\partial y_k'}
 \biggr)
-\bigl(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i)\bigr)
+\bigl(x_i,y_1(x_i),y'_1(x_i),\dots,y_r(x_i),y_r'(x_i)\bigr)
 \\
 \displaystyle
 \frac{\partial F}{\partial y_1}
-\bigl(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i)\bigr)
+\bigl(x_i,y_1(x_i),y'_1(x_i),\dots,y_r(x_i),y_r'(x_i)\bigr)
 \\
 \vdots
 \\
 \displaystyle
-\frac{\partial F}{\partial y_n}
-\bigl(x_i,y_1(x_i),y'_1(x_i),\dots,y_n(x_i),y_n'(x_i)\bigr)
+\frac{\partial F}{\partial y_r}
+\bigl(x_i,y_1(x_i),y'_1(x_i),\dots,y_r(x_i),y_r'(x_i)\bigr)
 \end{pmatrix}.
 \]
 
@@ -586,7 +586,7 @@ y(x)
 \begin{pmatrix}
 y_1(x)\\
 \vdots\\
-y_n(x)
+y_r(x)
 \end{pmatrix}
 \qquad
 \text{und}
@@ -596,7 +596,7 @@ y(x,\varepsilon)
 \begin{pmatrix}
 y_1(x,\varepsilon)\\
 \vdots\\
-y_n(x,\varepsilon)
+y_r(x,\varepsilon)
 \end{pmatrix}
 \]
 sind.
@@ -605,7 +605,7 @@ kompakter als
 Funktion
 \[
 F\colon
-\mathbb{R}\times \mathbb{R}^n\times\mathbb{R}^n
+\mathbb{R}\times \mathbb{R}^r\times\mathbb{R}^r
 \to
 \mathbb{R}
 :
@@ -631,7 +631,7 @@ y(x_i(\varepsilon),\varepsilon)
 \end{pmatrix}.
 \]
 Im Falle von $\vec{f}_i$ sind die unteren $n$ Komponenten
-die Ableitungen von $F$ nach den $n$ Variablen $y_1,\dots,y_n$.
+die Ableitungen von $F$ nach den $n$ Variablen $y_1,\dots,y_r$.
 Dafür wurde in
 Abschnitt~\ref{buch:variation:mehrerefunktionen:subsection:vektorableitung}
 die Notation $\partial F/\partial y$ eingeführt.

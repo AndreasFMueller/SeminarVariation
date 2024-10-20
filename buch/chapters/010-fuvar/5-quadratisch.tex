@@ -68,7 +68,7 @@ g(x)
 =
 \transpose{x}Ax
 =
-\transpose{\transpose{x}Ax}
+\transpose{(\transpose{x}Ax)}
 =
 \transpose{x}\transpose{A}x.
 \]
@@ -147,7 +147,7 @@ Beim quadratischen Ergänzen sucht man nach einem Wert $x_S$, der das
 quadratische Polynom auf der rechten Seite von
 \eqref{buch:fuvar:quadratisch:eqn:1dim} zu einem reinen Quadrat der Form
 \[
-a(x-x_0)^2 + C
+a(x-x_S)^2 + C
 \]
 macht.
 Durch Ausmultiplizieren findet man eine lineare Gleichung, deren
@@ -180,7 +180,7 @@ Der Vektor $x_S$ dazu für alle $x$ die lineare Gleichung
 =
 -\transpose{x_S}(A+\transpose{A}) x
 \qquad\Rightarrow\qquad
-(\transpose{x_S}(A+\transpose{A})x+\transpose{b})x
+(\transpose{x_S}(A+\transpose{A})+\transpose{b})x
 =
 0
 \]

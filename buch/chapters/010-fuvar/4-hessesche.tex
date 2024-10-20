@@ -56,7 +56,7 @@ v_iv_k,
 wobei die $v_i$ die Komponenten von $v$ sind.
 An der Stelle $t=0$ bleibt die Eigenschaft
 \[
-\frac{d^2}{dt^2}f(x_0+vt)_{t=0}
+\frac{d^2}{dt^2}f(x_0+vt)\bigg|_{t=0}
 =
 \sum_{i,k=1}^n \frac{\partial^2 f}{\partial x_i\,\partial x_k}(x_0) \,v_iv_k
 >
@@ -70,7 +70,7 @@ h_{ik}
 \]
 kompakter als
 \[
-\frac{d^2}{dt^2}f(x_0+vt)_{t=0}
+\frac{d^2}{dt^2}f(x_0+vt)\bigg|_{t=0}
 =
 \sum_{i,k=1}^n \frac{\partial^2 f}{\partial x_i\,\partial x_k}(x_0) \,v_iv_k
 =
@@ -99,6 +99,7 @@ h_{ik}(x_0)
 \frac{\partial^2 f}{\partial x_i\,\partial x_k}(x_0)
 \]
 die {\em hessesche Matrix}.
+\index{hessesche Matrix}%
 \end{definition}
 
 Da die Funktion $f$ zweimal stetig differenzierbar angenommen wurde,
@@ -112,9 +113,9 @@ vertauschbar.
 Die hessesche Matrix $H(x_0)$ ist daher immer symmetrisch: $H(x_0)^t=H(x_0)$.
 
 %
-% Notwendiges Kriterium für ein Extremum
+% Hinreichendes Kriterium für ein Extremum
 %
-\subsubsection{Notwendiges Kriterium für ein Extremum}
+\subsubsection{Hinreichendes Kriterium für ein Extremum}
 Das Vorzeichen von $v^tH(x_0)v$ entscheidet darüber, ob ein Extremum
 vorliegt.
 Dies führt auf die folgende Definition.
@@ -236,7 +237,7 @@ ein Minimum vorliegt.
 \end{proof}
 
 Die Zerlegung $H=LL^t$ heisst auch die {\em Cholesky-Zerlegung}, für die
-\label{Cholesky-Zerlegung}%
+\index{Cholesky-Zerlegung}%
 es einen numerischen Algorithmus gibt, der sehr viel effizienter
 durchzuführen ist als die Bestimmung der Eigenwerte
 \cite[Abschnitt 12.3]{buch:linalg}.
@@ -266,8 +267,8 @@ f(x_0) + f'(x_0)(x-x_0)
 im Punkt $x_0$ hinzu, um zu entscheiden, ob im Punkt $x_0$ ein Extremum
 vorliegt.
 Ist die erste nicht verschwindende Ableitung von gerade Ordnung $2r$, dann
-liegt genau dann ein Maximum vor, wenn $f^{(2r)}(x_0)<0$ ist, andernfalls
-liegt ein Minimum vor.
+liegt genau dann ein Maximum vor, wenn $f^{(2r)}(x_0)<0$ ist.
+Gilt das umgekehrte Zeichen, liegt ein Minimum vor.
 Ist die erste nicht verschwindende Ableitung dagegen von ungerader Ordnung,
 liegt ein Sattelpunkt vor, also kein Extremum.
 Diese Argumentationsweise lässt sich auf auf Funktionen von mehreren
@@ -425,6 +426,7 @@ als $n$-Tupel oder als Vektor schreiben können.
 
 \begin{definition}[Multiindex]
 Ein {\em $n$-dimensionaler Multiindex} ist ein $n$-Tupel
+\index{Multiindex}%
 $\mathbf{l}\in\mathbb{N}^n$ mit den Komponenten $l_1,\dots,l_n$.
 \end{definition}
 
@@ -432,19 +434,22 @@ Damit die Ausdrücke in der Taylor-Entwicklung kompakt geschrieben werden
 können, müssen geeignete Operationen mit Multiindizes formuliert werden.
 
 \begin{definition}[Operationen mit Multiindizes]
-Seine $\mathbf{l}$ und $\mathbf{m}$ beides $n$-dimensionale Multiindizes.
+Seine $\mathbf{l}$ und $\mathbf{m}$ beide $n$-dimensionale Multiindizes.
 Dann sei
 \begin{enumerate}
 \item {\em Ordnung} eines Multiindex: $|l|=l_1+\dots+l_n$.
+\index{Ordnung}%
 \item {\em Summe}: $\mathbf{l}+\mathbf{m}$ ist der Multiindex mit
 den Komponenten $l_1+m_1,\dots,l_n+m_n$.
-\item {\em Fakultät}: $\mathbf{l}! = l_1!\, \dots\, l_n!$.
+\item {\em Fakultät}: $\mathbf{l}! = l_1!\cdot \ldots\cdot l_n!$.
+\index{Fakultät}%
 \item {\em Multinomialkoeffizient}: $\displaystyle
+\index{Multinomialkoeffizient}%
 \binom{|\mathbf{l}|}{\mathbf{l}}
 =
 \frac{|\mathbf{l}|!}{\mathbf{l}!}
 =
-\frac{(l_1+\dots+l_n)!}{l_1!\,\dots\,l_n!}
+\frac{(l_1+\dots+l_n)!}{l_1!\cdot\ldots\cdotl_n!}
 $
 \item {\em Potenzen}: Sei $x\in\mathbb{R}^n$ ein $n$-dimensionaler Vektor,
 dann ist $x^{\mathbf{l}} = x_1^{l_1}\cdot\ldots\cdot x_n^{l_n}$.
@@ -520,6 +525,7 @@ von $n$-Variablen schreiben.
 Sei $f\colon\mathbb{R}^n\to\mathbb{R}$ eine beliebig oft stetig
 differenzierbare Funktion.
 Die {\em Taylor-Reihe} von $f$ im Punkt $x_*$ ist die Reihe
+\index{Taylor-Reihe}%
 \[
 \mathscr{T}_{x_*} f(x)
 =
@@ -552,7 +558,7 @@ x^4 + y^5
 \]
 hat $4$ als niedrigste Ordnung einer nicht verschwindenden partiellen
 Ableitung in $0$.
-Trotzdem ist der Nullpunkt kein Minimum, denn die partielle Funktion
+Trotzdem ist der Nullpunkt kein Minimum, da die partielle Funktion
 $y\mapsto f(0,y)=y^5$ einen Sattelpunkt bei $y=0$ hat.
 Es würde aber zum Bespiel genügen, wenn
 \[
