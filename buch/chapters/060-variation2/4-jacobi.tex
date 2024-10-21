@@ -180,9 +180,8 @@ des Längenfunktionals.
 %
 \subsection{Nullstellen von Lösungen der Jacobi-Differentialgleichung
 \label{buch:variation2:jacobi:subection:nullstellen}}
-Die Jacobi-Differentialgleichung ist nahe an der Form einer
-Sturm-Liouville-Differential\-gleichung,
-\index{Sturm-Liouville-Differentialgleichung}%
+Die Jacobi-Differentialgleichung ist nahe an der Form 
+\eqref{buch:variation2:diffgl:eqn:dgl},
 wie sie in Abschnitt~\ref{buch:variation2:section:diffgl} genauer
 untersucht wurde.
 Insbesondere wurden dort Aussagen über die Lage der Nullstellen von
@@ -197,9 +196,10 @@ führt auf
 \[
 R(x) u''(x) + R'(x) u'(x) - S(x) u(x) = 0,
 \]
-während eine Sturm-Liouville-Differentialgleichung bei $u''(x)$ den
-Koeffizienten $1$ hat.
-Die Form einer Sturm-Liouville-Differentialgleichung kann erreicht
+während eine Differentialgleichung der
+Form~\eqref{buch:variation2:diffgl:eqn:dgl}
+bei $u''(x)$ den Koeffizienten $1$ hat.
+Die Form \eqref{buch:variation2:diffgl:eqn:dgl} kann erreicht
 werden, wenn $R(x)>0$ ist, denn in diesem Fall kann man die
 Differentialgleichung durch $R(x)$ dividieren und die Gleichung
 \[
@@ -219,7 +219,7 @@ $R(x)>0$ ist die starke Legendre-Bedingung.
 
 Unter der Voraussetzung der starken Legendre-Bedingung ist die
 Jacobi-Differential\-glei\-chung also äquivalent zu einer
-Sturm-Liouville-Differentialgleichung.
+Differentialgleichung der Form~\eqref{buch:variation2:diffgl:eqn:dgl}.
 In Abschnitt~\ref{buch:variation2:section:diffgl}
 wurden die Vorzeichen und Nullstellen der Lösungen einer solchen
 Gleichung untersucht.
@@ -405,7 +405,7 @@ dieses Intervalls.
 
 In c) ist das Intervall $|x_2-x_1|>\pi$, in diesem Fall ist das Intervall
 $[x_1,x_2]$ die längste Verbindung.
-Die Lösung $u_0(x)$ Jacbi-Differentialgleichung hat eine Nullstelle
+Die Lösung $u_0(x)$ Jacobi-Differentialgleichung hat eine Nullstelle
 bei $x_*=x_1+\pi$.
 Mit dem Bogen in der oberen Halbkugel zwischen $x_1$ und $x_*$
 gefolgt vom Äquatorabschnitt von $x_*$ bis $x_2$ kann man eine
@@ -978,7 +978,7 @@ r'(z)(r''(z)z^{\prime 2}+r(z))
 }{
 \sqrt{(1+r'(z)^2)z^{\prime 2} +r(z)^2}
 }
-\intertext{mit der Quotientenregel}
+\intertext{und nach der Quotientenregel}
 \frac{\partial^2 L}{\partial z^2}
 &=
 \frac{
@@ -1152,7 +1152,7 @@ Abbildung~\ref{buch:variation2:fig:geodaeten} visualisieren.
 \input{chapters/060-variation2/fig/geodesics.tex}%
 Der Äquator ist eine Lösung der Euler-Lagrange-Differentialgleichung
 für die Verbindungen zwischen den Punkten $\varphi_1$ und $\varphi_2$.
-Sie wird für $b <= (\varphi_2-\varphi_1)/\pi$ instabil und es gibt
+Sie wird für $b \le (\varphi_2-\varphi_1)/\pi$ instabil und es gibt
 eine kürzere Verbindung, die nicht entlang dem Äquator verläuft.
 In Abbildung~\ref{buch:variation2:fig:geodaeten} beginnen alle
 Geodäten beim Punkt $P_0$.
