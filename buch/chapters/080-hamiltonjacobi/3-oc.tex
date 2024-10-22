@@ -43,7 +43,7 @@ der Form
 =
 f(t, x, u),
 \]
-wobei $f\colon\mathbb{R}^n\times\mathbb{R}^m\to\mathbb{R}^n$
+wobei $f\colon\mathbb{R}\times \mathbb{R}^n\times\mathbb{R}^m\to\mathbb{R}^n$
 eine differenzierbare Funktion ist.
 Der Vektor $u$ beeinflusst die Zeitentwicklung der Lösung $x(t)$, man
 kann ihn als die Steuersignale betrachten, mit denen man die Lösung
@@ -78,7 +78,7 @@ L(x(t),\dot{x}(t))
 zugeordnet werden.
 Man kann jetzt fragen, für welche Funktion $u(t)$ die sich daraus
 ergebende Bahnkurve $x(t)$ das Funktional
-\eqref{buch:hamiltonjacobi:oc:eqn:jx}
+\eqref{buch:hamiltonjacobi:oc:eqn:jxdotx}
 minimiert.
 
 In den meisten Fällen umfasst der Zustandsvektor $x(t)$ für die
@@ -224,7 +224,7 @@ erfolgreich gewesen war.
 
 Als Erweiterung bietet sich an, die Variable $\lambda$ durch eine
 Funktion $p(t)$ zu ersetzen.
-So entsteht ein neues Funktional
+So entsteht ein neues Funktional mit der Lagrange-Funktion
 \[
 F
 \colon
@@ -262,7 +262,7 @@ Die Euler-Lagrange-Differentialgleichung von $F$ ist
 \end{equation}
 Die partiellen Ableitungen nach $q$ und $\dot{q}$ lassen sich aufteilen
 in die Komponenten $x$, $u$ und $p$ von $q$.
-Wir berechnen nur die Komponenten für $p$, sie ist
+Wir berechnen nur die Komponente für $p$, sie ist
 \begin{align}
 \frac{\partial F}{\partial p}
 &=
@@ -462,7 +462,8 @@ heisst die {\em Steuerungs-Hamilton-Funktion}
 der optimalen Steuerungsaufgabe~\ref{buch:hamiltonjacobi:oc:aufgabe}.
 \end{definition}
 
-Der Name rechtfertigt sich dadurch, dass sich aus $H$ analoge
+Der Name rechtfertigt sich dadurch, dass sich aus $H$
+den kanonischen Differentialgleichungen analoge
 Differentialgleichungen für die Funktionen $x(t)$ und $p(t)$ bilden
 lassen.
 Damit wird es möglich, auch die Funktion $p(t)$ zu berechnen.
@@ -506,7 +507,7 @@ p_*(t)\cdot\frac{\partial f}{\partial x_k}(x_*(t),u_*(t))
 &=
 -\frac{\partial L}{\partial x}(x_*(t),u_*(t))
 -
-p_*(t)\cdot\frac{\partial f}{\partial x}(x_*(t),u_*(t))
+p_*(t)\cdot\frac{\partial f}{\partial x}(x_*(t),u_*(t)).
 \label{buch:hamiltonjacobi:oc:eqn:Fxabl}
 \intertext{Die Variablen $\dot{u}$ und $\dot{p}$ kommen in $F$ nicht
 vor, der Zeitableitungsterm kommt daher in den zugehörigen
@@ -557,28 +558,28 @@ folgen die Gleichungen
 \renewcommand{\arraystretch}{2.0}
 \begin{array}{rclcl}
 \displaystyle
-\frac{\partial H}{\partial x_k}(x_*(t),u_*(t),p_*(t))
+\frac{\partial H}{\partial x_k}\bigl(x_*(t),u_*(t),p_*(t)\bigr)
 &=&
 \displaystyle
-\frac{\partial L}{\partial x}(x_*(t),u_*(t))
+\frac{\partial L}{\partial x}\bigl(x_*(t),u_*(t)\bigr)
 +
-p_*(t)\cdot\frac{\partial f}{\partial x_k}(x_*(t),u_*(t))
+p_*(t)\cdot\frac{\partial f}{\partial x_k}\bigl(x_*(t),u_*(t)\bigr)
 &=&-\dot{p}_{*k}(t)
 \\
 \displaystyle
-\frac{\partial H}{\partial u_k}(x_*(t),u_*(t),p_*(t))
+\frac{\partial H}{\partial u_k}\bigl(x_*(t),u_*(t),p_*(t)\bigr)
 &=&
 \displaystyle
 p_*(t)\cdot
-\frac{\partial f}{\partial u_k}(x_*(t),u_*(t))
+\frac{\partial f}{\partial u_k}\bigl(x_*(t),u_*(t)\bigr)
 +
-\frac{\partial L}{\partial u_k}(x_*(t),u_*(t))
+\frac{\partial L}{\partial u_k}\bigl(x_*(t),u_*(t)\bigr)
 &=&0
 \\
 \displaystyle
-\frac{\partial H}{\partial p_k}(x_*(t),u_*(t),p_*(t))
+\frac{\partial H}{\partial p_k}\bigl(x_*(t),u_*(t),p_*(t)\bigr)
 &=&
-f_k(x_*(t),u_*(t))
+f_k\bigl(x_*(t),u_*(t)\bigr)
 &=&
 \dot{x}_{*k}(t).
 \end{array}
@@ -673,7 +674,7 @@ Sei die Funktion $u_*\colon[t_0,t_1]\to\mathbb{R}$ eine Lösung des
 optimalen Steuerungsproblems Aufgabe~\ref{buch:hamiltonjacobi:oc:aufgabe}
 und sei $x_*(t)$ die resultierende optimale Bahnkurve, dann gibt es
 eine eindeutig bestimmte Funktion $p_*\colon[t_0,t_1]\to\mathbb{R}$,
-So dass $x_*(t),\,u_*(t),\,p_*(t)$ die Hamilton-Differentialgleichungen
+so dass $x_*(t),\,u_*(t),\,p_*(t)$ die Hamilton-Differentialgleichungen
 von Satz~\ref{buch:hamiltonjacobi:oc:satz:hamilton-gleichungen}
 erfüllen.
 Die Funktion $u_*(t)$ erfüllt
@@ -959,7 +960,7 @@ Die zeitliche Ableitung von $\delta x(t)=\bar{x}(t)-x_*(t)$ schreiben wir als
 $(\delta x)^{\dot{}}(t)$, da $\delta\dot{x}(t)$ auch als die Differenz
 $\dot{\bar{x}}(t)-\dot{x}_*(t)$ missverstanden werden könnte.
 Nach allgemeinen Sätzen über die stetig Abhängigkeit der Lösung einer
-Differentialgleichung von $u(t)$ folgt, dass sich
+Differentialgleichung von $u(t)$ folgt, dass
 $\delta x(t)=O(\varepsilon)$ ist für $t>\bar{t}$.
 
 Wir werden zeigen, dass durch diese Änderungen das Kostenfunktional
@@ -1012,7 +1013,7 @@ f(\bar{x}(t),\bar{u}(t))-f(x_*(t),u_*(t)
 =
 \frac{d}{dt} (\bar{x}(t)-x_*(t))
 =
-(\delta x)^{\dot{}}(t)
+(\delta x){\dot{\mathstrut}}(t)
 \]
 der Differenz ist.
 Durch Addieren und Subtrahieren von $H(x_*(t), \bar{u}(t),p_*(t))$ kann
@@ -1040,7 +1041,7 @@ H\bigl(x_*(t), u_*(t) + \delta u(t), p_*(t)\bigr)
 H\bigl(x_*(t), u_*(t) + \delta u(t), p_*(t)\bigr)
 -
 H\bigl(x_*(t), u_*(t), p_*(t)\bigr)
-\,dt
+\,dt.
 \intertext{Die Differenz im zweiten Integral kann durch die Ableitung nach $x$
 approximiert und mit dem ersten Integral zusammengefasst werden:}
 &=
@@ -1139,7 +1140,7 @@ der Satz bewiesen.
 %
 \subsection{Linear-quadratische optimale Steuerungsprobleme
 \label{buch:hamiltonjacobi:oc:subsection:quadratisch}}
-Ein spezielle Fall, in dem die Rechnungen vollständig durchführbar sind,
+Ein spezieller Fall, in dem die Rechnungen vollständig durchführbar sind,
 ist das {\em linear-quaratische optimale Steuerungsproblem}.
 \index{linear-quadratisches optimales Steuerungsproblem}%
 
@@ -1177,8 +1178,9 @@ L(x,u)
 =
 \frac12 x^t Qx + \frac12 u^t Ru
 \]
-dieses Funktionals ist von der Zeit unabhängig,
-ebenso die Systemgleichung $f(x,u)=Ax+bu$ wir haben also tatsächlich ein
+dieses Funktionals von der Zeit unabhängig,
+ebenso die Systemgleichung $f(x,u)=Ax+bu$.
+Wir haben also tatsächlich ein
 optimales Steuerungsproblem der Art, wie wir es studiert haben.
 
 Zur Lösung dieses Problems muss erst die Steuerungs-Hamilton-Funktion
@@ -1502,7 +1504,7 @@ p(0)
 -
 (S\Phi_{11}(t_1)
 -\Phi_{21}(t_1))
-x_0
+x_0.
 \]
 Sie hat sicher eine Lösung, wenn der Faktor $S\Phi_{12}(t_1)-\Phi_{22}(t_1)$
 regulär ist, in diesem Fall ist

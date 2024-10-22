@@ -8,7 +8,8 @@
 \kopfrechts{Jacobi-Theorie}
 \input{chapters/080-hamiltonjacobi/fig/kreis.tex}
 In diesem Abschnitt entwickeln wir eine geometrische Beschreibung des
-Variationsproblems, die besondere Bedeutung der Hamilton-Funktion hervorhebt.
+Variationsproblems, die die besondere Bedeutung der Hamilton-Funktion
+hervorhebt.
 Wir gehen dazu aus von einem Funktional
 \begin{equation}
 J(y)
@@ -45,9 +46,9 @@ In Kapitel~\ref{chapter:geodaeten} wird das übliche Riemannsche
 Funktional zur Berechnung der Länge einer Kurve vorgestellt, mit dem
 man sowohl die Geodäten als die kürzesten Verbindungen wie auch
 den geodätischen Abstand als den Wert des Funktionals definiert.
-Im Folgenden soll daher eine geometrische Sprechweise für das Funktional 
+Im Folgenden soll daher auch für das Funktional 
 \eqref{buch:hamiltonjacobi:jacobi:eqn:funktionalJ}
-verwendet werden.
+eine geometrische Sprechweise verwendet werden.
 
 %
 % Quasilänge und $J$-Abstand
@@ -55,7 +56,7 @@ verwendet werden.
 \subsubsection{Quasilänge und $J$-Abstand}
 Sei $y(x)$ eine Funktion, deren Graph die Punkte $P_1=(x_1,y_1)$
 und $P_2=(x_2,y_2)$ verbindet.
-Dann nennen wir den Wert des Funktionals $J(y)$ den {\em $J$-Länge}
+Dann nennen wir den Wert des Funktionals $J(y)$ die {\em $J$-Länge}
 \index{J-Länge@$J$-Länge}%
 der verbindenden Kurve.
 Wenn es unter allen Kurven, die die Punkte $P_1$  und $P_2$ verbinden,
@@ -102,7 +103,7 @@ In der gleichen Zeit können die Lichstrahlen im unteren Teil auch
 eine grössere Strecke überwinden.
 Die beiden eingezeichneten Quasikreise mit Radius 1 bzw.~2 sind 
 daher vor allem dann nach rechts verzerrt, wenn die dort
-endenden Extremalen, weit im negativen Bereich der Ebene verlaufen.
+endenden Extremalen weit im negativen Bereich der Ebene verlaufen.
 Die Extremalen mit grosser Steigung erreichen schnell Bereich höherer
 optischer Dichte, wo Lichstrahlen mehr Zeit für die gleiche Distanz
 brauchen.
@@ -156,9 +157,9 @@ p\sqrt{\frac{p^2}{\nu^2}-1}
 n(y) \frac{p}{\nu}
 \]
 durch $y$ und $p$ ausdrücken.
-Damit sind die Koeffizienten für die Transfersalitätsbedingung
+Damit sind die Koeffizienten für die Transversalitätsbedingung
 \[
-\vec{f}_1
+\vec{f}_2
 =
 \begin{pmatrix} 
 -H\\
@@ -166,7 +167,7 @@ p
 \end{pmatrix}
 \]
 gefunden.
-Der Vektor $\vec{f}_1$ steht auf der Quasikugel senkrecht.
+Der Vektor $\vec{f}_2$ steht auf der Quasikugel senkrecht.
 \end{beispiel}
 
 %
@@ -260,7 +261,7 @@ um Punkte der Anfangskurve $\gamma_1$.
 In Abbildung~\ref{buch:hamiltonjacobi:hamiltonjacobi:kreis} sind
 ausgehend von Punkten $P$ des Kreises $K_J((0,0),1)$ die Kreise
 $K_J(P,1)$ hellrot dargestellt.
-Sie berühren alle den roten Kreis $K_J((0,0),2)$.
+Sie berühren alle den roten Quasikreis $K_J((0,0),2)$.
 \end{beispiel}
 
 %
@@ -268,13 +269,13 @@ Sie berühren alle den roten Kreis $K_J((0,0),2)$.
 %
 \subsubsection{Der Gradient von $S$}
 Aus der Transversalitätsbedingung, die die Extremalen bei $P_2$ erfüllen
-müssen folgt, dass die Normale auf die Kurve $L(\varrho)$ parallel
+müssen, folgt, dass die Normale auf die Kurve $L(\varrho)$ parallel
 zum Vektor $\vec{f}$ sein muss.
 Die Normale ist auch parallel zum Gradienten von $S$.
 In diesem Abschnitt zeigen wir, dass der Gradient sogar mit dem 
 Vektor $\vec{f}_1$ übereinstimmt.
 
-Wir untersuchen, wie sich die der Wert $S(P)$ der Funktion $S$ ändert,
+Wir untersuchen, wie sich der Wert $S(P)$ der Funktion $S$ ändert,
 wenn man den Punkt $P$ verschiebt.
 Sei als eine Variation der Extremalen $y(x)$ gegeben, die den Punkt $P_1$
 mit $P$ verbindet.
@@ -305,8 +306,9 @@ haben, liefert für diese Variation
 \delta y
 \,dx.
 \]
-Da $y(x)$ eine Extremale ist, trägt das Integral nichts zur
-Variation bei.
+Da $y(x)$ eine Extremale ist und damit die
+Euler-Lagrange-Differentialgleichung erfüllt, trägt das Integral
+nichts zur Variation bei.
 Die Änderung von $S$ ist nach Definition die Variation $\delta J$,
 wir können daher
 \[
@@ -440,7 +442,7 @@ als Hamilton-Jacobi-Differentialgleichung.
 Um die Lösung der Hamilton-Jacobi-Differentialgleichung eindeutig
 festzulegen, müssen noch Randbedingungen spezifiziert werden.
 Die ausgehend von der Anfangskurve $\gamma_1$ konstruiert Funktion
-$S(x,y)$ erfüllt zusätzlich die homogene Dirichlet Randbedingung
+$S(x,y)$ erfüllt zusätzlich die homogene Dirichlet-Randbedingung
 $S(P)=0$ für $P\in\gamma_1$.
 Umgekehrt ist eine
 beliebige Lösung der Hamilton-Jacobi-Diffe\-ren\-tial\-gleichung
@@ -505,7 +507,7 @@ lässt sich also immer auch die Fundamentalfunktion berechnen.
 \subsubsection{Der Satz von Jacobi}
 Wir untersuchen jetzt die umgekehrt Schlussrichtung: Kann man aus
 der Fundamentalfunktion $S$ eine Lösung der kanonischen Gleichungen 
-ableiten.
+ableiten?
 Sei also $S$ eine Lösung der Differentialgleichung
 \begin{equation}
 \frac{\partial S}{\partial x}
@@ -535,7 +537,8 @@ Die Gleichung
 b
 \label{buch:hamiltonjacobi:jacobi:eqn:Sa1}
 \intertext{definiert implizit eine Funktion $y(x)$, aus der mit Gleichung
-\eqref{buch:fuvar:nebenbedingungen:satz:lm}}
+\eqref{buch:fuvar:nebenbedingungen:satz:lm}
+die kanonische Koordinate}
 \frac{\partial S}{\partial y}(x,y(x),a)
 &= 
 p(x)
@@ -552,7 +555,7 @@ Wir müssen also zusätzlich von der Funktion $S$ die Bedingung
 \end{equation}
 verlangen.
 
-Wir prüfen nach, dass die Funktion $y(x)$ und $p(x)$ eine Lösung der
+Wir prüfen nach, dass die Funktionen $y(x)$ und $p(x)$ eine Lösung der
 kanonischen Differentialgleichungen
 \eqref{buch:hamiltonjacobi:jacobi:hjdgl1}
 sind.
@@ -672,9 +675,9 @@ Somit muss
 S(x,y) = k_xx + k_yy + c
 \]
 sein.
-Der konstante Term $c$ ist nicht relevant, aber auch $k_x$ und $k_y$ sind
-nicht beliebig.
-Einsetzen in die Eikonal-Gleichung ergibt
+Der konstante Term $c$ ist nicht relevant.
+Die Konstanten $k_x$ und $k_y$ sind nicht beliebig.
+Einsetzen in die Eikonal-Gleichung ergibt nämlich
 \[
 \frac{\partial S}{\partial x} = k_x
 \,\;;
@@ -695,6 +698,7 @@ S(x,y,a)
 \sqrt{1-a^2}x+ay
 \]
 schreiben.
+Der Parameter $a$ muss im Intervall $[-1,1]$ liegen.
 
 Wir müssen die Bedingung
 \eqref{buch:hamiltonjacobi:jacobi:satz:jacobi:eqn:regularitaet}
@@ -712,7 +716,6 @@ a,
 \]
 die Regularitätsbedingung ist also erfüllt und $S(x,y,a)$ ist ein
 vollständiges Integral der Hamilton-Jacobi-Differentialgleichung.
-Der Parameter $a$ muss im Intervall $[-1,1]$ liegen.
 
 Nach dem Satz von Jacobi können jetzt Lösungen durch die Gleichungen
 \eqref{buch:hamiltonjacobi:jacobi:satz:jacobi:eqn:equations}

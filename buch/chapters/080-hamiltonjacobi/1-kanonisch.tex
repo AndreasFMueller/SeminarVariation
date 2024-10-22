@@ -6,10 +6,11 @@
 \section{Kanonische Variablen
 \label{buch:hamiltonjacobi:section:kanonisch}}
 \kopfrechts{Kanonische Variablen}
-In den Transversalitätsbedingungen taucht immer wieder Kombination
+In den Transversalitätsbedingungen taucht immer wieder die Kombination
 \[
-F - y'\frac{\partial F}{\partial y'}.
+F - y'\frac{\partial F}{\partial y'}
 \]
+auf.
 Dieser Abschnitt geht daher der Frage nach, ob die Ableitung von
 $F$ nach $y'$ eine besondere Bedeutung hat.
 Tatsächlich kann diese Ableitung als neue Koordinate verwendet
@@ -29,8 +30,8 @@ Randbedingungen $y(x_1)=y_1$ und $y(x_2)=y_2$ erfüllt.
 Da die Euler-Lagrange-Differentialgleichung von zweiter Ordnung ist,
 enthält die allgemeine Lösung zwei Konstanten, die bestimmt werden 
 müssen, um die Randbedingungen zu erfüllen.
-Diese Konstanten können der Anfangswert $y_1=y(x_1)$ und die Anfangssteigung
-$y'(x_1)$.
+Diese Konstanten können z.~B.~der Anfangswert $y_1=y(x_1)$ und die
+Anfangssteigung $y'(x_1)$ sein.
 Um das Randwertproblem zu lösen, muss also die Anfangssteigung gefunden
 werden, so dass die zugehörige Lösung die Randbedingung $y(x_2)=y_2$ 
 erfüllt.
@@ -50,6 +51,8 @@ zwischen der Steigung $y'$ und der Variablen $p$ herstellt.
 Sie ist mindestens in einer Umgebung eines Punktes der $x$-$y$-Ebene
 umkehrbar, wenn die Ableitung
 \[
+\frac{\partial p(y')}{\partial y'}
+=
 \frac{\partial^2 F}{\partial y^{\prime 2}}
 \ne 0
 \]
@@ -128,7 +131,7 @@ p
 =
 \sin\alpha.
 \]
-Man kann also auch schreiben $p=\sin\arctan y'$ oder $y'=\tan\arcsin p$.
+Man kann also auch $p=\sin\arctan y'$ oder $y'=\tan\arcsin p$ schreiben.
 
 Die zweite Ableitung von $F$ ist
 \[
@@ -236,7 +239,7 @@ Aus der Definition der Hamilton-Funktion folgt
 \[
 \frac{\partial H}{\partial y}
 =
-\frac{\partial y'p-F}{\partial y}
+\frac{\partial(y'p-F)}{\partial y}
 =
 -\frac{\partial F}{\partial y}
 \qquad\Rightarrow\qquad
@@ -357,7 +360,7 @@ p(x)
 \frac{\partial H_2}{\partial y}(\xi,y_0)
 \,d\xi
 +
-p_0
+p_0.
 \]
 $p(x)$ ist damit durch Quadratur bestimmt.
 \end{proof}
@@ -421,7 +424,7 @@ p
 Dies ist der Richtungsvektor des Einheitstangentialvektors an
 den Graphen von $y(x)$.
 Die Transversalitätsbedingung ist also genau dann erfüllt, wenn die
-Lösung orthogonal auf Endkurve trifft.
+Lösung orthogonal auf die Endkurve trifft.
 Die kürzeste Kurve zwischen einem Punkt und einer Kurve ist eine
 Gerade durch den Punkt, die die Kurve orthogonal schneidet.
 \end{beispiel}
@@ -462,8 +465,9 @@ Das Problem wird durch die Euler-Lagrange-Differentialgleichung
 \frac{\partial F}{\partial y_k}\bigl(x,y(x),y'(x)\bigr)
 -
 \frac{d}{dx}
-\frac{\partial F}{\partial y'_k}\bigl(x,y(x),y'(x)\bigr).
+\frac{\partial F}{\partial y'_k}\bigl(x,y(x),y'(x)\bigr)
 \end{align*}
+gelöst.
 Im Folgenden sei $y(x)$ jeweils eine Lösung dieser Differentialgleichungen.
 
 %
@@ -551,7 +555,7 @@ p\cdot y' - F(x,y,y'),
 wobei $y'$ durch $x$, $y$ und $p$ ausgedrückt werden muss.
 \end{definition}
 
-Aus der Definition folgend unmittelbar die partiellen Ableitungen
+Aus der Definition folgen unmittelbar die partiellen Ableitungen
 von $H$ nach $y$ und $p$, die
 \begin{equation}
 \frac{\partial H}{\partial y}
@@ -583,7 +587,7 @@ Die Euler-Lagrange-Differentialgleichung
 =
 -\frac{\partial H}{\partial y}
 \]
-liefert die zweite kanonische Differentialgleichung nach der
+ergibt die zweite kanonische Differentialgleichung nach der
 ersten Gleichung von \eqref{buch:hamiltonjacobi:kanonisch:eqn:Habln}.
 Damit folgt der folgende Satz.
 
@@ -787,9 +791,9 @@ y'(x)\cdot \frac{\partial F}{\partial y'}\bigl(x,y(x),y'(x)\bigr)
 -H\bigl(x,y(x),p(x)\bigr)\\
 p_1(x)\\
 p_2(x)
-\end{pmatrix},
+\end{pmatrix}
 \]
-wo $(x,y(x))$ auf der Randfläche liegt.
+steht, wobei $(x,y(x))$ auf der Randfläche liegen muss.
 
 \begin{beispiel}
 In Beispiel~\ref{buch:hamiltonjacobi:kanonisch:bsp:3dlaenge} wurde
@@ -846,7 +850,7 @@ H(x,y,p)
 =
 y'\cdot p - F(y,y')
 \]
-ab.
+nicht von $x$ ab.
 Wir schreiben im Folgenden auch die Hamilton-Funktion ohne $x$-Argument,
 also als $H(y,p)$.
 
@@ -915,9 +919,9 @@ enthalten.
 % Ableitungen beliebiger Funktionen von $x$, $y$ und $y'$
 %
 \subsubsection{Ableitungen beliebiger Funktionen von $x$, $y$ und $y'$}
-Sei $G(x,y,p)$ eine beliebige Funktion von $x$, $y$ und $p$ und $y(x)$
-und $p(x)$ eine Lösung der kanonischen Differentialgleichungen.
-Mit Hilfe der kanonischen Differentialgleichungen kann die Ableitung
+Sei $G(x,y,p)$ eine beliebige Funktion von $x$, $y$ und $p$ und seien
+$y(x)$ und $p(x)$ eine Lösung der kanonischen Differentialgleichungen.
+Mit Hilfe der kanonischen Differentialgleichungen kann man die Ableitung
 nach $x$ mit der Kettenregel
 \begin{align*}
 \frac{d}{dx}G\bigl(x,y(x),p(x)\bigr)
@@ -951,7 +955,8 @@ in die Form}
 \frac{\partial H}{\partial y}\bigl(x,y(x),p(x)\bigr)
 \end{align*}
 bringen.
-Die letzten zwei Term auf der rechten Seite 
+Die letzten zwei Terme auf der rechten Seite verdienen einen eigenen
+Namen.
 
 \begin{definition}[Poisson-Klammer] Die {\em Poisson-Klammer} zweier
 \index{Poisson-Klammer}%
@@ -1115,7 +1120,7 @@ A_p^tC_{yp}B_y
 +
 A_p^tB_{yp}C_y
 +
-A_p^tC_{yy}B_p
+A_p^tC_{yy}B_p.
 \end{aligned}
 \label{buch:hamiltonjacobi:kanonisch:klammerschema}
 \end{equation}
@@ -1250,7 +1255,7 @@ Die Ableitung von $G$ kann mit der Poisson-Klammer als
 \{G,H\}(x,y(x),p(x))
 \label{buch:hamiltonjacobi:kanonisch:eqn:Gabl}
 \end{equation}
-geschrieben werden, sie gilt auch wenn $H$ von $x$ abhängt.
+geschrieben werden, sie gilt auch, wenn $H$ von $x$ abhängt.
 Wendet man diese Formel auf $H$ an, folgt
 \[
 \frac{d}{dx}
@@ -1285,10 +1290,10 @@ und damit die Ableitung
 \frac{\partial A}{\partial x}(x,y(x),p_0)
 +
 \frac{\partial A}{\partial y}(x,y(x),p_0)
-\frac{\partial H}{\partial p}(x,y(x),p_0)
-\intertext{da, die Ableitung von $H$ nach $y$ verschwindet.
+\frac{\partial H}{\partial p}(x,y(x),p_0),
+\intertext{da die Ableitung von $H$ nach $y$ verschwindet.
 Mit \eqref{buch:hamiltonjacobi:kanonisch:bsp:dHdp} kann die Ableitung
-der Hamilton-Funktion nach $p$ ausgedrückt, die Ableitung von $A$ wird
+der Hamilton-Funktion nach $p$ ausgedrückt werden, die Ableitung von $A$ wird
 dann
 }
 &=
